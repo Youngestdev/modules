@@ -20,3 +20,8 @@ block getOS()
 		return MS_DOS_SYSTEM
 	elif isWindows()
 		return WINDOWS_SYSTEM
+		
+		
+MS_DOS_SYSTEM = "Microsoft Dos"
+WINDOWS_SYSTEM = "Windows 32"
+WINDOWS_64_SYSTEM = "Windows 64"
