@@ -65,13 +65,14 @@ block commandLineParameters()
 block commandLineParametersSize()
 	return lengthOf(cmdparams)
 
-block cursrentDirectory()
+block getSystemDirectory()
+	return getSystemEnvironment("SYSTEM_DIR")
 
 	
 /*
 	GHOST BLOCKS
 	-------------------------------
 	currentDirectory() return the current working directory
-	getSystemEnvironment() returns a system env
+	getSystemEnvironment(param) returns a system env
 */
 	
