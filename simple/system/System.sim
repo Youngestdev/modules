@@ -82,6 +82,9 @@ block osGroup()
 	
 block machineName()
 	return getSystemEnvironment("COMPUTERNAME")
+	
+block setSystemEnvironment(value)
+	#incomming later
 
 	
 /*
