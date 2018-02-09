@@ -98,15 +98,17 @@ block stringEndsWith(m, s)
 		throw(STRING_COMPARE_ERROR)
 	end
 	beginSearch = lengthOf(m) - lengthOf(s)
+	beginCount = 0
 	for a = beginSearch to lengthOf(m)
+		display m[a] +":"+s[beginCount]+ crlf
 		try 
-			if stringEquals(m[a], s[a], true) == false
+			if stringEquals(m[a], s[beginCount], true) == false
 				return false
 			end
 		catch 
 			return false
 		end
-		
+		beginCount++
 	end
 	return true
 
