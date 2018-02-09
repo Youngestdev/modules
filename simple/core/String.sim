@@ -100,7 +100,6 @@ block stringEndsWith(m, s)
 	beginSearch = lengthOf(m) - lengthOf(s)
 	beginCount = 0
 	for a = beginSearch to lengthOf(m)
-		display m[a] +":"+s[beginCount]+ crlf
 		try 
 			if stringEquals(m[a], s[beginCount], true) == false
 				return false
