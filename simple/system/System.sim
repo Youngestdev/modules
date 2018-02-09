@@ -5,7 +5,7 @@
 */
 
 /* 
- * #filename - Runtime.sim
+ * #filename - System.sim
  * #author - Azeez Adewale
  * #date - 9 Febuary 2017
  */
@@ -13,5 +13,5 @@
 module simple.system
 
 call "simple/core/DynamicLoader.sim" ? simple.core
-call "System.sim"
+callModule("dynamic_modules\systemic\dist\Debug\MinGW-Windows\systemic.dll")
 
