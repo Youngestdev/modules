@@ -14,4 +14,4 @@ module simple.utilities
 
 call "simple/core/DynamicLoader.sim" ? simple.core
 
-display sin()
+display $__sin(90)
