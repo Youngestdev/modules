@@ -221,7 +221,7 @@ void simple_vmlib_substr ( void *pPointer )
 			} else {
 				nNum1 = 0.0 ;
 			}
-			SIMPLE_API_RETNUMBER(nNum1);
+			SIMPLE_API_RETNUMBER(nNum1 - 1);
 		} else {
 			SIMPLE_API_ERROR("Error in second parameter type!");
 			return ;
