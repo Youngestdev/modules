@@ -10,6 +10,8 @@
  * #date - 7 Febuary 2017
  */
  
+module simple.core
+ 
 dynamicModules = []
  
 block callModule(path)
