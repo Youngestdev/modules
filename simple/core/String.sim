@@ -26,7 +26,7 @@ block stringRemove(str, o)
 	return substr(str,o,"")
 
 block stringReplace(s, o, n)
-	return substr(str,o,n)
+	return substr(s,o,n)
 
 block stringSubString(str, index)
 	return substr(str, index)
