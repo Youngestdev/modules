@@ -1,0 +1,17 @@
+/* 
+	Copyright (c) 2017-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - String.sim
+ * #author - Azeez Adewale
+ * #date - 5 Febuary 2017
+ */
+ 
+module simple.utilities
+
+call "simple/core/DynamicLoader.sim" ? simple.core
+
+display sin()
