@@ -69,7 +69,7 @@ block systemDirectory()
 	return getSystemEnvironment("SYSTEM_DIR")
 	
 block systemVersion()
-	return getSystemEnvironment("version")
+	return getSystemEnvironment("build")
 	
 block systemUser()	
 	return getSystemEnvironment("user")
