@@ -85,6 +85,12 @@ block machineName()
 	
 block setSystemEnvironment(value)
 	#incomming later
+	
+block isWindowNT()
+	if stringEquals(osGroup(), "Windows_NT")
+		return true
+	end 
+	return false
 
 	
 /*
