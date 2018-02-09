@@ -12,4 +12,6 @@
  
 module simple.system
 
+call "simple/core/DynamicLoader.sim" ? simple.core
+callModule("dynamic_modules\systemic\dist\Debug\MinGW-Windows\file_savant.dll")
 
