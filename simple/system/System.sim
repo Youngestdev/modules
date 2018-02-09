@@ -47,8 +47,10 @@ block getOS()
 	end
 	
 block getNewLine()
-	if isWindows() || isWindows64()
-		
+	if !isWindows() || !isWindows64()
+		return windowsnl()
+	else 
+		return "\n"
 	end
 	
 	
