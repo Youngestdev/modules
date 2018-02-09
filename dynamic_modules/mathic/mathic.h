@@ -59,8 +59,6 @@ void math_unsigned ( void *pointer ) ;
 
 void math_decimals ( void *pointer ) ;
 
-void math_murmur3hash ( void *pointer ) ;
-
 #ifdef __cplusplus
 }
 #endif

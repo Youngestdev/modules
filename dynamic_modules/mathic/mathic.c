@@ -38,7 +38,6 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("sqrt",math_sqrt);
     register_block("unsigned",math_unsigned);
     register_block("decimals",math_decimals);
-    register_block("murmur3hash",math_murmur3hash);
 }
 
 void math_sin ( void *pointer )
@@ -370,20 +369,5 @@ void math_decimals ( void *pointer )
             SIMPLE_API_ERROR(SIMPLE_API_BADPARACOUNT);
     }
 }
-/* Hash */
 
-void math_murmur3hash ( void *pointer )
-{
-    unsigned int nResult  ;
-    if ( SIMPLE_API_PARACOUNT != 2 ) {
-            SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
-            return ;
-    }
-    if ( SIMPLE_API_ISSTRING(1) && SIMPLE_API_ISNUMBER(2) ) {
-            nResult = simple_murmur3_32(SIMPLE_API_GETSTRING(1),SIMPLE_API_GETSTRINGSIZE(1),SIMPLE_API_GETNUMBER(2));
-            SIMPLE_API_RETNUMBER(nResult);
-    } else {
-            SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-    }
-}
 
