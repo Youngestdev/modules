@@ -205,10 +205,10 @@ void simple_vmlib_substr ( void *pPointer )
 	nTransform = 0 ;
 	if ( SIMPLE_API_PARACOUNT == 2 ) {
 		if ( SIMPLE_API_ISNUMBER(2) ) {
-			nNum1 = SIMPLE_API_GETNUMBER(2)  ;
+			nNum1 = SIMPLE_API_GETNUMBER(2) + 1 ;
 			if ( nNum1 > 0 && nNum1 <= nSize ) {
 				cStr2 = cStr + ( (int) nNum1 ) - 1 ;
-				SIMPLE_API_RETSTRING2(cStr2,nSize-nNum1+2);
+				SIMPLE_API_RETSTRING2(cStr2,nSize-nNum1+1);
 				return ;
 			}
 		}
