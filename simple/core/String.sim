@@ -102,7 +102,7 @@ class String : Object
 end
 
 block stringReplace(s, o, n)
-	
+	return substr(cStr,o,n)
 
 block stringSubString(str, index)
 	return substr(str, index)
