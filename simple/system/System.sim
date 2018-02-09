@@ -18,7 +18,7 @@ callModule("dynamic_modules\systemic\dist\Debug\MinGW-Windows\systemic.dll")
 MS_DOS_SYSTEM = "Microsoft Dos"
 WINDOWS_SYSTEM = "Windows 32"
 WINDOWS_64_SYSTEM = "Windows 64"
-UNIX_SYSTEM = "UNIX"
+UNIX_SYSTEM = "Unix"
 MACOSX_SYSTEM = "Mac OS X"
 LINUX_SYSTEM = "Linux"
 FREEBSD_SYSTEM = "Free BSD"
@@ -28,8 +28,14 @@ UNKNOWN_SYETEM = "Unknown System"
 block getOS()
 	if isMsDos()
 		return MS_DOS_SYSTEM
+	elif isWindows64()
+		return WINDOWS_64_SYSTEM
 	elif isWindows()
 		return WINDOWS_SYSTEM
+	elif isUnix()
+		return UNIX_SYSTEM
+	elif isWindows64()
+		return WINDOWS_64_SYSTEM
 	else
 		return UNKNOWN_SYETEM
 	end
