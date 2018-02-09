@@ -15,6 +15,4 @@ module simple.utilities
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\mathic\dist\Debug\MinGW-Windows\mathic.dll")
 
-display $__sin(90)
-block sin()
-	return sin(90)
+
