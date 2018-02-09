@@ -6,10 +6,10 @@
 */
 
 /* 
- * File:   string_savant.h 
+ * File:   mathic.h 
  * Author: thecarisma
  *
- * Created on Febuary 7, 2018, 5:23 PM
+ * Created on Febuary 7, 2018, 3:23 AM
  */
 
 #include "../../../simple/bootsrc/includes/simple.h"
