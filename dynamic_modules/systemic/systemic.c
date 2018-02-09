@@ -25,14 +25,14 @@ SIMPLE_API __declspec(dllexport)
         
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
-    register_block("ismsdos",os_ismsdos);
-    register_block("iswindows",os_iswindows);
-    register_block("iswindows64",os_iswindows64);
-    register_block("isunix",os_isunix);
-    register_block("ismacosx",os_ismacosx);
-    register_block("islinux",os_islinux);
-    register_block("isfreebsd",os_isfreebsd);
-    register_block("isandroid",os_isandroid);
+    register_block("isMsDos",os_ismsdos);
+    register_block("isWindows",os_iswindows);
+    register_block("isWindows64",os_iswindows64);
+    register_block("isUnix",os_isunix);
+    register_block("isMacosx",os_ismacosx);
+    register_block("isLinux",os_islinux);
+    register_block("isFreebsd",os_isfreebsd);
+    register_block("isAndroid",os_isandroid);
     register_block("windowsnl",os_windowsnl);
     register_block("currentdir",os_currentdir);
     register_block("exefilename",os_exefilename);
@@ -63,9 +63,9 @@ void os_iswindows64 ( void *pPointer )
 	int lSystem64  ;
 	lSystem64 = 0 ;
 	#ifdef _WIN32
-	fnCheckWindows64 = (LPFN_ISWOW64PROCESS) GetProcAddress(GetModuleHandle(TEXT("kernel32")),"IsWow64Process") ;
-	if ( fnCheckWindows64 != NULL ) {
-		fnCheckWindows64(GetCurrentProcess(),&lSystem64);
+	isWindows64 = (LPFN_ISWOW64PROCESS) GetProcAddress(GetModuleHandle(TEXT("kernel32")),"IsWow64Process") ;
+	if ( isWindows64 != NULL ) {
+		isWindows64(GetCurrentProcess(),&lSystem64);
 	}
 	#endif
 	SIMPLE_API_RETNUMBER(lSystem64);
