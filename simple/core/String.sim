@@ -98,8 +98,14 @@ class String : Object
 		
 	block replace(o, n)
 		return stringReplace(str, o, n)
+		
+	block remove(o)
+		return stringRemove(str, o)
 	
 end
+
+block stringRemove(str, o)
+	return substr(str,o,"")
 
 block stringReplace(s, o, n)
 	return substr(str,o,n)
