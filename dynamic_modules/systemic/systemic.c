@@ -1,6 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
+/* 
+    Copyright (c) 2016-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+    MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * File:   systemic.c
+ * Author: thecarisma
+ *
+ * Created on February 9, 2018, 10:05 PM
+ */

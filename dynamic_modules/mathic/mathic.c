@@ -1,7 +1,7 @@
 
 /* 
     Copyright (c) 2016-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
-    MIT License Copyright (c) 2017 simple 
+    MIT License Copyright (c) 2018 simple 
 
 */
 
