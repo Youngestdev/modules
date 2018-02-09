@@ -101,6 +101,12 @@ class String : Object
 		
 	block remove(o)
 		return stringRemove(str, o)
+		
+	block getTypeCode()
+		return STRING_TYPE
+		
+	block concat(v)
+		return stringConcat(v)
 	
 end
 
