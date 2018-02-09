@@ -34,10 +34,10 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("isFreebsd",os_isfreebsd);
     register_block("isAndroid",os_isandroid);
     register_block("windowsnl",os_windowsnl);
-    register_block("currentdir",os_currentdir);
+    register_block("currentDir",os_currentdir);
     register_block("exefilename",os_exefilename);
-    register_block("chdir",os_chdir);
-    register_block("exefolder",os_exefolder);
+    register_block("changeDir",os_chdir);
+    register_block("exeFolder",os_exefolder);
 }
 
 void os_ismsdos ( void *pPointer )
