@@ -54,5 +54,10 @@ block getNewLine()
 	end
 	
 	
-	
+block tickCount()
+
+block exitCode()
+	return 0
+
+
 	
