@@ -339,7 +339,7 @@ void simple_vmlib_lines ( void *pPointer )
 	if ( SIMPLE_API_ISSTRING(1) ) {
 		cStr = SIMPLE_API_GETSTRING(1) ;
 		nSize = SIMPLE_API_GETSTRINGSIZE(1) ;
-		nCount = 1 ;
+		nCount = 0 ;
 		for ( x = 0 ; x < nSize ; x++ ) {
 			if ( cStr[x] == '\n' ) {
 				nCount++ ;
