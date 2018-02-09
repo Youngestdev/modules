@@ -47,6 +47,8 @@ void os_chdir ( void *pPointer ) ;
 
 void os_exefolder ( void *pPointer ) ;
 
+void get_env ( void *pointer ) ;
+
 /* Constants */
 #define SIMPLE_VM_POINTER_LIBNAME "system"
 
