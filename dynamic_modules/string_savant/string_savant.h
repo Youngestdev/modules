@@ -18,23 +18,23 @@
 extern "C" {
 #endif
 
-void simple_vmlib_lower ( void *pPointer ) ;
+void simple_vmlib_lower ( void *pointer ) ;
 
-void simple_vmlib_upper ( void *pPointer ) ;
+void simple_vmlib_upper ( void *pointer ) ;
 
-void simple_vmlib_left ( void *pPointer ) ;
+void simple_vmlib_left ( void *pointer ) ;
 
-void simple_vmlib_right ( void *pPointer ) ;
+void simple_vmlib_right ( void *pointer ) ;
 
-void simple_vmlib_trim ( void *pPointer ) ;
+void simple_vmlib_trim ( void *pointer ) ;
 
-void simple_vmlib_copy ( void *pPointer ) ;
+void simple_vmlib_copy ( void *pointer ) ;
 
-void simple_vmlib_substr ( void *pPointer ) ;
+void simple_vmlib_substr ( void *pointer ) ;
 
-void simple_vmlib_lines ( void *pPointer ) ;
+void simple_vmlib_lines ( void *pointer ) ;
 
-void simple_vmlib_strcmp ( void *pPointer ) ;
+void simple_vmlib_strcmp ( void *pointer ) ;
 
 
 #ifdef __cplusplus

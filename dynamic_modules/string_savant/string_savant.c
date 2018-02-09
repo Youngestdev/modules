@@ -28,7 +28,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
 	register_block("$__upper",simple_vmlib_upper);
 }
 
-void simple_vmlib_left ( void *pPointer )
+void simple_vmlib_left ( void *pointer )
 {
 	double nNum1  ;
 	const char *cStr  ;
@@ -43,7 +43,7 @@ void simple_vmlib_left ( void *pPointer )
 			cStr = SIMPLE_API_GETSTRING(1) ;
 			nNum1 = SIMPLE_API_GETNUMBER(2) + 1;
 			if ( (nNum1 > 0 ) && (nNum1 <= SIMPLE_API_GETSTRINGSIZE(1) ) ) {
-				pString = (char *) simple_state_malloc(((VM *) pPointer)->sState,nNum1+1);
+				pString = (char *) simple_state_malloc(((VM *) pointer)->sState,nNum1+1);
 				if ( pString == NULL ) {
 					SIMPLE_API_ERROR(SIMPLE_OOM);
 					return ;
@@ -53,7 +53,7 @@ void simple_vmlib_left ( void *pPointer )
 				}
 				pString[(int) nNum1] = '\0' ;
 				SIMPLE_API_RETSTRING2(pString,nNum1);
-				simple_state_free(((VM *) pPointer)->sState,pString);
+				simple_state_free(((VM *) pointer)->sState,pString);
 			}
 		} else {
 			SIMPLE_API_ERROR("Error in second parameter, Function requires number !");
@@ -64,7 +64,7 @@ void simple_vmlib_left ( void *pPointer )
 	}
 }
 
-void simple_vmlib_right ( void *pPointer )
+void simple_vmlib_right ( void *pointer )
 {
 	double nNum1  ;
 	const char *cStr  ;
@@ -80,7 +80,7 @@ void simple_vmlib_right ( void *pPointer )
 			nNum1 = SIMPLE_API_GETNUMBER(2) + 1;
 			nSize = SIMPLE_API_GETSTRINGSIZE(1) ;
 			if ( (nNum1 > 0 ) && (nNum1 <= nSize ) ) {
-				pString = (char *) simple_state_malloc(((VM *) pPointer)->sState,nNum1+1);
+				pString = (char *) simple_state_malloc(((VM *) pointer)->sState,nNum1+1);
 				if ( pString == NULL ) {
 					SIMPLE_API_ERROR(SIMPLE_OOM);
 					return ;
@@ -90,7 +90,7 @@ void simple_vmlib_right ( void *pPointer )
 					pString[((int)nNum1)-x] = cStr[nSize-x] ;
 				}
 				SIMPLE_API_RETSTRING2(pString,nNum1);
-				simple_state_free(((VM *) pPointer)->sState,pString);
+				simple_state_free(((VM *) pointer)->sState,pString);
 			}
 		} else {
 			SIMPLE_API_ERROR("Error in second parameter, Function requires number !");
@@ -101,7 +101,7 @@ void simple_vmlib_right ( void *pPointer )
 	}
 }
 
-void simple_vmlib_trim ( void *pPointer )
+void simple_vmlib_trim ( void *pointer )
 {
 	const char *cStr  ;
 	int x,nSize,nPos1,nPos2  ;
@@ -137,18 +137,18 @@ void simple_vmlib_trim ( void *pPointer )
 			return ;
 		}
 		/* Create New String */
-		cNewStr = (char *) simple_state_malloc(((VM *) pPointer)->sState,nPos2-nPos1+1);
+		cNewStr = (char *) simple_state_malloc(((VM *) pointer)->sState,nPos2-nPos1+1);
 		for ( x = nPos1 ; x <= nPos2 ; x++ ) {
 			cNewStr[x-nPos1] = cStr[x] ;
 		}
 		SIMPLE_API_RETSTRING2(cNewStr,nPos2-nPos1+1);
-		simple_state_free(((VM *) pPointer)->sState,cNewStr);
+		simple_state_free(((VM *) pointer)->sState,cNewStr);
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
 }
 
-void simple_vmlib_copy ( void *pPointer )
+void simple_vmlib_copy ( void *pointer )
 {
 	const char *cStr  ;
 	String *pString  ;
@@ -160,13 +160,13 @@ void simple_vmlib_copy ( void *pPointer )
 	if ( SIMPLE_API_ISSTRING(1) ) {
 		if ( SIMPLE_API_ISNUMBER(2) ) {
 			cStr = SIMPLE_API_GETSTRING(1) ;
-			pString = simple_string_new_gc(((VM *) pPointer)->sState,"");
+			pString = simple_string_new_gc(((VM *) pointer)->sState,"");
 			nSize = SIMPLE_API_GETNUMBER(2) ;
 			for ( x = 1 ; x <= nSize ; x++ ) {
-				simple_string_add2_gc(((VM *) pPointer)->sState,pString,cStr,SIMPLE_API_GETSTRINGSIZE(1));
+				simple_string_add2_gc(((VM *) pointer)->sState,pString,cStr,SIMPLE_API_GETSTRINGSIZE(1));
 			}
 			SIMPLE_API_RETSTRING2(simple_string_get(pString),simple_string_size(pString));
-			simple_string_delete_gc(((VM *) pPointer)->sState,pString);
+			simple_string_delete_gc(((VM *) pointer)->sState,pString);
 		} else {
 			SIMPLE_API_ERROR("Error in second parameter, Function requires number !");
 			return ;
@@ -176,7 +176,7 @@ void simple_vmlib_copy ( void *pPointer )
 	}
 }
 
-void simple_vmlib_substr ( void *pPointer )
+void simple_vmlib_substr ( void *pointer )
 {
 	char *cStr,*cStr2,*cStr3,*cString  ;
 	double nNum1,nNum2  ;
@@ -229,7 +229,7 @@ void simple_vmlib_substr ( void *pPointer )
 			nNum1 = SIMPLE_API_GETNUMBER(2) ;
 			nNum2 = SIMPLE_API_GETNUMBER(3) ;
 			if ( (nNum1 > 0) && ( (nNum1+nNum2-1) <= nSize ) ) {
-				cString = (char *) simple_state_malloc(((VM *) pPointer)->sState,nNum2);
+				cString = (char *) simple_state_malloc(((VM *) pointer)->sState,nNum2);
 				if ( cString == NULL ) {
 					SIMPLE_API_ERROR(SIMPLE_OOM);
 					return ;
@@ -238,7 +238,7 @@ void simple_vmlib_substr ( void *pPointer )
 					cString[x] = cStr[((int) nNum1) + x - 1 ] ;
 				}
 				SIMPLE_API_RETSTRING2(cString,nNum2);
-				simple_state_free(((VM *) pPointer)->sState,cString);
+				simple_state_free(((VM *) pointer)->sState,cString);
 			}
 		}
 		else if ( SIMPLE_API_ISSTRING(2) && SIMPLE_API_ISSTRING(3) ) {
@@ -276,12 +276,12 @@ void simple_vmlib_substr ( void *pPointer )
 		}
 		cStr3 = SIMPLE_API_GETSTRING(3) ;
 		nMark = 0 ;
-		pString = simple_string_new_gc(((VM *) pPointer)->sState,"");
+		pString = simple_string_new_gc(((VM *) pointer)->sState,"");
 		while ( cString != NULL ) {
 			nPos = ((long int) cString) - ((long int) cStr) + 1 ;
 			/* Add SubString to pString */
-			simple_string_add2_gc(((VM *) pPointer)->sState,pString,cStr+nMark,nPos-1-nMark);
-			simple_string_add2_gc(((VM *) pPointer)->sState,pString,cStr3,SIMPLE_API_GETSTRINGSIZE(3));
+			simple_string_add2_gc(((VM *) pointer)->sState,pString,cStr+nMark,nPos-1-nMark);
+			simple_string_add2_gc(((VM *) pointer)->sState,pString,cStr3,SIMPLE_API_GETSTRINGSIZE(3));
 			nMark = nPos + nSize2 -1 ;
 			/* Search */
 			if ( nTransform == 1 ) {
@@ -291,15 +291,15 @@ void simple_vmlib_substr ( void *pPointer )
 			}
 			if ( cString == NULL ) {
 				/* Add SubString to pString */
-				simple_string_add2_gc(((VM *) pPointer)->sState,pString,cStr+nMark,nSize-nMark);
+				simple_string_add2_gc(((VM *) pointer)->sState,pString,cStr+nMark,nSize-nMark);
 			}
 		}
 		SIMPLE_API_RETSTRING2(simple_string_get(pString),simple_string_size(pString));
-		simple_string_delete_gc(((VM *) pPointer)->sState,pString);
+		simple_string_delete_gc(((VM *) pointer)->sState,pString);
 	}
 }
 
-void simple_vmlib_lower ( void *pPointer )
+void simple_vmlib_lower ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -312,7 +312,7 @@ void simple_vmlib_lower ( void *pPointer )
 	}
 }
 
-void simple_vmlib_upper ( void *pPointer )
+void simple_vmlib_upper ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -325,7 +325,7 @@ void simple_vmlib_upper ( void *pPointer )
 	}
 }
 
-void simple_vmlib_lines ( void *pPointer )
+void simple_vmlib_lines ( void *pointer )
 {
 	const char *cStr  ;
 	int x,nSize,nCount  ;
@@ -348,7 +348,7 @@ void simple_vmlib_lines ( void *pPointer )
 	}
 }
 
-void simple_vmlib_strcmp ( void *pPointer )
+void simple_vmlib_strcmp ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
