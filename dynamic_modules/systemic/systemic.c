@@ -38,7 +38,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("exefilename",os_exefilename);
     register_block("changeDir",os_chdir);
     register_block("exeFolder",os_exefolder);
-    register_block("getSystemEnvironment",simple_vmlib_get);
+    register_block("getSystemEnvironment",get_env);
 }
 
 void os_ismsdos ( void *pPointer )
@@ -149,7 +149,7 @@ void os_exefolder ( void *pPointer )
 	SIMPLE_API_RETSTRING(cDirPath);
 }
 
-void simple_vmlib_get ( void *pointer )
+void get_env ( void *pointer )
 {
 	char *pData  ;
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
