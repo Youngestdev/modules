@@ -19,33 +19,33 @@
 extern "C" {
 #endif
 
-void simple_vm_os_loadfunctions ( SimpleState *pSimpleState ) ;
+void init_simple_module ( SimpleState *pSimpleState ) ;
 
-void simple_vm_os_ismsdos ( void *pPointer ) ;
+void os_ismsdos ( void *pPointer ) ;
 
-void simple_vm_os_iswindows ( void *pPointer ) ;
+void os_iswindows ( void *pPointer ) ;
 
-void simple_vm_os_iswindows64 ( void *pPointer ) ;
+void os_iswindows64 ( void *pPointer ) ;
 
-void simple_vm_os_isunix ( void *pPointer ) ;
+void os_isunix ( void *pPointer ) ;
 
-void simple_vm_os_ismacosx ( void *pPointer ) ;
+void os_ismacosx ( void *pPointer ) ;
 
-void simple_vm_os_islinux ( void *pPointer ) ;
+void os_islinux ( void *pPointer ) ;
 
-void simple_vm_os_isfreebsd ( void *pPointer ) ;
+void os_isfreebsd ( void *pPointer ) ;
 
-void simple_vm_os_isandroid ( void *pPointer ) ;
+void os_isandroid ( void *pPointer ) ;
 
-void simple_vm_os_windowsnl ( void *pPointer ) ;
+void os_windowsnl ( void *pPointer ) ;
 
-void simple_vm_os_currentdir ( void *pPointer ) ;
+void os_currentdir ( void *pPointer ) ;
 
-void simple_vm_os_exefilename ( void *pPointer ) ;
+void os_exefilename ( void *pPointer ) ;
 
-void simple_vm_os_chdir ( void *pPointer ) ;
+void os_chdir ( void *pPointer ) ;
 
-void simple_vm_os_exefolder ( void *pPointer ) ;
+void os_exefolder ( void *pPointer ) ;
 
 /* Constants */
 #define SIMPLE_VM_POINTER_LIBNAME "system"

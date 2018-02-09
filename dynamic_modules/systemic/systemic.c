@@ -19,22 +19,22 @@ SIMPLE_API __declspec(dllexport)
         
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
-    register_block("ismsdos",simple_vm_os_ismsdos);
-    register_block("iswindows",simple_vm_os_iswindows);
-    register_block("iswindows64",simple_vm_os_iswindows64);
-    register_block("isunix",simple_vm_os_isunix);
-    register_block("ismacosx",simple_vm_os_ismacosx);
-    register_block("islinux",simple_vm_os_islinux);
-    register_block("isfreebsd",simple_vm_os_isfreebsd);
-    register_block("isandroid",simple_vm_os_isandroid);
-    register_block("windowsnl",simple_vm_os_windowsnl);
-    register_block("currentdir",simple_vm_os_currentdir);
-    register_block("exefilename",simple_vm_os_exefilename);
-    register_block("chdir",simple_vm_os_chdir);
-    register_block("exefolder",simple_vm_os_exefolder);
+    register_block("ismsdos",os_ismsdos);
+    register_block("iswindows",os_iswindows);
+    register_block("iswindows64",os_iswindows64);
+    register_block("isunix",os_isunix);
+    register_block("ismacosx",os_ismacosx);
+    register_block("islinux",os_islinux);
+    register_block("isfreebsd",os_isfreebsd);
+    register_block("isandroid",os_isandroid);
+    register_block("windowsnl",os_windowsnl);
+    register_block("currentdir",os_currentdir);
+    register_block("exefilename",os_exefilename);
+    register_block("chdir",os_chdir);
+    register_block("exefolder",os_exefolder);
 }
 
-void simple_vm_os_ismsdos ( void *pPointer )
+void os_ismsdos ( void *pPointer )
 {
 	#if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
 	SIMPLE_API_RETNUMBER(1);
@@ -43,7 +43,7 @@ void simple_vm_os_ismsdos ( void *pPointer )
 	#endif
 }
 
-void simple_vm_os_iswindows ( void *pPointer )
+void os_iswindows ( void *pPointer )
 {
 	#ifdef _WIN32
 	SIMPLE_API_RETNUMBER(1);
@@ -52,7 +52,7 @@ void simple_vm_os_iswindows ( void *pPointer )
 	#endif
 }
 
-void simple_vm_os_iswindows64 ( void *pPointer )
+void os_iswindows64 ( void *pPointer )
 {
 	int lSystem64  ;
 	lSystem64 = 0 ;
@@ -65,7 +65,7 @@ void simple_vm_os_iswindows64 ( void *pPointer )
 	SIMPLE_API_RETNUMBER(lSystem64);
 }
 
-void simple_vm_os_isunix ( void *pPointer )
+void os_isunix ( void *pPointer )
 {
 	#if defined(unix) || defined(__unix__) || defined(__unix)
 	SIMPLE_API_RETNUMBER(1);
@@ -74,7 +74,7 @@ void simple_vm_os_isunix ( void *pPointer )
 	#endif
 }
 
-void simple_vm_os_ismacosx ( void *pPointer )
+void os_ismacosx ( void *pPointer )
 {
 	#if defined(__APPLE__)  || defined(__MACH__)
 	SIMPLE_API_RETNUMBER(1);
@@ -83,7 +83,7 @@ void simple_vm_os_ismacosx ( void *pPointer )
 	#endif
 }
 
-void simple_vm_os_islinux ( void *pPointer )
+void os_islinux ( void *pPointer )
 {
 	#ifdef __linux__
 	SIMPLE_API_RETNUMBER(1);
@@ -92,7 +92,7 @@ void simple_vm_os_islinux ( void *pPointer )
 	#endif
 }
 
-void simple_vm_os_isfreebsd ( void *pPointer )
+void os_isfreebsd ( void *pPointer )
 {
 	#ifdef __FreeBSD__
 	SIMPLE_API_RETNUMBER(1);
@@ -101,7 +101,7 @@ void simple_vm_os_isfreebsd ( void *pPointer )
 	#endif
 }
 
-void simple_vm_os_isandroid ( void *pPointer )
+void os_isandroid ( void *pPointer )
 {
 	#ifdef __ANDROID__
 	SIMPLE_API_RETNUMBER(1);
@@ -110,19 +110,19 @@ void simple_vm_os_isandroid ( void *pPointer )
 	#endif
 }
 
-void simple_vm_os_windowsnl ( void *pPointer )
+void os_windowsnl ( void *pPointer )
 {
 	SIMPLE_API_RETSTRING("\r\n");
 }
 
-void simple_vm_os_currentdir ( void *pPointer )
+void os_currentdir ( void *pPointer )
 {
 	char cDirPath[SIMPLE_PATHSIZE]  ;
 	simple_currentdir(cDirPath);
 	SIMPLE_API_RETSTRING(cDirPath);
 }
 
-void simple_vm_os_exefilename ( void *pPointer )
+void os_exefilename ( void *pPointer )
 {
 	char cDirPath[SIMPLE_PATHSIZE]  ;
 	if ( simple_exefilename(cDirPath) ) {
@@ -130,12 +130,12 @@ void simple_vm_os_exefilename ( void *pPointer )
 	}
 }
 
-void simple_vm_os_chdir ( void *pPointer )
+void os_chdir ( void *pPointer )
 {
 	SIMPLE_API_RETNUMBER(simple_chdir(SIMPLE_API_GETSTRING(1)));
 }
 
-void simple_vm_os_exefolder ( void *pPointer )
+void os_exefolder ( void *pPointer )
 {
 	char cDirPath[SIMPLE_PATHSIZE]  ;
 	simple_exefolder(cDirPath);
