@@ -12,8 +12,8 @@
  
 module simple.system
 
-call "simple/core/String.sim"
-call "simple/core/DynamicLoader.sim" ? simple.core
+call "simple/core/String.sim" ? simple.core
+call "simple/core/DynamicLoader.sim" 
 callModule("dynamic_modules\systemic\dist\Debug\MinGW-Windows\systemic.dll")		
 		
 MS_DOS_SYSTEM = "Microsoft Dos"
@@ -88,7 +88,7 @@ block setSystemEnvironment(value)
 	#incomming later
 	
 block isWindowNT()
-	if stringEquals(osGroup(), "Windows_NT")
+	if stringEquals(osGroup(), "Windows_NT", true)
 		return true
 	end 
 	return false
