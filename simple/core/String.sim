@@ -87,7 +87,7 @@ class String : Object
 end
 
 block stringTrim(str)
-	return $__right(str)
+	return $__trim(str)
 
 block stringRight(str, index)
 	return $__right(str, index)
