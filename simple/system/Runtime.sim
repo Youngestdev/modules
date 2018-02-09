@@ -12,6 +12,5 @@
  
 module simple.system
 
-call "simple/core/DynamicLoader.sim" ? simple.core
 call "System.sim"
 

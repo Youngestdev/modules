@@ -15,3 +15,8 @@ module simple.system
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\systemic\dist\Debug\MinGW-Windows\systemic.dll")
 
+block getOS()
+	if isMsDos()
+		return MS_DOS_SYSTEM
+	elif isWindows()
+		return WINDOWS_SYSTEM
