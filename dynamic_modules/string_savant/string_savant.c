@@ -19,7 +19,6 @@ SIMPLE_API __declspec(dllexport)
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {
-    /* String */
 	register_block("$__left",simple_vmlib_left);
 	register_block("$__right",simple_vmlib_right);
 	register_block("$__trim",simple_vmlib_trim);
