@@ -106,9 +106,13 @@ class String : Object
 		return STRING_TYPE
 		
 	block concat(v)
-		return stringConcat(v)
+		return stringConcat(str, v)
 	
 end
+
+block stringConcat(str, v)
+	checkNullity(v) checkNullity(str)
+	return str + v
 
 block stringRemove(str, o)
 	return substr(str,o,"")
@@ -237,3 +241,8 @@ private
 	STRING_LESS = "Array index out of bound : The string is empty" 
 
 
+/*
+	concat - need expansitivity
+
+
+*/
