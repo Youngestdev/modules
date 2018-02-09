@@ -28,3 +28,9 @@ class Object
 
 	block equals(compare)
 		#empty for now
+		
+	block getType()
+		return objectName
+		
+	block getTypeCode
+		return 
