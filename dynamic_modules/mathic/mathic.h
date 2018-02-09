@@ -18,47 +18,47 @@
 extern "C" {
 #endif
 
-void simple_vm_math_sin ( void *pPointer ) ;
+void math_sin ( void *pPointer ) ;
 
-void simple_vm_math_cos ( void *pPointer ) ;
+void math_cos ( void *pPointer ) ;
 
-void simple_vm_math_tan ( void *pPointer ) ;
+void math_tan ( void *pPointer ) ;
 
-void simple_vm_math_asin ( void *pPointer ) ;
+void math_asin ( void *pPointer ) ;
 
-void simple_vm_math_acos ( void *pPointer ) ;
+void math_acos ( void *pPointer ) ;
 
-void simple_vm_math_atan ( void *pPointer ) ;
+void math_atan ( void *pPointer ) ;
 
-void simple_vm_math_atan2 ( void *pPointer ) ;
+void math_atan2 ( void *pPointer ) ;
 
-void simple_vm_math_sinh ( void *pPointer ) ;
+void math_sinh ( void *pPointer ) ;
 
-void simple_vm_math_cosh ( void *pPointer ) ;
+void math_cosh ( void *pPointer ) ;
 
-void simple_vm_math_tanh ( void *pPointer ) ;
+void math_tanh ( void *pPointer ) ;
 
-void simple_vm_math_exp ( void *pPointer ) ;
+void math_exp ( void *pPointer ) ;
 
-void simple_vm_math_log ( void *pPointer ) ;
+void math_log ( void *pPointer ) ;
 
-void simple_vm_math_log10 ( void *pPointer ) ;
+void math_log10 ( void *pPointer ) ;
 
-void simple_vm_math_ceil ( void *pPointer ) ;
+void math_ceil ( void *pPointer ) ;
 
-void simple_vm_math_floor ( void *pPointer ) ;
+void math_floor ( void *pPointer ) ;
 
-void simple_vm_math_fabs ( void *pPointer ) ;
+void math_fabs ( void *pPointer ) ;
 
-void simple_vm_math_pow ( void *pPointer ) ;
+void math_pow ( void *pPointer ) ;
 
-void simple_vm_math_sqrt ( void *pPointer ) ;
+void math_sqrt ( void *pPointer ) ;
 
-void simple_vm_math_unsigned ( void *pPointer ) ;
+void math_unsigned ( void *pPointer ) ;
 
-void simple_vm_math_decimals ( void *pPointer ) ;
+void math_decimals ( void *pPointer ) ;
 
-void simple_vm_math_murmur3hash ( void *pPointer ) ;
+void math_murmur3hash ( void *pPointer ) ;
 
 #ifdef __cplusplus
 }
