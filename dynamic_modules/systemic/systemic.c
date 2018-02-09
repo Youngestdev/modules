@@ -12,6 +12,12 @@
  * Created on February 9, 2018, 10:05 PM
  */
 
+#ifdef _WIN32
+#include "windows.h"
+typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
+LPFN_ISWOW64PROCESS isWindows64  ;
+#endif
+
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "systemic.h"
 
