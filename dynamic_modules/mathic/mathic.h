@@ -19,47 +19,47 @@
 extern "C" {
 #endif
 
-void math_sin ( void *pPointer ) ;
+void math_sin ( void *pointer ) ;
 
-void math_cos ( void *pPointer ) ;
+void math_cos ( void *pointer ) ;
 
-void math_tan ( void *pPointer ) ;
+void math_tan ( void *pointer ) ;
 
-void math_asin ( void *pPointer ) ;
+void math_asin ( void *pointer ) ;
 
-void math_acos ( void *pPointer ) ;
+void math_acos ( void *pointer ) ;
 
-void math_atan ( void *pPointer ) ;
+void math_atan ( void *pointer ) ;
 
-void math_atan2 ( void *pPointer ) ;
+void math_atan2 ( void *pointer ) ;
 
-void math_sinh ( void *pPointer ) ;
+void math_sinh ( void *pointer ) ;
 
-void math_cosh ( void *pPointer ) ;
+void math_cosh ( void *pointer ) ;
 
-void math_tanh ( void *pPointer ) ;
+void math_tanh ( void *pointer ) ;
 
-void math_exp ( void *pPointer ) ;
+void math_exp ( void *pointer ) ;
 
-void math_log ( void *pPointer ) ;
+void math_log ( void *pointer ) ;
 
-void math_log10 ( void *pPointer ) ;
+void math_log10 ( void *pointer ) ;
 
-void math_ceil ( void *pPointer ) ;
+void math_ceil ( void *pointer ) ;
 
-void math_floor ( void *pPointer ) ;
+void math_floor ( void *pointer ) ;
 
-void math_fabs ( void *pPointer ) ;
+void math_fabs ( void *pointer ) ;
 
-void math_pow ( void *pPointer ) ;
+void math_pow ( void *pointer ) ;
 
-void math_sqrt ( void *pPointer ) ;
+void math_sqrt ( void *pointer ) ;
 
-void math_unsigned ( void *pPointer ) ;
+void math_unsigned ( void *pointer ) ;
 
-void math_decimals ( void *pPointer ) ;
+void math_decimals ( void *pointer ) ;
 
-void math_murmur3hash ( void *pPointer ) ;
+void math_murmur3hash ( void *pointer ) ;
 
 #ifdef __cplusplus
 }

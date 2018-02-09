@@ -41,7 +41,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("murmur3hash",math_murmur3hash);
 }
 
-void math_sin ( void *pPointer )
+void math_sin ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -54,7 +54,7 @@ void math_sin ( void *pPointer )
     }
 }
 
-void math_cos ( void *pPointer )
+void math_cos ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -67,7 +67,7 @@ void math_cos ( void *pPointer )
     }
 }
 
-void math_tan ( void *pPointer )
+void math_tan ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -80,7 +80,7 @@ void math_tan ( void *pPointer )
     }
 }
 
-void math_asin ( void *pPointer )
+void math_asin ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -93,7 +93,7 @@ void math_asin ( void *pPointer )
     }
 }
 
-void math_acos ( void *pPointer )
+void math_acos ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -106,7 +106,7 @@ void math_acos ( void *pPointer )
     }
 }
 
-void math_atan ( void *pPointer )
+void math_atan ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -119,7 +119,7 @@ void math_atan ( void *pPointer )
     }
 }
 
-void math_atan2 ( void *pPointer )
+void math_atan2 ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 2 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
@@ -132,7 +132,7 @@ void math_atan2 ( void *pPointer )
     }
 }
 
-void math_sinh ( void *pPointer )
+void math_sinh ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -145,7 +145,7 @@ void math_sinh ( void *pPointer )
     }
 }
 
-void math_cosh ( void *pPointer )
+void math_cosh ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -158,7 +158,7 @@ void math_cosh ( void *pPointer )
     }
 }
 
-void math_tanh ( void *pPointer )
+void math_tanh ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -171,7 +171,7 @@ void math_tanh ( void *pPointer )
     }
 }
 
-void math_exp ( void *pPointer )
+void math_exp ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -184,7 +184,7 @@ void math_exp ( void *pPointer )
     }
 }
 
-void math_log ( void *pPointer )
+void math_log ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -197,7 +197,7 @@ void math_log ( void *pPointer )
     }
 }
 
-void math_log10 ( void *pPointer )
+void math_log10 ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -210,7 +210,7 @@ void math_log10 ( void *pPointer )
     }
 }
 
-void math_ceil ( void *pPointer )
+void math_ceil ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -223,7 +223,7 @@ void math_ceil ( void *pPointer )
     }
 }
 
-void math_floor ( void *pPointer )
+void math_floor ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -236,7 +236,7 @@ void math_floor ( void *pPointer )
     }
 }
 
-void math_fabs ( void *pPointer )
+void math_fabs ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -249,7 +249,7 @@ void math_fabs ( void *pPointer )
     }
 }
 
-void math_pow ( void *pPointer )
+void math_pow ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 2 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
@@ -262,7 +262,7 @@ void math_pow ( void *pPointer )
     }
 }
 
-void math_sqrt ( void *pPointer )
+void math_sqrt ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -275,7 +275,7 @@ void math_sqrt ( void *pPointer )
     }
 }
 
-void math_unsigned ( void *pPointer )
+void math_unsigned ( void *pointer )
 {
     unsigned int nNum1,nNum2  ;
     double nNum3  ;
@@ -351,14 +351,14 @@ void math_unsigned ( void *pPointer )
     }
 }
 
-void math_decimals ( void *pPointer )
+void math_decimals ( void *pointer )
 {
     int nNum1  ;
     if ( SIMPLE_API_PARACOUNT == 1 ) {
             if ( SIMPLE_API_ISNUMBER(1) ) {
                     nNum1 = (int) SIMPLE_API_GETNUMBER(1) ;
                     if ( (nNum1 >= 0) && (nNum1 <= 14) ) {
-                            ((VM *) pPointer)->nDecimals = nNum1 ;
+                            ((VM *) pointer)->nDecimals = nNum1 ;
                     }
                     else {
                             SIMPLE_API_ERROR(SIMPLE_VM_ERROR_BADDECIMALNUMBER);
@@ -372,7 +372,7 @@ void math_decimals ( void *pPointer )
 }
 /* Hash */
 
-void math_murmur3hash ( void *pPointer )
+void math_murmur3hash ( void *pointer )
 {
     unsigned int nResult  ;
     if ( SIMPLE_API_PARACOUNT != 2 ) {
