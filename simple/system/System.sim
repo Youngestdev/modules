@@ -92,6 +92,8 @@ block isWindowNT()
 		return true
 	end 
 	return false
+	
+
 
 	
 /*
