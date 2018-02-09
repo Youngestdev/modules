@@ -89,6 +89,23 @@ class String : Object
 	
 end
 
+block stringEndsWith(m, s)
+	checkNullity(m) checkNullity(s)
+	if lengthOf(s) > lengthOf(m)
+		throw(STRING_START_WITH)
+	end
+	for a = 0 to lengthOf(s)
+		try 
+			if stringEquals(m[a], s[a], true) == false
+				return false
+			end
+		catch 
+			return false
+		end
+		
+	end
+	return true
+
 block stringCopy(str, count)
 	return $__copy(str, count)
 
