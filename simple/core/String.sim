@@ -92,6 +92,9 @@ class String : Object
 		
 	block lineCount()
 		return stringGetLineCount(str)
+		
+	block subString(index)
+		return stringSubString(str)
 	
 end
 
