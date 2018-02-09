@@ -60,10 +60,10 @@ block exitCode()
 	return 0
 	
 block commandLineParameters()
-	return cmdarg
+	return cmdparams
 	
 block commandLineParametersSize()
-	return lenghtOf(cmdarg)
+	return lenghtOf(cmdparams)
 
 
 	
