@@ -96,9 +96,13 @@ class String : Object
 	block subString(index)
 		return stringSubString(str, index)
 		
-	block replace()
+	block replace(o, n)
+		return stringReplace(str, o, n)
 	
 end
+
+block stringReplace(s, o, n)
+	
 
 block stringSubString(str, index)
 	return substr(str, index)
