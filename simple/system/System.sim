@@ -63,10 +63,9 @@ block commandLineParameters()
 	return cmdparams
 	
 block commandLineParametersSize()
-	return lenghtOf(cmdparams)
+	return lengthOf(cmdparams)
 
-block currentDirectory()
-	return
+block cursrentDirectory()
 
 	
 /*
