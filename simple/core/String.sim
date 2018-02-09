@@ -90,7 +90,7 @@ class String : Object
 	block endsWith(s)
 		return stringEndsWith(str, s)
 		
-	block getLineCount()
+	block lineCount()
 		return stringGetLineCount(str)
 	
 end
