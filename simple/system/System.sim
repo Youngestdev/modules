@@ -58,6 +58,9 @@ block tickCount()
 
 block exitCode()
 	return 0
+	
+block commandLine()
+	return sysarg
 
 
 	
