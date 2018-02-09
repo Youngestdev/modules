@@ -97,7 +97,8 @@ block stringEndsWith(m, s)
 	if lengthOf(s) > lengthOf(m)
 		throw(STRING_COMPARE_ERROR)
 	end
-	for a = lengthOf(s) to lengthOf(s)
+	beginSearch = lengthOf(m) - lengthOf(s)
+	for a = beginSearch to lengthOf(s)
 		try 
 			if stringEquals(m[a], s[a], true) == false
 				return false
