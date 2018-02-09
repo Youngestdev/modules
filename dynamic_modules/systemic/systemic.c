@@ -11,3 +11,9 @@
  *
  * Created on February 9, 2018, 10:05 PM
  */
+
+#include "../../../simple/bootsrc/includes/simple.h"
+#include "systemic.h"
+
+SIMPLE_API __declspec(dllexport)
+        
