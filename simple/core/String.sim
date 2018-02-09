@@ -95,6 +95,8 @@ class String : Object
 		
 	block subString(index)
 		return stringSubString(str, index)
+		
+	block replace()
 	
 end
 
