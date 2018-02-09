@@ -65,5 +65,14 @@ block commandLineParameters()
 block commandLineParametersSize()
 	return lenghtOf(cmdparams)
 
+block currentDirectory()
+	return
 
+	
+/*
+	GHOST BLOCKS
+	-------------------------------
+	currentDirectory() return the current working directory
+	getSystemEnvironment() returns a system env
+*/
 	
