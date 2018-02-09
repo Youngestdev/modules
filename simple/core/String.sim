@@ -89,8 +89,14 @@ class String : Object
 		
 	block endsWith(s)
 		return stringEndsWith(str, s)
+		
+	block getLineCount()
+		return stringGetLineCount(str)
 	
 end
+
+block stringGetLineCount(str)
+	return lines(str)
 
 block stringEndsWith(m, s)
 	checkNullity(m) checkNullity(s)
