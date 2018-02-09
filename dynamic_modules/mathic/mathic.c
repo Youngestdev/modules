@@ -15,7 +15,6 @@
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "mathic.h"
 
-
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
     register_block("sin",math_sin);
