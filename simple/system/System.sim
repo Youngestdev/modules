@@ -69,13 +69,16 @@ block getSystemDirectory()
 	return getSystemEnvironment("SYSTEM_DIR")
 	
 block getSystemVersion()
-	return getSystemEnvironment("VERSION")
+	return getSystemEnvironment("version")
 	
 block getSystemUser()	
 	return getSystemEnvironment("user")
 	
 block getUserHome()	
-	return getSystemEnvironment("user.home")
+	return getSystemEnvironment("OS")
+	
+block getOS()
+	return getSystemEnvironment("OS")
 
 	
 /*
