@@ -86,13 +86,16 @@ class String : Object
 		
 	block copy(count)
 		return stringCopy(str, count)
+		
+	block endsWith(s)
+		return stringEndsWith(str, s)
 	
 end
 
 block stringEndsWith(m, s)
 	checkNullity(m) checkNullity(s)
 	if lengthOf(s) > lengthOf(m)
-		throw(STRING_START_WITH)
+		throw(STRING_COMPARE_ERROR)
 	end
 	for a = 0 to lengthOf(s)
 		try 
@@ -180,7 +183,7 @@ block stringEquals(acom, bcom, con)
 block stringStartsWith(m, s)
 	checkNullity(m) checkNullity(s)
 	if lengthOf(s) > lengthOf(m)
-		throw(STRING_START_WITH)
+		throw(STRING_COMPARE_ERROR)
 	end
 	for a = 0 to lengthOf(s)
 		try 
@@ -198,7 +201,7 @@ block stringStartsWith(m, s)
 
 private 
 	STRING_EMPTY = "The string provided is empty"
-	STRING_START_WITH = "Array index out of bound : The length of the comparing string is greater than the main string "
+	STRING_COMPARE_ERROR = "Array index out of bound : The length of the comparing string is greater than the main string "
 	STRING_LESS = "Array index out of bound : The string is empty" 
 
 
