@@ -12,8 +12,8 @@
  * Created on February 9, 2018, 9:01 PM
  */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "../../../simple/bootsrc/includes/simple.h"
+#include "file_savant.h"
 
 /*
  * 
