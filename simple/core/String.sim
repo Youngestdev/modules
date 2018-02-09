@@ -74,8 +74,14 @@ class String : Object
 		
 	block getHashCode()
 		return hash32(str)
+		
+	block left(index)
+		return stringLeft(str, index)
 	
 end
+
+block stringLeft(str, index)
+	return $__left(str, index)
 
 block isStringNull(s)
 	if s == null return true else return false end
