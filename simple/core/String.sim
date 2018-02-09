@@ -80,8 +80,14 @@ class String : Object
 		
 	block right(index)
 		return stringRight(str, index)
+		
+	block trim()
+		return stringTrim(str)
 	
 end
+
+block stringTrim(str)
+	return $__right(str)
 
 block stringRight(str, index)
 	return $__right(str, index)
