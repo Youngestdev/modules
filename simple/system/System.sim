@@ -77,8 +77,8 @@ block getSystemUser()
 block getUserHome()	
 	return getSystemEnvironment("OS")
 	
-block getOS()
-	return getSystemEnvironment("OS")
+block getOSName()
+	return getSystemEnvironment("COMPUTERNAME")
 
 	
 /*
