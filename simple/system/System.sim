@@ -88,7 +88,7 @@ block setSystemEnvironment(value)
 	#incomming later
 	
 block isWindowNT()
-	if strcmp(osGroup(), "Windows_NT")
+	if stringEquals(osGroup(), "Windows_NT") == 0
 		return true
 	end 
 	return false

@@ -18,98 +18,6 @@ callModule("dynamic_modules\string_savant\dist\Debug\MinGW-Windows\string_savant
 
 $__Empty = ""
 
-class String : Object
-
-	objectName = "String"
-	str = ""
-
-	block String(float instr)
-		str = instr
- 
-	block toString()
-		return str
-		
-	block toList()
-		lister = []
-		for a in str+1
-			add(lister, a)
-		end
-		return lister
-		
-	block toLower()
-		return toLowerCase(str)
-		
-	block toUpper()
-		return toUpperCase(str)
-		
-	block toSentence()
-		return toSentenceCase(str)
-		
-	block length()
-		return stringLenght(str)
-		
-	block isEmpty()
-		return isStringEmpty(str)
-		
-	block charAt(index)
-		return getCharAt(str, index)
-	
-	block equals(compare)
-		return stringEquals(str, compare, true)
-		
-	block compareTo(compare)
-		return stringEquals(str, compare, false)
-		
-	block startsWith(s)
-		return stringStartsWith(str, s)
-		
-	block firstChar()
-		return stringFirstChar(str)
-		
-	block lastChar()
-		return stringLastChar(str)
-		
-	block isNull()
-		return isStringNull(str)
-		
-	block getHashCode()
-		return hash32(str)
-		
-	block left(index)
-		return stringLeft(str, index)
-		
-	block right(index)
-		return stringRight(str, index)
-		
-	block trim()
-		return stringTrim(str)
-		
-	block copy(count)
-		return stringCopy(str, count)
-		
-	block endsWith(s)
-		return stringEndsWith(str, s)
-		
-	block lineCount()
-		return stringGetLineCount(str)
-		
-	block subString(index)
-		return stringSubString(str, index)
-		
-	block replace(o, n)
-		return stringReplace(str, o, n)
-		
-	block remove(o)
-		return stringRemove(str, o)
-		
-	block getTypeCode()
-		return STRING_TYPE
-		
-	block concat(v)
-		return stringConcat(str, v)
-	
-end
-
 block stringConcat(str, v)
 	checkNullity(v) checkNullity(str)
 	return str + v
@@ -233,6 +141,97 @@ block stringStartsWith(m, s)
 	end
 	return true
 
+class String : Object
+
+	objectName = "String"
+	str = ""
+
+	block String(float instr)
+		str = instr
+ 
+	block toString()
+		return str
+		
+	block toList()
+		lister = []
+		for a in str+1
+			add(lister, a)
+		end
+		return lister
+		
+	block toLower()
+		return toLowerCase(str)
+		
+	block toUpper()
+		return toUpperCase(str)
+		
+	block toSentence()
+		return toSentenceCase(str)
+		
+	block length()
+		return stringLenght(str)
+		
+	block isEmpty()
+		return isStringEmpty(str)
+		
+	block charAt(index)
+		return getCharAt(str, index)
+	
+	block equals(compare)
+		return stringEquals(str, compare, true)
+		
+	block compareTo(compare)
+		return stringEquals(str, compare, false)
+		
+	block startsWith(s)
+		return stringStartsWith(str, s)
+		
+	block firstChar()
+		return stringFirstChar(str)
+		
+	block lastChar()
+		return stringLastChar(str)
+		
+	block isNull()
+		return isStringNull(str)
+		
+	block getHashCode()
+		return hash32(str)
+		
+	block left(index)
+		return stringLeft(str, index)
+		
+	block right(index)
+		return stringRight(str, index)
+		
+	block trim()
+		return stringTrim(str)
+		
+	block copy(count)
+		return stringCopy(str, count)
+		
+	block endsWith(s)
+		return stringEndsWith(str, s)
+		
+	block lineCount()
+		return stringGetLineCount(str)
+		
+	block subString(index)
+		return stringSubString(str, index)
+		
+	block replace(o, n)
+		return stringReplace(str, o, n)
+		
+	block remove(o)
+		return stringRemove(str, o)
+		
+	block getTypeCode()
+		return STRING_TYPE
+		
+	block concat(v)
+		return stringConcat(str, v)
+	
+end
 
 
 private 
