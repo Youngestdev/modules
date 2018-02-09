@@ -20,10 +20,10 @@ SIMPLE_API __declspec(dllexport)
 SIMPLE_API void init_simple_lib(SimpleState *sState)
 {
     /* String */
-	register_block("left",simple_vmlib_left);
-	register_block("right",simple_vmlib_right);
-	register_block("trim",simple_vmlib_trim);
-	register_block("copy",simple_vmlib_copy);
+	register_block("$__left",simple_vmlib_left);
+	register_block("$__right",simple_vmlib_right);
+	register_block("$__trim",simple_vmlib_trim);
+	register_block("$__copy",simple_vmlib_copy);
 	register_block("substr",simple_vmlib_substr);
 	register_block("lines",simple_vmlib_lines);
 	register_block("strcmp",simple_vmlib_strcmp);
@@ -44,7 +44,7 @@ void simple_vmlib_left ( void *pPointer )
 	if ( SIMPLE_API_ISSTRING(1) ) {
 		if ( SIMPLE_API_ISNUMBER(2) ) {
 			cStr = SIMPLE_API_GETSTRING(1) ;
-			nNum1 = SIMPLE_API_GETNUMBER(2) ;
+			nNum1 = SIMPLE_API_GETNUMBER(2) + 1;
 			if ( (nNum1 > 0 ) && (nNum1 <= SIMPLE_API_GETSTRINGSIZE(1) ) ) {
 				pString = (char *) simple_state_malloc(((VM *) pPointer)->sState,nNum1+1);
 				if ( pString == NULL ) {
