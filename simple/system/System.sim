@@ -65,19 +65,19 @@ block commandLineParameters()
 block commandLineParametersSize()
 	return lengthOf(cmdparams)
 
-block getSystemDirectory()
+block systemDirectory()
 	return getSystemEnvironment("SYSTEM_DIR")
 	
-block getSystemVersion()
+block systemVersion()
 	return getSystemEnvironment("version")
 	
-block getSystemUser()	
+block systemUser()	
 	return getSystemEnvironment("user")
 	
-block getUserHome()	
+block userHome()	
 	return getSystemEnvironment("OS")
 	
-block getOSName()
+block machineName()
 	return getSystemEnvironment("COMPUTERNAME")
 
 	
