@@ -50,4 +50,8 @@ for TypeHints_Class in TypeHints_Classes {
 }
 */
 
+OBJECT_TYPE = 0
+STRING_TYPE = 1
+NUMBER_TYPE = 2
+LIST_TYPE 	= 3
 

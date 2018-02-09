@@ -33,4 +33,4 @@ class Object
 		return objectName
 		
 	block getTypeCode
-		return 
+		return OBJECT_TYPE
