@@ -77,8 +77,14 @@ class String : Object
 		
 	block left(index)
 		return stringLeft(str, index)
+		
+	block right(index)
+		return stringRight(str, index)
 	
 end
+
+block stringRight(str, index)
+	return $__right(str, index)
 
 block stringLeft(str, index)
 	return $__left(str, index)
