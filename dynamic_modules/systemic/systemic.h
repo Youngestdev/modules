@@ -21,31 +21,31 @@ extern "C" {
 
 void init_simple_module ( SimpleState *pSimpleState ) ;
 
-void os_ismsdos ( void *pPointer ) ;
+void os_ismsdos ( void *pointer ) ;
 
-void os_iswindows ( void *pPointer ) ;
+void os_iswindows ( void *pointer ) ;
 
-void os_iswindows64 ( void *pPointer ) ;
+void os_iswindows64 ( void *pointer ) ;
 
-void os_isunix ( void *pPointer ) ;
+void os_isunix ( void *pointer ) ;
 
-void os_ismacosx ( void *pPointer ) ;
+void os_ismacosx ( void *pointer ) ;
 
-void os_islinux ( void *pPointer ) ;
+void os_islinux ( void *pointer ) ;
 
-void os_isfreebsd ( void *pPointer ) ;
+void os_isfreebsd ( void *pointer ) ;
 
-void os_isandroid ( void *pPointer ) ;
+void os_isandroid ( void *pointer ) ;
 
-void os_windowsnl ( void *pPointer ) ;
+void os_windowsnl ( void *pointer ) ;
 
-void os_currentdir ( void *pPointer ) ;
+void os_currentdir ( void *pointer ) ;
 
-void os_exefilename ( void *pPointer ) ;
+void os_exefilename ( void *pointer ) ;
 
-void os_chdir ( void *pPointer ) ;
+void os_chdir ( void *pointer ) ;
 
-void os_exefolder ( void *pPointer ) ;
+void os_exefolder ( void *pointer ) ;
 
 void get_env ( void *pointer ) ;
 
