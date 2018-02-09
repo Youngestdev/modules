@@ -1,0 +1,163 @@
+/* 
+	Copyright (c) 2017-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - String.sim
+ * #author - Azeez Adewale
+ * #date - 5 Febuary 2017
+ */
+ 
+module simple.core
+
+call "Object.sim"
+call "simple/core/DynamicLoader.sim" ? simple.core
+callModule("dynamic_modules\string_savant\dist\Debug\MinGW-Windows\string_savant.dll")
+
+$__Empty = ""
+
+class String : Object
+
+	objectName = "String"
+	str = ""
+
+	block String(float instr)
+		str = instr
+ 
+	block toString()
+		return str
+		
+	block toList()
+		lister = []
+		for a in str+1
+			add(lister, a)
+		end
+		return lister
+		
+	block toLower()
+		return toLowerCase(str)
+		
+	block toUpper()
+		return toUpperCase(str)
+		
+	block toSentence()
+		return toSentenceCase(str)
+		
+	block length()
+		return stringLenght(str)
+		
+	block isEmpty()
+		return isStringEmpty(str)
+		
+	block charAt(index)
+		return getCharAt(str, index)
+	
+	block equals(compare)
+		return stringEquals(str, compare, true)
+		
+	block compareTo(compare)
+		return stringEquals(str, compare, false)
+		
+	block startsWith(s)
+		return stringStartsWith(str, s)
+		
+	block firstChar()
+		return stringFirstChar(str)
+		
+	block lastChar()
+		return stringLastChar(str)
+		
+	block isNull()
+		return isStringNull(str)
+		
+	block getHashCode()
+		return hash32(str)
+	
+end
+
+block isStringNull(s)
+	if s == null return true else return false end
+
+block stringFirstChar(c)
+	checkNullity(c) 
+	if lengthOf(c) < 0
+		throw(STRING_LESS)
+	end
+	return c[0]
+	
+block stringLastChar(c)
+	checkNullity(c) 
+	if lengthOf(c) < 0
+		throw(STRING_LESS)
+	end
+	return c[lengthOf(c)]
+
+block toLowerCase(content)	
+	if isStringEmpty(content)
+		throw(STRING_EMPTY)
+	end
+	return $__lower(content)
+
+block toUpperCase(content)	
+	if isStringEmpty(content)
+		throw(STRING_EMPTY)
+	end
+	return $__upper(content)
+
+block toSentenceCase(content)	
+	if isStringEmpty(content)
+		throw(STRING_EMPTY)
+	end
+	content[0] = toUpperCase(content[0])
+	for a = 1 to lengthOf(content)
+		content[a] = toLowerCase(content[a])
+	end
+	return content
+
+block stringLenght(content)
+	return lengthOf(content)
+	
+block isStringEmpty(content)
+	if stringLenght(content) == stringLenght($__Empty)
+		return true
+	end
+	return false
+	
+block getCharAt(content, index)
+	return content[index]
+	
+block stringEquals(acom, bcom, con)
+	if !con  acom = toLowerCase(acom) bcom = toLowerCase(bcom) end
+	if strcmp(acom, bcom) == 0
+		return true
+	else
+		return false
+	end
+	
+block stringStartsWith(m, s)
+	checkNullity(m) checkNullity(s)
+	if lengthOf(s) > lengthOf(m)
+		throw(STRING_START_WITH)
+	end
+	for a = 0 to lengthOf(s)
+		try 
+			if stringEquals(m[a], s[a], true) == false
+				return false
+			end
+		catch 
+			return false
+		end
+		
+	end
+	return true
+
+
+
+private 
+	STRING_EMPTY = "The string provided is empty"
+	STRING_START_WITH = "Array index out of bound : The length of the comparing string is greater than the main string "
+	STRING_LESS = "Array index out of bound : The string is empty" 
+
+

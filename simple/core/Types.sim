@@ -1,0 +1,53 @@
+/* 
+	Copyright (c) 2017-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - Type.sim
+ * #author - Azeez Adewale
+ * #date - 7 Febuary 2017
+ */
+
+# Low Level Types
+char 		= :char 
+unsigned 	= :unsigned
+signed 		= :signed 
+int 		= :int 
+short 		= :short 
+long 		= :long 
+float 		= :float 
+double 		= :double 
+void 		= :void 
+
+# High Level Types 
+string 		= :string 
+list 		= :list 
+number 		= :number 
+object		= :object
+
+# Other 
+public		= :public 
+static		= :static 
+abstract	= :abstract 
+protected	= :protected
+override	= :override 
+
+# Add User Types (Define Application Classes As Types)
+
+/*TypeHints_Packages = Modules()
+for TypeHints_Package in TypeHints_Packages {
+	ccode = "call " + TypeHints_Package
+	eval(ccode)
+}
+
+TypeHints_Classes = classes()
+for TypeHints_Class in TypeHints_Classes {
+	if not substr(TypeHints_Class,".") {
+		eval( TypeHints_Class + " = :" + TypeHints_Class )
+	}
+}
+*/
+
+

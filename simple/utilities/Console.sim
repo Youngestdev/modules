@@ -1,0 +1,68 @@
+/* 
+	Copyright (c) 2017-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - Console.sim
+ * #author - thecarisma
+ * #date - 5 Febuary 2017
+ */
+ 
+module simple.utilities
+
+Console = new simple.utilities.Console
+
+$__clearLine = char(13)
+
+class Console 
+
+	block println(content) 
+		print(content+crlf) 
+		
+	block print(content)
+		inContent = ""
+	if isnumber(content) 
+		content = ""+content
+	end
+	for a = 0 to lengthOf(content) 
+		switch content[a]
+			case '\'
+				a++
+				switch content[a]
+				case '\'
+					inContent +=  '\'
+				case '"'
+					inContent += '"'
+				case "n"
+					inContent +=  crlf
+				case "t"
+					inContent +=  char(9)
+				case "r" 
+					inContent +=  char(13)
+				end
+			default 
+				inContent +=  content[a]
+		end
+	end
+	display inContent
+	
+	block printinLine(content)
+		print($__clearLine+content)
+		
+	block readLine(title)
+		print(title) 
+		read readContent 
+		return readContent
+		
+	block readln()
+		read readContent
+		return readContent
+		
+	
+	
+	
+	
+	
+	

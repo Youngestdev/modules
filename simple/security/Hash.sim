@@ -1,0 +1,37 @@
+/* 
+	Copyright (c) 2017-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - String.sim
+ * #author - Azeez Adewale
+ * #date - 5 Febuary 2017
+ */
+ 
+module simple.core
+
+hash = new simple.core.Hash
+
+block hash32(content)
+	return hash.hash32(content)
+
+class Hash
+
+	block hash32(content)
+		hash1 = (5381<<16) + 5381 hash2 = hash1
+		a = 0 len = lengthOf(content)
+		while len  > 2
+			hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ a
+			hash2 = ((hash2 << 5) + hash2 + (hash2 >> 27)) ^ a
+			a += 2 len  -= 4 
+		end
+		if len > 0
+			hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ a
+		end
+		return hash1 + (hash2 * 1566083941)
+		
+		
+		
+		
