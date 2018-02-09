@@ -25,3 +25,8 @@ block getOS()
 MS_DOS_SYSTEM = "Microsoft Dos"
 WINDOWS_SYSTEM = "Windows 32"
 WINDOWS_64_SYSTEM = "Windows 64"
+UNIX_SYSTEM = "UNIX"
+MACOSX_SYSTEM = "Mac OS X"
+LINUX_SYSTEM = "Linux"
+FREEBSD_SYSTEM = "Free BSD"
+ANDROID_SYSTEM = "Android"
