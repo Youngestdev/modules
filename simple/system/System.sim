@@ -13,14 +13,7 @@
 module simple.system
 
 call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\systemic\dist\Debug\MinGW-Windows\systemic.dll")
-
-block getOS()
-	if isMsDos()
-		return MS_DOS_SYSTEM
-	elif isWindows()
-		return WINDOWS_SYSTEM
-		
+callModule("dynamic_modules\systemic\dist\Debug\MinGW-Windows\systemic.dll")		
 		
 MS_DOS_SYSTEM = "Microsoft Dos"
 WINDOWS_SYSTEM = "Windows 32"
@@ -30,3 +23,13 @@ MACOSX_SYSTEM = "Mac OS X"
 LINUX_SYSTEM = "Linux"
 FREEBSD_SYSTEM = "Free BSD"
 ANDROID_SYSTEM = "Android"
+UNKNOWN_SYETEM = "Unknown System"
+
+block getOS()
+	if isMsDos()
+		return MS_DOS_SYSTEM
+	elif isWindows()
+		return WINDOWS_SYSTEM
+	else
+		return UNKNOWN_SYETEM
+	end
