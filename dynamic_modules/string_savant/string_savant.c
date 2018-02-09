@@ -15,8 +15,6 @@
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "string_savant.h"
 
-SIMPLE_API __declspec(dllexport)z
-
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {
 	register_block("$__left",simple_vmlib_left);
