@@ -40,6 +40,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("exeFolder",os_exefolder);
     register_block("getSystemEnvironment",get_env);
     register_block("__exit",system_exit);
+    register_block("filename",current_filename);
 }
 
 void os_ismsdos ( void *pointer )
@@ -178,4 +179,31 @@ void system_exit ( void *pointer )
 		}
 	}
 	exit(0);
+}
+
+void current_filename ( void *pointer )
+{
+	VM *vm  ;
+	int nPos  ;
+	List *list  ;
+	vm = (VM *) pointer ;
+	if ( vm->nInClassRegion ) {
+		SIMPLE_API_RETSTRING(vm->cFileNameInClassRegion);
+		return ;
+	}
+	if ( (vm->nFuncExecute2 > 0) && (simple_list_getsize(vm->pFuncCallList)>0) ) {
+		/*
+		**  Here we have Load Function Instruction - But Still the function is not called 
+		**  FunctionName (  ***Parameters**** We are here! ) 
+		*/
+		nPos = simple_list_getsize(vm->pFuncCallList)  -  (vm->nFuncExecute2 - 1) ;
+		if ( (nPos > 0) && (nPos <= simple_list_getsize(vm->pFuncCallList)) ) {
+			list = simple_list_getlist(vm->pFuncCallList,nPos);
+			if ( simple_list_getsize(list) >= SIMPLE_BLOCKCL_FILENAME ) {
+				SIMPLE_API_RETSTRING((char *) simple_list_getpointer(list,SIMPLE_BLOCKCL_FILENAME ));
+			}
+		}
+		return ;
+	}
+	SIMPLE_API_RETSTRING(vm->cFileName);
 }
