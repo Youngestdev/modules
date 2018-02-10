@@ -14,4 +14,9 @@ module simple.io
 
 call "Path.sim"
 
-FILE_DOES_NOT_EXIST = "The file does not exist"
+class Directory
+
+	block Directory(path)
+	
+	private
+		directoryPath = ""
