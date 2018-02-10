@@ -64,7 +64,12 @@ class File
 		return __exists(filePath)
 		
 	block delete()
+		ensureExistence()
 		__delete(filePath)
+		if exists()
+			return false
+		end
+		return true
 	
 	private
 		filePath = "(null)"
