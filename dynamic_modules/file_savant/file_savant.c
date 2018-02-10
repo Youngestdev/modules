@@ -23,6 +23,8 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("readfile",read_file);
     register_block("writefile",write_file);
     register_block("__exists",file_exists);
+    register_block("__rename",file_rename);
+    register_block("__remove",file_remove);
     //simple_vm_funcregister("fopen",simple_vm_file_fopen);
     //simple_vm_funcregister("fclose",simple_vm_file_fclose);
     //simple_vm_funcregister("fflush",simple_vm_file_fflush);
@@ -38,8 +40,6 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     //simple_vm_funcregister("feof",simple_vm_file_feof);
     //simple_vm_funcregister("ferror",simple_vm_file_ferror);
     //simple_vm_funcregister("perror",simple_vm_file_perror);
-    //simple_vm_funcregister("rename",simple_vm_file_rename);
-    //simple_vm_funcregister("remove",simple_vm_file_remove);
     //simple_vm_funcregister("fgetc",simple_vm_file_fgetc);
     //simple_vm_funcregister("fgets",simple_vm_file_fgets);
     //simple_vm_funcregister("fputc",simple_vm_file_fputc);
@@ -121,6 +121,32 @@ void file_exists ( void *pointer )
 	}
 	if ( SIMPLE_API_ISSTRING(1) ) {
 		SIMPLE_API_RETNUMBER(simple_fexists(SIMPLE_API_GETSTRING(1)));
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+void file_rename ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) && SIMPLE_API_ISSTRING(2) ) {
+		rename(SIMPLE_API_GETSTRING(1),SIMPLE_API_GETSTRING(2));
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+void file_remove ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) ) {
+		remove(SIMPLE_API_GETSTRING(1));
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
@@ -385,32 +411,6 @@ void simple_vm_file_perror ( void *pointer )
 	}
 	if ( SIMPLE_API_ISSTRING(1) ) {
 		perror(SIMPLE_API_GETSTRING(1));
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
-}
-
-void simple_vm_file_rename ( void *pointer )
-{
-	if ( SIMPLE_API_PARACOUNT != 2 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISSTRING(1) && SIMPLE_API_ISSTRING(2) ) {
-		rename(SIMPLE_API_GETSTRING(1),SIMPLE_API_GETSTRING(2));
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
-}
-
-void simple_vm_file_remove ( void *pointer )
-{
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISSTRING(1) ) {
-		remove(SIMPLE_API_GETSTRING(1));
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
