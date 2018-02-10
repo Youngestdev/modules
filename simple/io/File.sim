@@ -13,7 +13,7 @@
 module simple.io
 
 call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\mathic\dist\Debug\MinGW-Windows\file_savant.dll")
+callModule("dynamic_modules\file_savant\dist\Debug\MinGW-Windows\file_savant.dll")
 
 class File 	
 
