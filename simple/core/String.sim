@@ -156,7 +156,7 @@ block lastStringAfter(str, lst)
 	return ret
 	
 block kill(str, lst)
-	lstl = substr()
+	lstl = substr(str, lst)
 	
 	display "LENGTH OF LST : "+lstl
 	
