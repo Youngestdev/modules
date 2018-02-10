@@ -280,13 +280,17 @@ void system_beep ( void *pointer )
 
 void system_sleep ( void *pointer )
 {
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISNUMBER(1) ) {
-		Sleep(SIMPLE_API_GETNUMBER(1));
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
+    if ( SIMPLE_API_PARACOUNT != 1 ) {
+            SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+            return ;
+    }
+    if ( SIMPLE_API_ISNUMBER(1) ) {
+        #ifdef _WIN32
+	Sleep(SIMPLE_API_GETNUMBER(1));
+	#else
+	_sleep(SIMPLE_API_GETNUMBER(1));
+	#endif
+    } else {
+            SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+    }
 }
