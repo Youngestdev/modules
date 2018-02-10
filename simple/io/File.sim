@@ -43,8 +43,10 @@ class File
 	block write(content)
 		writefile(filePath, content)
 		
-	block writeInt(content)
-		writefile(filePath, content)
+	block appendInt(content)
+		writefile(filePath, ""+content)
+		
+	block appendBoolean(content)
 		
 	private
 		filePath = "(null)"
