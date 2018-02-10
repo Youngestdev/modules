@@ -23,7 +23,7 @@ class File
 		else 
 			filePath = path
 		end
-		filePath = stringReplace(filePath, "\\", "/")
+		filePath = replaceString(filePath, "\\", "/")
 		
 	block absolutePath()
 		return filePath
