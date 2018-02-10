@@ -62,6 +62,9 @@ class File
 		
 	block exists() 
 		return __exists(filePath)
+		
+	block delete()
+		__delete(filePath)
 	
 	private
 		filePath = "(null)"
