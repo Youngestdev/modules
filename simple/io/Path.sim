@@ -18,7 +18,7 @@ callModule("dynamic_modules\file_savant\dist\Debug\MinGW-Windows\file_savant.dll
 block curePathSlashes(path)
 	if isPath(path) ret = path.toString() end
 	ret = replaceString(path, "\\", "/")
-	ret = replaceString(path, '\', '/')
+	ret = replaceString(ret, '\', '/')
 	return ret 
 
 block isPath(ipath)
