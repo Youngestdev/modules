@@ -73,6 +73,9 @@ class File
 		
 	block renameTo(nname)
 		__rename(filePath, directory()+"/"+nname)
+		
+	block absoluteRenameTo(nname)
+		__rename(filePath, nname)
 	
 	private
 		filePath = "(null)"
