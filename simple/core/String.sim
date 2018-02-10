@@ -140,6 +140,20 @@ block stringStartsWith(m, s)
 		
 	end
 	return true
+	
+block lastStringAfter(str, lst)
+	count = 0 fileName = ""
+	for x = len(path) to 0 step -1
+		if path[x] == '/'
+			count++
+			#path = substr(path,0)
+		end
+	loop 
+	lastc = len(path) - count
+	for a  = lastc to len(path)
+		fileName += path[a]
+	loop
+	return fileName
 
 class String : Object
 
