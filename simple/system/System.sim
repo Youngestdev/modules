@@ -101,7 +101,7 @@ block isWindowNT()
 class System
 	
 	block exit(value)
-		__exit__
+		__exit(value)
 	
 
 	

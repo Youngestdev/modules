@@ -39,7 +39,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("changeDirectory",os_chdir);
     register_block("exeFolder",os_exefolder);
     register_block("getSystemEnvironment",get_env);
-    register_block("_exit",system_exit);
+    register_block("__exit",system_exit);
 }
 
 void os_ismsdos ( void *pointer )
