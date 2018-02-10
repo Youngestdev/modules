@@ -27,7 +27,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("$__lower",simple_vmlib_lower);
     register_block("$__upper",simple_vmlib_upper);
     register_block("stringReplace",string_replace);
-    register_block("lastStringAfter",string_last_string);
+    register_block("lastAfterChar",string_last_char);
 }
 
 void simple_vmlib_left ( void *pointer )
@@ -381,15 +381,14 @@ void string_replace ( void *pointer )
 	}
 }
 
-void string_last_string ( void *pointer )
+void string_last_char ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
 		return ;
 	} char *filename = (char*)calloc(1, sizeof(SIMPLE_API_ISSTRING(1)));
 	if ( SIMPLE_API_ISSTRING(1) && SIMPLE_API_ISSTRING(2) ) {
-            filename = strrchr(SIMPLE_API_GETSTRING(1), SIMPLE_API_GETSTRING(2)) + 1;
-            //printf("IN C : %s -> %s\n", SIMPLE_API_GETSTRING(2), filename);
+            filename = strrchr(SIMPLE_API_GETSTRING(1), atoi(SIMPLE_API_GETSTRING(2))) + 1;
             SIMPLE_API_RETSTRING(filename);
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
