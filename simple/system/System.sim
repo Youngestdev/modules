@@ -109,6 +109,7 @@ class System
 	GHOST BLOCKS
 	-------------------------------
 	currentDirectory() return the current working directory
-	getSystemEnvironment(param) returns a system env
+	getSystemEnvironment(param) return a system env
+	currentFileName() return the active simple source file
 */
 	
