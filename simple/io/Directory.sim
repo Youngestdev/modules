@@ -51,7 +51,8 @@ class Directory
 		block countFolders()
 			for a in explode()
 				if a[2]
-					add(folderList, new Directory(directoryPath+"/"+a[1]))
+					aDir = new Directory(directoryPath+"/"+a[1])
+					add(folderList, aDir)
 				end
 			end
 		
