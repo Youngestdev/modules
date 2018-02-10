@@ -35,6 +35,14 @@ class Directory
 			end
 		end
 		return filesList
+		
+	block listDirectories()
+		for a in explode()
+			if a[2]
+				add(filesList, new Directory(directoryPath+"/"+a[1]))
+			end
+		end
+		return filesList
 	
 	private
 		directoryPath = ""
