@@ -20,7 +20,7 @@ block isPath(ipath)
 		p = ipath.path() #free(p)
 		return true
 	catch 
-		throw(__err__)
+		return false
 	end
  
 class Path
