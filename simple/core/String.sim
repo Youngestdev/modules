@@ -141,7 +141,7 @@ block stringStartsWith(m, s)
 	end
 	return true
 	
-block stringAfterChar(str, lst)
+block lastStringAfterChar(str, lst)
 	count = 0 ret = ""
 	for x = lengthOf(str) to 0 step -1
 		if str[x] == lst
