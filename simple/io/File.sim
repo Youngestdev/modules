@@ -34,6 +34,8 @@ class File
 	block directory()
 		return removeString(filePath, "/"+name())
 		
+	block toPath()
+		return new Path(filePath)
 		
 	block readFileAsString()
 		return readfile(filePath)
