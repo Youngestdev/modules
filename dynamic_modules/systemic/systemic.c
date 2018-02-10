@@ -234,5 +234,8 @@ void current_filename ( void *pointer )
 		}
 		return ;
 	}
+        for (char **env = environ; *env; ++env){
+            printf("%s\n", *env);
+        }
 	SIMPLE_API_RETSTRING(file_real_name(vm->cFileName));
 }
