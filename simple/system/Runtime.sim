@@ -18,6 +18,8 @@ Runtime = new Runtime
 
 class Runtime
 
+	ERR = "testing holla"
+
 	block executeWithParameter(file, param)
 		exe = '"'+file+'"' + " "+param
 		__exec(exe)
