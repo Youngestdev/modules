@@ -217,7 +217,7 @@ void current_filename ( void *pointer )
 	List *list  ;
 	vm = (VM *) pointer ;
 	if ( vm->nInClassRegion ) {
-		SIMPLE_API_RETSTRING(vm->cFileNameInClassRegion);
+		SIMPLE_API_RETSTRING(file_real_name(vm->cFileNameInClassRegion));
 		return ;
 	}
 	if ( (vm->nFuncExecute2 > 0) && (simple_list_getsize(vm->pFuncCallList)>0) ) {
