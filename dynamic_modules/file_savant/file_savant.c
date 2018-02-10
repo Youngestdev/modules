@@ -20,7 +20,7 @@ SIMPLE_API __declspec(dllexport)
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
     //register_block("sin",math_sin);
-    register_block("readfile",simple_vm_file_read);
+    register_block("readfile",read_file);
     //simple_vm_funcregister("fopen",simple_vm_file_fopen);
     //simple_vm_funcregister("fclose",simple_vm_file_fclose);
     //simple_vm_funcregister("fflush",simple_vm_file_fflush);
@@ -598,7 +598,7 @@ void simple_vm_file_dir ( void *pointer )
 	}
 }
 
-void simple_vm_file_read ( void *pointer )
+void read_file ( void *pointer )
 {
 	FILE *fp  ;
 	long int nSize  ;

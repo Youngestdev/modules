@@ -18,6 +18,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+    
+void read_file ( void *pointer ) ;
 
 /* Constants */
 #define SIMPLE_VM_FILE_BUFFERSIZE "Buffer size must be >= 1"
