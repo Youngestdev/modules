@@ -63,6 +63,8 @@ class Console
 		read readContent
 		return readContent
 		
+	block printWithForeGround(color, content)
+		
 	
 	
 	
