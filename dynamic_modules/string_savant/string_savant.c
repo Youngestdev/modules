@@ -374,7 +374,7 @@ void string_replace ( void *pointer )
             } else {
                 filename = (strrchr(SIMPLE_API_ISSTRING(1), SIMPLE_API_ISSTRING(3)));
             }
-            SIMPLE_API_RETNUMBER(filename);
+            SIMPLE_API_RETSTRING(filename);
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
