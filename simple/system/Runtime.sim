@@ -19,8 +19,8 @@ Runtime = new Runtime
 class Runtime
 
 	block executeWithParameter(file, param)
-		exe = file + " "+param
+		exe = '"'+file+'"' + ""+param
 		__exec(exe)
 		
 	block execute(exe)
-		__exec(exe)
+		__exec('"'+exe+'"')
