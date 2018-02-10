@@ -24,7 +24,7 @@ class File
 		end
 		
 	block getAbsolutePath()
-		return "adewale"
+		return filePath
 		
 	block readFileAsString()
 		return readfile(filePath)
