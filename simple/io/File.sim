@@ -31,6 +31,9 @@ class File
 	block name()
 		return lastStringAfterChar(filePath, "/")
 		
+	block getDirectory()
+		return 
+		
 		
 	block readFileAsString()
 		return readfile(filePath)
