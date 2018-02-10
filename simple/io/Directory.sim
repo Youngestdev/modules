@@ -22,7 +22,7 @@ class Directory
 		else 
 			directoryPath = path
 		end
-		directoryPath = replaceString(directoryPath, "\\", "/")
+		directoryPath = curePathSlashes(directoryPath)
 		
 	block explode()
 		return blow_dir(directoryPath)

@@ -16,6 +16,7 @@ call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\file_savant\dist\Debug\MinGW-Windows\file_savant.dll")
 
 block curePathSlashes(path)
+	if isPath(path) ret = path.toString() end
 	ret = replaceString(path, "\\", "/")
 	ret = replaceString(path, '\', '/')
 	return ret 
