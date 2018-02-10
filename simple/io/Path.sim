@@ -26,6 +26,10 @@ block isPath(ipath)
 class Path
 
 	block Path(ipath)
+		filePath = ipath
+		
+	block toString()
+		return filePath
 	
 	private 
 		filePath = "(null)"
