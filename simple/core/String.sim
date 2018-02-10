@@ -144,7 +144,7 @@ block stringStartsWith(m, s)
 block lastStringAfter(str, lst)
 	count = 0 ret = ""
 	for x = lengthOf(str) to 0 step -1
-		if stringEquals(str[x], lst, true)
+		if str[x] == lst
 			break
 		end 
 		count++
@@ -154,6 +154,11 @@ block lastStringAfter(str, lst)
 		ret += str[a]
 	end
 	return ret
+	
+block kill(str, lst)
+	lstle = lengthOf(lst)
+	strl = lengthOf(str)
+	
 
 class String : Object
 
