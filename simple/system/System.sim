@@ -110,6 +110,7 @@ class System
 	-------------------------------
 	currentDirectory() return the current working directory
 	getSystemEnvironment(param) return a system env
-	currentFileName() return the active simple source file
+	currentFileName() return the active simple source file name
+	currentFilePath() return the active simple source file path
 */
 	

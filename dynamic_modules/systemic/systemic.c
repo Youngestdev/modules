@@ -42,6 +42,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__exit",system_exit);
     register_block("currentFilePath",current_filepath);
     register_block("currentFileName",current_filename);
+    register_block("previousFileName",simple_vmlib_prevfilename);
 }
 
 void os_ismsdos ( void *pointer )
