@@ -72,13 +72,16 @@ block systemDirectory()
 	return getSystemEnvironment("SYSTEM_DIR")
 	
 block systemVersion()
-	return getSystemEnvironment("build")
+	return getSystemEnvironment("JAVA_HOME")
 	
 block systemUser()	
 	return getSystemEnvironment("USERNAME")
 	
 block userHome()	
-	return getSystemEnvironment("OS")
+	return getSystemEnvironment("USERHOME")
+	
+block userDomain()	
+	return getSystemEnvironment("USERDOMAIN")
 	
 block osGroup()
 	return getSystemEnvironment("OS")
