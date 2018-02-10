@@ -23,8 +23,11 @@ class File
 			filePath = path
 		end
 		
-	block getAbsolutePath()
+	block absolutePath()
 		return filePath
+		
+	block name()
+		
 		
 	block readFileAsString()
 		return readfile(filePath)
