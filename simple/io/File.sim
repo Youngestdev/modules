@@ -31,8 +31,8 @@ class File
 	block name()
 		return lastStringAfterChar(filePath, "/")
 		
-	block getDirectory()
-		return stringRemove(filePath, name(), "ade")
+	block directory()
+		return removeString(filePath, "/"+name())
 		
 		
 	block readFileAsString()
