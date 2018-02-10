@@ -1,0 +1,17 @@
+/* 
+	Copyright (c) 2016-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - ConsoleColor.sim
+ * #author - thecarisma
+ * #date - 11 Febuary 2017
+ */
+ 
+module simple.utilities
+
+class ConsoleColor
+
+	YELLOW = 0
