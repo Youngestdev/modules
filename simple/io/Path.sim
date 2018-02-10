@@ -15,6 +15,9 @@ module simple.io
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\file_savant\dist\Debug\MinGW-Windows\file_savant.dll")
 
+block curePath(path)
+	replaceString(path, "\\", "/")
+
 block isPath(ipath)
 	try 
 		p = ipath.path() #free(p)
