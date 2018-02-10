@@ -25,7 +25,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__exists",file_exists);
     register_block("__rename",file_rename);
     register_block("__delete",file_delete);
-    register_block("blow_dir",file_delete);
+    register_block("blow_dir",blow_directory);
 }
 
 void read_file ( void *pointer )
@@ -119,6 +119,73 @@ void file_delete ( void *pointer )
 	}
 	if ( SIMPLE_API_ISSTRING(1) ) {
 		remove(SIMPLE_API_GETSTRING(1));
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+void simple_vm_file_dir ( void *pointer )
+{
+	const char *cStr  ;
+	List *pList, *pList2  ;
+	#ifdef _WIN32
+	/* Windows Only */
+	WIN32_FIND_DATA fdFile  ;
+	HANDLE hFind  ;
+	String *pString  ;
+	#else
+	DIR *pDir  ;
+	struct dirent *pDirent  ;
+	struct stat st  ;
+	#endif
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) ) {
+		cStr = SIMPLE_API_GETSTRING(1);
+		pList = SIMPLE_API_NEWLIST ;
+		#ifdef _WIN32
+		/* Windows Only */
+		pString = simple_string_new_gc(((VM *) pPointer)->pSimpleState,cStr);
+		simple_string_add_gc(((VM *) pPointer)->pSimpleState,pString,"\\*.*");
+		cStr = simple_string_get(pString);
+		if ( ! ((hFind = FindFirstFile(cStr, &fdFile)) == INVALID_HANDLE_VALUE) ) {
+			do {
+				if ( strcmp(fdFile.cFileName, ".") != 0 && strcmp(fdFile.cFileName, "..") != 0 ) {
+					pList2 = simple_list_newlist_gc(((VM *) pPointer)->pSimpleState,pList);
+					simple_list_addstring_gc(((VM *) pPointer)->pSimpleState,pList2,fdFile.cFileName);
+					if ( fdFile.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY ) {
+						simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,1);
+					} else {
+						simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,0);
+					}
+				}
+			} while (FindNextFile(hFind, &fdFile))  ;
+			SIMPLE_API_RETLIST(pList);
+		} else {
+			SIMPLE_API_ERROR(SIMPLE_API_BADDIRECTORY);
+		}
+		simple_string_delete_gc(((VM *) pPointer)->pSimpleState,pString);
+		#else
+		pDir = opendir(cStr);
+		if ( pDir != NULL ) {
+			while ( (pDirent = readdir(pDir)) ) {
+				pList2 = simple_list_newlist_gc(((VM *) pPointer)->pSimpleState,pList);
+				simple_list_addstring_gc(((VM *) pPointer)->pSimpleState,pList2,pDirent->d_name);
+				stat(pDirent->d_name,&st);
+				if ( S_ISDIR(st.st_mode) ) {
+					simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,1);
+				} else {
+					simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,0);
+				}
+			}
+			closedir(pDir);
+			SIMPLE_API_RETLIST(pList);
+		} else {
+			SIMPLE_API_ERROR(SIMPLE_API_BADDIRECTORY);
+		}
+		#endif
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
