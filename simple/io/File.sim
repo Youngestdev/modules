@@ -24,6 +24,8 @@ class File
 			filePath = path
 		#end
 		
+	block new(path)
+		
 	block getPath()
 		return filePath + " Hello"
 		
