@@ -144,13 +144,12 @@ block stringStartsWith(m, s)
 block lastStringAfter(str, lst)
 	count = 0 ret = ""
 	for x = lengthOf(str) to 0 step -1
-		display str[x] 
 		if str[x] == lst
 			break
 		end 
 		count++
-	end display " "+count+crlf
-	lastc = lengthOf(str) - count
+	end
+	lastc = (lengthOf(str) - count) + 1
 	for a  = lastc to lengthOf(str)
 		ret += str[a]
 	end
