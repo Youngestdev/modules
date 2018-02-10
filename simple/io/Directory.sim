@@ -24,30 +24,35 @@ class Directory
 			directoryPath = path
 		end
 		directoryPath = curePathSlashes(directoryPath)
-		count = 0 
-		for a in explode()
-			if !a[2]
-				add(filesList, new File(directoryPath+"/"+a[1]))
-				count++
-			end
-		end
+		countFiles() countFolders()
 		
 	block explode()
 		return blow_dir(directoryPath)
 		
 	block listFiles()
-		
 		return filesList
 		
 	block listDirectories()
-		for a in explode()
-			if a[2]
-				add(folderList, new Directory(directoryPath+"/"+a[1]))
-			end
-		end
 		return folderList
 	
 	private
 		directoryPath = ""
 		filesList = []
 		folderList = []
+		
+		block countFiles()
+			for a in explode()
+				if !a[2]
+					add(filesList, new File(directoryPath+"/"+a[1]))
+				end
+			end
+			
+		block countFolders()
+			for a in explode()
+				if a[2]
+					add(folderList, new Directory(directoryPath+"/"+a[1]))
+				end
+			end
+		
+			
+			
