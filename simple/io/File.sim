@@ -17,7 +17,7 @@ callModule("dynamic_modules\file_savant\dist\Debug\MinGW-Windows\file_savant.dll
 
 class File 	
 
-	block init(path)
+	block File(path)
 		#if isPath(path)
 		#	filePath = path.toString()
 		#else 
