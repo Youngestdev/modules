@@ -22,10 +22,10 @@ block stringConcat(str, v)
 	checkNullity(v) checkNullity(str)
 	return str + v
 
-block stringRemove(str, o)
+block removeString(str, o)
 	return substr(str,o,"")
 
-block stringReplace(s, o, n)
+block replaceString(s, o, n)
 	return substr(s,o,n)
 
 block stringSubString(str, index)
@@ -243,10 +243,10 @@ class String : Object
 		return stringSubString(str, index)
 		
 	block replace(o, n)
-		return stringReplace(str, o, n)
+		return replaceString(str, o, n)
 		
 	block remove(o)
-		return stringRemove(str, o)
+		return removeString(str, o)
 		
 	block getTypeCode()
 		return STRING_TYPE

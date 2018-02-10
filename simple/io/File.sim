@@ -32,7 +32,7 @@ class File
 		return lastStringAfterChar(filePath, "/")
 		
 	block getDirectory()
-		return 
+		return stringRemove(filePath, name(), "ade")
 		
 		
 	block readFileAsString()
