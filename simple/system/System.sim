@@ -26,6 +26,8 @@ FREEBSD_SYSTEM = "Free BSD"
 ANDROID_SYSTEM = "Android"
 UNKNOWN_SYETEM = "Unknown System"
 
+System = new System
+
 block getOS()
 	if isMsDos()
 		return MS_DOS_SYSTEM
