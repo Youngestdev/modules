@@ -54,7 +54,8 @@ class File
 		end
 		writefile(filePath, readFileAsString()+""+content)
 		
-	#block exist() #do not ever ever uncomment
+	block exists() 
+		return __exists(filePath)
 	
 	private
 		filePath = "(null)"
