@@ -18,6 +18,9 @@ Runtime = new Runtime
 
 class Runtime
 
-	block execute(file, param)
+	block executeWithParameter(file, param)
 		exe = file + " "+param
-		exec(exe)
+		__exec(exe)
+		
+	block execute(exe)
+		__exec(exe)
