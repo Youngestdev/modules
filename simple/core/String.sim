@@ -156,7 +156,7 @@ block stringAfterChar(str, lst)
 	return ret
 	
 block stringAfter(str, lst)
-	lstl = (substr(str, lst)) + lengthOf(lst)
+	lstl = (substr(str, lst)) + lengthOf(lst) + 2
 	ret = ""
 	for a = lstl to lengthOf(str)
 		ret += str[a]
