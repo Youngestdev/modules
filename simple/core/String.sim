@@ -156,9 +156,9 @@ block lastStringAfter(str, lst)
 	return ret
 	
 block kill(str, lst)
-	lstle = lengthOf(lst)
-	strl = lengthOf(str)
-	display "LENGTH OF LST : "+lstle
+	lstl = substr()
+	
+	display "LENGTH OF LST : "+lstl
 	
 
 class String : Object
