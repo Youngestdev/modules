@@ -146,6 +146,7 @@ block lastStringAfter(str, lst)
 	for x = lengthOf(str) to 0 step -1
 		if str[x] == lst
 			count++
+			break
 			#path = substr(path,0)
 		end
 	end 
