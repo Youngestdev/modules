@@ -33,7 +33,7 @@ class File
 		return lastStringAfterChar(filePath, "/")
 		
 	block directory()
-		return removeString(filePath, "/"+name())
+		return new DremoveString(filePath, "/"+name())
 		
 	block toPath()
 		return new Path(filePath)
