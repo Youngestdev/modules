@@ -40,7 +40,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("exeFolder",os_exefolder);
     register_block("getSystemEnvironment",get_env);
     register_block("__exit",system_exit);
-    register_block("filename",current_filename);
+    register_block("currentFileName",current_filename);
 }
 
 void os_ismsdos ( void *pointer )
