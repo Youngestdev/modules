@@ -29,21 +29,23 @@ class Directory
 		return blow_dir(directoryPath)
 		
 	block listFiles()
+		count = 0 
 		for a in explode()
 			if !a[2]
 				add(filesList, new File(directoryPath+"/"+a[1]))
+				count++
 			end
 		end
-		display "LEN : "+lengthOf(filesList)
+		display "LEN : "+count
 		return filesList
 		
 	block listDirectories()
 		for a in explode()
 			if a[2]
-				add(filesList, new Directory(directoryPath+"/"+a[1]))
+				add(folderList, new Directory(directoryPath+"/"+a[1]))
 			end
 		end
-		return filesList
+		return folderList
 	
 	private
 		directoryPath = ""
