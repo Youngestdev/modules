@@ -36,6 +36,9 @@ class Directory
 		
 	block listDirectories()
 		return folderList
+		
+	block toString()
+		return directoryPath
 	
 	private
 		filesList = []
