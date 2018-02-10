@@ -17,9 +17,9 @@ callModule("dynamic_modules\consoler\dist\Debug\MinGW-Windows\consoler.dll")
 
 ConsoleColor = new ConsoleColor
 
+CONSOLE_COLOR_YELLOW = ""
+
 class ConsoleColor
 	
-	block setYELLOW
 	
-	block getYELLOW
 		
