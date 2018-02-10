@@ -72,7 +72,7 @@ block systemDirectory()
 	return getSystemEnvironment("SYSTEM_DIR")
 	
 block systemVersion()
-	return getSystemEnvironment("JAVA_HOME")
+	return getSystemEnvironment("VERSION")
 	
 block systemUser()	
 	return getSystemEnvironment("USERNAME")
