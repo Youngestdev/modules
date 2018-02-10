@@ -30,6 +30,7 @@ class Directory
 		
 	block listFiles()
 		
+		return filesList
 	
 	private
 		directoryPath = ""
