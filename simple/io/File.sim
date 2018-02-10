@@ -43,10 +43,13 @@ class File
 	block write(content)
 		writefile(filePath, content)
 		
-	block appendInt(content)
-		writefile(filePath, ""+content)
+	block append(content)
+		writefile(filePath, readFileAsString()+""+content)
 		
 	block appendBoolean(content)
+		if content == true 
+			content = "true"
+		writefile(filePath, readFileAsString()+""+content)
 		
 	private
 		filePath = "(null)"
