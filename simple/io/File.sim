@@ -28,7 +28,7 @@ class File
 		#end
 		
 	block getPath()
-		return filePath + " Hello"
+		return filePath 
 		
 	block readFileAsString()
 		return readfile(filePath)
