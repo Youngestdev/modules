@@ -229,13 +229,10 @@ void current_filename ( void *pointer )
 		if ( (nPos > 0) && (nPos <= simple_list_getsize(vm->pFuncCallList)) ) {
 			list = simple_list_getlist(vm->pFuncCallList,nPos);
 			if ( simple_list_getsize(list) >= SIMPLE_BLOCKCL_FILENAME ) {
-				SIMPLE_API_RETSTRING((char *) simple_list_getpointer(list,SIMPLE_BLOCKCL_FILENAME ));
+				SIMPLE_API_RETSTRING((char *) file_real_name(simple_list_getpointer(list,SIMPLE_BLOCKCL_FILENAME )));
 			}
 		}
 		return ;
 	}
-        for (char **env = environ; *env; ++env){
-            printf("%s\n", *env);
-        }
 	SIMPLE_API_RETSTRING(file_real_name(vm->cFileName));
 }
