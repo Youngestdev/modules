@@ -49,6 +49,9 @@ class File
 	block appendBoolean(content)
 		if content == true 
 			content = "true"
+		else 
+			content = "false"
+		end
 		writefile(filePath, readFileAsString()+""+content)
 		
 	private
