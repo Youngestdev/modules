@@ -42,8 +42,8 @@ class Directory
 		eDir = explode()
 		for a = 0 to lengthOf(eDir)
 			if eDir[a][2]
-				display eDir[a][2]
-				add(folderList, new Directory(directoryPath+"/"+explode()[a][1]))
+				nDir = new Directory(directoryPath+"/"+eDir[a][1])
+				add(folderList, nDir)
 			end
 		end
 		return folderList
