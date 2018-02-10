@@ -48,6 +48,9 @@ class Directory
 		end
 		return folderList
 		
+	block toPath()
+		return new Path(directoryPath)
+		
 	block toString()
 		return directoryPath
 	
