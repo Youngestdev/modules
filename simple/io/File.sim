@@ -24,6 +24,9 @@ class File
 			filePath = path
 		end
 		
+	block getPath()
+		return filePath
+		
 	block readFileAsString()
 		return readfile(filePath)
 		
