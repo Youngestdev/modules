@@ -27,6 +27,11 @@ class Directory
 		
 	block explode()
 		return blow_dir(directoryPath)
+		
+	block listFiles()
+		
 	
 	private
 		directoryPath = ""
+		filesList = []
+		folderList = []
