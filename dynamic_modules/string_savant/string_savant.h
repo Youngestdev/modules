@@ -38,6 +38,8 @@ void simple_vmlib_strcmp ( void *pointer ) ;
 
 void string_replace ( void *pointer ) ;
 
+void string_last_string ( void *pointer ) ;
+
 
 #ifdef __cplusplus
 }
