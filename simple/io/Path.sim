@@ -15,5 +15,10 @@ module simple.io
 class Path
 
 	block isPath(ipath)
-		if stringContains(ipath, "")
+		try 
+			p = ipath.path() #free(p)
+			return true
+		catch 
+			return false
+		end
 	
