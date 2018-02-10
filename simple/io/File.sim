@@ -71,7 +71,7 @@ class File
 		end
 		return true
 		
-	block rename(nname)
+	block renameTo(nname)
 		__rename(filePath, nname)
 	
 	private
