@@ -361,3 +361,16 @@ void simple_vmlib_strcmp ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
 }
+
+void string_replace ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS3PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) && SIMPLE_API_ISSTRING(2) && SIMPLE_API_ISSTRING(3) ) {
+		SIMPLE_API_RETNUMBER(strcmp(SIMPLE_API_GETSTRING(1),SIMPLE_API_GETSTRING(2)));
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}

@@ -36,6 +36,8 @@ void simple_vmlib_lines ( void *pointer ) ;
 
 void simple_vmlib_strcmp ( void *pointer ) ;
 
+void string_replace ( void *pointer ) ;
+
 
 #ifdef __cplusplus
 }
