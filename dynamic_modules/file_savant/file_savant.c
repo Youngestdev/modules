@@ -147,18 +147,18 @@ void simple_vm_file_dir ( void *pointer )
 		pList = SIMPLE_API_NEWLIST ;
 		#ifdef _WIN32
 		/* Windows Only */
-		pString = simple_string_new_gc(((VM *) pPointer)->pSimpleState,cStr);
-		simple_string_add_gc(((VM *) pPointer)->pSimpleState,pString,"\\*.*");
+		pString = simple_string_new_gc(((VM *) pointer)->sState,cStr);
+		simple_string_add_gc(((VM *) pointer)->sState,pString,"\\*.*");
 		cStr = simple_string_get(pString);
 		if ( ! ((hFind = FindFirstFile(cStr, &fdFile)) == INVALID_HANDLE_VALUE) ) {
 			do {
 				if ( strcmp(fdFile.cFileName, ".") != 0 && strcmp(fdFile.cFileName, "..") != 0 ) {
-					pList2 = simple_list_newlist_gc(((VM *) pPointer)->pSimpleState,pList);
-					simple_list_addstring_gc(((VM *) pPointer)->pSimpleState,pList2,fdFile.cFileName);
+					pList2 = simple_list_newlist_gc(((VM *) pointer)->sState,pList);
+					simple_list_addstring_gc(((VM *) pointer)->sState,pList2,fdFile.cFileName);
 					if ( fdFile.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY ) {
-						simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,1);
+						simple_list_adddouble_gc(((VM *) pointer)->sState,pList2,1);
 					} else {
-						simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,0);
+						simple_list_adddouble_gc(((VM *) pointer)->sState,pList2,0);
 					}
 				}
 			} while (FindNextFile(hFind, &fdFile))  ;
@@ -166,18 +166,18 @@ void simple_vm_file_dir ( void *pointer )
 		} else {
 			SIMPLE_API_ERROR(SIMPLE_API_BADDIRECTORY);
 		}
-		simple_string_delete_gc(((VM *) pPointer)->pSimpleState,pString);
+		simple_string_delete_gc(((VM *) pointer)->sState,pString);
 		#else
 		pDir = opendir(cStr);
 		if ( pDir != NULL ) {
 			while ( (pDirent = readdir(pDir)) ) {
-				pList2 = simple_list_newlist_gc(((VM *) pPointer)->pSimpleState,pList);
-				simple_list_addstring_gc(((VM *) pPointer)->pSimpleState,pList2,pDirent->d_name);
+				pList2 = simple_list_newlist_gc(((VM *) pointer)->sState,pList);
+				simple_list_addstring_gc(((VM *) pointer)->sState,pList2,pDirent->d_name);
 				stat(pDirent->d_name,&st);
 				if ( S_ISDIR(st.st_mode) ) {
-					simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,1);
+					simple_list_adddouble_gc(((VM *) pointer)->sState,pList2,1);
 				} else {
-					simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,0);
+					simple_list_adddouble_gc(((VM *) pointer)->sState,pList2,0);
 				}
 			}
 			closedir(pDir);
