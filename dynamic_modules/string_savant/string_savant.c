@@ -389,7 +389,7 @@ void string_last_string ( void *pointer )
 	} char *filename = (char*)calloc(1, sizeof(SIMPLE_API_ISSTRING(1)));
 	if ( SIMPLE_API_ISSTRING(1) && SIMPLE_API_ISSTRING(2) ) {
             filename = strrchr(SIMPLE_API_GETSTRING(1), SIMPLE_API_GETSTRING(2)) + 1;
-            printf("IN C : %s -> %s\n", SIMPLE_API_GETSTRING(2), filename);
+            //printf("IN C : %s -> %s\n", SIMPLE_API_GETSTRING(2), filename);
             SIMPLE_API_RETSTRING(filename);
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
