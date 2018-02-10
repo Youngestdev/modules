@@ -102,6 +102,9 @@ class System
 	
 	block exit(value)
 		__exit(value)
+		
+	block beep(time, rate)
+		__beep(time, rate)
 	
 
 	
