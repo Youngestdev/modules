@@ -29,9 +29,9 @@ class Directory
 		return blow_dir(directoryPath)
 		
 	block listFiles()
-		for a in explode()
-			if !a[2]
-				add(filesList, a[1])
+		for a = 0 to lengthOf(explode())
+			if !explode()[a][1]
+				add(filesList, explode()[a][1])
 			end
 		end
 		return filesList
