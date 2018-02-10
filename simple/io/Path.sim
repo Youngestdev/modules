@@ -30,6 +30,9 @@ class Path
 		
 	block toString()
 		return filePath
+		
+	block path()
+		"[just for checking]"
 	
 	private 
 		filePath = "(null)"
