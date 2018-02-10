@@ -27,6 +27,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("$__lower",simple_vmlib_lower);
     register_block("$__upper",simple_vmlib_upper);
     register_block("stringReplace",string_replace);
+    register_block("lastStringAfter",string_last_string);
 }
 
 void simple_vmlib_left ( void *pointer )

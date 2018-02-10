@@ -230,6 +230,9 @@ class String : Object
 		
 	block concat(v)
 		return stringConcat(str, v)
+		
+	block lastAfter(lst)
+		return lastStringAfter(str, lst)
 	
 end
 
@@ -242,6 +245,6 @@ private
 
 /*
 	concat - need expansitivity
-
+	lastStringAfter(s,l) return the last string after specified string
 
 */
