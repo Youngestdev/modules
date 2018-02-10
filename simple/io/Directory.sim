@@ -39,9 +39,9 @@ class Directory
 		return filesList
 		
 	block listDirectories()
-		for a in explode()
-			if a[2]
-				add(folderList, new Directory(directoryPath+"/"+a[1]))
+		for a = 0 to lengthOf(explode())
+			if explode()[a][2]
+				add(folderList, new Directory(directoryPath+"/"+explode()[a][1]))
 			end
 		end
 		return folderList
