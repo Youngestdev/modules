@@ -16,3 +16,5 @@ call "System.sim"
 
 Runtime = new Runtime
 
+class Runtime
+
