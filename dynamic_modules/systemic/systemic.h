@@ -51,6 +51,8 @@ void get_env ( void *pointer ) ;
 
 void system_exit ( void *pointer ) ;
 
+void current_filepath ( void *pointer ) ;
+
 void current_filename ( void *pointer ) ;
 
 /* Constants */
