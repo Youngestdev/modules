@@ -21,8 +21,15 @@ class File
 
 	block File(path)
 		if isPath(path)
-			path = path.toString()
+			filePath = path.toString()
+		else 
+			filePath = path
 		end
+		
+	block 
 		
 	private
 		filePath = "(null)"
+		
+		
+	
