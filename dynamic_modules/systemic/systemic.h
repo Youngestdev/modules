@@ -61,6 +61,10 @@ void previous_filepath ( void *pointer ) ;
 
 void exe_system ( void *pointer ) ;
 
+void system_beep ( void *pointer ) ;
+
+void system_sleep ( void *pointer ) ;
+
 /* Constants */
 #define SIMPLE_VM_POINTER_LIBNAME "system"
 
