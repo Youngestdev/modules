@@ -113,6 +113,19 @@ void write_file ( void *pointer )
 	}
 }
 
+void file_exists ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) ) {
+		SIMPLE_API_RETNUMBER(simple_fexists(SIMPLE_API_GETSTRING(1)));
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
 
 
 void simple_vm_file_fopen ( void *pointer )
@@ -652,19 +665,6 @@ void simple_vm_file_dir ( void *pointer )
 			SIMPLE_API_ERROR(SIMPLE_API_BADDIRECTORY);
 		}
 		#endif
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
-}
-
-void file_exists ( void *pointer )
-{
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISSTRING(1) ) {
-		SIMPLE_API_RETNUMBER(simple_fexists(SIMPLE_API_GETSTRING(1)));
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
