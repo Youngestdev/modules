@@ -25,6 +25,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__exists",file_exists);
     register_block("__rename",file_rename);
     register_block("__delete",file_delete);
+    register_block("blow_dir",file_delete);
 }
 
 void read_file ( void *pointer )
