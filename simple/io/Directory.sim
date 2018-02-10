@@ -24,11 +24,6 @@ class Directory
 			directoryPath = path
 		end
 		directoryPath = curePathSlashes(directoryPath)
-		
-	block explode()
-		return blow_dir(directoryPath)
-		
-	block listFiles()
 		count = 0 
 		for a in explode()
 			if !a[2]
@@ -36,7 +31,12 @@ class Directory
 				count++
 			end
 		end
-		display "LEN : "+count
+		
+	block explode()
+		return blow_dir(directoryPath)
+		
+	block listFiles()
+		
 		return filesList
 		
 	block listDirectories()
