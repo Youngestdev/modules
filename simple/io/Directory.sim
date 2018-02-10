@@ -55,7 +55,8 @@ class Directory
 		return directoryPath
 		
 	block parentDirectory()
-		
+		tRemove = lastStringAfterChar(directoryPath, "/")
+		return removeString(filePath, "/"+tRemove)
 	
 	private
 		directoryPath = ""
