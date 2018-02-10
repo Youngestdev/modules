@@ -29,11 +29,11 @@ class Directory
 		return blow_dir(directoryPath)
 		
 	block listFiles()
-		count = 0 
-		for a in explode()
-			if !a[2]
-				add(filesList, new File(directoryPath+"/"+a[1]))
-				count++
+		eDir = explode()
+		for a = 0 to lengthOf(eDir)
+			if !eDir[a][2]
+				nFile = new File(directoryPath+"/"+eDir[a][1])
+				add(filesList, nFile)
 			end
 		end
 		return filesList
