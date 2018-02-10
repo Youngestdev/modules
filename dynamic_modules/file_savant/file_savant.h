@@ -19,7 +19,19 @@
 extern "C" {
 #endif
 
-
+/* Constants */
+#define SIMPLE_VM_FILE_BUFFERSIZE "Buffer size must be >= 1"
+#define SIMPLE_VM_POINTER_FILE "file"
+#define SIMPLE_VM_POINTER_FILEPOS "filepos"
+#define SIMPLE_API_BADDIRECTORY "Error, Couldn't open the directory"
+/* Data */
+typedef union Simple_uData {
+	int iNumber  ;
+	float fNumber  ;
+	double dNumber  ;
+	char cBytes[4]  ;
+	char cBytesDouble[8]  ;
+} Simple_uData ;
 
 #ifdef __cplusplus
 }
