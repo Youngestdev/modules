@@ -30,8 +30,8 @@ class Directory
 		
 	block listFiles()
 		for a = 0 to lengthOf(explode())
-			if !explode()[a][2]
-				add(filesList, explode()[a][-1])
+			if !explode()[a][1]
+				add(filesList, explode()[a][2])
 			end
 		end
 		return filesList
