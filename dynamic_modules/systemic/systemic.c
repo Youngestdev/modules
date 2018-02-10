@@ -272,11 +272,11 @@ void system_beep ( void *pointer )
         return ;
     }
     if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) ) {
-       #ifdef _WIN32
-	Beep(SIMPLE_API_GETNUMBER(1), SIMPLE_API_GETNUMBER(2));
-	#else
-	_beep(SIMPLE_API_GETNUMBER(1), SIMPLE_API_GETNUMBER(2));
-	#endif
+        #ifdef _WIN32
+        Beep(SIMPLE_API_GETNUMBER(1), SIMPLE_API_GETNUMBER(2));
+        #else
+        _beep(SIMPLE_API_GETNUMBER(1), SIMPLE_API_GETNUMBER(2));
+        #endif
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
     }
