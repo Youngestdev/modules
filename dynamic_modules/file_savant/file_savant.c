@@ -56,6 +56,65 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     //simple_vm_funcregister("bytes2double",simple_vm_file_bytes2double);
 }
 
+void read_file ( void *pointer )
+{
+	FILE *fp  ;
+	long int nSize  ;
+	char *cBuffer  ;
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) ) {
+		fp = fopen(SIMPLE_API_GETSTRING(1) , "rb" );
+		if ( fp == NULL ) {
+			SIMPLE_API_ERROR(SIMPLE_VM_ERROR_CANTOPENFILE);
+			return ;
+		}
+		fseek( fp , 0 , SEEK_END );
+		nSize = ftell(fp);
+		fseek( fp , 0 , SEEK_SET );
+		cBuffer = (char *) simple_state_malloc(((VM *) pointer)->sState,nSize);
+		if ( cBuffer == NULL ) {
+			SIMPLE_API_ERROR(SIMPLE_OOM);
+			return ;
+		}
+		fread( cBuffer , 1 , nSize , fp );
+		fclose( fp ) ;
+		SIMPLE_API_RETSTRING2(cBuffer,nSize);
+		simple_state_free(((VM *) pointer)->sState,cBuffer);
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+void write_file ( void *pointer )
+{
+	FILE *fp  ;
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) ) {
+		if ( SIMPLE_API_ISSTRING(2) ) {
+			fp = fopen(SIMPLE_API_GETSTRING(1) , "w+b" );
+			if ( fp == NULL ) {
+				SIMPLE_API_ERROR(SIMPLE_VM_ERROR_CANTOPENFILE);
+				return ;
+			}
+			fwrite( SIMPLE_API_GETSTRING(2) , SIMPLE_API_GETSTRINGSIZE(2) , 1 , fp );
+			fclose( fp ) ;
+		} else {
+			SIMPLE_API_ERROR("Error in second parameter, Function requires string !");
+			return ;
+		}
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+
+
 void simple_vm_file_fopen ( void *pointer )
 {
 	FILE *fp  ;
@@ -593,63 +652,6 @@ void simple_vm_file_dir ( void *pointer )
 			SIMPLE_API_ERROR(SIMPLE_API_BADDIRECTORY);
 		}
 		#endif
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
-}
-
-void read_file ( void *pointer )
-{
-	FILE *fp  ;
-	long int nSize  ;
-	char *cBuffer  ;
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISSTRING(1) ) {
-		fp = fopen(SIMPLE_API_GETSTRING(1) , "rb" );
-		if ( fp == NULL ) {
-			SIMPLE_API_ERROR(SIMPLE_VM_ERROR_CANTOPENFILE);
-			return ;
-		}
-		fseek( fp , 0 , SEEK_END );
-		nSize = ftell(fp);
-		fseek( fp , 0 , SEEK_SET );
-		cBuffer = (char *) simple_state_malloc(((VM *) pointer)->sState,nSize);
-		if ( cBuffer == NULL ) {
-			SIMPLE_API_ERROR(SIMPLE_OOM);
-			return ;
-		}
-		fread( cBuffer , 1 , nSize , fp );
-		fclose( fp ) ;
-		SIMPLE_API_RETSTRING2(cBuffer,nSize);
-		simple_state_free(((VM *) pointer)->sState,cBuffer);
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
-}
-
-void simple_vm_file_write ( void *pointer )
-{
-	FILE *fp  ;
-	if ( SIMPLE_API_PARACOUNT != 2 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISSTRING(1) ) {
-		if ( SIMPLE_API_ISSTRING(2) ) {
-			fp = fopen(SIMPLE_API_GETSTRING(1) , "w+b" );
-			if ( fp == NULL ) {
-				SIMPLE_API_ERROR(SIMPLE_VM_ERROR_CANTOPENFILE);
-				return ;
-			}
-			fwrite( SIMPLE_API_GETSTRING(2) , SIMPLE_API_GETSTRINGSIZE(2) , 1 , fp );
-			fclose( fp ) ;
-		} else {
-			SIMPLE_API_ERROR("Error in second parameter, Function requires string !");
-			return ;
-		}
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
