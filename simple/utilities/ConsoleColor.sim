@@ -12,6 +12,11 @@
  
 module simple.utilities
 
-class ConsoleColor
+call "simple/core/DynamicLoader.sim" ? simple.core
+callModule("dynamic_modules\consoler\dist\Debug\MinGW-Windows\consoler.dll")
 
-	YELLOW = 0
+ConsoleColor = new ConsoleColor
+
+class ConsoleColor
+	
+	getYELLOW()
