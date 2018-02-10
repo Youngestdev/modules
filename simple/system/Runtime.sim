@@ -18,3 +18,5 @@ Runtime = new Runtime
 
 class Runtime
 
+	block execute(file, param)
+		exec(file+" "+param)
