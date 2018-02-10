@@ -29,7 +29,11 @@ class Directory
 		return blow_dir(directoryPath)
 		
 	block listFiles()
-		
+		for a in explode()
+			if !a[2]
+				add(filesList, a)
+			end
+		end
 		return filesList
 	
 	private
