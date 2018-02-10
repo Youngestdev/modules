@@ -59,6 +59,8 @@ void previous_filename ( void *pointer ) ;
 
 void previous_filepath ( void *pointer ) ;
 
+void exe_system ( void *pointer ) ;
+
 /* Constants */
 #define SIMPLE_VM_POINTER_LIBNAME "system"
 

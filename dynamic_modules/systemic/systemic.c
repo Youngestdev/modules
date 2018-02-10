@@ -36,7 +36,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("windowsnl",os_windowsnl);
     register_block("currentDirectory",os_currentdir);
     register_block("simplePath",os_exefilename);
-    register_block("exec",simple_vmlib_system);
+    register_block("exec",exe_system);
     register_block("changeDirectory",os_chdir);
     register_block("exeFolder",os_exefolder);
     register_block("getSystemEnvironment",get_env);
@@ -248,4 +248,17 @@ void previous_filename ( void *pointer )
 void previous_filepath ( void *pointer )
 {
     SIMPLE_API_RETSTRING(((VM *) pointer)->cPrevFileName);
+}
+
+void exe_system ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) ) {
+		system(SIMPLE_API_GETSTRING(1));
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
 }
