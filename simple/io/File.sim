@@ -29,7 +29,7 @@ class File
 		return filePath
 		
 	block name()
-		return kill(filePath, "thecarisma")
+		return stringAfter(filePath, "thecarisma")
 		
 		
 	block readFileAsString()
