@@ -46,7 +46,6 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     //simple_vm_funcregister("fread",simple_vm_file_fread);
     //simple_vm_funcregister("fwrite",simple_vm_file_fwrite);
     //simple_vm_funcregister("dir",simple_vm_file_dir);
-    //simple_vm_funcregister("write",simple_vm_file_write);
     //simple_vm_funcregister("fexists",simple_vm_file_fexists);
     //simple_vm_funcregister("int2bytes",simple_vm_file_int2bytes);
     //simple_vm_funcregister("float2bytes",simple_vm_file_float2bytes);

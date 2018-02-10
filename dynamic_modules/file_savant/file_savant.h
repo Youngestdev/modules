@@ -21,6 +21,8 @@ extern "C" {
     
 void read_file ( void *pointer ) ;
 
+void write_file ( void *pointer ) ;
+
 /* Constants */
 #define SIMPLE_VM_FILE_BUFFERSIZE "Buffer size must be >= 1"
 #define SIMPLE_VM_POINTER_FILE "file"
