@@ -34,6 +34,7 @@ class Directory
 				add(filesList, new File(directoryPath+"/"+a[1]))
 			end
 		end
+		display "LEN : "+lengthOf(filesList)
 		return filesList
 		
 	block listDirectories()
