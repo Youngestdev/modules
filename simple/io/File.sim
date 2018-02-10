@@ -29,7 +29,7 @@ class File
 		return filePath
 		
 	block name()
-		return lastAfterChar(filePath, "/")
+		return lastStringAfter(filePath, "/")
 		
 		
 	block readFileAsString()
