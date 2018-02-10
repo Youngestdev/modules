@@ -17,8 +17,6 @@ call "File.sim"
 
 class Directory
 
-	directoryPath = ""
-
 	block Directory(path)
 		if isPath(path)
 			directoryPath = path.toString()
@@ -26,39 +24,32 @@ class Directory
 			directoryPath = path
 		end
 		directoryPath = curePathSlashes(directoryPath)
-		countFiles() countFolders()
 		
 	block explode()
 		return blow_dir(directoryPath)
 		
 	block listFiles()
+		count = 0 
+		for a in explode()
+			if !a[2]
+				add(filesList, new File(directoryPath+"/"+a[1]))
+				count++
+			end
+		end
 		return filesList
 		
 	block listDirectories()
+		for a in explode()
+			if a[2]
+				add(folderList, new Directory(directoryPath+"/"+a[1]))
+			end
+		end
 		return folderList
 		
 	block toString()
 		return directoryPath
 	
 	private
+		directoryPath = ""
 		filesList = []
 		folderList = []
-		
-		block countFiles()
-			for a in explode()
-				if !a[2]
-					add(filesList, new File(directoryPath+"/"+a[1]))
-				end
-			end
-			
-		block countFolders()
-			for a in explode()
-				if a[2]
-					aDir = new Directory(directoryPath+"/"+a[1])
-					add(folderList, aDir)
-				end
-			end
-		
-		
-			
-			
