@@ -41,6 +41,7 @@ class Directory
 	block listDirectories()
 		for a = 0 to lengthOf(explode())
 			if explode()[a][2]
+				display explode()[a][2]+" "
 				add(folderList, new Directory(directoryPath+"/"+explode()[a][1]))
 			end
 		end
