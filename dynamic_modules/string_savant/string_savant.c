@@ -369,7 +369,7 @@ void string_replace ( void *pointer )
 		return ;
 	} char *filename = (char*)calloc(1, sizeof(KB_BYTE_SIZE));
 	if ( SIMPLE_API_ISSTRING(1) && SIMPLE_API_ISSTRING(2) && SIMPLE_API_ISSTRING(3) ) {
-            if (strstr(SIMPLE_API_ISSTRING(1), SIMPLE_API_ISSTRING(2)) != NULL ) {
+            if (strstr(SIMPLE_API_ISSTRING(1), SIMPLE_API_ISSTRING(2)) != NULL ) { 
                 filename = (strrchr(SIMPLE_API_ISSTRING(1), SIMPLE_API_ISSTRING(2)));
             } else {
                 filename = (strrchr(SIMPLE_API_ISSTRING(1), SIMPLE_API_ISSTRING(3)));
