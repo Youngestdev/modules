@@ -20,8 +20,6 @@ class File
 	block File(path)
 		init(path) 
 		
-	block File()
-		
 	block init(path)
 		#if isPath(path)
 		#	filePath = path.toString()
