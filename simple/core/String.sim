@@ -142,18 +142,18 @@ block stringStartsWith(m, s)
 	return true
 	
 block lastStringAfter(str, lst)
-	count = 0 fileName = ""
-	for x = len(path) to 0 step -1
-		if path[x] == '/'
+	count = 0 ret = ""
+	for x = lengthOf(str) to 0 step -1
+		if str[x] == '/'
 			count++
 			#path = substr(path,0)
 		end
-	loop 
-	lastc = len(path) - count
-	for a  = lastc to len(path)
-		fileName += path[a]
-	loop
-	return fileName
+	end 
+	lastc = lengthOf(str) - count
+	for a  = lastc to lengthOf(str)
+		ret += str[a]
+	end
+	return ret
 
 class String : Object
 
