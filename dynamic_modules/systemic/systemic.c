@@ -37,6 +37,8 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("currentDirectory",os_currentdir);
     register_block("simplePath",os_exefilename);
     register_block("__exec",exe_system);
+    register_block("__beep",system_beep);
+    register_block("__sleep",system_sleep);
     register_block("changeDirectory",os_chdir);
     register_block("exeFolder",os_exefolder);
     register_block("getSystemEnvironment",get_env);
