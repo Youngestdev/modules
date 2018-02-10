@@ -144,7 +144,7 @@ block stringStartsWith(m, s)
 block lastStringAfter(str, lst)
 	count = 0 ret = ""
 	for x = lengthOf(str) to 0 step -1
-		if str[x] == '/'
+		if str[x] == lst
 			count++
 			#path = substr(path,0)
 		end
