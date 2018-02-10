@@ -26,10 +26,6 @@ FREEBSD_SYSTEM = "Free BSD"
 ANDROID_SYSTEM = "Android"
 UNKNOWN_SYETEM = "Unknown System"
 
-System = new System
-
-class System
-
 block getOS()
 	if isMsDos()
 		return MS_DOS_SYSTEM
@@ -97,10 +93,11 @@ block isWindowNT()
 	end 
 	return false
 	
-block exit(value)
-	__exit__
+class System
 	
-
+	block exit(value)
+		__exit__
+	
 
 	
 /*
