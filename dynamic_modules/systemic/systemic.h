@@ -55,6 +55,10 @@ void current_filepath ( void *pointer ) ;
 
 void current_filename ( void *pointer ) ;
 
+void previous_filename ( void *pointer ) ;
+
+void previous_filepath ( void *pointer ) ;
+
 /* Constants */
 #define SIMPLE_VM_POINTER_LIBNAME "system"
 

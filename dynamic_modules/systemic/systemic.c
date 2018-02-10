@@ -241,10 +241,10 @@ void current_filename ( void *pointer )
 
 void previous_filename ( void *pointer )
 {
-    SIMPLE_API_RETSTRING(((VM *) pointer)->cPrevFileName);
+    SIMPLE_API_RETSTRING(file_real_name(((VM *) pointer)->cPrevFileName));
 }
 
-void previous_filename ( void *pointer )
+void previous_filepath ( void *pointer )
 {
     SIMPLE_API_RETSTRING(((VM *) pointer)->cPrevFileName);
 }
