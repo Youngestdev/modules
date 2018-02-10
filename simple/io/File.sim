@@ -12,7 +12,6 @@
  
 module simple.io
 
-call "simple/core/String.sim"
 call "Path.sim"
 
 FILE_DOES_NOT_EXIST = "The file does not exist"
