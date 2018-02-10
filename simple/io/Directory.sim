@@ -17,6 +17,12 @@ call "Path.sim"
 class Directory
 
 	block Directory(path)
+		if isPath(path)
+			directoryPath = path.toString()
+		else 
+			directoryPath = path
+		end
+		directoryPath = replaceString(directoryPath, "\\", "/")
 	
 	private
 		directoryPath = ""
