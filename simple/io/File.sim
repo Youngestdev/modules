@@ -18,14 +18,15 @@ callModule("dynamic_modules\file_savant\dist\Debug\MinGW-Windows\file_savant.dll
 class File 	
 
 	block File(path)
-		if isPath(path)
-			filePath = path.toString()
-		else 
-			filePath = path
-		end
+		#if isPath(path)
+		#	filePath = path.toString()
+		#else 
+			#filePath = path
+		#end
+		display path + crlf
 		
 	block getPath()
-		return filePath
+		return filePath + " Hello"
 		
 	block readFileAsString()
 		return readfile(filePath)
