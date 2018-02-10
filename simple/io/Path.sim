@@ -11,7 +11,11 @@
  */
  
 module simple.io
+
+call "simple/core/String.sim"
  
 class Path
 
+	block isPath(ipath)
+		if stringContains()
 	
