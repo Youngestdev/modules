@@ -15,9 +15,7 @@ module simple.io
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\mathic\dist\Debug\MinGW-Windows\file_savant.dll")
 
-class File 
-
-	
+class File 	
 
 	block File(path)
 		if isPath(path)
@@ -26,7 +24,8 @@ class File
 			filePath = path
 		end
 		
-	block 
+	block readFileAsString()
+		return readfile(filePath)
 		
 	private
 		filePath = "(null)"
