@@ -22,11 +22,13 @@ class File
 		else 
 			filePath = path
 		end
+		filePath = stringReplace()
 		
 	block absolutePath()
 		return filePath
 		
 	block name()
+		return getLastWordAfter(filePath, "\")
 		
 		
 	block readFileAsString()
