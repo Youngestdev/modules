@@ -40,6 +40,12 @@ class File
 	block readFileAsString()
 		return readfile(filePath)
 		
+	block write(content)
+		writefile(filePath, content)
+		
+	block writeInt(content)
+		writefile(filePath, content)
+		
 	private
 		filePath = "(null)"
 		
