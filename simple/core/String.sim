@@ -141,7 +141,7 @@ block stringStartsWith(m, s)
 	end
 	return true
 	
-block lastStringAfter(str, lst)
+block lastStringAfterChar(str, lst)
 	count = 0 ret = ""
 	for x = lengthOf(str) to 0 step -1
 		if str[x] == lst
@@ -155,7 +155,7 @@ block lastStringAfter(str, lst)
 	end
 	return ret
 	
-block kill(str, lst)
+block lastStringAfter(str, lst)
 	lstl = substr(str, lst)
 	
 	display "LENGTH OF LST : "+lstl
@@ -251,8 +251,8 @@ class String : Object
 	block concat(v)
 		return stringConcat(str, v)
 		
-	block lastAfter(lst)
-		return lastStringAfter(str, lst)
+	block lastAfterChar(lst)
+		return lastStringAfterChar(str, lst)
 	
 end
 
