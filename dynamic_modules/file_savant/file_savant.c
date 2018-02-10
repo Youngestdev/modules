@@ -24,7 +24,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("writefile",write_file);
     register_block("__exists",file_exists);
     register_block("__rename",file_rename);
-    register_block("__remove",file_remove);
+    register_block("__delete",file_delete);
     //simple_vm_funcregister("fopen",simple_vm_file_fopen);
     //simple_vm_funcregister("fclose",simple_vm_file_fclose);
     //simple_vm_funcregister("fflush",simple_vm_file_fflush);
@@ -139,7 +139,7 @@ void file_rename ( void *pointer )
 	}
 }
 
-void file_remove ( void *pointer )
+void file_delete ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
