@@ -23,6 +23,9 @@ class Directory
 			directoryPath = path
 		end
 		directoryPath = replaceString(directoryPath, "\\", "/")
+		
+	block explode()
+		return blow_dir(directoryPath)
 	
 	private
 		directoryPath = ""
