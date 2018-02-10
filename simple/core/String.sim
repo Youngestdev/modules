@@ -151,7 +151,7 @@ block lastStringAfter(str, lst)
 		end
 	end display crlf
 	lastc = lengthOf(str) - count
-	for a  = lastc to lengthOf(str)
+	for a  = count to lengthOf(str) step -1
 		ret += str[a]
 	end
 	return ret
