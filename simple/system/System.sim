@@ -72,7 +72,7 @@ block systemDirectory()
 	return getSystemEnvironment("SYSTEM_DIR")
 	
 block systemVersion()
-	return getSystemEnvironment("VERSION")
+	return getSystemEnvironment("OSVERSION")
 	
 block systemUser()	
 	return getSystemEnvironment("USERNAME")
