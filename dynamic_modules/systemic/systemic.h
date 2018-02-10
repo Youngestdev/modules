@@ -49,6 +49,8 @@ void os_exefolder ( void *pointer ) ;
 
 void get_env ( void *pointer ) ;
 
+void system_exit ( void *pointer ) ;
+
 /* Constants */
 #define SIMPLE_VM_POINTER_LIBNAME "system"
 

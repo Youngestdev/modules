@@ -39,7 +39,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("changeDirectory",os_chdir);
     register_block("exeFolder",os_exefolder);
     register_block("getSystemEnvironment",get_env);
-    register_block("exit",system_exit);
+    register_block("_exit",system_exit);
 }
 
 void os_ismsdos ( void *pointer )
@@ -167,4 +167,15 @@ void get_env ( void *pointer )
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
+}
+
+void system_exit ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT == 1 ) {
+		if ( SIMPLE_API_ISNUMBER(1) ) {
+			exit(SIMPLE_API_GETNUMBER(1));
+			return ;
+		}
+	}
+	exit(0);
 }
