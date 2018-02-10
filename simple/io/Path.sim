@@ -25,5 +25,8 @@ block isPath(ipath)
  
 class Path
 
+	block Path(ipath)
 	
+	private 
+		filePath = "(null)"
 	

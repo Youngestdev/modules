@@ -23,7 +23,7 @@ class File
 			filePath = path
 		end
 		
-	block getPath()
+	block getAbsolutePath()
 		return filePath 
 		
 	block readFileAsString()
