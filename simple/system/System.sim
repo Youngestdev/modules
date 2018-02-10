@@ -105,6 +105,9 @@ class System
 		
 	block beep(time, rate)
 		__beep(time, rate)
+		
+	block sleep(length)
+		__sleep(length)
 	
 
 	

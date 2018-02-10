@@ -285,7 +285,7 @@ void system_sleep ( void *pointer )
 		return ;
 	}
 	if ( SIMPLE_API_ISNUMBER(1) ) {
-		_sleep(SIMPLE_API_GETNUMBER(1));
+		Sleep(SIMPLE_API_GETNUMBER(1));
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
