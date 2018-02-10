@@ -17,5 +17,12 @@ callModule("dynamic_modules\mathic\dist\Debug\MinGW-Windows\file_savant.dll")
 
 class File 
 
-	block File(path)
+	
 
+	block File(path)
+		if isPath(path)
+			path = path.toString()
+		end
+		
+	private
+		filePath = "(null)"
