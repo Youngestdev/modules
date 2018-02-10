@@ -124,7 +124,7 @@ void file_delete ( void *pointer )
 	}
 }
 
-void simple_vm_file_dir ( void *pointer )
+void blow_directory ( void *pointer )
 {
 	const char *cStr  ;
 	List *pList, *pList2  ;
