@@ -56,7 +56,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     //simple_vm_funcregister("bytes2double",simple_vm_file_bytes2double);
 }
 
-void simple_vm_file_fopen ( void *pPointer )
+void simple_vm_file_fopen ( void *pointer )
 {
 	FILE *fp  ;
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
@@ -71,7 +71,7 @@ void simple_vm_file_fopen ( void *pPointer )
 	}
 }
 
-void simple_vm_file_fclose ( void *pPointer )
+void simple_vm_file_fclose ( void *pointer )
 {
 	FILE *fp  ;
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
@@ -89,7 +89,7 @@ void simple_vm_file_fclose ( void *pPointer )
 	}
 }
 
-void simple_vm_file_fflush ( void *pPointer )
+void simple_vm_file_fflush ( void *pointer )
 {
 	FILE *fp  ;
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
@@ -106,7 +106,7 @@ void simple_vm_file_fflush ( void *pPointer )
 	}
 }
 
-void simple_vm_file_freopen ( void *pPointer )
+void simple_vm_file_freopen ( void *pointer )
 {
 	FILE *fp  ;
 	FILE *fp2  ;
@@ -125,14 +125,14 @@ void simple_vm_file_freopen ( void *pPointer )
 	}
 }
 
-void simple_vm_file_tempfile ( void *pPointer )
+void simple_vm_file_tempfile ( void *pointer )
 {
 	FILE *fp  ;
 	fp = tmpfile();
 	SIMPLE_API_RETCPOINTER(fp,SIMPLE_VM_POINTER_FILE);
 }
 
-void simple_vm_file_tempname ( void *pPointer )
+void simple_vm_file_tempname ( void *pointer )
 {
 	#ifdef _WIN32
 	/* Windows */
@@ -155,7 +155,7 @@ void simple_vm_file_tempname ( void *pPointer )
 	#endif
 }
 
-void simple_vm_file_fseek ( void *pPointer )
+void simple_vm_file_fseek ( void *pointer )
 {
 	int nResult  ;
 	FILE *fp  ;
@@ -174,7 +174,7 @@ void simple_vm_file_fseek ( void *pPointer )
 	}
 }
 
-void simple_vm_file_ftell ( void *pPointer )
+void simple_vm_file_ftell ( void *pointer )
 {
 	FILE *fp  ;
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
@@ -191,7 +191,7 @@ void simple_vm_file_ftell ( void *pPointer )
 	}
 }
 
-void simple_vm_file_rewind ( void *pPointer )
+void simple_vm_file_rewind ( void *pointer )
 {
 	FILE *fp  ;
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
@@ -208,7 +208,7 @@ void simple_vm_file_rewind ( void *pPointer )
 	}
 }
 
-void simple_vm_file_fgetpos ( void *pPointer )
+void simple_vm_file_fgetpos ( void *pointer )
 {
 	fpos_t *pos  ;
 	int nResult  ;
@@ -233,7 +233,7 @@ void simple_vm_file_fgetpos ( void *pPointer )
 	}
 }
 
-void simple_vm_file_fsetpos ( void *pPointer )
+void simple_vm_file_fsetpos ( void *pointer )
 {
 	int nResult  ;
 	FILE *fp  ;
@@ -254,7 +254,7 @@ void simple_vm_file_fsetpos ( void *pPointer )
 	}
 }
 
-void simple_vm_file_clearerr ( void *pPointer )
+void simple_vm_file_clearerr ( void *pointer )
 {
 	FILE *fp  ;
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
@@ -271,7 +271,7 @@ void simple_vm_file_clearerr ( void *pPointer )
 	}
 }
 
-void simple_vm_file_feof ( void *pPointer )
+void simple_vm_file_feof ( void *pointer )
 {
 	FILE *fp  ;
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
@@ -288,7 +288,7 @@ void simple_vm_file_feof ( void *pPointer )
 	}
 }
 
-void simple_vm_file_ferror ( void *pPointer )
+void simple_vm_file_ferror ( void *pointer )
 {
 	FILE *fp  ;
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
@@ -305,7 +305,7 @@ void simple_vm_file_ferror ( void *pPointer )
 	}
 }
 
-void simple_vm_file_perror ( void *pPointer )
+void simple_vm_file_perror ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -318,7 +318,7 @@ void simple_vm_file_perror ( void *pPointer )
 	}
 }
 
-void simple_vm_file_rename ( void *pPointer )
+void simple_vm_file_rename ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
@@ -331,7 +331,7 @@ void simple_vm_file_rename ( void *pPointer )
 	}
 }
 
-void simple_vm_file_remove ( void *pPointer )
+void simple_vm_file_remove ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
@@ -344,7 +344,7 @@ void simple_vm_file_remove ( void *pPointer )
 	}
 }
 
-void simple_vm_file_fgetc ( void *pPointer )
+void simple_vm_file_fgetc ( void *pointer )
 {
 	int c  ;
 	char cStr[2]  ;
@@ -370,7 +370,7 @@ void simple_vm_file_fgetc ( void *pPointer )
 	}
 }
 
-void simple_vm_file_fgets ( void *pPointer )
+void simple_vm_file_fgets ( void *pointer )
 {
 	char *cStr  ;
 	int nSize  ;
@@ -389,7 +389,7 @@ void simple_vm_file_fgets ( void *pPointer )
 				return ;
 			}
 			nSize++ ;
-			cStr = (char *) simple_state_malloc(((VM *) pPointer)->pSimpleState,nSize);
+			cStr = (char *) simple_state_malloc(((VM *) pointer)->sState,nSize);
 			if ( cStr == NULL ) {
 				SIMPLE_API_ERROR(SIMPLE_OOM);
 				return ;
@@ -400,14 +400,14 @@ void simple_vm_file_fgets ( void *pPointer )
 			} else {
 				SIMPLE_API_RETNUMBER(0);
 			}
-			simple_state_free(((VM *) pPointer)->pSimpleState,cStr);
+			simple_state_free(((VM *) pointer)->sState,cStr);
 		}
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
 }
 
-void simple_vm_file_fputc ( void *pPointer )
+void simple_vm_file_fputc ( void *pointer )
 {
 	int c  ;
 	FILE *fp  ;
@@ -430,7 +430,7 @@ void simple_vm_file_fputc ( void *pPointer )
 	}
 }
 
-void simple_vm_file_fputs ( void *pPointer )
+void simple_vm_file_fputs ( void *pointer )
 {
 	int c  ;
 	FILE *fp  ;
@@ -453,7 +453,7 @@ void simple_vm_file_fputs ( void *pPointer )
 	}
 }
 
-void simple_vm_file_ungetc ( void *pPointer )
+void simple_vm_file_ungetc ( void *pointer )
 {
 	int c  ;
 	FILE *fp  ;
@@ -476,7 +476,7 @@ void simple_vm_file_ungetc ( void *pPointer )
 	}
 }
 
-void simple_vm_file_fread ( void *pPointer )
+void simple_vm_file_fread ( void *pointer )
 {
 	char *cStr  ;
 	int nSize  ;
@@ -494,7 +494,7 @@ void simple_vm_file_fread ( void *pPointer )
 				SIMPLE_API_ERROR(SIMPLE_VM_FILE_BUFFERSIZE);
 				return ;
 			}
-			cStr = (char *) simple_state_malloc(((VM *) pPointer)->pSimpleState,nSize);
+			cStr = (char *) simple_state_malloc(((VM *) pointer)->sState,nSize);
 			if ( cStr == NULL ) {
 				SIMPLE_API_ERROR(SIMPLE_OOM);
 				return ;
@@ -505,14 +505,14 @@ void simple_vm_file_fread ( void *pPointer )
 			} else {
 				SIMPLE_API_RETSTRING2(cStr,nResult);
 			}
-			simple_state_free(((VM *) pPointer)->pSimpleState,cStr);
+			simple_state_free(((VM *) pointer)->sState,cStr);
 		}
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
 }
 
-void simple_vm_file_fwrite ( void *pPointer )
+void simple_vm_file_fwrite ( void *pointer )
 {
 	int nResult  ;
 	FILE *fp  ;
@@ -531,7 +531,7 @@ void simple_vm_file_fwrite ( void *pPointer )
 	}
 }
 
-void simple_vm_file_dir ( void *pPointer )
+void simple_vm_file_dir ( void *pointer )
 {
 	const char *cStr  ;
 	List *pList, *pList2  ;
@@ -554,18 +554,18 @@ void simple_vm_file_dir ( void *pPointer )
 		pList = SIMPLE_API_NEWLIST ;
 		#ifdef _WIN32
 		/* Windows Only */
-		pString = simple_string_new_gc(((VM *) pPointer)->pSimpleState,cStr);
-		simple_string_add_gc(((VM *) pPointer)->pSimpleState,pString,"\\*.*");
+		pString = simple_string_new_gc(((VM *) pointer)->sState,cStr);
+		simple_string_add_gc(((VM *) pointer)->sState,pString,"\\*.*");
 		cStr = simple_string_get(pString);
 		if ( ! ((hFind = FindFirstFile(cStr, &fdFile)) == INVALID_HANDLE_VALUE) ) {
 			do {
 				if ( strcmp(fdFile.cFileName, ".") != 0 && strcmp(fdFile.cFileName, "..") != 0 ) {
-					pList2 = simple_list_newlist_gc(((VM *) pPointer)->pSimpleState,pList);
-					simple_list_addstring_gc(((VM *) pPointer)->pSimpleState,pList2,fdFile.cFileName);
+					pList2 = simple_list_newlist_gc(((VM *) pointer)->sState,pList);
+					simple_list_addstring_gc(((VM *) pointer)->sState,pList2,fdFile.cFileName);
 					if ( fdFile.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY ) {
-						simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,1);
+						simple_list_adddouble_gc(((VM *) pointer)->sState,pList2,1);
 					} else {
-						simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,0);
+						simple_list_adddouble_gc(((VM *) pointer)->sState,pList2,0);
 					}
 				}
 			} while (FindNextFile(hFind, &fdFile))  ;
@@ -573,18 +573,18 @@ void simple_vm_file_dir ( void *pPointer )
 		} else {
 			SIMPLE_API_ERROR(SIMPLE_API_BADDIRECTORY);
 		}
-		simple_string_delete_gc(((VM *) pPointer)->pSimpleState,pString);
+		simple_string_delete_gc(((VM *) pointer)->sState,pString);
 		#else
 		pDir = opendir(cStr);
 		if ( pDir != NULL ) {
 			while ( (pDirent = readdir(pDir)) ) {
-				pList2 = simple_list_newlist_gc(((VM *) pPointer)->pSimpleState,pList);
-				simple_list_addstring_gc(((VM *) pPointer)->pSimpleState,pList2,pDirent->d_name);
+				pList2 = simple_list_newlist_gc(((VM *) pointer)->sState,pList);
+				simple_list_addstring_gc(((VM *) pointer)->sState,pList2,pDirent->d_name);
 				stat(pDirent->d_name,&st);
 				if ( S_ISDIR(st.st_mode) ) {
-					simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,1);
+					simple_list_adddouble_gc(((VM *) pointer)->sState,pList2,1);
 				} else {
-					simple_list_adddouble_gc(((VM *) pPointer)->pSimpleState,pList2,0);
+					simple_list_adddouble_gc(((VM *) pointer)->sState,pList2,0);
 				}
 			}
 			closedir(pDir);
@@ -598,7 +598,7 @@ void simple_vm_file_dir ( void *pPointer )
 	}
 }
 
-void simple_vm_file_read ( void *pPointer )
+void simple_vm_file_read ( void *pointer )
 {
 	FILE *fp  ;
 	long int nSize  ;
@@ -616,7 +616,7 @@ void simple_vm_file_read ( void *pPointer )
 		fseek( fp , 0 , SEEK_END );
 		nSize = ftell(fp);
 		fseek( fp , 0 , SEEK_SET );
-		cBuffer = (char *) simple_state_malloc(((VM *) pPointer)->pSimpleState,nSize);
+		cBuffer = (char *) simple_state_malloc(((VM *) pointer)->sState,nSize);
 		if ( cBuffer == NULL ) {
 			SIMPLE_API_ERROR(SIMPLE_OOM);
 			return ;
@@ -624,13 +624,13 @@ void simple_vm_file_read ( void *pPointer )
 		fread( cBuffer , 1 , nSize , fp );
 		fclose( fp ) ;
 		SIMPLE_API_RETSTRING2(cBuffer,nSize);
-		simple_state_free(((VM *) pPointer)->pSimpleState,cBuffer);
+		simple_state_free(((VM *) pointer)->sState,cBuffer);
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
 }
 
-void simple_vm_file_write ( void *pPointer )
+void simple_vm_file_write ( void *pointer )
 {
 	FILE *fp  ;
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
@@ -655,7 +655,7 @@ void simple_vm_file_write ( void *pPointer )
 	}
 }
 
-void simple_vm_file_fexists ( void *pPointer )
+void simple_vm_file_fexists ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -667,115 +667,3 @@ void simple_vm_file_fexists ( void *pPointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
 }
-/* Number & Bytes */
-
-void simple_vm_file_int2bytes ( void *pPointer )
-{
-	Simple_uData uData  ;
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISNUMBER(1) ) {
-		uData.iNumber = (int) SIMPLE_API_GETNUMBER(1) ;
-		SIMPLE_API_RETSTRING2(uData.cBytes,4);
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
-}
-
-void simple_vm_file_float2bytes ( void *pPointer )
-{
-	Simple_uData uData  ;
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISNUMBER(1) ) {
-		uData.fNumber = (float) SIMPLE_API_GETNUMBER(1) ;
-		SIMPLE_API_RETSTRING2(uData.cBytes,4);
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
-}
-
-void simple_vm_file_double2bytes ( void *pPointer )
-{
-	Simple_uData uData  ;
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISNUMBER(1) ) {
-		uData.dNumber = SIMPLE_API_GETNUMBER(1) ;
-		SIMPLE_API_RETSTRING2(uData.cBytesDouble,8);
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
-}
-
-void simple_vm_file_bytes2int ( void *pPointer )
-{
-	Simple_uData uData  ;
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISSTRING(1) ) {
-		if ( SIMPLE_API_GETSTRINGSIZE(1) == 4 ) {
-			uData.cBytes[0] = SIMPLE_API_GETSTRING(1)[0] ;
-			uData.cBytes[1] = SIMPLE_API_GETSTRING(1)[1] ;
-			uData.cBytes[2] = SIMPLE_API_GETSTRING(1)[2] ;
-			uData.cBytes[3] = SIMPLE_API_GETSTRING(1)[3] ;
-			SIMPLE_API_RETNUMBER((double) uData.iNumber);
-			return ;
-		}
-	}
-	SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-}
-
-void simple_vm_file_bytes2float ( void *pPointer )
-{
-	Simple_uData uData  ;
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISSTRING(1) ) {
-		if ( SIMPLE_API_GETSTRINGSIZE(1) == 4 ) {
-			uData.cBytes[0] = SIMPLE_API_GETSTRING(1)[0] ;
-			uData.cBytes[1] = SIMPLE_API_GETSTRING(1)[1] ;
-			uData.cBytes[2] = SIMPLE_API_GETSTRING(1)[2] ;
-			uData.cBytes[3] = SIMPLE_API_GETSTRING(1)[3] ;
-			SIMPLE_API_RETNUMBER((double) uData.fNumber);
-			return ;
-		}
-	}
-	SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-}
-
-void simple_vm_file_bytes2double ( void *pPointer )
-{
-	Simple_uData uData  ;
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISSTRING(1) ) {
-		if ( SIMPLE_API_GETSTRINGSIZE(1) == 8 ) {
-			uData.cBytesDouble[0] = SIMPLE_API_GETSTRING(1)[0] ;
-			uData.cBytesDouble[1] = SIMPLE_API_GETSTRING(1)[1] ;
-			uData.cBytesDouble[2] = SIMPLE_API_GETSTRING(1)[2] ;
-			uData.cBytesDouble[3] = SIMPLE_API_GETSTRING(1)[3] ;
-			uData.cBytesDouble[4] = SIMPLE_API_GETSTRING(1)[4] ;
-			uData.cBytesDouble[5] = SIMPLE_API_GETSTRING(1)[5] ;
-			uData.cBytesDouble[6] = SIMPLE_API_GETSTRING(1)[6] ;
-			uData.cBytesDouble[7] = SIMPLE_API_GETSTRING(1)[7] ;
-			SIMPLE_API_RETNUMBER(uData.dNumber);
-			return ;
-		}
-	}
-	SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-}
-
-
