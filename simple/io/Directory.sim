@@ -17,6 +17,8 @@ call "File.sim"
 
 class Directory
 
+	directoryPath = ""
+
 	block Directory(path)
 		if isPath(path)
 			directoryPath = path.toString()
@@ -36,7 +38,6 @@ class Directory
 		return folderList
 	
 	private
-		directoryPath = ""
 		filesList = []
 		folderList = []
 		
@@ -53,6 +54,7 @@ class Directory
 					add(folderList, new Directory(directoryPath+"/"+a[1]))
 				end
 			end
+		
 		
 			
 			
