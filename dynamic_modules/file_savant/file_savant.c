@@ -22,7 +22,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     //register_block("sin",math_sin);
     register_block("readfile",read_file);
     register_block("writefile",write_file);
-    register_block("_exists",file_exists);
+    register_block("__exists",file_exists);
     //simple_vm_funcregister("fopen",simple_vm_file_fopen);
     //simple_vm_funcregister("fclose",simple_vm_file_fclose);
     //simple_vm_funcregister("fflush",simple_vm_file_fflush);

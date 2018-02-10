@@ -40,15 +40,19 @@ class File
 		return new Path(filePath)
 		
 	block readFileAsString()
+		ensureExistence()
 		return readfile(filePath)
 		
 	block write(content)
+		ensureExistence()
 		writefile(filePath, content)
 		
 	block append(content)
+		ensureExistence()
 		writefile(filePath, readFileAsString()+""+content)
 		
 	block appendBoolean(content)
+		ensureExistence()
 		if content == true 
 			content = "true"
 		else 
