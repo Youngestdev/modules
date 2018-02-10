@@ -53,6 +53,9 @@ class Directory
 		
 	block toString()
 		return directoryPath
+		
+	block parentDirectory()
+		
 	
 	private
 		directoryPath = ""
