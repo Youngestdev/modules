@@ -267,8 +267,8 @@ void exe_system ( void *pointer )
 
 void system_beep ( void *pointer )
 {
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
 		return ;
 	}
 	if ( SIMPLE_API_ISNUMBER(1) ) {
