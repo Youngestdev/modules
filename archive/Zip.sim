@@ -1,0 +1,16 @@
+/* 
+	Copyright (c) 2016-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - Zip.sim
+ * #author - Azeez Adewale
+ * #date - 10 Febuary 2017
+ */
+ 
+module archive
+
+class Zip
+
