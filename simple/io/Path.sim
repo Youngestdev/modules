@@ -1,0 +1,17 @@
+/* 
+	Copyright (c) 2017-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - File.sim
+ * #author - Azeez Adewale
+ * #date - 10 Febuary 2017
+ */
+ 
+module simple.io
+ 
+class Path
+
+	
