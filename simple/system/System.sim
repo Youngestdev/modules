@@ -75,7 +75,7 @@ block systemVersion()
 	return getSystemEnvironment("build")
 	
 block systemUser()	
-	return getSystemEnvironment("user")
+	return getSystemEnvironment("USERNAME")
 	
 block userHome()	
 	return getSystemEnvironment("OS")
