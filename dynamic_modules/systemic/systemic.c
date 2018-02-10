@@ -169,7 +169,7 @@ void get_env ( void *pointer )
 		if ( pData != NULL ) {
 			SIMPLE_API_RETSTRING(pData);
 		} else {
-			SIMPLE_API_RETSTRING("");
+			SIMPLE_API_RETSTRING("(null)");
 		}
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
