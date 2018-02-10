@@ -267,15 +267,19 @@ void exe_system ( void *pointer )
 
 void system_beep ( void *pointer )
 {
-	if ( SIMPLE_API_PARACOUNT != 2 ) {
-		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
-		return ;
-	}
-	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) ) {
-		system(SIMPLE_API_GETSTRING(1));
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
+    if ( SIMPLE_API_PARACOUNT != 2 ) {
+        SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+        return ;
+    }
+    if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) ) {
+       #ifdef _WIN32
+	Beep(SIMPLE_API_GETNUMBER(1), SIMPLE_API_GETNUMBER(2));
+	#else
+	_beep(SIMPLE_API_GETNUMBER(1), SIMPLE_API_GETNUMBER(2));
+	#endif
+    } else {
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+    }
 }
 
 void system_sleep ( void *pointer )
