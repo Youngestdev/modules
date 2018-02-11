@@ -39,6 +39,6 @@ void print_with_foreground_background ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	cc_print(33,"");
+	cc_fprintf((int ) SIMPLE_API_GETNUMBER(1) | (int ) SIMPLE_API_GETNUMBER(2), stdout, SIMPLE_API_GETSTRING(3));
 }
 
