@@ -19,7 +19,21 @@ class Zip
 	#initialize the zip class with a constructor that accept zip path
 	block Zip(path)
 		zipPath = path
-		theZip = __open_zip(getPath(), ZIP_WRITE)
+		streamType = ZIP_WRITE
+		internalOpen()
+	
+	#get the typr of stream mode currently in use
+	block getMode()
+		if streamType == ZIP_WRITE
+			return "Write Mode"
+		elif streamType == ZIP_APPEND
+			return "Append Mode"
+		elif streamType == ZIP_READ
+			return "Read mode"
+		end
+		
+	block addFile()
+		
 	
 	#convert the zip path to typical Path Object
 	block toPath()
@@ -30,9 +44,10 @@ class Zip
 		return zipPath
 	
 	#open the zip stream with a custom mode
-	block openWithMode(mode)
+	block setMode(mode)
 		closeZip()
-		theZip = __open_zip(getPath(), mode)
+		streamType = mode
+		internalOpen()
 		
 	#close the zip stream	
 	block closeZip()
@@ -42,3 +57,6 @@ class Zip
 		zipPath = ""
 		theZip = null
 		streamType = ZIP_WRITE
+		
+		block internalOpen()
+			theZip = __open_zip(getPath(), streamType)
