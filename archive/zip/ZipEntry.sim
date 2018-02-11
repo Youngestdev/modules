@@ -17,7 +17,7 @@ call "archive/zip/Zip.sim"
 class ZipEntry
 
 	block ZipEntry(izipStream)
-		if !isZipStream() throw(NOT_ZIP_STREAM) end
+		if !isZipStream(izipStream) throw(NOT_ZIP_STREAM) end
 		zipStream = izipStream
 		
 	block open(entryPath)
