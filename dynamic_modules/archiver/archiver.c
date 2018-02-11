@@ -23,9 +23,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     /** ZIP **/
     register_block("__open_zip",open_zip_file);
     register_block("__open_zip_entry",open_zip_entry_file);
-    //register_block("__open_zip",open_zip_file);
-    //register_block("__open_zip",open_zip_file);
-    //register_block("__open_zip",open_zip_file);
+    register_block("__write_zip_entry",write_zip_entry_file);
     /** TAR **/
 }
 
