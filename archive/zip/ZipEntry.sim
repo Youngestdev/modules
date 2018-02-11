@@ -1,0 +1,30 @@
+/* 
+	Copyright (c) 2016-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - ZipEntry.sim
+ * #author - Azeez Adewale
+ * #date - 11 Febuary 2017
+ */
+ 
+module archive.zip
+
+call "archive/zip/Zip.sim" 
+
+class ZipEntry
+
+	block ZipEntry(izipStream)
+		if !isZipStream() throw(NOT_ZIP_STREAM) end
+		zipStream = izipStream
+		
+	block open(entryPath)
+		__open_zip_entry(zipStream, entryPath)
+		
+	
+		
+		
+	private
+		NOT_ZIP_STREAM = "A Zip Object/Class is required"
