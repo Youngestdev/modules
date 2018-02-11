@@ -32,16 +32,16 @@ class ConsoleColor
 	block BLACK()
 		return CONSOLE_COLOR_BLACK
 		
-	block DARK_RED()
+	block DARKRED()
 		return CONSOLE_COLOR_DARK_RED
 		
-	block DARK_GREEN()
+	block DARKGREEN()
 		return CONSOLE_COLOR_DARK_GREEN
 		
-	block DARK_BLUE()
+	block DARKBLUE()
 		return CONSOLE_COLOR_DARK_BLUE
 		
-	block DARK_MAGENTA()
+	block DARKMAGENTA()
 		return CONSOLE_COLOR_DARK_MAGENTA
 	
 	
