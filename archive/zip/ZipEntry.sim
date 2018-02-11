@@ -21,10 +21,20 @@ class ZipEntry
 		zipStream = izipStream
 		
 	block open(entryPath)
+		isEntryOpen = true
 		__open_zip_entry(zipStream, entryPath)
 		
-	
+	block writeFile(filePath)
+		__fwrite_zip_entry(zipStream, filePath)
 		
+	block getStream()
+		return zipStream
+		
+	block closeEntry()
+		__close_zip_entry(zipStream)
+		isEntryOpen = false		
 		
 	private
+		zipStream = null
+		isEntryOpen = false
 		NOT_ZIP_STREAM = "A Zip Object/Class is required"
