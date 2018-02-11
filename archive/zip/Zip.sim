@@ -34,9 +34,11 @@ class Zip
 		closeZip()
 		theZip = __open_zip(getPath(), mode)
 		
+	#close the zip stream	
 	block closeZip()
 		__close_zip(theZip)
 		
 	private
 		zipPath = ""
 		theZip = null
+		streamType = ZIP_WRITE

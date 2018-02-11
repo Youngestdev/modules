@@ -5,9 +5,9 @@
 */
 
 /* 
- * #filename - Zip.sim
+ * #filename - ZipMode.sim
  * #author - Azeez Adewale
- * #date - 10 Febuary 2017
+ * #date - 11 Febuary 2017
  */
  
 module archive.zip
@@ -17,3 +17,10 @@ callModule("dynamic_modules\archiver\dist\Debug\MinGW-Windows\archiver.dll")
 
 #zip mode for writing into the zip archive
 ZIP_WRITE = "w"
+
+#zip mode for appending new data into the zip archive
+ZIP_APPEND = "a"
+
+#zip mode for reading zip content into memory
+ZIP_READ = "r"
+
