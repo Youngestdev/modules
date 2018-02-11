@@ -62,6 +62,9 @@ class Console
 		read readContent
 		return readContent
 		
+	block setForeGround(color)
+		foregroundColor = color
+		
 	block printWithFG(color, content)
 		__printwfb(color, ConsoleColor.NONE(), content)
 		
@@ -71,7 +74,9 @@ class Console
 	block printWithFGBG(fcolor, bcolor, content)
 		__printwfb(fcolor, bcolor, content)
 	
-	
+	private 
+		foregroundColor = ConsoleColor.NONE()
+		backgroundColor = ConsoleColor.NONE()
 	
 	
 	
