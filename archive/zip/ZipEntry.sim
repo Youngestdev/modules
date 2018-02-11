@@ -25,10 +25,18 @@ class ZipEntry
 		__open_zip_entry(zipStream, entryPath)
 		
 	block writeFile(filePath)
+		if !isEntryOpen() throw(ZIP_STREAM_CLOSE) end
 		__fwrite_zip_entry(zipStream, filePath)
+		
+	block writeString(content)
+		if !isEntryOpen() throw(ZIP_STREAM_CLOSE) end
+		__write_zip_entry(zipStream, content)
 		
 	block getStream()
 		return zipStream
+		
+	block isEntryOpen()
+		return isEntryOpen
 		
 	block closeEntry()
 		__close_zip_entry(zipStream)
@@ -38,3 +46,9 @@ class ZipEntry
 		zipStream = null
 		isEntryOpen = false
 		NOT_ZIP_STREAM = "A Zip Object/Class is required"
+		ZIP_STREAM_CLOSE = "You need to open the entry before any operation"
+		
+		
+		
+		
+		
