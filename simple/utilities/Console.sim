@@ -70,9 +70,11 @@ class Console
 	block setBackground(color)
 		backgroundColor = color
 		
+	#prints the string in respect to the FG and BG colors
 	block colorPrint(content)
 		__printwfb(foregroundColor, backgroundColor, content)
-		
+	
+	#prints the string in respect to the FG and BG colors with new line
 	block colorPrintln(content)
 		__printwfb(foregroundColor, backgroundColor, content+crlf)
 		
