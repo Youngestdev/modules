@@ -20,15 +20,19 @@ $__clearLine = char(13)
 
 class Console 
 
+	#prints string content with new line
 	block println(content) 
 		print(content+crlf) 
-		
+	
+	#prints string content
 	block print(content)
 		display formatLiteral(content)
 	
+	#prints the string content in one line from start 'use with caution'
 	block printinLine(content)
 		print($__clearLine+content)
 		
+	#read input from the console  with a custom title
 	block readLine(title)
 		print(title) 
 		read readContent 
