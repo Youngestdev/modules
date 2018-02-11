@@ -92,3 +92,75 @@ void write_zip_entry_file ( void *pointer )
 	}
 	SIMPLE_API_RETNUMBER(zip_entry_write((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"),SIMPLE_API_GETSTRING(2), (int) SIMPLE_API_GETNUMBER(3)));
 }
+
+void fwrite_zip_entry_file ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+		return ;
+	}
+	SIMPLE_API_IGNORECPOINTERTYPE ;
+	if ( ! SIMPLE_API_ISPOINTER(1) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! SIMPLE_API_ISSTRING(2) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	SIMPLE_API_RETNUMBER(zip_entry_fwrite((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"ZIP_T"),SIMPLE_API_GETSTRING(2)));
+}
+
+void read_zip_entry_file ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS3PARA);
+		return ;
+	}
+	SIMPLE_API_IGNORECPOINTERTYPE ;
+	if ( ! SIMPLE_API_ISPOINTER(1) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! SIMPLE_API_ISPOINTER(2) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! SIMPLE_API_ISPOINTER(3) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	SIMPLE_API_RETNUMBER(zip_entry_read((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"ZIP_T"),(void *) SIMPLE_API_GETCPOINTER(2,"void"),(size_t *) SIMPLE_API_GETCPOINTER(3,"size_t")));
+}
+
+void fread_zip_entry_file ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+		return ;
+	}
+	SIMPLE_API_IGNORECPOINTERTYPE ;
+	if ( ! SIMPLE_API_ISPOINTER(1) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! SIMPLE_API_ISSTRING(2) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	SIMPLE_API_RETNUMBER(zip_entry_fread((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"ZIP_T"),SIMPLE_API_GETSTRING(2)));
+}
+
+void close_zip_entry_file ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+		return ;
+	}
+	SIMPLE_API_IGNORECPOINTERTYPE ;
+	if ( ! SIMPLE_API_ISPOINTER(1) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	SIMPLE_API_RETNUMBER(zip_entry_close((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"ZIP_T")));
+}
