@@ -34,10 +34,6 @@ ZIP_T *zip_openfile(const char *cFile, const char *cMode) {
     return zip_open(cFile, ZIP_DEFAULT_COMPRESSION_LEVEL, cMode[0]);
 }
 
-int zip_filescount(ZIP_T *pZip) {
-    return mz_zip_reader_get_num_files((mz_zip_archive *) pZip);
-}
-
 void open_zip_file ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
