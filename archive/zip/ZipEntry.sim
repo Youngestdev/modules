@@ -16,8 +16,8 @@ call "archive/zip/Zip.sim"
 
 class ZipEntry
 
-	block ZipEntry(izipStream)
-		if !isZipStream(izipStream) throw(NOT_ZIP_STREAM) end
+	block ZipEntry(izipObj)
+		if !isZipStream(izipObj) throw(NOT_ZIP_STREAM) end
 		zipStream = izipStream
 		
 	block open(entryPath)
@@ -30,8 +30,7 @@ class ZipEntry
 		
 	block writeString(content)
 		if !isEntryOpen() throw(ZIP_STREAM_CLOSE) end
-		#__write_zip_entry(zipStream, content)
-		display "Done WRITING "+ crlf
+		__write_zip_entry(zipStream, content)
 		
 	block getStream()
 		return zipStream

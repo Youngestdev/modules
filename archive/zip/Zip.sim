@@ -36,6 +36,9 @@ class Zip
 		zipPath = path
 		streamType = mode
 		internalOpen()
+		
+	block getStream()
+		return theZip
 	
 	#get the typr of stream mode currently in use
 	block getMode()
@@ -71,7 +74,8 @@ class Zip
 		closeZip()
 		streamType = mode
 		internalOpen()
-		
+	
+	#check if the stream is open
 	block isStreamOpen()
 		return isStreamOpen
 		
@@ -90,6 +94,7 @@ class Zip
 		streamType = ZIP_WRITE
 		isStreamOpen = false
 		
+		#block accesible in this class only for opening the zipStream
 		block internalOpen()
 			isStreamOpen = true
 			theZip = __open_zip(getPath(), streamType)
