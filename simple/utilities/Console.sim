@@ -20,6 +20,8 @@ $__clearLine = char(13)
 
 class Console 
 
+	name = "ade"
+
 	block println(content) 
 		print(content+crlf) 
 		
@@ -64,8 +66,6 @@ class Console
 		
 	block printWithForeGround(color, content)
 		print(content)
-		
-	name = "ade"
 	
 	
 	
