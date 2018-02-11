@@ -24,7 +24,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__printwfb",print_with_foreground_background);
 }
 
-SIMPLE_BLOCK(print_with_foreground_background)
+void print_with_foreground_background ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 3 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS3PARA);
