@@ -13,7 +13,8 @@
  */
 
 #include "../../../simple/bootsrc/includes/simple.h"
-#include "console-colors.c"
+#include "console-colors.h"
+#include "consoler.h"
 
 SIMPLE_API __declspec(dllexport)
 
