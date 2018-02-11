@@ -14,6 +14,7 @@
 
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "zip.h"
+#include "zip.c"
 #include "archiver.h"
 
 SIMPLE_API __declspec(dllexport)
