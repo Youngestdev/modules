@@ -25,12 +25,24 @@ CONSOLE_COLOR_DARK_BLUE = 4
 CONSOLE_COLOR_DARK_MAGENTA = 5
 
 class ConsoleColor 
-	
-	block YELLOW()
-		return CONSOLE_COLOR_YELLOW
 		
 	block NONE()
 		return CONSOLE_COLOR_NONE
+		
+	block BLACK()
+		return CONSOLE_COLOR_BLACK
+		
+	block DARK_RED()
+		return CONSOLE_COLOR_DARK_RED
+		
+	block DARK_GREEN()
+		return CONSOLE_COLOR_DARK_GREEN
+		
+	block DARK_BLUE()
+		return CONSOLE_COLOR_DARK_BLUE
+		
+	block DARK_MAGENTA()
+		return CONSOLE_COLOR_DARK_MAGENTA
 	
 	
 		
