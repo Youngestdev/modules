@@ -12,15 +12,14 @@
  
 module archive.zip
 
-call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\archiver\dist\Debug\MinGW-Windows\archiver.dll")
+call "archive/zip/ZipMode.sim" 
 
 class Zip
 
 	#initialize the zip class with a constructor that accept zip path
 	block Zip(path)
 		zipPath = path
-		theZip = __open_zip(getPath(), "w")
+		theZip = __open_zip(getPath(), ZIP_WRITE)
 	
 	#convert the zip path to typical Path Object
 	block toPath()
@@ -29,7 +28,8 @@ class Zip
 	#returns the absolute path of the zip file
 	block getPath()
 		return zipPath
-		
+	
+	#open the zip stream with a custom mode
 	block openWithMode(mode)
 		closeZip()
 		theZip = __open_zip(getPath(), mode)
