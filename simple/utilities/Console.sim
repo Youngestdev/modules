@@ -62,14 +62,20 @@ class Console
 		read readContent
 		return readContent
 		
-	block setForeGround(color)
+	block setForeground(color)
 		foregroundColor = color
 		
+	block setBackground(color)
+		backgroundColor = color
+		
+	block colorPrint(content)
+		__printwfb(foregroundColor, backgroundColor, content)
+		
 	block printWithFG(color, content)
-		__printwfb(color, ConsoleColor.NONE(), content)
+		__printwfb(color, backgroundColor, content)
 		
 	block printWithBG(color, content)
-		__printwfb(ConsoleColor.NONE(), color, content)
+		__printwfb(foregroundColor, color, content)
 		
 	block printWithFGBG(fcolor, bcolor, content)
 		__printwfb(fcolor, bcolor, content)
