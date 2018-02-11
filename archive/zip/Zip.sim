@@ -14,6 +14,7 @@ module archive.zip
 
 call "archive/zip/ZipMode.sim" 
 
+#a block that write content to entry can be use directly without class
 block addFileToZip(zipStream, filePath, fileName)
 	__open_zip_entry(zipStream,fileName) 
 	__fwrite_zip_entry(zipStream,filePath)
