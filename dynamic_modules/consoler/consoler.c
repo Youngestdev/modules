@@ -39,7 +39,7 @@ void print_with_foreground_background ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	cc_print((int ) SIMPLE_API_GETNUMBER(1) | (int ) SIMPLE_API_GETNUMBER(2),SIMPLE_API_GETSTRING(3));
+	cc_print((int ) SIMPLE_API_GETNUMBER(1) ,SIMPLE_API_GETSTRING(3));
 }
 
 void cc_print(int color,const char *string)
