@@ -21,8 +21,8 @@
   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
   THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-#ifndef CONSOLE_COLORS_CONSOLE_COLORS_H_
-#define CONSOLE_COLORS_CONSOLE_COLORS_H_
+#ifndef CONSOLE_COLORS_H
+#define CONSOLE_COLORS_H
 #include <stdio.h>
 
 #define CC_COLOR_BITS 5
@@ -105,5 +105,5 @@ typedef enum {
  */
 int cc_fprintf(cc_color_t color, FILE* stream, const char* format, ...);
 
-#endif  /* CONSOLE_COLORS_CONSOLE_COLORS_H_ */
+#endif  /* CONSOLE_COLORS_H */
 /* vim: set sw=4 ts=4 et tw=80 : */
