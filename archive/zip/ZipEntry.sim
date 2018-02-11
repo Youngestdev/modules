@@ -21,8 +21,8 @@ class ZipEntry
 		zipStream = izipStream
 		
 	block open(entryPath)
-		isEntryOpen = true
 		__open_zip_entry(zipStream, entryPath)
+		isEntryOpen = true
 		
 	block writeFile(filePath)
 		if !isEntryOpen() throw(ZIP_STREAM_CLOSE) end
@@ -30,7 +30,8 @@ class ZipEntry
 		
 	block writeString(content)
 		if !isEntryOpen() throw(ZIP_STREAM_CLOSE) end
-		__write_zip_entry(zipStream, content)
+		#__write_zip_entry(zipStream, content)
+		display "Done WRITING "+ crlf
 		
 	block getStream()
 		return zipStream
@@ -40,7 +41,6 @@ class ZipEntry
 		
 	block closeEntry()
 		__close_zip_entry(zipStream)
-		display "Holla Holla "
 		isEntryOpen = false		
 		
 	private
