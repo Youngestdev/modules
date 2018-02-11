@@ -17,8 +17,12 @@ callModule("dynamic_modules\consoler\dist\Debug\MinGW-Windows\consoler.dll")
 
 ConsoleColor = new ConsoleColor
 
-CONSOLE_COLOR_NONE = __get_console_color(0)
-CONSOLE_COLOR_YELLOW = __get_console_color(1)
+CONSOLE_COLOR_NONE = 0
+CONSOLE_COLOR_BLACK = 1
+CONSOLE_COLOR_DARK_RED = 2
+CONSOLE_COLOR_DARK_GREEN = 3
+CONSOLE_COLOR_DARK_BLUE = 4
+CONSOLE_COLOR_DARK_MAGENTA = 5
 
 class ConsoleColor 
 	
