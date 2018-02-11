@@ -234,6 +234,17 @@ void zip_entry_by_index ( void *pointer )
 	SIMPLE_API_RETSTRING(zip_getfilenamebyindex((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"), (int ) SIMPLE_API_GETNUMBER(2)));
 }
 
+static size_t on_extract(void *arg, unsigned long long offset, const void *data,size_t size) {
+    struct buffer_t *buf = (struct buffer_t *) arg;
+    buf->data = realloc(buf->data, buf->size + size + 1);
+    assert(NULL != buf->data);
+
+    memcpy(&(buf->data[buf->size]), data, size);
+    buf->size += size;
+    buf->data[buf->size] = 0;
+    return size;
+}
+
 void extract_zip_entry ( void *pointer )
 {
     const char *cZIPFile;
