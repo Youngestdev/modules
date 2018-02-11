@@ -63,7 +63,7 @@ class Console
 		return readContent
 		
 	block printWithForeGround(color, content)
-		__printwfb((2  << 0), (0  << 5), content)
+		__printwfb(color, ConsoleColor.NONE(), content)
 	
 	
 	
