@@ -14,10 +14,12 @@ module simple.utilities
 
 call "ConsoleColor.sim" ? simple.utilities
 
+#Console is initialized as a variable in order to allow usage as Console.block()
 Console = new Console
 
 $__clearLine = char(13)
 
+#the console class for various console blocks and functions
 class Console 
 
 	#prints string content with new line
@@ -37,7 +39,8 @@ class Console
 		print(title) 
 		read readContent 
 		return readContent
-		
+	
+	#read input from the console 
 	block readln()
 		read readContent
 		return readContent
