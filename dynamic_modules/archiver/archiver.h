@@ -26,7 +26,11 @@ struct buffer_t {
     size_t size;
 };
 
+ZIP_T *zip_openfile(const char *zip_file, const char *open_mode) ;
+
 void open_zip_file ( void *pointer ) ;
+
+void open_zip_entry_file ( void *pointer ) ;
 
 
 #ifdef __cplusplus

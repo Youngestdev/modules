@@ -20,11 +20,17 @@ SIMPLE_API __declspec(dllexport)
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
+    /** ZIP **/
     register_block("__open_zip",open_zip_file);
+    register_block("__open_zip_entry",open_zip_entry_file);
+    //register_block("__open_zip",open_zip_file);
+    //register_block("__open_zip",open_zip_file);
+    //register_block("__open_zip",open_zip_file);
+    /** TAR **/
 }
 
-ZIP_T *zip_openfile(const char *cFile, const char *cMode) {
-    return zip_open(cFile, ZIP_DEFAULT_COMPRESSION_LEVEL, cMode[0]);
+ZIP_T *zip_openfile(const char *zip_file, const char *open_mode) {
+    return zip_open(zip_file, ZIP_DEFAULT_COMPRESSION_LEVEL, open_mode[0]);
 }
 
 void open_zip_file ( void *pointer )
@@ -42,6 +48,24 @@ void open_zip_file ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	SIMPLE_API_RETCPOINTER(zip_openfile(SIMPLE_API_GETSTRING(1),SIMPLE_API_GETSTRING(2)),"ZIP_T");
+	SIMPLE_API_RETCPOINTER(zip_openfile(SIMPLE_API_GETSTRING(1),SIMPLE_API_GETSTRING(2)),"SIMPLE_ZIP");
+}
+
+void open_zip_entry_file ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+		return ;
+	}
+	SIMPLE_API_IGNORECPOINTERTYPE ;
+	if ( ! SIMPLE_API_ISPOINTER(1) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! SIMPLE_API_ISSTRING(2) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	SIMPLE_API_RETNUMBER(zip_entry_open((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"),SIMPLE_API_GETSTRING(2)));
 }
 
