@@ -13,7 +13,6 @@
  */
 
 #include "../../../simple/bootsrc/includes/simple.h"
-#include "console-colors.h"
 #include "console-colors.c"
 #include "consoler.h"
 
