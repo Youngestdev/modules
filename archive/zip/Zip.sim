@@ -14,6 +14,11 @@ module archive.zip
 
 call "archive/zip/ZipMode.sim" 
 
+block addFileToZip(zipStream, filePath)
+	__open_zip_entry(zipStream,filePath)
+	__fwrite_zip_entry(zipStream,filePath)
+	__close_zip_entry(zipStream)
+
 class Zip
 
 	#initialize the zip class with a constructor that accept zip path
@@ -31,9 +36,13 @@ class Zip
 		elif streamType == ZIP_READ
 			return "Read mode"
 		end
-		
-	block addFile()
-		
+	
+	#add the file currently in file path. to support File and Path Object
+	block addFile(filePath)
+		addFileToZip(theZip, filePath)
+	
+	#currently not supported
+	#block addDirectory() 		
 	
 	#convert the zip path to typical Path Object
 	block toPath()
