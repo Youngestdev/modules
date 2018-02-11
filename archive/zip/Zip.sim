@@ -32,9 +32,9 @@ block addFileToZip(zipStream, filePath, fileName)
 class Zip
 
 	#initialize the zip class with a constructor that accept zip path
-	block Zip(path)
+	block Zip(path, mode)
 		zipPath = path
-		streamType = ZIP_WRITE
+		streamType = mode
 		internalOpen()
 	
 	#get the typr of stream mode currently in use

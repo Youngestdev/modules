@@ -18,6 +18,9 @@ callModule("dynamic_modules\archiver\dist\Debug\MinGW-Windows\archiver.dll")
 #zip mode for writing into the zip archive
 ZIP_WRITE = "w"
 
+#zip mode for creating zip archive
+ZIP_CREATE = "w"
+
 #zip mode for appending new data into the zip archive
 ZIP_APPEND = "a"
 
