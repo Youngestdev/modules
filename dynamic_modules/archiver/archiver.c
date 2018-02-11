@@ -236,37 +236,37 @@ void zip_entry_by_index ( void *pointer )
 
 void extract_zip_entry ( void *pointer )
 {
-const char *cZIPFile;
-const char *cFile;
-struct buffer_t buf = {0};
+    const char *cZIPFile;
+    const char *cFile;
+    struct buffer_t buf = {0};
 
-if ( SIMPLE_API_PARACOUNT != 2 ) {
-	SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
-	return ;
-}
-if ( ! SIMPLE_API_ISSTRING(1) ) {
-	SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	return ;
-}
-if ( ! SIMPLE_API_ISSTRING(2) ) {
-	SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	return ;
-}
+    if ( SIMPLE_API_PARACOUNT != 2 ) {
+        SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+        return ;
+    }
+    if ( ! SIMPLE_API_ISSTRING(1) ) {
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+        return ;
+    }
+    if ( ! SIMPLE_API_ISSTRING(2) ) {
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+        return ;
+    }
 
-cZIPFile = SIMPLE_API_GETSTRING(1);
-cFile    = SIMPLE_API_GETSTRING(2);
+    cZIPFile = SIMPLE_API_GETSTRING(1);
+    cFile    = SIMPLE_API_GETSTRING(2);
 
-struct zip_t *zip = zip_open(cZIPFile, 0, 'r');
-{
-	zip_entry_open(zip, cFile);
-	{
-		zip_entry_extract(zip, on_extract, &buf);
-}
-	zip_entry_close(zip);
-}
-zip_close(zip);
+    struct zip_t *zip = zip_open(cZIPFile, 0, 'r');
+    {
+        zip_entry_open(zip, cFile);
+        {
+            zip_entry_extract(zip, on_extract, &buf);
+        }
+        zip_entry_close(zip);
+    }
+    zip_close(zip);
 
-SIMPLE_API_RETSTRING2(buf.data,buf.size);
+    SIMPLE_API_RETSTRING2(buf.data,buf.size);
 
-free(buf.data);
+    free(buf.data);
 }
