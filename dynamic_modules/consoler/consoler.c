@@ -14,7 +14,6 @@
 
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "console-colors.c"
-#include "consoler.h"
 
 SIMPLE_API __declspec(dllexport)
 

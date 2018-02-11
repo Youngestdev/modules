@@ -23,6 +23,10 @@
 */
 #define _POSIX_SOURCE
 
+#include <stdio.h>
+#include <stdarg.h>
+#include <errno.h>
+
 #ifdef _WIN32
 #include <windows.h>
 #else
