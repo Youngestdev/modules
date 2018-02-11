@@ -19,7 +19,7 @@ ConsoleColor = new ConsoleColor
 
 CONSOLE_COLOR_YELLOW = ""
 
-class ConsoleColor
+class ConsoleColor x
 	
 	
 		
