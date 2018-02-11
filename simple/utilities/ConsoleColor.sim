@@ -17,6 +17,8 @@ callModule("dynamic_modules\consoler\dist\Debug\MinGW-Windows\consoler.dll")
 
 ConsoleColor = new ConsoleColor
 
+#do not change the color values as it is in respect to 
+#the console-color.h values in the consoler.dll module
 CONSOLE_COLOR_NONE = 0
 CONSOLE_COLOR_BLACK = 1
 CONSOLE_COLOR_DARK_RED = 2
@@ -54,6 +56,36 @@ class ConsoleColor
 		
 	block DARKBLUE()
 		return CONSOLE_COLOR_DARK_BLUE
+		
+	block DARKMAGENTA()
+		return CONSOLE_COLOR_DARK_MAGENTA
+		
+	block DARKCYAN()
+		return CONSOLE_COLOR_DARK_CYAN
+		
+	block GRAY()
+		return CONSOLE_COLOR_GRAY
+		
+	block DARKGRAY()
+		return CONSOLE_COLOR_DARK_GRAY
+		
+	block DARKMAGENTA()
+		return CONSOLE_COLOR_DARK_MAGENTA
+		
+	block DARKMAGENTA()
+		return CONSOLE_COLOR_DARK_MAGENTA
+		
+	block DARKMAGENTA()
+		return CONSOLE_COLOR_DARK_MAGENTA
+		
+	block DARKMAGENTA()
+		return CONSOLE_COLOR_DARK_MAGENTA
+		
+	block DARKMAGENTA()
+		return CONSOLE_COLOR_DARK_MAGENTA
+		
+	block DARKMAGENTA()
+		return CONSOLE_COLOR_DARK_MAGENTA
 		
 	block DARKMAGENTA()
 		return CONSOLE_COLOR_DARK_MAGENTA
