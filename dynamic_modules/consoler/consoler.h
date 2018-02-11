@@ -19,7 +19,7 @@
 extern "C" {
 #endif
 
-void print_with_foreground_background ( void *pointer ) ;
+//void print_with_foreground_background ( void *pointer ) ;
 
 
 #ifdef __cplusplus
