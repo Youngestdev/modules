@@ -29,14 +29,18 @@ ZIP_READ = "r"
 
 class ZipMode
 
+	#zip mode for writing into the zip archive
 	block WRITE()
 		return ZIP_WRITE
-		
+	
+	#zip mode for creating zip archive
 	block CREATE()
 		return ZIP_CREATE
-		
+	
+	#zip mode for appending new data into the zip archive
 	block APPEND()
 		return ZIP_APPEND
 		
+	#zip mode for reading zip content into memory	
 	block READ()
 		return ZIP_READ
