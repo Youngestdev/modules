@@ -170,6 +170,15 @@ void close_zip_entry_file ( void *pointer )
 	SIMPLE_API_RETNUMBER(zip_entry_close((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_T")));
 }
 
+int on_extract_entry(const char *zip_file, void *arg) {
+    return 0;
+}
+
+void zip_extract_all(const char *zip_file, const char *destination_folder) {
+    int arg = 2;
+    zip_extract(zip_file,destination_folder, on_extract_entry, &arg);
+}
+
 void extract_zip_file ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
@@ -185,7 +194,7 @@ void extract_zip_file ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	zip_extract_allfiles(SIMPLE_API_GETSTRING(1),SIMPLE_API_GETSTRING(2));
+	zip_extract_all(SIMPLE_API_GETSTRING(1),SIMPLE_API_GETSTRING(2));
 }
 
 void close_zip_file ( void *pointer )
