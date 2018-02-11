@@ -18,6 +18,13 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+    
+typedef struct zip_t ZIP_T ;
+
+struct buffer_t {
+    char *data;
+    size_t size;
+};
 
 void open_zip_file ( void *pointer ) ;
 

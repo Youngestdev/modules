@@ -23,13 +23,6 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__open_zip",open_zip_file);
 }
 
-typedef struct zip_t ZIP_T ;
-
-struct buffer_t {
-    char *data;
-    size_t size;
-};
-
 ZIP_T *zip_openfile(const char *cFile, const char *cMode) {
     return zip_open(cFile, ZIP_DEFAULT_COMPRESSION_LEVEL, cMode[0]);
 }
