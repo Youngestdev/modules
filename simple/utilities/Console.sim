@@ -20,8 +20,6 @@ $__clearLine = char(13)
 
 class Console 
 
-	name = "ade"
-
 	block println(content) 
 		print(content+crlf) 
 		
