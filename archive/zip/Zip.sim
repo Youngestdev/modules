@@ -45,6 +45,8 @@ class Zip
 	#block addDirectory() 	
 
 	block extractAll(extractFolder)
+		if isStreamOpen() closeZip() end
+		__extract_zip(getPath(), extractFolder)
 	
 	#convert the zip path to typical Path Object
 	block toPath()
@@ -60,14 +62,20 @@ class Zip
 		streamType = mode
 		internalOpen()
 		
+	block isStreamOpen()
+		return isStreamOpen
+		
 	#close the zip stream	
 	block closeZip()
 		__close_zip(theZip)
+		isStreamOpen = false
 		
 	private
 		zipPath = ""
 		theZip = null
 		streamType = ZIP_WRITE
+		isStreamOpen = false
 		
 		block internalOpen()
+			isStreamOpen = true
 			theZip = __open_zip(getPath(), streamType)
