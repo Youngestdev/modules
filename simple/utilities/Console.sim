@@ -65,6 +65,7 @@ class Console
 	block printWithForeGround(color, content)
 		print(content)
 		
+	name = "ade"
 	
 	
 	
