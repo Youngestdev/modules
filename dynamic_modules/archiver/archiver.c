@@ -23,6 +23,21 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__open_zip",open_zip_file);
 }
 
+typedef struct zip_t ZIP_T ;
+
+struct buffer_t {
+    char *data;
+    size_t size;
+};
+
+ZIP_T *zip_openfile(const char *cFile, const char *cMode) {
+    return zip_open(cFile, ZIP_DEFAULT_COMPRESSION_LEVEL, cMode[0]);
+}
+
+int zip_filescount(ZIP_T *pZip) {
+    return mz_zip_reader_get_num_files((mz_zip_archive *) pZip);
+}
+
 void open_zip_file ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
