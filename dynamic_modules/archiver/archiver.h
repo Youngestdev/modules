@@ -12,6 +12,9 @@
  * Created on February 11, 2018, 3:27 PM
  */
 
+#include "zip.h"
+#include "miniz.h"
+
 #ifndef ARCHIVER_H
 #define ARCHIVER_H
 
