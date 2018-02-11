@@ -38,6 +38,7 @@ CONSOLE_COLOR_MAGENTA = 14
 CONSOLE_COLOR_CYAN = 15
 CONSOLE_COLOR_WHITE = 16
 
+#ConsoleColor class that holds the colors in respect to console-color.h
 class ConsoleColor 
 		
 	#none i.e default
@@ -96,12 +97,15 @@ class ConsoleColor
 	block BLUE()
 		return CONSOLE_COLOR_BLUE
 		
+	#color magenta	
 	block MAGENTA()
 		return CONSOLE_COLOR_MAGENTA
 		
+	#color cyan		
 	block CYAN()
 		return CONSOLE_COLOR_CYAN
 		
+	#color white	
 	block WHITE()
 		return CONSOLE_COLOR_WHITE
 	
