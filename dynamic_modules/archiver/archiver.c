@@ -36,7 +36,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     /** TAR **/
 }
 
-ZIP_T *zip_openfile(const char *zip_file, const char *open_mode) {
+SIMPLE_ZIP *zip_openfile(const char *zip_file, const char *open_mode) {
     return zip_open(zip_file, ZIP_DEFAULT_COMPRESSION_LEVEL, open_mode[0]);
 }
 
@@ -73,7 +73,7 @@ void open_zip_entry_file ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	SIMPLE_API_RETNUMBER(zip_entry_open((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"),SIMPLE_API_GETSTRING(2)));
+	SIMPLE_API_RETNUMBER(zip_entry_open((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"),SIMPLE_API_GETSTRING(2)));
 }
 
 void write_zip_entry_file ( void *pointer )
@@ -95,7 +95,7 @@ void write_zip_entry_file ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	SIMPLE_API_RETNUMBER(zip_entry_write((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"),SIMPLE_API_GETSTRING(2), (int) SIMPLE_API_GETNUMBER(3)));
+	SIMPLE_API_RETNUMBER(zip_entry_write((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"),SIMPLE_API_GETSTRING(2), (int) SIMPLE_API_GETNUMBER(3)));
 }
 
 void fwrite_zip_entry_file ( void *pointer )
@@ -113,7 +113,7 @@ void fwrite_zip_entry_file ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	SIMPLE_API_RETNUMBER(zip_entry_fwrite((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"ZIP_T"),SIMPLE_API_GETSTRING(2)));
+	SIMPLE_API_RETNUMBER(zip_entry_fwrite((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"),SIMPLE_API_GETSTRING(2)));
 }
 
 void read_zip_entry_file ( void *pointer )
@@ -135,7 +135,7 @@ void read_zip_entry_file ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	SIMPLE_API_RETNUMBER(zip_entry_read((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"ZIP_T"),(void *) SIMPLE_API_GETCPOINTER(2,"void"),(size_t *) SIMPLE_API_GETCPOINTER(3,"size_t")));
+	SIMPLE_API_RETNUMBER(zip_entry_read((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"),(void *) SIMPLE_API_GETCPOINTER(2,"void"),(size_t *) SIMPLE_API_GETCPOINTER(3,"size_t")));
 }
 
 void fread_zip_entry_file ( void *pointer )
@@ -153,7 +153,39 @@ void fread_zip_entry_file ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	SIMPLE_API_RETNUMBER(zip_entry_fread((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"ZIP_T"),SIMPLE_API_GETSTRING(2)));
+	SIMPLE_API_RETNUMBER(zip_entry_fread((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"),SIMPLE_API_GETSTRING(2)));
+}
+
+void extract_zip_file ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+		return ;
+	}
+	SIMPLE_API_IGNORECPOINTERTYPE ;
+	if ( ! SIMPLE_API_ISPOINTER(1) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	SIMPLE_API_RETNUMBER(zip_entry_close((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP")));
+}
+
+void close_zip_file ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+		return ;
+	}
+	SIMPLE_API_IGNORECPOINTERTYPE ;
+	if ( ! SIMPLE_API_ISSTRING(1) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! SIMPLE_API_ISSTRING(2) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	zip_extract_allfiles(SIMPLE_API_GETSTRING(1),SIMPLE_API_GETSTRING(2));
 }
 
 void close_zip_entry_file ( void *pointer )
@@ -167,5 +199,74 @@ void close_zip_entry_file ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	SIMPLE_API_RETNUMBER(zip_entry_close((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"ZIP_T")));
+	zip_close((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"));
+}
+
+void close_zip_entry_file ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+		return ;
+	}
+	SIMPLE_API_IGNORECPOINTERTYPE ;
+	if ( ! SIMPLE_API_ISPOINTER(1) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	SIMPLE_API_RETNUMBER(zip_filescount((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP")));
+}
+
+void close_zip_entry_file ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+		return ;
+	}
+	SIMPLE_API_IGNORECPOINTERTYPE ;
+	if ( ! SIMPLE_API_ISPOINTER(1) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! SIMPLE_API_ISNUMBER(2) ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+		return ;
+	}
+	SIMPLE_API_RETSTRING(zip_getfilenamebyindex((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"), (int ) SIMPLE_API_GETNUMBER(2)));
+}
+
+void close_zip_entry_file ( void *pointer )
+{
+const char *cZIPFile;
+const char *cFile;
+struct buffer_t buf = {0};
+
+if ( SIMPLE_API_PARACOUNT != 2 ) {
+	SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+	return ;
+}
+if ( ! SIMPLE_API_ISSTRING(1) ) {
+	SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	return ;
+}
+if ( ! SIMPLE_API_ISSTRING(2) ) {
+	SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	return ;
+}
+
+cZIPFile = SIMPLE_API_GETSTRING(1);
+cFile    = SIMPLE_API_GETSTRING(2);
+
+struct zip_t *zip = zip_open(cZIPFile, 0, 'r');
+{
+	zip_entry_open(zip, cFile);
+	{
+		zip_entry_extract(zip, on_extract, &buf);
+}
+	zip_entry_close(zip);
+}
+zip_close(zip);
+
+SIMPLE_API_RETSTRING2(buf.data,buf.size);
+
+free(buf.data);
 }
