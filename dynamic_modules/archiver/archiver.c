@@ -156,7 +156,7 @@ void fread_zip_entry_file ( void *pointer )
 	SIMPLE_API_RETNUMBER(zip_entry_fread((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"),SIMPLE_API_GETSTRING(2)));
 }
 
-void extract_zip_file ( void *pointer )
+void close_zip_entry_file ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -170,7 +170,7 @@ void extract_zip_file ( void *pointer )
 	SIMPLE_API_RETNUMBER(zip_entry_close((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP")));
 }
 
-void close_zip_file ( void *pointer )
+void extract_zip_file ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
@@ -188,7 +188,7 @@ void close_zip_file ( void *pointer )
 	zip_extract_allfiles(SIMPLE_API_GETSTRING(1),SIMPLE_API_GETSTRING(2));
 }
 
-void close_zip_entry_file ( void *pointer )
+void close_zip_file ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -202,7 +202,7 @@ void close_zip_entry_file ( void *pointer )
 	zip_close((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"));
 }
 
-void close_zip_entry_file ( void *pointer )
+void total_zip_file_count ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -216,7 +216,7 @@ void close_zip_entry_file ( void *pointer )
 	SIMPLE_API_RETNUMBER(zip_filescount((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP")));
 }
 
-void close_zip_entry_file ( void *pointer )
+void zip_entry_by_index ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
@@ -234,7 +234,7 @@ void close_zip_entry_file ( void *pointer )
 	SIMPLE_API_RETSTRING(zip_getfilenamebyindex((SIMPLE_ZIP *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_ZIP"), (int ) SIMPLE_API_GETNUMBER(2)));
 }
 
-void close_zip_entry_file ( void *pointer )
+void extract_zip_entry ( void *pointer )
 {
 const char *cZIPFile;
 const char *cFile;

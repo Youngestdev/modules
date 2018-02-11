@@ -42,6 +42,16 @@ void fread_zip_entry_file ( void *pointer ) ;
 
 void close_zip_entry_file ( void *pointer ) ;
 
+void extract_zip_file ( void *pointer ) ;
+
+void close_zip_file ( void *pointer ) ;
+
+void total_zip_file_count ( void *pointer ) ;
+
+void zip_entry_by_index ( void *pointer ) ;
+
+void extract_zip_entry ( void *pointer ) ;
+
 
 #ifdef __cplusplus
 }
