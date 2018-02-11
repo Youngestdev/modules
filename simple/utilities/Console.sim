@@ -17,6 +17,7 @@ call "ConsoleColor.sim" ? simple.utilities
 #Console is initialized as a variable in order to allow usage as Console.block()
 Console = new Console
 
+#a character that move caret to start of line or simply clear line
 $__clearLine = char(13)
 
 #the console class for various console blocks and functions
@@ -82,6 +83,8 @@ class Console
 		foregroundColor = ConsoleColor.NONE()
 		backgroundColor = ConsoleColor.NONE()
 		
+		#by default all escape character is not supported 
+		#this block formatLiteral(content) allows for escape character supports
 		block formatLiteral(content)
 			inContent = ""
 			if isnumber(content) 
