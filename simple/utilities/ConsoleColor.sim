@@ -39,6 +39,7 @@ CONSOLE_COLOR_WHITE = 16
 
 class ConsoleColor 
 		
+	#none i.e default
 	block NONE()
 		return CONSOLE_COLOR_NONE
 		
