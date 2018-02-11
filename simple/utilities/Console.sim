@@ -24,8 +24,7 @@ class Console
 		print(content+crlf) 
 		
 	block print(content)
-		
-	display inContent
+		display formatLiteral(content)
 	
 	block printinLine(content)
 		print($__clearLine+content)
@@ -49,23 +48,23 @@ class Console
 		
 	#prints the string in respect to the FG and BG colors
 	block colorPrint(content)
-		__printwfb(foregroundColor, backgroundColor, content)
+		__printwfb(foregroundColor, backgroundColor, formatLiteral(content))
 	
 	#prints the string in respect to the FG and BG colors with new line
 	block colorPrintln(content)
-		__printwfb(foregroundColor, backgroundColor, content+crlf)
+		__printwfb(foregroundColor, backgroundColor, formatLiteral(content)+crlf)
 	
 	#print with a custom FG and present backgroundColor
 	block printWithFG(color, content)
-		__printwfb(color, backgroundColor, content)
+		__printwfb(color, backgroundColor, formatLiteral(content))
 	
 	#print with a custom BG and present foregroundColor
 	block printWithBG(color, content)
-		__printwfb(foregroundColor, color, content)
+		__printwfb(foregroundColor, color, formatLiteral(content))
 	
 	#print with a custom FG and BG
 	block printWithFGBG(fcolor, bcolor, content)
-		__printwfb(fcolor, bcolor, content)
+		__printwfb(fcolor, bcolor, formatLiteral(content))
 		
 	#reset the console colors which is none by default		
 	block resetColor()
@@ -101,6 +100,6 @@ class Console
 						inContent +=  content[a]
 				end
 			end
-	
+			return inContent
 	
 	
