@@ -14,3 +14,21 @@ module archive
 
 class Zip
 
+	#initialize the zip class with a constructor that accept zip path
+	block Zip(path)
+		zipPath = path
+	
+	#convert the zip path to typical Path Object
+	block toPath()
+		return new Path(zipPath)
+	
+	#returns the absolute path of the zip file
+	block getPath()
+		return zipPath
+		
+	block openWithMode(mode)
+		
+		
+	private
+		zipPath = ""
+		theZip = null
