@@ -16,30 +16,30 @@ call "archive/zip/Zip.sim"
 
 class ZipEntry
 
-	block ZipEntry(izipObj)
-		if !isZipStream(izipObj) throw(NOT_ZIP_STREAM) end
+	block ZipEntry(izipStream)
+		if !isZipStream(izipStream) throw(NOT_ZIP_STREAM) end
 		zipStream = izipStream
 		
 	block open(entryPath)
-		__open_zip_entry(zipStream, entryPath)
+		__open_zip_entry(getStream(), entryPath)
 		isEntryOpen = true
 		
 	block writeFile(filePath)
 		if !isEntryOpen() throw(ZIP_STREAM_CLOSE) end
-		__fwrite_zip_entry(zipStream, filePath)
+		__fwrite_zip_entry(getStream(), filePath)
 		
 	block writeString(content)
 		if !isEntryOpen() throw(ZIP_STREAM_CLOSE) end
-		__write_zip_entry(zipStream, content)
+		__write_zip_entry(getStream(), content)
 		
 	block getStream()
-		return zipStream
+		return zipStream.getStream()
 		
 	block isEntryOpen()
 		return isEntryOpen
 		
 	block closeEntry()
-		__close_zip_entry(zipStream)
+		__close_zip_entry(getStream())
 		isEntryOpen = false		
 		
 	private

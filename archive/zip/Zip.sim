@@ -36,7 +36,8 @@ class Zip
 		zipPath = path
 		streamType = mode
 		internalOpen()
-		
+	
+	#return the stream of the zip 
 	block getStream()
 		return theZip
 	
