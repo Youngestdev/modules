@@ -61,10 +61,12 @@ class Console
 	block readln()
 		read readContent
 		return readContent
-		
+	
+	#set the foregroundColor to using colorPrint and colorPrintln
 	block setForeground(color)
 		foregroundColor = color
-		
+	
+	#set the backgroungColor to using colorPrint and colorPrintln
 	block setBackground(color)
 		backgroundColor = color
 		
