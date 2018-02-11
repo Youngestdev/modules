@@ -42,7 +42,9 @@ class Zip
 		addFileToZip(theZip, filePath, fileName)
 	
 	#currently not supported
-	#block addDirectory() 		
+	#block addDirectory() 	
+
+	block extractAll(extractFolder)
 	
 	#convert the zip path to typical Path Object
 	block toPath()
