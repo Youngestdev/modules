@@ -64,27 +64,35 @@ class ConsoleColor
 	block DARKBLUE()
 		return CONSOLE_COLOR_DARK_BLUE
 		
+	#color dark magenta	
 	block DARKMAGENTA()
 		return CONSOLE_COLOR_DARK_MAGENTA
 		
+	#color dark cyan		
 	block DARKCYAN()
 		return CONSOLE_COLOR_DARK_CYAN
 		
+	#color gray
 	block GRAY()
 		return CONSOLE_COLOR_GRAY
 		
+	#color dark gray	
 	block DARKGRAY()
 		return CONSOLE_COLOR_DARK_GRAY
 		
+	#color red	
 	block RED()
 		return CONSOLE_COLOR_RED
 		
+	#color green	
 	block GREEN()
 		return CONSOLE_COLOR_GREEN
 		
+	#color yellow		
 	block YELLOW()
 		return CONSOLE_COLOR_YELLOW
 		
+	#color blue	
 	block BLUE()
 		return CONSOLE_COLOR_BLUE
 		
