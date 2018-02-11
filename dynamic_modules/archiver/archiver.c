@@ -28,6 +28,11 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__read_zip_entry",read_zip_entry_file);
     register_block("__fread_zip_entry",fread_zip_entry_file);
     register_block("__close_zip_entry",close_zip_entry_file);
+    register_block("__extract_zip",extract_zip_file);
+    register_block("__close_zip",close_zip_file);
+    register_block("__total_zip_file_count",total_zip_file_count);
+    register_block("__zip_entry_by_index",zip_entry_by_index);
+    register_block("__extract_zip_entry",extract_zip_entry);
     /** TAR **/
 }
 
