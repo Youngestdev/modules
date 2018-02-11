@@ -39,6 +39,6 @@ SIMPLE_BLOCK(print_with_foreground_background)
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	cc_print( (int ) SIMPLE_API_GETNUMBER(1),SIMPLE_API_GETSTRING(2));
+	cc_fprintf((int ) SIMPLE_API_GETNUMBER(1) | (int ) SIMPLE_API_GETNUMBER(2), stdout, SIMPLE_API_GETSTRING(3));
 }
 
