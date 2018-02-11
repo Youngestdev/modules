@@ -38,6 +38,6 @@ void print_with_foreground_background ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	cc_fprintf((int ) SIMPLE_API_GETNUMBER(1) | (int ) SIMPLE_API_GETNUMBER(2), stdout, SIMPLE_API_GETSTRING(3));
+	cc_fprintf(((int ) SIMPLE_API_GETNUMBER(1) << 0 ) | ((int ) SIMPLE_API_GETNUMBER(2) << CC_COLOR_BITS ), stdout, SIMPLE_API_GETSTRING(3));
 }
 

@@ -64,6 +64,9 @@ class Console
 		
 	block printWithFG(color, content)
 		__printwfb(color, ConsoleColor.NONE(), content)
+		
+	block printWithBG(color, content)
+		__printwfb(ConsoleColor.NONE(), color, content)
 	
 	
 	
