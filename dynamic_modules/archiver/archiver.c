@@ -14,6 +14,7 @@
 
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "zip.h"
+#include "miniz.h"
 #include "archiver.h"
 
 SIMPLE_API __declspec(dllexport)
@@ -211,6 +212,11 @@ void close_zip_file ( void *pointer )
 	zip_close((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_T"));
 }
 
+int zip_files_count(ZIP_T *zip) {
+	return mz_zip_reader_get_num_files((mz_zip_archive *) zip);
+}
+
+
 void total_zip_file_count ( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
@@ -222,7 +228,7 @@ void total_zip_file_count ( void *pointer )
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 		return ;
 	}
-	SIMPLE_API_RETNUMBER(zip_filescount((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_T")));
+	SIMPLE_API_RETNUMBER(zip_files_count((ZIP_T *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_T")));
 }
 
 const char *zip_entry_name_by_index(ZIP_T *zip,int index) {
