@@ -77,15 +77,23 @@ class Console
 	#prints the string in respect to the FG and BG colors with new line
 	block colorPrintln(content)
 		__printwfb(foregroundColor, backgroundColor, content+crlf)
-		
+	
+	#print with a custom FG and present backgroundColor
 	block printWithFG(color, content)
 		__printwfb(color, backgroundColor, content)
-		
+	
+	#print with a custom BG and present foregroundColor
 	block printWithBG(color, content)
 		__printwfb(foregroundColor, color, content)
-		
+	
+	#print with a custom FG and BG
 	block printWithFGBG(fcolor, bcolor, content)
 		__printwfb(fcolor, bcolor, content)
+		
+	#reset the console colors which is none by default		
+	block resetColor()
+		foregroundColor = ConsoleColor.NONE()
+		backgroundColor = ConsoleColor.NONE()		
 	
 	private 
 		foregroundColor = ConsoleColor.NONE()
