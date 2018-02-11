@@ -34,6 +34,14 @@ void open_zip_entry_file ( void *pointer ) ;
 
 void write_zip_entry_file ( void *pointer ) ;
 
+void fwrite_zip_entry_file ( void *pointer ) ;
+
+void read_zip_entry_file ( void *pointer ) ;
+
+void fread_zip_entry_file ( void *pointer ) ;
+
+void close_zip_entry_file ( void *pointer ) ;
+
 
 #ifdef __cplusplus
 }
