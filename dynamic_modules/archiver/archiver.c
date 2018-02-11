@@ -13,6 +13,7 @@
  */
 
 #include "../../../simple/bootsrc/includes/simple.h"
+#include "zip.h"
 #include "archiver.h"
 
 SIMPLE_API __declspec(dllexport)
@@ -211,7 +212,7 @@ void close_zip_file ( void *pointer )
 }
 
 int zip_files_count(ZIP_T *zip) {
-	return mz_zip_reader_get_num_files((mz_zip_archive *) zip);
+	/*return mz_zip_reader_get_num_files((mz_zip_archive *) zip);*/
 }
 
 
@@ -230,11 +231,11 @@ void total_zip_file_count ( void *pointer )
 }
 
 const char *zip_entry_name_by_index(ZIP_T *zip,int index) {
-    mz_zip_archive_file_stat info;
+    /*mz_zip_archive_file_stat info;
     if (!mz_zip_reader_file_stat((mz_zip_archive *) zip, index-1, &info)) {
         return NULL;
     }	
-    return info.m_filename ;
+    return info.m_filename ;*/
 }
 
 
