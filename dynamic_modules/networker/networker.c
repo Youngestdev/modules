@@ -14,6 +14,7 @@
 
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "networker.h"
+#include "curl/curl.h"
 
 SIMPLE_API __declspec(dllexport)
 
