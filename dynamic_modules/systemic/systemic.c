@@ -197,13 +197,13 @@ void current_filepath ( void *pointer )
 		SIMPLE_API_RETSTRING(vm->cFileNameInClassRegion);
 		return ;
 	}
-	if ( (vm->nBlockExecute2 > 0) && (simple_list_getsize(vm->pFuncCallList)>0) ) {
+	if ( (vm->nBlockExecute2 > 0) && (simple_list_getsize(vm->pBlockCallList)>0) ) {
 		/*
 		**  Here we have Load Function Instruction - But Still the function is not called 
 		**  FunctionName (  ***Parameters**** We are here! ) 
 		*/
-		nPos = simple_list_getsize(vm->pFuncCallList)  -  (vm->nBlockExecute2 - 1) ;
-		if ( (nPos > 0) && (nPos <= simple_list_getsize(vm->pFuncCallList)) ) {
+		nPos = simple_list_getsize(vm->pBlockCallList)  -  (vm->nBlockExecute2 - 1) ;
+		if ( (nPos > 0) && (nPos <= simple_list_getsize(vm->pBlockCallList)) ) {
 			list = simple_list_getlist(vm->pBlockCallList,nPos);
 			if ( simple_list_getsize(list) >= SIMPLE_BLOCKCL_FILENAME ) {
 				SIMPLE_API_RETSTRING((char *) simple_list_getpointer(list,SIMPLE_BLOCKCL_FILENAME ));
@@ -212,7 +212,7 @@ void current_filepath ( void *pointer )
 		return ;
 	}
         
-	SIMPLE_API_RETSTRING(vm->cFileName);
+	SIMPLE_API_RETSTRING(vm->file_name);
 }
 
 void current_filename ( void *pointer )
@@ -225,13 +225,13 @@ void current_filename ( void *pointer )
         SIMPLE_API_RETSTRING(file_real_name(vm->cFileNameInClassRegion));
         return ;
     }
-    if ( (vm->nBlockExecute2 > 0) && (simple_list_getsize(vm->pFuncCallList)>0) ) {
+    if ( (vm->nBlockExecute2 > 0) && (simple_list_getsize(vm->pBlockCallList)>0) ) {
         /*
         **  Here we have Load Function Instruction - But Still the function is not called 
         **  FunctionName (  ***Parameters**** We are here! ) 
         */
-        nPos = simple_list_getsize(vm->pFuncCallList)  -  (vm->nBlockExecute2 - 1) ;
-        if ( (nPos > 0) && (nPos <= simple_list_getsize(vm->pFuncCallList)) ) {
+        nPos = simple_list_getsize(vm->pBlockCallList)  -  (vm->nBlockExecute2 - 1) ;
+        if ( (nPos > 0) && (nPos <= simple_list_getsize(vm->pBlockCallList)) ) {
             list = simple_list_getlist(vm->nBlockExecute2,nPos);
             if ( simple_list_getsize(list) >= SIMPLE_BLOCKCL_FILENAME ) {
                     SIMPLE_API_RETSTRING((char *) file_real_name(simple_list_getpointer(list,SIMPLE_BLOCKCL_FILENAME )));
@@ -239,7 +239,7 @@ void current_filename ( void *pointer )
         }
         return ;
     }
-    SIMPLE_API_RETSTRING(file_real_name(vm->cFileName));
+    SIMPLE_API_RETSTRING(file_real_name(vm->file_name));
 }
 
 void previous_filename ( void *pointer )
