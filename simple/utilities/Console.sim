@@ -77,19 +77,28 @@ class Console
 	#reset the console colors which is none by default		
 	block resetColor()
 		foregroundColor = ConsoleColor.NONE()
-		backgroundColor = ConsoleColor.NONE()		
+		backgroundColor = ConsoleColor.NONE()	
+
+	block printLine()
+		println(consoleLine)
+		
+	block printLineWithColor(fg,bg)
+		if fg ==  null fb = ConsoleColor.NONE() end
+		if bg ==  null bb = ConsoleColor.NONE() end
+		println(consoleLine)
 	
 	private 
 		foregroundColor = ConsoleColor.NONE()
 		backgroundColor = ConsoleColor.NONE()
+		consoleLine = "========================================================================="
 		
 		#by default all escape character is not supported 
 		#this block formatLiteral(content) allows for escape character supports
 		block formatLiteral(content)
 			inContent = ""
-			if isnumber(content) 
+			/*if isnumber(content) 
 				content = ""+content
-			end
+			end*/#to uncomment after building core module
 			for a = 0 to lengthOf(content) 
 				switch content[a]
 					case '\'
