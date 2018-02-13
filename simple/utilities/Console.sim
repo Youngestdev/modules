@@ -79,18 +79,20 @@ class Console
 		foregroundColor = ConsoleColor.NONE()
 		backgroundColor = ConsoleColor.NONE()	
 
+	#prints a plain line on the console/terminal	
 	block printLine()
-		println(consoleLine)
-		
+		print(consoleLine)
+	
+	#prints a plain line on the console/terminal with custom foreground and background
 	block printLineWithColor(fg,bg)
 		if fg ==  null fb = ConsoleColor.NONE() end
 		if bg ==  null bb = ConsoleColor.NONE() end
-		println(consoleLine)
+		__printwfb(fg, bg, consoleLine)
 	
 	private 
 		foregroundColor = ConsoleColor.NONE()
 		backgroundColor = ConsoleColor.NONE()
-		consoleLine = "========================================================================="
+		consoleLine = "========================================================================="+crlf
 		
 		#by default all escape character is not supported 
 		#this block formatLiteral(content) allows for escape character supports
