@@ -13,6 +13,7 @@
  */
 
 #include "../../../simple/bootsrc/includes/simple.h"
+#include "../../../simple/bootsrc/includes/simple_state.h"
 #include "file_savant.h"
 
 SIMPLE_API __declspec(dllexport)
@@ -91,7 +92,13 @@ void file_exists ( void *pointer )
 		return ;
 	}
 	if ( SIMPLE_API_ISSTRING(1) ) {
-		SIMPLE_API_RETNUMBER(simple_fexists(SIMPLE_API_GETSTRING(1)));
+            FILE *fp  ;
+            fp = fopen(SIMPLE_API_GETSTRING(1) , "r" );
+            if ( fp ) {
+                fclose( fp ) ;
+                SIMPLE_API_RETNUMBER(0);
+            }
+            SIMPLE_API_RETNUMBER(0);
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
