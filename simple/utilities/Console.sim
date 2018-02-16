@@ -92,7 +92,7 @@ class Console
 	private 
 		foregroundColor = ConsoleColor.NONE()
 		backgroundColor = ConsoleColor.NONE()
-		consoleLine = "========================================================================================================================"+crlf
+		consoleLine = "======================================================================================================================================================="+crlf
 		
 		#by default all escape character is not supported 
 		#this block formatLiteral(content) allows for escape character supports

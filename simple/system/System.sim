@@ -14,7 +14,7 @@ module simple.system
 
 call "simple/core/String.sim" ? simple.core
 call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\systemic\dist\Debug\MinGW-Windows\systemic.dll")		
+callModule("systemic.dll")		
 		
 MS_DOS_SYSTEM = "Microsoft Dos"
 WINDOWS_SYSTEM = "Windows 32"
@@ -61,6 +61,9 @@ block tickCount()
 
 block exitCode()
 	return 0
+	
+#internal block for getting environment variable
+#block getSystemEnvironment(para) 
 	
 block commandLineParameters()
 	return cmdparams
