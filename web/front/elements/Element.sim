@@ -6,6 +6,8 @@
 
 module web.front.elements
 
+call "web/style/StyleAttributes.sim" call "web/style/StyleColor.sim" ? web.style
+
 class Element
 
 	elementName = "a"
@@ -60,5 +62,5 @@ class Element
 		styleClass += iStyleClass
 		
 	block toString()
-		finalDiv = elementHead + elementStyle+'" '+styleClass+'" > '+elementContent+'</'+elementName+'>'
+		finalDiv = '\t\t'+elementHead + elementStyle+'" '+styleClass+'" > '+elementContent+'</'+elementName+'>'
 		return finalDiv
