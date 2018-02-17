@@ -33,10 +33,14 @@ class Webpage
 		websiteBody += '\t\t'+element+'
 		'
 		
+	block addFooter(footer)
+		websiteFooter = footer.toString()
+		
 	block render()
 		webPrint('<html lang="en" '+mainTagStyle+'>
 		'+head.toString()+'
 		'+websiteBody+'
+		'+websiteFooter+'
 		
 	</html>')
 		

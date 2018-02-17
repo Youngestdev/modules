@@ -9,9 +9,11 @@ module web.front.elements
 class Div
 
 	singleDiv = "<div> "
+	singleDivStyle = 'style="'
 	
 	block setBackground(icolor)
+		singleDivStyle += 'background:icolor; '
 	
 	block toString()
-		singleDiv += ' </div>'
+		singleDiv += singleDivStyle+'" </div>'
 		return singleDiv

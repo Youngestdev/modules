@@ -6,7 +6,9 @@
 
 module web.front.elements
 
-class Footer
+call "web/front/elements/Div.sim" ? web.front.elements
+
+class Footer : Div
 
 	footerDiv = "<footer> "
 	
