@@ -13,7 +13,7 @@ class Link : Element
 	elementName = "a"
 	init()
 	
-	block Link(address, title)
+	block Link(title, address)
 		setAddress(address)
 		setTitle(title)
 	
@@ -22,6 +22,12 @@ class Link : Element
 		
 	block setTitle(title)
 		elementContent += title
+		
+class Ul : Element
+	
+	elementName = "ul"
+	init()
+	
 
 class Li : Element
 	
