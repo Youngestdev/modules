@@ -1,0 +1,19 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+module web.front
+
+RIGHT = "right"
+
+ALIGN_RIGHT = "align:right;"
+
+ZERO_RIGHT : "right:0;"
+
+LEFT = "left"
+
+ALIGN_LEFT = "align:left;"
+
+ZERO_LEFT = "left:0;"

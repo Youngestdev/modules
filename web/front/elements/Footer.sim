@@ -7,6 +7,7 @@
 module web.front.elements
 
 call "web/front/elements/Div.sim" ? web.front.elements
+call "web/front/StyleAttribute.sim" ? web.front
 
 STICKY_FOOTER  = 0
 RESPONSIVE_FOOTER = 1
@@ -26,7 +27,7 @@ class Footer : Div
 		end
 	
 	block toString()
-		finalDiv = footerHead + divStyle+'position:'+footerType+';bottom:0;left:0;overflow:hidden;" > </footer>'
+		finalDiv = footerHead + divStyle+'position:'+footerType+';bottom:0;right:0;overflow:hidden;" > </footer>'
 		return finalDiv
 		
 	private 
