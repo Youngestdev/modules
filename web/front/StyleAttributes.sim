@@ -18,3 +18,9 @@ ALIGN_LEFT = "align:left;"
 
 ZERO_LEFT = "left:0;"
 
+CENTER = "centre"
+
+ALIGN_CENTER = "margin-left:auto; margin-right:auto;" 
+
+#not really accurate
+ALIGN_CENTER_HACK = "margin-left:25%;" 
