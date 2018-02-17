@@ -10,8 +10,8 @@ call "web/front/elements/Div.sim" ? web.front.elements
 
 class Footer : Div
 
-	footerDiv = "<footer "
+	footerHead = "<footer "
 	
 	block toString()
-		footerDiv += divStyle+'" > </footer>'
-		return footerDiv
+		finalDiv = footerHead + divStyle+'" > </footer>'
+		return finalDiv
