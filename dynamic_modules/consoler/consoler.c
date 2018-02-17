@@ -15,6 +15,7 @@
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "console-colors.h"
 #include "consoler.h"
+#include "toot.h"
 
 SIMPLE_API __declspec(dllexport)
 
@@ -44,5 +45,26 @@ void print_with_foreground_background ( void *pointer )
 
 void console_beep ( void *pointer )
 {
-    
+    if ( SIMPLE_API_PARACOUNT != 2 ) {
+        SIMPLE_API_ERROR(SIMPLE_API_MISS3PARA);
+        return ;
+    }
+    SIMPLE_API_IGNORECPOINTERTYPE ;
+    if ( ! SIMPLE_API_ISNUMBER(1) && ! SIMPLE_API_ISNUMBER(2) ) {
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+        return ;
+    }
+    #ifdef _WIN32
+	int lFd;
+	HANDLE lHStdOut;
+        
+        if ( !GetConsoleWindow() && AttachConsole(ATTACH_PARENT_PROCESS) )
+        {
+            lHStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+            lFd = _open_osfhandle((intptr_t)lHStdOut, _O_TEXT);
+            if (lFd > 0) *stdout = *_fdopen(lFd, "w");
+            printf("\n");
+        }
+    #endif
+    toot( SIMPLE_API_ISNUMBER(1) , SIMPLE_API_ISNUMBER(2) ) ;
 }
