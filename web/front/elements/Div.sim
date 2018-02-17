@@ -6,59 +6,12 @@
 
 module web.front.elements
 
-call "web/front/Element.sim" 
+call "web/front/elements/Element.sim" ? web.front.elements
 
-class Div : web.front.Element
+class Div : Element
 
-	divHead = "<div "
-	divStyle = 'style="'
-	divHeight = ""
-	divWidth = ""
-	divScript = "<script> "
-	divContent = ""
-	styleClass = 'class="'
-	
-	block addHTML(indiv)
-		divContent += "\t"+indiv + crlf
-	
-	block setPostion(pos)
-		divStyle += 'position:'+pos+';'
-		
-	block setBottom(px)
-		divStyle += 'bottom:'+px+';'
-		
-	block setTop(px)
-		divStyle += 'top:'+px+';'
-		
-	block setLeft(px)
-		divStyle += 'left:'+px+';'
-		
-	block setRight(px)
-		divStyle += 'right:'+px+';'
-	
-	block setBackground(icolor)
-		divStyle += 'background:'+icolor+';'
-		
-	block setTextColor(icolor)
-		divStyle += 'color:'+icolor+';'
-		
-	block setHeight(height)
-		setSize(height, divWidth)
-		
-	block getHeight()
-		return divHeight
-	
-	block setWidth(width)
-		setSize(divHeight, width)
-		
-	block getWidth()
-		return divWidth
-		
-	block addStyleClass(iStyleClass)
-		styleClass += ' '+iStyleClass
-		
-	block setStyleClass(iStyleClass)
-		styleClass += iStyleClass
+	elementName = "div"
+	divHead = '<'+elementName+' '
 	
 	block setSize(height, width)
 		divHeight = height
