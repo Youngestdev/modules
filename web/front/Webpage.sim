@@ -36,7 +36,7 @@ class Webpage
 		'
 		
 	block addFooter(footer)
-		websiteFooter = footer.toString()
+		websiteFooter = '<div id="page-wrapper">'+footer.toString()+'</div>'
 		
 	block render()
 		webPrint('<html lang="en" '+mainTagStyle+'>
