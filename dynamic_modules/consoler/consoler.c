@@ -66,5 +66,5 @@ void console_beep ( void *pointer )
             printf("\n");
         }
     #endif
-    toot( SIMPLE_API_ISNUMBER(1) , SIMPLE_API_ISNUMBER(2) ) ;
+    toot( 0.f , 0 ) ; printf("adewale toot\n");
 }
