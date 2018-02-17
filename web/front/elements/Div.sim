@@ -16,7 +16,7 @@ class Div
 	divContent = ""
 	
 	block addHTML(indiv)
-		divContent += indiv + crlf
+		divContent += "\t"+indiv + crlf
 	
 	block setPostion(pos)
 		divStyle += 'position:'+pos+';'
@@ -50,6 +50,8 @@ class Div
 		
 	block getWidth()
 		return divWidth
+		
+	block addStyleClass(styleClass)
 	
 	block setSize(height, width)
 		divHeight = height

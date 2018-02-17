@@ -29,7 +29,7 @@ class Footer : Div
 	
 	block toString()
 		finalDiv = footerHead + divStyle+'position:'+footerType+';bottom:0;'+alignment+'overflow:hidden;" > 
-		'+divContent+'\t</footer>'
+		'+divContent+'\t\t\t</footer>'
 		return finalDiv
 		
 	private 
