@@ -8,51 +8,57 @@ module web.front.elements
 
 class Element
 
-	divStyle = 'style="'
-	divHeight = ""
-	divWidth = ""
-	divScript = "<script> "
-	divContent = ""
+	elementName = "element"
+	elementHead = '<'+elementName+' '
+	elementStyle = 'style="'
+	elementHeight = ""
+	elementWidth = ""
+	elementScript = "<script> "
+	elementContent = ""
 	styleClass = 'class="'
 	
-	block addHTML(indiv)
-		divContent += "\t"+indiv + crlf
+	block addHTML(inelement)
+		elementContent += "\t"+inelement + crlf
 	
 	block setPostion(pos)
-		divStyle += 'position:'+pos+';'
+		elementStyle += 'position:'+pos+';'
 		
 	block setBottom(px)
-		divStyle += 'bottom:'+px+';'
+		elementStyle += 'bottom:'+px+';'
 		
 	block setTop(px)
-		divStyle += 'top:'+px+';'
+		elementStyle += 'top:'+px+';'
 		
 	block setLeft(px)
-		divStyle += 'left:'+px+';'
+		elementStyle += 'left:'+px+';'
 		
 	block setRight(px)
-		divStyle += 'right:'+px+';'
+		elementStyle += 'right:'+px+';'
 	
 	block setBackground(icolor)
-		divStyle += 'background:'+icolor+';'
+		elementStyle += 'background:'+icolor+';'
 		
 	block setTextColor(icolor)
-		divStyle += 'color:'+icolor+';'
+		elementStyle += 'color:'+icolor+';'
 		
 	block setHeight(height)
-		setSize(height, divWidth)
+		setSize(height, elementWidth)
 		
 	block getHeight()
-		return divHeight
+		return elementHeight
 	
 	block setWidth(width)
-		setSize(divHeight, width)
+		setSize(elementHeight, width)
 		
 	block getWidth()
-		return divWidth
+		return elementWidth
 		
 	block addStyleClass(iStyleClass)
 		styleClass += ' '+iStyleClass
 		
 	block setStyleClass(iStyleClass)
 		styleClass += iStyleClass
+		
+	block toString()
+		finalDiv = elementHead + elementStyle+'" '+styleClass+'" > '+elementContent+'</'+elementName+'>'
+		return finalDiv
