@@ -5,3 +5,7 @@
 */
 
 module web.front
+
+class Webpage 
+
+	title = "SIMPLE"
