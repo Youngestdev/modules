@@ -6,11 +6,11 @@
 
 module web.front
 
-call "web/front/attributes/Head.sim" ? web.front.attributes
+call "web/front/elements/Head.sim" ? web.front.elements
 
 class Webpage 
 
-	head = new web.front.attributes.Head
+	head = new Head
 	mainTagStyle = ""
 	
 	block Webpage()
