@@ -13,12 +13,22 @@ class Div
 	divHeight = ""
 	divWidth = ""
 	divScript = "<script> "
+	divContent = ""
 	
 	block setPostion(pos)
 		divStyle += 'position:'+pos+';'
 		
 	block setBottom(px)
 		divStyle += 'bottom:'+px+';'
+		
+	block setTop(px)
+		divStyle += 'top:'+px+';'
+		
+	block setLeft(px)
+		divStyle += 'left:'+px+';'
+		
+	block setRight(px)
+		divStyle += 'right:'+px+';'
 	
 	block setBackground(icolor)
 		divStyle += 'background:'+icolor+';'
@@ -39,7 +49,10 @@ class Div
 		divHeight = height
 		divWidth = width
 		divStyle += 'height:'+divHeight+';width:'+divWidth+';'
+		
+	block addDiv(indiv)
+		divContent + indiv.toString() + crlf
 	
 	block toString()
-		finalDiv = divHead + divStyle+'" > </div>'
+		finalDiv = divHead + divStyle+'" > '+divContent+'</div>'
 		return finalDiv
