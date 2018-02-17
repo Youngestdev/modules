@@ -13,6 +13,10 @@ class Link : Element
 	elementName = "a"
 	init()
 	
+	block Link(address, title)
+		setAddress(address)
+		setTitle(title)
+	
 	block setAddress(address)
 		elementHead += 'href="'+address+'" '
 		
