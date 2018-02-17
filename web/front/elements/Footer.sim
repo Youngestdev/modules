@@ -8,6 +8,9 @@ module web.front.elements
 
 call "web/front/elements/Div.sim" ? web.front.elements
 
+FOOTER_FIXED_POSITTION = "fixed"
+FOOTER_ABSOLUTE_POSITTION = "absolute"
+
 class Footer : Div
 
 	footerHead = "<footer "
