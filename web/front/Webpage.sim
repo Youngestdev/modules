@@ -13,14 +13,16 @@ class Webpage
 	
 	block Webpage()
 		head.setTitle(title)
+		
+	block setTitle(ititle) 
+		title = ititle
+		
+	block render()
 		webPrint('<html lang="en">
 			'+head.toString()+'
 		
 		
 		')
-		
-		
-		
 		
 		
 block webPrint(content)
