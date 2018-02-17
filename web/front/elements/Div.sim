@@ -8,18 +8,26 @@ module web.front.elements
 
 class Div
 
-	singleDiv = "<div> "
+	singleDiv = "<div "
 	divStyle = 'style="'
 	divHeight = ""
 	divWidth = ""
+	divScript = "<script> "
 	
 	block setBackground(icolor)
 		divStyle += 'background:icolor; '
 		
 	block setHeight(height)
+		setSize(height, divWidth)
+		
+	block getHeight()
+		return divHeight
 	
 	block setWidth(width)
+		setSize(divHeight, width)
 		
+	block getWidth()
+		return divWidth
 	
 	block setSize(height, width)
 		divHeight = height
@@ -27,5 +35,5 @@ class Div
 		divStyle += 'height:'+divHeight+';width:'+divWidth+'; '
 	
 	block toString()
-		singleDiv += divStyle+'" </div>'
+		singleDiv += divStyle+'" '+divScript+' </script> > </div>'
 		return singleDiv
