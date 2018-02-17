@@ -24,6 +24,7 @@ class Element
 	
 	block addHTML(inelement)
 		elementContent += "\t\t"+inelement + crlf
+		
 	
 	block setPostion(pos)
 		elementStyle += 'position:'+pos+';'

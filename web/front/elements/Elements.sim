@@ -31,14 +31,10 @@ class Ul : Element
 
 class Li : Element
 	
-	liContent = "<li>"
+	elementName = "li"
+	init()
 	
-	block addElement(content)
-		liContent += content
-		
-	block toString()
-		liContent += "</li>"
-		return liContent
+	
 		
 	
 		
