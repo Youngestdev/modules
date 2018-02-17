@@ -15,7 +15,7 @@
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "console-colors.h"
 #include "consoler.h"
-#include "toot.c"
+#include "toot.h"
 
 SIMPLE_API __declspec(dllexport)
 
@@ -66,5 +66,5 @@ void console_beep ( void *pointer )
             printf("\n");
         }
     #endif
-    toot( SIMPLE_API_ISNUMBER(1) , SIMPLE_API_ISNUMBER(2) ) ; printf("adewale toot\n");
+    toot( SIMPLE_API_ISNUMBER(1) , SIMPLE_API_ISNUMBER(2) ) ; 
 }
