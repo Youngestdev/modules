@@ -1,0 +1,15 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+module web.front.elements
+
+call "web/front/elements/Element.sim" ? web.front.elements
+
+class Li : Element
+	
+	liContent = "<li>"
+
+	
