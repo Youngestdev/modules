@@ -9,11 +9,23 @@ module web.front.elements
 class Div
 
 	singleDiv = "<div> "
-	singleDivStyle = 'style="'
+	divStyle = 'style="'
+	divHeight = ""
+	divWidth = ""
 	
 	block setBackground(icolor)
-		singleDivStyle += 'background:icolor; '
+		divStyle += 'background:icolor; '
+		
+	block setHeight(height)
+	
+	block setWidth(width)
+		
+	
+	block setSize(height, width)
+		divHeight = height
+		divWidth = width
+		divStyle += 'height:'+divHeight+';width:'+divWidth+'; '
 	
 	block toString()
-		singleDiv += singleDivStyle+'" </div>'
+		singleDiv += divStyle+'" </div>'
 		return singleDiv

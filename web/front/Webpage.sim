@@ -13,6 +13,7 @@ class Webpage
 	head = new web.front.elements.Head
 	mainTagStyle = ""
 	websiteBody = ""
+	websiteFooter = ""
 	
 	block Webpage()
 		head.setTitle("SIMPLE WEB")
