@@ -9,3 +9,25 @@ module web.front
 class Webpage 
 
 	title = "SIMPLE"
+	head = new Head
+	
+	block Webpage()
+		webPrint('<html lang="en">
+			'+head.toStringWithTitle(title)+'
+		
+		
+		')
+		
+		
+		
+		
+		
+block webPrint(content)
+	display content
+	
+class Head
+
+	headContent = "<head></head>"
+	
+	block toStringWithTitle(title)
+		
