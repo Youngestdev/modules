@@ -28,7 +28,7 @@ class Footer : Div
 		alignment = position
 	
 	block toString()
-		finalDiv = footerHead + divStyle+'position:'+footerType+';bottom:0;'+alignment+'overflow:hidden;" > 
+		finalDiv = footerHead + divStyle+'position:'+footerType+';bottom:0;'+alignment+'overflow:hidden;" '+styleClass+'" > 
 		'+divContent+'\t\t\t</footer>'
 		return finalDiv
 		

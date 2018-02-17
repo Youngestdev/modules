@@ -14,6 +14,7 @@ class Div
 	divWidth = ""
 	divScript = "<script> "
 	divContent = ""
+	styleClass = 'class="'
 	
 	block addHTML(indiv)
 		divContent += "\t"+indiv + crlf
@@ -51,7 +52,11 @@ class Div
 	block getWidth()
 		return divWidth
 		
-	block addStyleClass(styleClass)
+	block addStyleClass(iStyleClass)
+		styleClass += ' '+iStyleClass
+		
+	block setStyleClass(iStyleClass)
+		styleClass = iStyleClass
 	
 	block setSize(height, width)
 		divHeight = height
@@ -62,5 +67,5 @@ class Div
 		divContent + indiv.toString() + crlf
 	
 	block toString()
-		finalDiv = divHead + divStyle+'" > '+divContent+'</div>'
+		finalDiv = divHead + divStyle+'" '+styleClass+'" > '+divContent+'</div>'
 		return finalDiv
