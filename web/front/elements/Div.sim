@@ -16,7 +16,7 @@ class Div
 	divContent = ""
 	
 	block addHTML(indiv)
-		divContent + indiv + crlf
+		divContent += indiv + crlf
 	
 	block setPostion(pos)
 		divStyle += 'position:'+pos+';'
