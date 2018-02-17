@@ -12,7 +12,8 @@ class Webpage
 
 	head = new web.front.elements.Head
 	mainTagStyle = ""
-	websiteBody = ""
+	websiteBody = "<body>
+	"
 	websiteFooter = ""
 	
 	block Webpage()
@@ -41,7 +42,8 @@ class Webpage
 		webPrint('<html lang="en" '+mainTagStyle+'>
 		'+head.toString()+'
 		'+websiteBody+'
-		'+websiteFooter+'
+		\t'+websiteFooter+' 
+		</body>
 		
 	</html>')
 		

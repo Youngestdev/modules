@@ -13,5 +13,5 @@ class Footer : Div
 	footerHead = "<footer "
 	
 	block toString()
-		finalDiv = footerHead + divStyle+'" > </footer>'
+		finalDiv = footerHead + divStyle+' position: fixed; bottom: 0" > </footer>'
 		return finalDiv
