@@ -5,3 +5,11 @@
 */
 
 module web.front.elements
+
+class Div
+
+	singleDiv = "<div> "
+	
+	block toString()
+		singleDiv += ' </div>'
+		return singleDiv

@@ -10,8 +10,9 @@ call "web/front/elements/Head.sim" ? web.front.elements
 
 class Webpage 
 
-	head = new Head
+	head = new web.front.elements.Head
 	mainTagStyle = ""
+	websiteBody = ""
 	
 	block Webpage()
 		head.setTitle("SIMPLE WEB")
@@ -28,10 +29,14 @@ class Webpage
 	block setHead(ihead)
 		head = ihead
 		
+	block addToBody(element)
+		websiteBody += '\t\t'+element+'
+		'
+		
 	block render()
 		webPrint('<html lang="en" '+mainTagStyle+'>
 		'+head.toString()+'
-		
+		'+websiteBody+'
 		
 	</html>')
 		
