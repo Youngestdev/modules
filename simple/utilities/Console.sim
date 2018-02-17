@@ -88,6 +88,15 @@ class Console
 		if fg ==  null fb = ConsoleColor.NONE() end
 		if bg ==  null bb = ConsoleColor.NONE() end
 		__printwfb(fg, bg, consoleLine)
+		
+	#make the computer beep with custom frequency and
+	#length
+	block beep(l, f)
+		__beep(l, f)
+	
+	#beep just once
+	block singleBeep()
+		beep(0.0, 0)
 	
 	private 
 		foregroundColor = ConsoleColor.NONE()

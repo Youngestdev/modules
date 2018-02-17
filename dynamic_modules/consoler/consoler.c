@@ -21,7 +21,7 @@ SIMPLE_API __declspec(dllexport)
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
     register_block("__printwfb",print_with_foreground_background);
-    register_block("__beep",print_with_foreground_background);
+    register_block("__beep",console_beep);
 }
 
 void print_with_foreground_background ( void *pointer )
@@ -42,3 +42,7 @@ void print_with_foreground_background ( void *pointer )
 	cc_fprintf(((int ) SIMPLE_API_GETNUMBER(1) << 0 ) | ((int ) SIMPLE_API_GETNUMBER(2) << CC_COLOR_BITS ), stdout, SIMPLE_API_GETSTRING(3));
 }
 
+void console_beep ( void *pointer )
+{
+    
+}
