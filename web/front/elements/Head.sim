@@ -40,7 +40,7 @@ class Head
 		headContent += '\t'+script.toString() + '
 		'
 		
-	block addToppings(itoppings)
+	block addContent(itoppings)
 		toppings += '\t'+istoppings + '
 		'
 	

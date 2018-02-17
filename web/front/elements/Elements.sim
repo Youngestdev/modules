@@ -11,5 +11,8 @@ call "web/front/elements/Element.sim" ? web.front.elements
 class Li : Element
 	
 	liContent = "<li>"
+	
+	block addElement(address)
+		liContent += 
 
 	
