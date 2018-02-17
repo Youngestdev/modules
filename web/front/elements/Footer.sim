@@ -8,13 +8,25 @@ module web.front.elements
 
 call "web/front/elements/Div.sim" ? web.front.elements
 
-FOOTER_FIXED_POSITTION = "fixed"
-FOOTER_ABSOLUTE_POSITTION = "absolute"
+
 
 class Footer : Div
 
 	footerHead = "<footer "
 	
+	block setFooterType(type)
+		if type = STICKY_FOOTER 
+			footerType = FOOTER_FIXED_POSITTION
+		elif
+		
+		else 
+		
+		end
+	
 	block toString()
-		finalDiv = footerHead + divStyle+' position: fixed; bottom: 0" > </footer>'
+		finalDiv = footerHead + divStyle+'position:'+footerType+';bottom:0;" > </footer>'
 		return finalDiv
+		
+	private 
+		FOOTER_FIXED_POSITTION = "fixed"
+		FOOTER_ABSOLUTE_POSITTION = "absolute"

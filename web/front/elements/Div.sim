@@ -15,7 +15,10 @@ class Div
 	divScript = "<script> "
 	
 	block setPostion(pos)
+		divStyle += 'position:'+pos+'; '
 		
+	block setBottom(px)
+		divStyle += 'bottom:'+px+'; '
 	
 	block setBackground(icolor)
 		divStyle += 'background:'+icolor+'; '
