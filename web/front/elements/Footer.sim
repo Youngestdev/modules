@@ -6,12 +6,10 @@
 
 module web.front.elements
 
-class Div
+class Footer
 
-	singleDiv = "<div> "
-	
-	block setBackground(icolor)
+	footerDiv = "<footer> "
 	
 	block toString()
-		singleDiv += ' </div>'
-		return singleDiv
+		footerDiv += ' </footer>'
+		return footerDiv
