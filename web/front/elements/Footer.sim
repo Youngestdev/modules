@@ -7,7 +7,6 @@
 module web.front.elements
 
 call "web/front/elements/Div.sim" ? web.front.elements
-call "web/front/StyleAttribute.sim" ? web.front
 
 STICKY_FOOTER  = 0
 RESPONSIVE_FOOTER = 1
@@ -16,18 +15,20 @@ class Footer : Div
 
 	footerHead = "<footer "
 	footerType = "fixed"
+	alignment = ALIGN_LEFT
 	
 	block setType(type)
 		if type == STICKY_FOOTER 
 			footerType = FOOTER_FIXED_POSITTION
 		elif type == RESPONSIVE_FOOTER 
 			footerType = FOOTER_ABSOLUTE_POSITTION
-		else 
-		
 		end
+		
+	block setAlignment(position)
+		alignment = position
 	
 	block toString()
-		finalDiv = footerHead + divStyle+'position:'+footerType+';bottom:0;right:0;overflow:hidden;" > </footer>'
+		finalDiv = footerHead + divStyle+'position:'+footerType+';bottom:0;'+alignment+'overflow:hidden;" > </footer>'
 		return finalDiv
 		
 	private 

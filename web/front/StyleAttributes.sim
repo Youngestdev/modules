@@ -10,10 +10,11 @@ RIGHT = "right"
 
 ALIGN_RIGHT = "align:right;"
 
-ZERO_RIGHT : "right:0;"
+ZERO_RIGHT = "right:0;"
 
 LEFT = "left"
 
 ALIGN_LEFT = "align:left;"
 
 ZERO_LEFT = "left:0;"
+
