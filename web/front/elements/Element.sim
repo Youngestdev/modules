@@ -8,7 +8,7 @@ module web.front.elements
 
 class Element
 
-	elementName = "element"
+	elementName = "a"
 	elementHead = '<'+elementName+' '
 	elementStyle = 'style="'
 	elementHeight = ""

@@ -11,9 +11,13 @@ call "web/front/elements/Element.sim" ? web.front.elements
 class Link : Element 
 
 	elementName = "a"
+	setTextColor("black")
 	
 	block setAddress(address)
 		elementHead += 'href="'+address+'" '
+		
+	block setTitle(title)
+		
 
 class Li : Element
 	
