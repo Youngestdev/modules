@@ -15,13 +15,13 @@ class Div
 	divScript = "<script> "
 	
 	block setPostion(pos)
-		divStyle += 'position:'+pos+'; '
+		divStyle += 'position:'+pos+';'
 		
 	block setBottom(px)
-		divStyle += 'bottom:'+px+'; '
+		divStyle += 'bottom:'+px+';'
 	
 	block setBackground(icolor)
-		divStyle += 'background:'+icolor+'; '
+		divStyle += 'background:'+icolor+';'
 		
 	block setHeight(height)
 		setSize(height, divWidth)
@@ -38,7 +38,7 @@ class Div
 	block setSize(height, width)
 		divHeight = height
 		divWidth = width
-		divStyle += 'height:'+divHeight+';width:'+divWidth+'; '
+		divStyle += 'height:'+divHeight+';width:'+divWidth+';'
 	
 	block toString()
 		finalDiv = divHead + divStyle+'" > </div>'
