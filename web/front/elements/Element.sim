@@ -10,14 +10,17 @@ call "web/style/StyleAttributes.sim" call "web/style/StyleColor.sim" ? web.style
 
 class Element
 
-	elementName = "a"
-	elementHead = '<'+elementName+' '
+	elementName = "element"
+	elementHead = '<element '
 	elementStyle = 'style="'
 	elementHeight = ""
 	elementWidth = ""
 	elementScript = "<script> "
 	elementContent = ""
 	styleClass = 'class="'
+	
+	block init()
+		elementHead = '<'+elementName+' '
 	
 	block addHTML(inelement)
 		elementContent += "\t\t"+inelement + crlf

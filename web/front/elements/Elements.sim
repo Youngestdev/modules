@@ -11,6 +11,7 @@ call "web/front/elements/Element.sim" ? web.front.elements
 class Link : Element 
 
 	elementName = "a"
+	init()
 	
 	block setAddress(address)
 		elementHead += 'href="'+address+'" '
