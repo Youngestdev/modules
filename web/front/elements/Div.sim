@@ -6,7 +6,7 @@
 
 module web.front.elements
 
-class Div
+class Div 
 
 	divHead = "<div "
 	divStyle = 'style="'
@@ -14,6 +14,9 @@ class Div
 	divWidth = ""
 	divScript = "<script> "
 	divContent = ""
+	
+	block addHTML(indiv)
+		divContent + indiv + crlf
 	
 	block setPostion(pos)
 		divStyle += 'position:'+pos+';'
@@ -32,6 +35,9 @@ class Div
 	
 	block setBackground(icolor)
 		divStyle += 'background:'+icolor+';'
+		
+	block setTextColor(icolor)
+		divStyle += 'color:'+icolor+';'
 		
 	block setHeight(height)
 		setSize(height, divWidth)
