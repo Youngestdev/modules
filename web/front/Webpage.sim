@@ -8,21 +8,21 @@ module web.front
 
 class Webpage 
 
-	title = "SIMPLE"
+	title = "SIMPLE WEB"
 	head = new Head
 	
 	block Webpage()
 		head.setTitle(title)
 		
 	block setTitle(ititle) 
-		title = ititle
+		head.setTitle(ititle)
 		
 	block render()
 		webPrint('<html lang="en">
 			'+head.toString()+'
 		
 		
-		')
+		</html>')
 		
 		
 block webPrint(content)
@@ -31,10 +31,11 @@ block webPrint(content)
 class Head
 
 	headContent = "" ;
+	title = "<title>'SIMPLE WEB'</title>"
 	
-	block setTitle(title)
-		headContent += '<title>'+title+'</title>'+ crlf
+	block setTitle(ititle)
+		title = '<title>'+ititle+'</title>' + crlf
 	
 	block toString()
-		return '<head>'+headContent+'</head>'
+		return '<head>'+title+headContent+'</head>'
 		
