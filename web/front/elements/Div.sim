@@ -6,7 +6,9 @@
 
 module web.front.elements
 
-class Div 
+call "web/front/Element.sim" 
+
+class Div : web.front.Element
 
 	divHead = "<div "
 	divStyle = 'style="'
@@ -56,7 +58,7 @@ class Div
 		styleClass += ' '+iStyleClass
 		
 	block setStyleClass(iStyleClass)
-		styleClass = iStyleClass
+		styleClass += iStyleClass
 	
 	block setSize(height, width)
 		divHeight = height
