@@ -12,8 +12,9 @@ class Webpage
 	head = new Head
 	
 	block Webpage()
+		head.setTitle(title)
 		webPrint('<html lang="en">
-			'+head.toStringWithTitle(title)+'
+			'+head.toString()+'
 		
 		
 		')
@@ -27,7 +28,11 @@ block webPrint(content)
 	
 class Head
 
-	headContent = "<head></head>"
+	headContent = "" ;
 	
-	block toStringWithTitle(title)
+	block setTitle(title)
+		headContent += '<title>'+title+'</title>'+ crlf
+	
+	block toString()
+		return '<head>'+headContent+'</head>'
 		
