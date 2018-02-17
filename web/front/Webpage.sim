@@ -6,36 +6,73 @@
 
 module web.front
 
+call "web/front/attributes/Head.sim" ? web.front.attributes
+
 class Webpage 
 
-	title = "SIMPLE WEB"
-	head = new Head
+	head = new web.front.attributes.Head
+	mainTagStyle = ""
 	
 	block Webpage()
-		head.setTitle(title)
+		head.setTitle("SIMPLE WEB")
+		
+	block styleMainTag(styling)
+		mainTagStyle = styling
 		
 	block setTitle(ititle) 
 		head.setTitle(ititle)
 		
+	block setIcon(iconLocation)
+		head.setIcon(iconLocation)
+		
+	block setHead(ihead)
+		head = ihead
+		
 	block render()
-		webPrint('<html lang="en">
-			'+head.toString()+'
+		webPrint('<html lang="en" '+mainTagStyle+'>
+		'+head.toString()+'
 		
 		
-		</html>')
+	</html>')
 		
 		
 block webPrint(content)
-	display content
+	fcontent = formatLiteral(content)
+	display fcontent
 	
-class Head
 
-	headContent = "" ;
-	title = "<title>'SIMPLE WEB'</title>"
+block formatLiteral(content)
+	inContent = ""
+	/*if isnumber(content) 
+		content = ""+content
+	end*/#to uncomment after building core module
+	for a = 0 to lengthOf(content) 
+		switch content[a]
+			case '\'
+				a++
+				switch content[a]
+				case '\'
+					inContent +=  '\'
+				case '"'
+					inContent += '"'
+				case "n"
+					inContent +=  crlf
+				case "t"
+					inContent +=  char(9)
+				case "r" 
+					inContent +=  char(13)
+				end
+			default 
+				inContent +=  content[a]
+		end
+	end
+	return inContent
 	
-	block setTitle(ititle)
-		title = '<title>'+ititle+'</title>' + crlf
 	
-	block toString()
-		return '<head>'+title+headContent+'</head>'
-		
+	
+	
+	
+	
+	
+	
+	
