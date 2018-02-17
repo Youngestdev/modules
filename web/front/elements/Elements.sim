@@ -8,11 +8,26 @@ module web.front.elements
 
 call "web/front/elements/Element.sim" ? web.front.elements
 
+class Link : Element 
+
+	elementName = "a"
+	
+	block addLink(address)
+		elementHead += ""
+
 class Li : Element
 	
 	liContent = "<li>"
 	
-	block addElement(address)
-		liContent += 
+	block addElement(content)
+		liContent += content
+		
+	block toString()
+		liContent += "</li>"
+		return liContent
+		
+	
+		
+	
 
 	
