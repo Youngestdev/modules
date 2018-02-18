@@ -35,6 +35,9 @@ block intHash(content)
 	
 block hash(content)
 	return __hash(content)
+	
+block md5(content)
+	return __md5(content)
 
 /*
 	-->
