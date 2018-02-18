@@ -1,0 +1,18 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - Decrypt.sim
+ * #author - Azeez Adewale
+ * #date - 18 Febuary 2018
+ */
+ 
+module simple.security
+
+call "Hash.sim"
+
+block decrypt(content, key, five)
+	return __decrypt(content, key, five)
