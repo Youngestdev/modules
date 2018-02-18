@@ -14,7 +14,7 @@ module simple.security
 
 call "simple/utilities/Math.sim"
 call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("C:\Users\thecarisma\Documents\SIMPLE GITHUB\modules\dynamic_modules\security\dist\Debug\MinGW-Windows\security.dll")
+callModule("dynamic_modules\security\dist\Debug\MinGW-Windows\security.dll")
 
 __hash = new Hash
 
