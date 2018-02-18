@@ -32,8 +32,8 @@ class Hash
 		if len > 0
 			hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ a
 		end
-		decimals(0)
-		return ( - hash1 + (hash2 * 1566083941))
+		#decimals(0) 
+		return toDecimal(( - hash1 + (hash2 * 1566083941)), 0)
 		
 		
 		
