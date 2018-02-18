@@ -85,8 +85,8 @@ block randomBytes(length)
 #calculate the sha224 value of a string 
 #this block is a delegate to the __encrypt(content)	block in the security.dll
 #dependency	
-block encrypt(content)
-	return __encrypt(content)
+block encrypt(content, key, five)
+	return __encrypt(content, key, five)
 	
 /*
 	-->
