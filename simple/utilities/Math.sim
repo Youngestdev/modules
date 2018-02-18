@@ -27,7 +27,8 @@ block vmDecimal(place)
 	__decimals(place)
 	
 #in the case of changing the virtual machine decimal places you can use this
-#block to resets the decimal places to the default 14 places
+#block to resets the decimal places to the default 14 places also it usage is
+#probably might be or not be effective as the result is during runtime
 block resetDecimal()
 	__decimals(14)
 	
