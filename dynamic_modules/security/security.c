@@ -193,7 +193,7 @@ void security_lib_sha224 ( void *pointer )
 	}
 }
 
-void security_lib_randbytes ( void *pointer )
+void security_lib_randbytes ( void *pointer ) 
 {
 	unsigned char *cStr  ;
 	int nNum1  ;

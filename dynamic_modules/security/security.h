@@ -25,6 +25,18 @@ void security_lib_hash ( void *pointer ) ;
 
 void security_lib_md5 ( void *pointer ) ;
 
+void security_lib_sha1 ( void *pointer ) ;
+
+void security_lib_sha256 ( void *pointer ) ;
+
+void security_lib_sha512 ( void *pointer ) ;
+
+void security_lib_sha384 ( void *pointer ) ;
+
+void security_lib_sha224 ( void *pointer ) ;
+
+void security_lib_randbytes ( void *pointer ) ;
+
 #ifdef __cplusplus
 }
 #endif

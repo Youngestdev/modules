@@ -44,6 +44,11 @@ block hash(content)
 block md5(content)
 	return __md5(content)
 
+#calculate the sha1 value of a string 
+#this block is a delegate to the __md5(content)	block in the security.dll
+#dependency	
+block sha1(content)
+	return __sha1(content)
 /*
 	-->
 	#
