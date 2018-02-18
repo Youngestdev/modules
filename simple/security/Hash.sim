@@ -83,8 +83,6 @@ block sha224(content)
 block randomBytes(length)
 	return __randbytes(length)
 	
-blco
-	
 /*
 	-->
 	#
