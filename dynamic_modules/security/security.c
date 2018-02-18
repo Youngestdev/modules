@@ -20,7 +20,30 @@ SIMPLE_API __declspec(dllexport)
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {
-    register_block("md5",security_lib_md5);
+    register_block("__hash",security_lib_hash);
+    register_block("__md5",security_lib_md5);
+}
+
+void security_lib_hash ( void *pointer )
+{
+	unsigned char digest[16]  ;
+	char string[33]  ;
+	int x,nSize  ;
+	char *cInput  ;
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) ) {
+		cInput = SIMPLE_API_GETSTRING(1) ;
+		nSize = SIMPLE_API_GETSTRINGSIZE(1) ;
+		for ( x = 0 ; x < 16 ; x++ ) {
+			sprintf( &string[x*2] , "%02x" , (unsigned int) digest[x] ) ;
+		}
+		SIMPLE_API_RETSTRING(string);
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
 }
 
 void security_lib_md5 ( void *pointer )
