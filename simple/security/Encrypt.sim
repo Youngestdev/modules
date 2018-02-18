@@ -12,5 +12,7 @@
  
 module simple.security
 
+call "Hash.sim"
+
 block encrypt(content, key, five)
 	return __encrypt(content, key, five)
