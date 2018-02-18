@@ -62,6 +62,24 @@ block sha256(content)
 block sha512(content)
 	return __sha512(content)
 	
+#calculate the sha384 value of a string 
+#this block is a delegate to the __sha384(content)	block in the security.dll
+#dependency	
+block sha384(content)
+	return __sha384(content)
+	
+#calculate the sha224 value of a string 
+#this block is a delegate to the __224(content)	block in the security.dll
+#dependency	
+block sha224(content)
+	return __sha224(content)
+	
+#this generates string of random bytes with given length
+#this block is a delegate to the __randbytes(content)	block in the
+#security.dll dependency	
+block randomBytes(length)
+	return __randbytes(length)
+	
 /*
 	-->
 	#
