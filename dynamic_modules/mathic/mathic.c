@@ -277,75 +277,75 @@ void math_sqrt ( void *pointer )
 
 void math_unsigned ( void *pointer )
 {
-    unsigned int nNum1,nNum2  ;
-    double nNum3  ;
-    const char *cStr  ;
+    unsigned int num1,num2  ;
+    double num3  ;
+    const char *str  ;
     if ( SIMPLE_API_PARACOUNT != 3 ) {
             SIMPLE_API_ERROR(SIMPLE_API_MISS3PARA);
             return ;
     }
     if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISSTRING(3) ) {
-            nNum1 = (unsigned int) SIMPLE_API_GETNUMBER(1) ;
-            nNum2 = (unsigned int ) SIMPLE_API_GETNUMBER(2) ;
-            cStr = SIMPLE_API_GETSTRING(3) ;
-            if ( strcmp(cStr,">>") == 0 ) {
-                    nNum3 = nNum1 >> nNum2 ;
+            num1 = (unsigned int) SIMPLE_API_GETNUMBER(1) ;
+            num2 = (unsigned int ) SIMPLE_API_GETNUMBER(2) ;
+            str = SIMPLE_API_GETSTRING(3) ;
+            if ( strcmp(str,">>") == 0 ) {
+                    num3 = num1 >> num2 ;
             }
-            else if ( strcmp(cStr,"<<") == 0 ) {
-                    nNum3 = nNum1 << nNum2 ;
+            else if ( strcmp(str,"<<") == 0 ) {
+                    num3 = num1 << num2 ;
             }
-            else if ( strcmp(cStr,"+") == 0 ) {
-                    nNum3 = nNum1 + nNum2 ;
+            else if ( strcmp(str,"+") == 0 ) {
+                    num3 = num1 + num2 ;
             }
-            else if ( strcmp(cStr,"-") == 0 ) {
-                    nNum3 = nNum1 - nNum2 ;
+            else if ( strcmp(str,"-") == 0 ) {
+                    num3 = num1 - num2 ;
             }
-            else if ( strcmp(cStr,"*") == 0 ) {
-                    nNum3 = nNum1 * nNum2 ;
+            else if ( strcmp(str,"*") == 0 ) {
+                    num3 = num1 * num2 ;
             }
-            else if ( strcmp(cStr,"/") == 0 ) {
-                    if ( nNum2 != 0 ) {
-                            nNum3 = nNum1 / nNum2 ;
+            else if ( strcmp(str,"/") == 0 ) {
+                    if ( num2 != 0 ) {
+                            num3 = num1 / num2 ;
                     }
                     else {
                             SIMPLE_API_ERROR(SIMPLE_VM_ERROR_DIVIDEBYZERO);
                             return ;
                     }
             }
-            else if ( strcmp(cStr,"^") == 0 ) {
-                    nNum3 = nNum1 ^ nNum2 ;
+            else if ( strcmp(str,"^") == 0 ) {
+                    num3 = num1 ^ num2 ;
             }
-            else if ( strcmp(cStr,"<") == 0 ) {
-                    nNum3 = nNum1 < nNum2 ;
+            else if ( strcmp(str,"<") == 0 ) {
+                    num3 = num1 < num2 ;
             }
-            else if ( strcmp(cStr,">") == 0 ) {
-                    nNum3 = nNum1 > nNum2 ;
+            else if ( strcmp(str,">") == 0 ) {
+                    num3 = num1 > num2 ;
             }
-            else if ( strcmp(cStr,"<=") == 0 ) {
-                    nNum3 = nNum1 <= nNum2 ;
+            else if ( strcmp(str,"<=") == 0 ) {
+                    num3 = num1 <= num2 ;
             }
-            else if ( strcmp(cStr,">=") == 0 ) {
-                    nNum3 = nNum1 >= nNum2 ;
+            else if ( strcmp(str,">=") == 0 ) {
+                    num3 = num1 >= num2 ;
             }
-            else if ( strcmp(cStr,"=") == 0 ) {
-                    nNum3 = nNum1 == nNum2 ;
+            else if ( strcmp(str,"=") == 0 ) {
+                    num3 = num1 == num2 ;
             }
-            else if ( strcmp(cStr,"!=") == 0 ) {
-                    nNum3 = nNum1 != nNum2 ;
+            else if ( strcmp(str,"!=") == 0 ) {
+                    num3 = num1 != num2 ;
             }
-            else if ( strcmp(cStr,"&") == 0 ) {
-                    nNum3 = nNum1 & nNum2 ;
+            else if ( strcmp(str,"&") == 0 ) {
+                    num3 = num1 & num2 ;
             }
-            else if ( strcmp(cStr,"|") == 0 ) {
-                    nNum3 = nNum1 | nNum2 ;
+            else if ( strcmp(str,"|") == 0 ) {
+                    num3 = num1 | num2 ;
             }
-            else if ( strcmp(cStr,"~") == 0 ) {
-                    nNum3 = ~ nNum1 ;
+            else if ( strcmp(str,"~") == 0 ) {
+                    num3 = ~ num1 ;
             } else {
                     SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
                     return ;
             }
-            SIMPLE_API_RETNUMBER(nNum3);
+            SIMPLE_API_RETNUMBER(num3);
     } else {
             SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
     }
@@ -353,12 +353,12 @@ void math_unsigned ( void *pointer )
 
 void math_decimals ( void *pointer )
 {
-    int nNum1  ;
+    int num1  ;
     if ( SIMPLE_API_PARACOUNT == 1 ) {
             if ( SIMPLE_API_ISNUMBER(1) ) {
-                    nNum1 = (int) SIMPLE_API_GETNUMBER(1) ;
-                    if ( (nNum1 >= 0) && (nNum1 <= 14) ) {
-                            ((VM *) pointer)->nDecimals = nNum1 ;
+                    num1 = (int) SIMPLE_API_GETNUMBER(1) ;
+                    if ( (num1 >= 0) && (num1 <= 14) ) {
+                            ((VM *) pointer)->nDecimals = num1 ;
                     }
                     else {
                             SIMPLE_API_ERROR(SIMPLE_VM_ERROR_BADDECIMALNUMBER);
