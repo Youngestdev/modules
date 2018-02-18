@@ -1,6 +1,7 @@
 
 extern "C" {
 	#include "../../../simple/bootsrc/includes/simple.h"
+	#include "fulltick.h"
 }
 
 #include <FL/Fl.H>
@@ -8,8 +9,6 @@ extern "C" {
 #include <FL/Fl_Box.H>
 
 extern "C" {
-
-	SIMPLE_API void init_full_tick(SimpleState *sState);
 
 	SIMPLE_API void init_simple_module(SimpleState *sState)
 	{
@@ -23,7 +22,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__test_gui",test_gui);
 }
 
-void test_gui ( void *pointer )
+SIMPLE_FUNC(test_gui)
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);

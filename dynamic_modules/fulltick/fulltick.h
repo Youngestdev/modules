@@ -18,28 +18,7 @@
 extern "C" {
 #endif
 
-void simple_vmlib_lower ( void *pointer ) ;
-
-void simple_vmlib_upper ( void *pointer ) ;
-
-void simple_vmlib_left ( void *pointer ) ;
-
-void simple_vmlib_right ( void *pointer ) ;
-
-void simple_vmlib_trim ( void *pointer ) ;
-
-void simple_vmlib_copy ( void *pointer ) ;
-
-void simple_vmlib_substr ( void *pointer ) ;
-
-void simple_vmlib_lines ( void *pointer ) ;
-
-void simple_vmlib_strcmp ( void *pointer ) ;
-
-void string_replace ( void *pointer ) ;
-
-void string_last_char ( void *pointer ) ;
-
+SIMPLE_API void init_full_tick(SimpleState *sState) ;
 
 #ifdef __cplusplus
 }
