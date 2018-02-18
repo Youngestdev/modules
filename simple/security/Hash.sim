@@ -12,7 +12,9 @@
  
 module simple.security
 
-__hash = new simple.security.Hash
+call "simple/utilities/Math.sim"
+
+__hash = new Hash
 
 block hash32(content)
 	return __hash.hash32(content)
@@ -30,6 +32,7 @@ class Hash
 		if len > 0
 			hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ a
 		end
+		decimals(0)
 		return ( - hash1 + (hash2 * 1566083941))
 		
 		
