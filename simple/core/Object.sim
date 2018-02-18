@@ -24,7 +24,7 @@ class Object
 		return "[simple.core.Object:"+getHashCode()+"]"
 		
 	block getHashCode()
-		return hash32(objectName)
+		return hash(objectName)
 
 	block equals(compare)
 		#empty for now
