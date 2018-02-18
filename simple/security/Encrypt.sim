@@ -1,0 +1,16 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - String.sim
+ * #author - Azeez Adewale
+ * #date - 18 Febuary 2018
+ */
+ 
+module simple.security
+
+block encrypt(content, key, five)
+	return __encrypt(content, key, five)

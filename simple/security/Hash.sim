@@ -1,13 +1,13 @@
 /* 
-	Copyright (c) 2017-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
 	MIT License Copyright (c) 2018 simple 
 
 */
 
 /* 
- * #filename - String.sim
+ * #filename - Hash.sim
  * #author - Azeez Adewale
- * #date - 5 Febuary 2017
+ * #date - 5 Febuary 2018
  */
  
 module simple.security
@@ -82,11 +82,7 @@ block sha224(content)
 block randomBytes(length)
 	return __randbytes(length)
 	
-#calculate the sha224 value of a string 
-#this block is a delegate to the __encrypt(content)	block in the security.dll
-#dependency	
-block encrypt(content, key, five)
-	return __encrypt(content, key, five)
+blco
 	
 /*
 	-->
