@@ -197,7 +197,7 @@ void security_lib_sha224 ( void *pointer )
 
 void security_lib_randbytes ( void *pointer ) 
 {
-	unsigned char *cStr  ;
+	unsigned char *str  ;
 	int nNum1  ;
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -206,9 +206,9 @@ void security_lib_randbytes ( void *pointer )
 	if ( SIMPLE_API_ISNUMBER(1) ) {
 		nNum1 = (int) SIMPLE_API_GETNUMBER(1) ;
 		if ( nNum1 > 0 ) {
-			cStr =  malloc(nNum1+1) ;
-			if ( RAND_bytes(cStr,nNum1) ) {
-				SIMPLE_API_RETSTRING2((const char *) cStr,nNum1);
+			str =  malloc(nNum1+1) ;
+			if ( RAND_bytes(str,nNum1) ) {
+				SIMPLE_API_RETSTRING2((const char *) str,nNum1);
 			}
 			else {
 				SIMPLE_API_RETNUMBER(0);
@@ -221,3 +221,84 @@ void security_lib_randbytes ( void *pointer )
 	}
 }
 
+void security_lib_encrypt ( void *pointer )
+{
+	unsigned char *in, *out, *key, *iv  ;
+	int nSize,buflen, tmplen, nSize2  ;
+	EVP_CIPHER_CTX *ctx  ;
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARACOUNT);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) && SIMPLE_API_ISSTRING(2) && SIMPLE_API_ISSTRING(3) ) {
+		in = (unsigned char *) SIMPLE_API_GETSTRING(1) ;
+		key = (unsigned char *) SIMPLE_API_GETSTRING(2) ;
+		iv = (unsigned char *) SIMPLE_API_GETSTRING(3) ;
+		nSize = SIMPLE_API_GETSTRINGSIZE(1) ;
+		out = (unsigned char *) malloc(nSize*2) ;
+		ctx = EVP_CIPHER_CTX_new();
+		if ( ctx == NULL ) {
+			printf( SIMPLE_OOM ) ;
+			return ;
+		}
+		EVP_EncryptInit_ex(ctx, EVP_bf_cbc(), NULL, key, iv);
+		if ( !EVP_EncryptUpdate(ctx, out, &buflen, in, nSize) ) {
+			free( out ) ;
+			EVP_CIPHER_CTX_free(ctx);
+			return ;
+		}
+		if ( !EVP_EncryptFinal_ex(ctx, out + buflen, &tmplen) ) {
+			free( out ) ;
+			EVP_CIPHER_CTX_free(ctx);
+			return ;
+		}
+		nSize2 = buflen + tmplen ;
+		SIMPLE_API_RETSTRING2((const char *) out,nSize2);
+		EVP_CIPHER_CTX_free(ctx);
+		free( out ) ;
+	}
+	else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+void security_lib_decrypt ( void *pointer )
+{
+	unsigned char *in, *out, *key, *iv  ;
+	int nSize,buflen, tmplen, nSize2  ;
+	EVP_CIPHER_CTX *ctx  ;
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARACOUNT);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) && SIMPLE_API_ISSTRING(2) && SIMPLE_API_ISSTRING(3) ) {
+		in = (unsigned char *) SIMPLE_API_GETSTRING(1) ;
+		key = (unsigned char *) SIMPLE_API_GETSTRING(2) ;
+		iv = (unsigned char *) SIMPLE_API_GETSTRING(3) ;
+		nSize = SIMPLE_API_GETSTRINGSIZE(1) ;
+		out = (unsigned char *) malloc(nSize*2) ;
+		ctx = EVP_CIPHER_CTX_new();
+		if ( ctx == NULL ) {
+			printf( SIMPLE_OOM ) ;
+			return ;
+		}
+		EVP_DecryptInit_ex(ctx, EVP_bf_cbc(), NULL, key, iv);
+		if ( !EVP_DecryptUpdate(ctx, out, &buflen, in, nSize) ) {
+			free( out ) ;
+			EVP_CIPHER_CTX_free(ctx);
+			return ;
+		}
+		if ( !EVP_DecryptFinal_ex(ctx, out + buflen, &tmplen) ) {
+			free( out ) ;
+			EVP_CIPHER_CTX_free(ctx);
+			return ;
+		}
+		nSize2 = buflen + tmplen ;
+		SIMPLE_API_RETSTRING2((const char *) out,nSize2);
+		EVP_CIPHER_CTX_free(ctx);
+		free( out ) ;
+	}
+	else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
