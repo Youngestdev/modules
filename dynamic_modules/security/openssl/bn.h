@@ -127,7 +127,7 @@
 
 # include "e_os2.h"
 # ifndef OPENSSL_NO_FP_API
-#  include <stdio.h"            /* FILE */
+#  include <stdio.h>           /* FILE */
 # endif
 # include "ossl_typ.h"
 # include "crypto.h"

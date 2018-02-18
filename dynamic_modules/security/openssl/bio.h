@@ -60,11 +60,7 @@
 # define HEADER_BIO_H
 
 # include "e_os2.h"
-
-# ifndef OPENSSL_NO_FP_API
-#  include <stdio.h"
-# endif
-# include <stdarg.h"
+# include <stdarg.h>
 
 # include "crypto.h"
 

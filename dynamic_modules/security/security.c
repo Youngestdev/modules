@@ -14,6 +14,9 @@
 
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "./openssl/md5.h"
+#include "openssl/sha.h"
+#include "openssl/evp.h"
+#include "openssl/rand.h"
 #include "security.h"
 
 SIMPLE_API __declspec(dllexport)

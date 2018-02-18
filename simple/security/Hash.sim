@@ -37,7 +37,10 @@ block intHash(content)
 #the characters binary (02) value
 block hash(content)
 	return __hash(content)
-	
+
+#calculate the md5 value of a string 
+#this block is a delegate to the __md5(content)	block in the security.dll
+#dependency
 block md5(content)
 	return __md5(content)
 

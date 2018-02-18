@@ -117,12 +117,12 @@
 #ifndef HEADER_CRYPTO_H
 # define HEADER_CRYPTO_H
 
-# include <stdlib.h"
+# include <stdlib.h>
 
 # include "e_os2.h"
 
 # ifndef OPENSSL_NO_FP_API
-#  include <stdio.h"
+#  include <stdio.h>
 # endif
 
 # include "stack.h"
