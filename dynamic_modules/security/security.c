@@ -13,7 +13,7 @@
  */
 
 #include "../../../simple/bootsrc/includes/simple.h"
-//#include "./openssl/md5.h"
+#include "./openssl/md5.h"
 #include "security.h"
 
 SIMPLE_API __declspec(dllexport)
@@ -36,7 +36,7 @@ void security_lib_md5 ( void *pointer )
 	if ( SIMPLE_API_ISSTRING(1) ) {
 		cInput = SIMPLE_API_GETSTRING(1) ;
 		nSize = SIMPLE_API_GETSTRINGSIZE(1) ;
-		//MD5((unsigned char *) cInput, nSize, (unsigned char *) &digest);
+		MD5((unsigned char *) cInput, nSize, (unsigned char *) &digest);
 		for ( x = 0 ; x < 16 ; x++ ) {
 			sprintf( &string[x*2] , "%02x" , (unsigned int) digest[x] ) ;
 		}
