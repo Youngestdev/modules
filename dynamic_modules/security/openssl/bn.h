@@ -125,12 +125,12 @@
 #ifndef HEADER_BN_H
 # define HEADER_BN_H
 
-# include <openssl/e_os2.h>
+# include "e_os2.h"
 # ifndef OPENSSL_NO_FP_API
-#  include <stdio.h>            /* FILE */
+#  include <stdio.h"            /* FILE */
 # endif
-# include <openssl/ossl_typ.h>
-# include <openssl/crypto.h>
+# include "ossl_typ.h"
+# include "crypto.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -761,7 +761,7 @@ BIGNUM *bn_dup_expand(const BIGNUM *a, int words); /* unused */
 # ifdef BN_DEBUG
 
 /* We only need assert() when debugging */
-#  include <assert.h>
+#  include <assert.h"
 
 #  ifdef BN_DEBUG_RAND
 /* To avoid "make update" cvs wars due to BN_DEBUG, use some tricks */

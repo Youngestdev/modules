@@ -64,13 +64,13 @@
 #ifndef KSSL_H
 # define KSSL_H
 
-# include <openssl/opensslconf.h>
+# include "opensslconf.h"
 
 # ifndef OPENSSL_NO_KRB5
 
-#  include <stdio.h>
-#  include <ctype.h>
-#  include <krb5.h>
+#  include <stdio.h"
+#  include <ctype.h"
+#  include <krb5.h"
 #  ifdef OPENSSL_SYS_WIN32
 /*
  * These can sometimes get redefined indirectly by krb5 header files after

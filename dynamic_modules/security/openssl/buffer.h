@@ -59,16 +59,16 @@
 #ifndef HEADER_BUFFER_H
 # define HEADER_BUFFER_H
 
-# include <openssl/ossl_typ.h>
+# include "ossl_typ.h"
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-# include <stddef.h>
+# include <stddef.h"
 
 # if !defined(NO_SYS_TYPES_H)
-#  include <sys/types.h>
+#  include <sys/types.h"
 # endif
 
 /* Already declared in ossl_typ.h */

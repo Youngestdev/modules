@@ -52,13 +52,13 @@
 #ifndef HEADER_AES_H
 # define HEADER_AES_H
 
-# include <openssl/opensslconf.h>
+# include "opensslconf.h"
 
 # ifdef OPENSSL_NO_AES
 #  error AES is disabled.
 # endif
 
-# include <stddef.h>
+# include <stddef.h"
 
 # define AES_ENCRYPT     1
 # define AES_DECRYPT     0

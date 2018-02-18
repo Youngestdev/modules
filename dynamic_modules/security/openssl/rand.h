@@ -59,12 +59,12 @@
 #ifndef HEADER_RAND_H
 # define HEADER_RAND_H
 
-# include <stdlib.h>
-# include <openssl/ossl_typ.h>
-# include <openssl/e_os2.h>
+# include <stdlib.h"
+# include "ossl_typ.h"
+# include "e_os2.h"
 
 # if defined(OPENSSL_SYS_WINDOWS)
-#  include <windows.h>
+#  include <windows.h"
 # endif
 
 #ifdef  __cplusplus

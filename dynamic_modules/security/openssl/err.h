@@ -112,19 +112,19 @@
 #ifndef HEADER_ERR_H
 # define HEADER_ERR_H
 
-# include <openssl/e_os2.h>
+# include "e_os2.h"
 
 # ifndef OPENSSL_NO_FP_API
-#  include <stdio.h>
-#  include <stdlib.h>
+#  include <stdio.h"
+#  include <stdlib.h"
 # endif
 
-# include <openssl/ossl_typ.h>
+# include "ossl_typ.h"
 # ifndef OPENSSL_NO_BIO
-#  include <openssl/bio.h>
+#  include "bio.h"
 # endif
 # ifndef OPENSSL_NO_LHASH
-#  include <openssl/lhash.h>
+#  include "lhash.h"
 # endif
 
 #ifdef  __cplusplus
@@ -137,7 +137,7 @@ extern "C" {
 #  define ERR_PUT_error(a,b,c,d,e)        ERR_put_error(a,b,c,NULL,0)
 # endif
 
-# include <errno.h>
+# include <errno.h"
 
 # define ERR_TXT_MALLOCED        0x01
 # define ERR_TXT_STRING          0x02

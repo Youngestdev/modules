@@ -62,16 +62,16 @@
 
 # ifndef OPENSSL_NO_SRP
 
-#  include <stdio.h>
-#  include <string.h>
+#  include <stdio.h"
+#  include <string.h"
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-#  include <openssl/safestack.h>
-#  include <openssl/bn.h>
-#  include <openssl/crypto.h>
+#  include "safestack.h"
+#  include "bn.h"
+#  include "crypto.h"
 
 typedef struct SRP_gN_cache_st {
     char *b64_bn;

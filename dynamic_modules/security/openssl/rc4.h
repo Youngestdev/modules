@@ -59,12 +59,12 @@
 #ifndef HEADER_RC4_H
 # define HEADER_RC4_H
 
-# include <openssl/opensslconf.h>/* OPENSSL_NO_RC4, RC4_INT */
+# include "opensslconf.h"/* OPENSSL_NO_RC4, RC4_INT */
 # ifdef OPENSSL_NO_RC4
 #  error RC4 is disabled.
 # endif
 
-# include <stddef.h>
+# include <stddef.h"
 
 #ifdef  __cplusplus
 extern "C" {

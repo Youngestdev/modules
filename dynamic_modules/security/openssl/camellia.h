@@ -52,13 +52,13 @@
 #ifndef HEADER_CAMELLIA_H
 # define HEADER_CAMELLIA_H
 
-# include <openssl/opensslconf.h>
+# include "opensslconf.h"
 
 # ifdef OPENSSL_NO_CAMELLIA
 #  error CAMELLIA is disabled.
 # endif
 
-# include <stddef.h>
+# include <stddef.h"
 
 # define CAMELLIA_ENCRYPT        1
 # define CAMELLIA_DECRYPT        0

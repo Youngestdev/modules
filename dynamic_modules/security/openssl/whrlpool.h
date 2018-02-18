@@ -1,8 +1,8 @@
 #ifndef HEADER_WHRLPOOL_H
 # define HEADER_WHRLPOOL_H
 
-# include <openssl/e_os2.h>
-# include <stddef.h>
+# include "e_os2.h"
+# include <stddef.h"
 
 #ifdef __cplusplus
 extern "C" {
