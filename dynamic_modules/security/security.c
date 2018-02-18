@@ -13,6 +13,7 @@
  */
 
 #include "../../../simple/bootsrc/includes/simple.h"
+#include "./openssl/md5.h"
 #include "security.h"
 
 SIMPLE_API __declspec(dllexport)
