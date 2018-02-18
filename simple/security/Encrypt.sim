@@ -17,9 +17,9 @@ call "Hash.sim"
 
 block encrypt(content, key, five)
 	if (lengthOf(five) < 3)
-		#display FIVE_LENGTH_SHORT __exit__ #to replace with throw
+		display FIVE_LENGTH_SHORT __exit__ #to replace with throw
 	elif (lengthOf(key) < 12)
-		#display KEY_LENGTH_SHORT __exit__ #to replace with throw
+		display KEY_LENGTH_SHORT __exit__ #to replace with throw
 	end
 	return __encrypt(content, key, five)
 	
