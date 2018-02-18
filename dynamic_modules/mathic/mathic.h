@@ -18,6 +18,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+    
+SIMPLE_API void init_simple_module(SimpleState *sState) ;
 
 void math_sin ( void *pointer ) ;
 

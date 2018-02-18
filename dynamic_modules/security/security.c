@@ -13,7 +13,6 @@
  */
 
 #include "../../../simple/bootsrc/includes/simple.h"
-#include "security.h"
 
 SIMPLE_API __declspec(dllexport)
 
