@@ -21,6 +21,8 @@ extern "C" {
 
 SIMPLE_API void init_simple_module(SimpleState *sState) ;
 
+void security_lib_hash ( void *pointer ) ;
+
 void security_lib_md5 ( void *pointer ) ;
 
 #ifdef __cplusplus

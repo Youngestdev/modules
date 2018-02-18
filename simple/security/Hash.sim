@@ -16,9 +16,10 @@ call "simple/utilities/Math.sim"
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\security\dist\Debug\MinGW-Windows\security.dll")
 
-#a hash32 of a string. this hash is calculated according to the method of
-#hash32 of the .Net Framework it tends to be inaccurate but kind of useful
-block hash32(content)
+#intHashashing string is calculating an integer hash of a string which 
+#various result even if the same string is sent to it every time and it
+#also useful for getting different hash value for same string
+block intHash(content)
 	hash1 = (5381<<16) + 5381 hash2 = hash1
 	a = 0 len = lengthOf(content)
 	while len  > 2
@@ -31,10 +32,13 @@ block hash32(content)
 	end
 	#decimals(0) 
 	return toDecimal(( - hash1 + (hash2 * 1566083941)), 0)
+	
+block hash(content)
+	return __hash(content)
 
 /*
 	-->
-	
+	#
 	<--
 
 */
