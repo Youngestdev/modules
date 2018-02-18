@@ -66,9 +66,9 @@
 
 # ifndef OPENSSL_NO_SCTP
 #  ifndef OPENSSL_SYS_VMS
-#   include <stdint.h"
+#   include <stdint.h>
 #  else
-#   include <inttypes.h"
+#   include <inttypes.h>
 #  endif
 # endif
 

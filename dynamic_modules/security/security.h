@@ -37,6 +37,10 @@ void security_lib_sha224 ( void *pointer ) ;
 
 void security_lib_randbytes ( void *pointer ) ;
 
+void security_lib_encrypt ( void *pointer ) ;
+
+void security_lib_decrypt ( void *pointer ) ;
+
 #ifdef __cplusplus
 }
 #endif

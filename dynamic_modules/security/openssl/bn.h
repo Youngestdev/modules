@@ -761,7 +761,7 @@ BIGNUM *bn_dup_expand(const BIGNUM *a, int words); /* unused */
 # ifdef BN_DEBUG
 
 /* We only need assert() when debugging */
-#  include <assert.h"
+#  include <assert.h>
 
 #  ifdef BN_DEBUG_RAND
 /* To avoid "make update" cvs wars due to BN_DEBUG, use some tricks */

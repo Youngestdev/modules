@@ -69,7 +69,7 @@ block sha384(content)
 	return __sha384(content)
 	
 #calculate the sha224 value of a string 
-#this block is a delegate to the __224(content)	block in the security.dll
+#this block is a delegate to the __sha224(content)	block in the security.dll
 #dependency	
 block sha224(content)
 	return __sha224(content)
@@ -81,6 +81,12 @@ block sha224(content)
 #and might not be human readable like string or number
 block randomBytes(length)
 	return __randbytes(length)
+	
+#calculate the sha224 value of a string 
+#this block is a delegate to the __encrypt(content)	block in the security.dll
+#dependency	
+block encrypt(content)
+	return __encrypt(content)
 	
 /*
 	-->
