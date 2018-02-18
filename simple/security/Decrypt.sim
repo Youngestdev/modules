@@ -15,4 +15,9 @@ module simple.security
 call "Hash.sim"
 
 block decrypt(content, key, five)
+	if (lengthOf(five) < 3)
+		display FIVE_LENGTH_SHORT __exit__ #to replace with throw
+	elif (lengthOf(key) < 12)
+		display KEY_LENGTH_SHORT __exit__ #to replace with throw
+	end
 	return __decrypt(content, key, five)
