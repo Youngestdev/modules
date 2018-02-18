@@ -10,12 +10,12 @@
  * #date - 5 Febuary 2017
  */
  
-module simple.core
+module simple.security
 
-hash = new simple.core.Hash
+__hash = new simple.security.Hash
 
 block hash32(content)
-	return hash.hash32(content)
+	return __hash.hash32(content)
 
 class Hash
 
