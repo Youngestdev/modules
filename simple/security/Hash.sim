@@ -16,8 +16,15 @@ call "simple/utilities/Math.sim"
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\security\dist\Debug\MinGW-Windows\security.dll")
 
-__hash = new Hash
+#
+block hash(content)
+	ret = ""
+	for a = 0 to lengthOf(content)
+		
+	end
 
+#a hash32 of a string. this hash is calculated according to the method of
+#hash32 of the .Net Framework it tends to be inaccurate but kind of useful
 block hash32(content)
 	hash1 = (5381<<16) + 5381 hash2 = hash1
 	a = 0 len = lengthOf(content)
@@ -32,6 +39,11 @@ block hash32(content)
 	#decimals(0) 
 	return toDecimal(( - hash1 + (hash2 * 1566083941)), 0)
 
+/*
+	-->
 	
+	<--
+
+*/
 		
 		
