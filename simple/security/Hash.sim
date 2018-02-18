@@ -12,6 +12,7 @@
  
 module simple.security
 
+call "simple/debugging/Throw.sim"
 call "simple/utilities/Math.sim"
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\security\dist\Debug\MinGW-Windows\security.dll")
