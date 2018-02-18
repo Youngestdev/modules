@@ -21,10 +21,10 @@ SIMPLE_API __declspec(dllexport)
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
-    register_block("__testfulltick",test_fulltick);
+    //register_block("__testfulltick",test_fulltick);
 }
 
-void test_fulltick ( void *pointer )
+void test_fulltick ( )
 {
-    
+    display_help();
 }
