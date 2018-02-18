@@ -19,7 +19,7 @@
 extern "C" {
 #endif
 
-//SIMPLE_API void init_simple_module(SimpleState *sState) ;
+SIMPLE_API void init_simple_module(SimpleState *sState) ;
 
 
 #ifdef __cplusplus

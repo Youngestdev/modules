@@ -13,15 +13,17 @@
  */
 
 #include "../../../simple/bootsrc/includes/simple.h"
+#include "./openssl/md5.h"
+#include "security.h"
 
 SIMPLE_API __declspec(dllexport)
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {
-    register_block("md5",lib_md5);
+    //register_block("md5",security_lib_md5);
 }
 
-void lib_md5 ( void *pPointer )
+void security_lib_md5 ( void *pPointer )
 {
 	unsigned char digest[MD5_DIGEST_LENGTH]  ;
 	char string[33]  ;
