@@ -19,22 +19,19 @@ callModule("dynamic_modules\security\dist\Debug\MinGW-Windows\security.dll")
 __hash = new Hash
 
 block hash32(content)
-	return __hash.hash32(content)
+	hash1 = (5381<<16) + 5381 hash2 = hash1
+	a = 0 len = lengthOf(content)
+	while len  > 2
+		hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ a
+		hash2 = ((hash2 << 5) + hash2 + (hash2 >> 27)) ^ a
+		a += 2 len  -= 4 
+	end
+	if len > 0
+		hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ a
+	end
+	#decimals(0) 
+	return toDecimal(( - hash1 + (hash2 * 1566083941)), 0)
 
-class Hash
-
-	block hash32(content)
-		hash1 = (5381<<16) + 5381 hash2 = hash1
-		a = 0 len = lengthOf(content)
-		while len  > 2
-			hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ a
-			hash2 = ((hash2 << 5) + hash2 + (hash2 >> 27)) ^ a
-			a += 2 len  -= 4 
-		end
-		if len > 0
-			hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ a
-		end
-		#decimals(0) 
-		return toDecimal(( - hash1 + (hash2 * 1566083941)), 0)
+	
 		
 		
