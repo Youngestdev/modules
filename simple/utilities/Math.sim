@@ -32,5 +32,8 @@ block vmDecimal(place)
 block resetDecimal()
 	__decimals(14)
 	
+#if you choose to have no decimal places in all instance of your program #this block can be used to set the decimal places to zero it works as same  
+#as calling @block vmDecimal(places) and @block __decimals(places) with zero
+#as the parameter as that what the block does
 block noDecimal()
 	__decimals(0)
