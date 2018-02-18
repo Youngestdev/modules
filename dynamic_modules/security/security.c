@@ -20,10 +20,10 @@ SIMPLE_API __declspec(dllexport)
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {
-    //register_block("md5",security_lib_md5);
+    register_block("md5",security_lib_md5);
 }
 
-void security_lib_md5 ( void *pPointer )
+void security_lib_md5 ( void *pointer )
 {
 	unsigned char digest[MD5_DIGEST_LENGTH]  ;
 	char string[33]  ;
