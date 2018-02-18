@@ -17,12 +17,7 @@ extern "C" {
 
 }
 
-SIMPLE_API void init_full_tick(SimpleState *sState) 
-{
-	register_block("__test_gui",test_gui);
-}
-
-SIMPLE_FUNC(test_gui)
+SIMPLE_BLOCK(test_gui)
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
@@ -41,4 +36,9 @@ SIMPLE_FUNC(test_gui)
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
+}
+
+SIMPLE_API void init_full_tick(SimpleState *sState) 
+{
+	register_block("__test_gui",test_gui);
 }
