@@ -4,3 +4,17 @@
  * and open the template in the editor.
  */
 
+extern "C" {
+    #include "../../../simple/bootsrc/includes/simple.h"
+}
+
+extern "C" {
+
+    SIMPLE_API void init_full_tick(SimpleState *sState);
+
+    SIMPLE_API void init_simple_module(SimpleState *sState)
+    {
+        printf("Hello it works");
+    }
+
+}
