@@ -30,6 +30,8 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__sha512",security_lib_sha512);
     register_block("__sha384",security_lib_sha384);
     register_block("__sha224",security_lib_sha224);
+    register_block("__encrypt",security_lib_encrypt);
+    register_block("__decrypt",security_lib_decrypt);
     register_block("__randbytes",security_lib_randbytes);
 }
 
