@@ -13,6 +13,8 @@
 module simple.security
 
 call "simple/utilities/Math.sim"
+call "simple/core/DynamicLoader.sim" ? simple.core
+callModule("C:\Users\thecarisma\Documents\SIMPLE GITHUB\modules\dynamic_modules\security\dist\Debug\MinGW-Windows\security.dll")
 
 __hash = new Hash
 
@@ -34,9 +36,5 @@ class Hash
 		end
 		#decimals(0) 
 		return toDecimal(( - hash1 + (hash2 * 1566083941)), 0)
-		
-		
-	block md5(value)
-		return __md5(value)
 		
 		
