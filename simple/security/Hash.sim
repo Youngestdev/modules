@@ -77,6 +77,8 @@ block sha224(content)
 #this generates string of random bytes with given length
 #this block is a delegate to the __randbytes(content)	block in the
 #security.dll dependency	
+#it one block that sometime slow down the program. Note it generates bytes
+#and might not be human readable like string or number
 block randomBytes(length)
 	return __randbytes(length)
 	
