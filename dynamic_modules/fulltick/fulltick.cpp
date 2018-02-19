@@ -41,4 +41,5 @@ SIMPLE_BLOCK(test_gui)
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
+	register_block("__init_window",init_window);
 }
