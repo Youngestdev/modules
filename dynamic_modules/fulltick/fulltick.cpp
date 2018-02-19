@@ -43,15 +43,20 @@ SIMPLE_BLOCK(run_fulltick)
 	if ( SIMPLE_API_PARACOUNT != 0 ) {
 		SIMPLE_API_ERROR(FULLTICK_NOPARAM);
 		return ;
-	} Fl::scheme("plastic"); SIMPLE_API_RETNUMBER(Fl::run()); 
+	} SIMPLE_API_RETNUMBER(Fl::run()); 
 }
 
 SIMPLE_BLOCK(set_look_and_feel)
 {
-	if ( SIMPLE_API_PARACOUNT != 0 ) {
-		SIMPLE_API_ERROR(FULLTICK_NOPARAM);
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
 		return ;
-	} Fl::scheme("plastic");  
+	} 
+	if ( SIMPLE_API_ISSTRING(1) ) {
+		Fl::scheme(SIMPLE_API_GETSTRING(1));
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	} 
 }
 
 SIMPLE_BLOCK(init_window)
@@ -83,7 +88,7 @@ SIMPLE_BLOCK(show_window)
 		window.end();
 		window.show();
 	} else {
-		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
 }
 
@@ -97,7 +102,7 @@ SIMPLE_BLOCK(resizable_object)
 		Fl_Window * window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->resizable(window);
 	} else {
-		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
 }
 
@@ -111,7 +116,7 @@ SIMPLE_BLOCK(object_background)
 		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->color(((Fl_Color) SIMPLE_API_GETNUMBER(2)));
 	} else {
-		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
 }
 
@@ -125,7 +130,7 @@ SIMPLE_BLOCK(set_title)
 		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->copy_label(SIMPLE_API_GETSTRING(2));
 	} else {
-		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
 }
 
@@ -139,7 +144,7 @@ SIMPLE_BLOCK(set_size)
 		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->size((int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3));
 	} else {
-		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
 }
 
@@ -153,7 +158,7 @@ SIMPLE_BLOCK(set_tooltip)
 		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->tooltip(SIMPLE_API_GETSTRING(2));
 	} else {
-		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
 }
 
@@ -174,7 +179,7 @@ SIMPLE_BLOCK(set_visibility)
 			object->iconize();
 		}
 	} else {
-		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
 }
 

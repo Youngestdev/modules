@@ -15,3 +15,7 @@ module fulltick.core
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\fulltick\Debug\fulltick.dll")
 
+block setLookAndFeel(laf)
+	__set_look_and_feel(laf)
+	
+
