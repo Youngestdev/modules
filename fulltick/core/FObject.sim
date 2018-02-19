@@ -22,6 +22,7 @@ call "Core.sim"
 #@File Core.sim 
 class FObject
 
+	objectPointer = null
 	OBJECT_HEIGHT = 0 #The object Height
 	OBJECT_WIDTH = 0 #The object Width
 	OBJECT_TITLE = "Simple Fulltick" #The default title for all objects

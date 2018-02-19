@@ -75,10 +75,25 @@ SIMPLE_BLOCK(show_window)
 	}
 }
 
+SIMPLE_BLOCK(resizable_object)
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) ) {
+		Fl_Window *window = (Fl_Window *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		window->resizable(window);
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
 	register_block("__init_window",init_window);
 	register_block("__run_fulltick",run_fulltick);
 	register_block("__show_window",show_window);
+	register_block("__resizable",resizable_object);
 }
