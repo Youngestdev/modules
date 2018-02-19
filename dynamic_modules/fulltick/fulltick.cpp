@@ -46,6 +46,14 @@ SIMPLE_BLOCK(run_fulltick)
 	} Fl::scheme("plastic"); SIMPLE_API_RETNUMBER(Fl::run()); 
 }
 
+SIMPLE_BLOCK(set_look_and_feel)
+{
+	if ( SIMPLE_API_PARACOUNT != 0 ) {
+		SIMPLE_API_ERROR(FULLTICK_NOPARAM);
+		return ;
+	} Fl::scheme("plastic");  
+}
+
 SIMPLE_BLOCK(init_window)
 {
 	if ( SIMPLE_API_PARACOUNT != 4 ) {
@@ -173,8 +181,9 @@ SIMPLE_BLOCK(set_visibility)
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
-	register_block("__init_window",init_window);
 	register_block("__run_fulltick",run_fulltick);
+	register_block("__set_look_and_feel",set_look_and_feel);
+	register_block("__init_window",init_window);
 	register_block("__show_window",show_window);
 	register_block("__resizable",resizable_object);
 	register_block("__set_bg",object_background);
