@@ -1,0 +1,13 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - Object.sim
+ * #author - Azeez Adewale
+ * #date - 19 Febuary 2017
+ */
+ 
+call "Core.sim"
