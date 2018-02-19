@@ -54,10 +54,15 @@ SIMPLE_BLOCK(init_window)
 
 SIMPLE_BLOCK(show_window)
 {
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+		return ;
+	}
 	if ( SIMPLE_API_ISPOINTER(1) ) {
 		Fl_Window *window = (Fl_Window *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->end();
 		window->show();
+		SIMPLE_API_RETNUMBER(Fl::run());
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}

@@ -18,8 +18,7 @@ class FWindow
 		windowPointer = __init_window(200, 400)
 		
 	block show()
-		display "Holla holla "
-		__show_window()
+		__show_window(windowPointer)
 		
 	private
 		windowPointer = null 
