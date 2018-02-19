@@ -52,8 +52,20 @@ SIMPLE_BLOCK(init_window)
 	}
 }
 
+SIMPLE_BLOCK(show_window)
+{
+	if ( SIMPLE_API_ISPOINTER(1) ) {
+		Fl_Window *window = (Fl_Window *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		window->end();
+		window->show();
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
 	register_block("__init_window",init_window);
+	register_block("__sho_window",show_window);
 }

@@ -12,3 +12,13 @@
  
 call "fulltick/core/Object.sim"
 
+class FWindow
+
+	block FWindow()
+		windowPointer = __init_window(200, 400)
+		
+	block show()
+		__show()
+		
+	private
+		windowPointer = null 
