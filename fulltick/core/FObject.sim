@@ -139,6 +139,9 @@ class FObject
 	#@DataType String
 	block isVisible()
 		return OBJECT_VISIBILITY
+		
+	block onClick()
+		
 	
 	
 	

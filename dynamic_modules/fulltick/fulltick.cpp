@@ -183,6 +183,20 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
+SIMPLE_BLOCK(on_click)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
+		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		window->copy_label(SIMPLE_API_GETSTRING(2));
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
@@ -196,4 +210,5 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__set_size",set_size);
 	register_block("__set_tooltip",set_tooltip);
 	register_block("__set_visibility",set_visibility);
+	register_block("__on_click",on_click);
 }
