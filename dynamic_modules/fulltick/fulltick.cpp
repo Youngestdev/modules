@@ -5,7 +5,7 @@ extern "C" {
 }
 
 #include <FL/Fl.H>
-#include <FL/Fl_Double_Window.H>
+#include <FL/Fl_Window.H>
 #include <FL/Fl_Box.H>
 
 extern "C" {
@@ -24,7 +24,7 @@ SIMPLE_BLOCK(test_gui)
 		return ;
 	}
 	if ( SIMPLE_API_ISSTRING(1) ) {
-		Fl_Double_Window *window = new Fl_Double_Window(340,180);
+		Fl_Window *window = new Fl_Window(340,180);
 		Fl_Box *box = new Fl_Box(20,40,300,100,SIMPLE_API_GETSTRING(1));
 		box->box(FL_UP_BOX);
 		box->labelfont(FL_BOLD+FL_ITALIC);
@@ -53,7 +53,7 @@ SIMPLE_BLOCK(init_window)
 		return ;
 	}
 	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISSTRING(3)) {
-		Fl_Double_Window *window = new Fl_Double_Window(SIMPLE_API_GETNUMBER(1),SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
+		Fl_Window *window = new Fl_Window(SIMPLE_API_GETNUMBER(1),SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
 		SIMPLE_API_RETCPOINTER(window,"SIMPLE_FLTK_");
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
@@ -67,7 +67,7 @@ SIMPLE_BLOCK(show_window)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) ) {
-		Fl_Double_Window *window = (Fl_Double_Window *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Window *window = (Fl_Window *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->end();
 		window->show();
 	} else {
@@ -82,8 +82,8 @@ SIMPLE_BLOCK(resizable_object)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) ) {
-		Fl_Double_Window *window = (Fl_Double_Window *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->resizable(window);
+		Fl_Window *window = (Fl_Window *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		window->resizable(&window);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
 	}
