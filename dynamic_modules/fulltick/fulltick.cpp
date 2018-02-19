@@ -67,9 +67,9 @@ SIMPLE_BLOCK(show_window)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) ) {
-		Fl_Window *window = (Fl_Window *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->end();
-		window->show();
+		Fl_Window& window = *((Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"));
+		window.end();
+		window.show();
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
 	}
@@ -82,8 +82,7 @@ SIMPLE_BLOCK(resizable_object)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) ) {
-		Fl_Window* window1 = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		Fl_Window& window = *window1;
+		Fl_Window& window = *((Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"));
 		window.resizable(window);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
