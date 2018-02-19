@@ -140,8 +140,10 @@ class FObject
 	block isVisible()
 		return OBJECT_VISIBILITY
 		
+	block print() __exit__
+		
 	block onClick()
-		__on_click(OBJECTPOINTER, "hello")
+		__on_click(OBJECTPOINTER, print)
 	
 	
 	
