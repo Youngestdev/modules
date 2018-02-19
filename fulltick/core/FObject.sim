@@ -56,13 +56,24 @@ class FObject
 	block getTitle()
 		return OBJECT_TITLE
 		
+	#Forcefully set the realizability of object to true. Note this is 
+	#unsafe as it give no regard to other object data instead use the
+	#@Block resizable(condition) to safely set realizability of object
 	block objectResizable()
 		__resizable(OBJECTPOINTER)
 		
+	#Make an object realizability to custom boolean and notify the object to
+	#treat the new data this is safer than using @Block objectResizable() 
+	#which forcefully set the object realizability without regard to other 
+	#objcet data
 	block resizable(condition)
 		ISRESIZABLE = condition
 		notifyObject()
 		
+	#Get the realizability condition of an object. Check whether the object 
+	#is re sizable @Return object realizability (boolean) 
+	block isResisable()
+		return ISRESIZABLE
 		
 		
 		
