@@ -56,6 +56,9 @@ class FObject
 	block getTitle()
 		return OBJECT_TITLE
 		
+	block objectResizable()
+		__resizable(OBJECTPOINTER)
+		
 	block resizable(condition)
 		ISRESIZABLE = true
 		notifyObject()

@@ -48,12 +48,16 @@ SIMPLE_BLOCK(run_fulltick)
 
 SIMPLE_BLOCK(init_window)
 {
-	if ( SIMPLE_API_PARACOUNT != 3 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
+	if ( SIMPLE_API_PARACOUNT != 4 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
 		return ;
 	}
 	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISSTRING(3)) {
 		Fl_Window *window = new Fl_Window(SIMPLE_API_GETNUMBER(1),SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
+		if (SIMPLE_API_GETNUMBER(4) == 1) 
+		{
+			Fl_Group& reswindow = *window; reswindow.resizable(&reswindow);
+		}
 		SIMPLE_API_RETCPOINTER(window,"SIMPLE_FLTK_");
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
