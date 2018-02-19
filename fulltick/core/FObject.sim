@@ -25,7 +25,7 @@ class FObject
 	OBJECT_HEIGHT = 0 #The object Height
 	OBJECT_WIDTH = 0 #The object Width
 	
-	#set the size for all the object that inherited this class @FObject and
+	#Set the size for all the object that inherited this class @FObject and
 	#ensure to pass only Numbers data type as parameters for the w and h 
 	#the @Block initialize() called within this block is abstract and has 
 	#to be implemented/declared in the corresponding inheriting class
@@ -33,10 +33,12 @@ class FObject
 		OBJECT_WIDTH = w
 		OBJECT_HEIGHT = h
 		initialize()
-		
+	
+	#Get the width value of the object @Return object width (number)
 	block getWidth()
 		return OBJECT_WIDTH
-		
+	
+	#Get the height value of the object @Return object height (number)
 	block getHeight()
 		return OBJECT_HEIGHT
 		
