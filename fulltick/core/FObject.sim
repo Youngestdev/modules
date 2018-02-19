@@ -141,7 +141,10 @@ class FObject
 		return OBJECT_VISIBILITY
 		
 	block onClick()
-		__on_click(OBJECTPOINTER, null)
+		__on_click(OBJECTPOINTER, "hello")
+		
+	block hello()
+		display "Yea it works" + crlf
 	
 	
 	
