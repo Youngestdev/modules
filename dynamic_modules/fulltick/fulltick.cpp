@@ -54,7 +54,6 @@ SIMPLE_BLOCK(init_window)
 	}
 	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISSTRING(3) && SIMPLE_API_ISNUMBER(4)) {
 		Fl_Window *window = new Fl_Window(SIMPLE_API_GETNUMBER(1),SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
-		window->color(FL_BLUE);
 		if (SIMPLE_API_GETNUMBER(4) == 1) 
 		{
 			Fl_Group& reswindow = *window; reswindow.resizable(&reswindow);

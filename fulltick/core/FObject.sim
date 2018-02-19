@@ -75,5 +75,7 @@ class FObject
 	block isResisable()
 		return ISRESIZABLE
 		
+	block setBackground(color)
+		__set_bg(OBJECTPOINTER, color)
 		
 		
