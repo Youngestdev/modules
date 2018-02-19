@@ -77,7 +77,7 @@ class FObject
 		
 	block setBackground(color)
 		try {
-			__set_bg(OBJECTPOINTER, color)
+			__set_bg(OBJECTPOINTER, color.getColor())
 		catch
 			__set_bg(OBJECTPOINTER, color)
 		}

@@ -28,3 +28,16 @@ class FColor
 		
 	block GREEN()
 		return GREEN
+		
+	block getColor()
+		return FCOLOR
+		
+	block setRGB(r, g, b)
+		if (!r && !g && !b) 
+			return FL_BLACK;
+		else 
+			return (Fl_Color)(((((r << 24) | g) << 16) | b) << 8)
+		end
+		
+	private 
+		FCOLOR = 0
