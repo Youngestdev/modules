@@ -17,8 +17,6 @@ class FWindow : FObject
 
 	#initialize the Window object with zero width and height.
 	block FWindow()
-		OBJECT_HEIGHT = 0
-		OBJECT_WIDTH = 0
 		initialize()
 		
 	#Show the window object. This block is useful if you will be creating a 
@@ -29,11 +27,15 @@ class FWindow : FObject
 	block show()
 		__show_window(windowPointer)
 		
+	#This Display the object and wait the dispose/exit command from the
+	#object to get dispose it. It calls @Block show() which prepare the 
+	#the window object, parent and child then add it to the event loop
 	block run()
 		show()
 		__run_fulltick()
 		
-		
+	#all the private attributes, fields and block not accessible outside
+	#the class
 	private
 		windowPointer = null 
 		
