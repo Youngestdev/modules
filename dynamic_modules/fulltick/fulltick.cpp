@@ -43,7 +43,7 @@ SIMPLE_BLOCK(run_fulltick)
 	if ( SIMPLE_API_PARACOUNT != 0 ) {
 		SIMPLE_API_ERROR(FULLTICK_NOPARAM);
 		return ;
-	} SIMPLE_API_RETNUMBER(Fl::run()); 
+	} Fl::scheme("plastic"); SIMPLE_API_RETNUMBER(Fl::run()); 
 }
 
 SIMPLE_BLOCK(init_window)
