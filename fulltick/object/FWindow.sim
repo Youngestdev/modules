@@ -17,7 +17,7 @@ class FWindow : FObject
 
 	#initialize the Window object with zero width and height.
 	block FWindow()
-		initialize()
+		notifyObject()
 		
 	#Show the window object. This block is useful if you will be creating a 
 	#custom event loop to hold the window because calling this block will
@@ -39,7 +39,7 @@ class FWindow : FObject
 	private
 		windowPointer = null 
 		
-		block initialize()
+		block notifyObject()
 			windowPointer = __init_window(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_TITLE)
 			
 			

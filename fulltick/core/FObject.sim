@@ -28,7 +28,7 @@ class FObject
 	
 	#Set the size for all the object that inherited this class @FObject and
 	#ensure to pass only Numbers data type as parameters for the w and h 
-	#the @Block initialize() called within this block is abstract and has 
+	#the @Block notifyObject() called within this block is abstract and has 
 	#to be implemented/declared in the corresponding inheriting class
 	block setSize(w, h)
 		OBJECT_WIDTH = w
@@ -43,10 +43,14 @@ class FObject
 	block getHeight()
 		return OBJECT_HEIGHT
 		
+	#Change the title value for the object inheriting this class. Don'that
+	#forget to implement/declare the @Block notifyObject() in the inheriting 
+	#class to treat all newly set data, fields and attributed
 	block setTitle(title)
 		OBJECT_TITLE = title
 		notifyObject()
 		
+	#Get the current title value of the Object @Return object title (String)
 	block getTitle()
 		return OBJECT_TITLE
 		
