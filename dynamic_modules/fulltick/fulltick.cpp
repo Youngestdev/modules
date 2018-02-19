@@ -67,7 +67,7 @@ SIMPLE_BLOCK(show_window)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) ) {
-		Fl_Window& window = *((Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"));
+		Fl_Group& window = *((Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"));
 		window.end();
 		window.show();
 	} else {

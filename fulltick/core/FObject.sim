@@ -56,4 +56,12 @@ class FObject
 		return OBJECT_TITLE
 		
 	block resizable(condition)
-		__resizable(OBJECTPOINTER)
+		if condition 
+			__resizable(OBJECTPOINTER)
+		else
+			#__resizable(null)
+		end
+		
+		
+		
+		
