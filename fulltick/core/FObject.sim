@@ -60,7 +60,7 @@ class FObject
 		__resizable(OBJECTPOINTER)
 		
 	block resizable(condition)
-		ISRESIZABLE = true
+		ISRESIZABLE = condition
 		notifyObject()
 		
 		
