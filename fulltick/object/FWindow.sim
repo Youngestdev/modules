@@ -11,7 +11,7 @@
  */
 module fulltick.object
 
-call "fulltick/core/Object.sim" ? fulltick.core
+call "fulltick/core/FObject.sim" ? fulltick.core
 
 class FWindow : FObject
 
@@ -24,8 +24,6 @@ class FWindow : FObject
 	block show()
 		__show_window(windowPointer)
 		
-	block setSize(h, w)
-		windowPointer = __init_window(h, w)
 		
 	private
 		windowPointer = null 
