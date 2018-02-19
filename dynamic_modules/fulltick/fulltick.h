@@ -20,9 +20,11 @@ extern "C" {
 
 SIMPLE_API void init_full_tick(SimpleState *sState) ;
 
+#define FULLTICK_NOPARAM "No parameter is required for this block"
 #define FULLTICK_MISING1PARAM "Only one parameter is required for this block "
 #define FULLTICK_MISING2PARAM "Two parameters are required for this block "
 #define FULLTICK_MISING2PARAM "Three parameters are required for this block "
+#define FULLTICK_MISINGPOINTER "A pointer of valid type is required for the block "
 
 #ifdef __cplusplus
 }
