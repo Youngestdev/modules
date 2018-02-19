@@ -24,6 +24,7 @@ class FObject
 
 	OBJECT_HEIGHT = 0 #The object Height
 	OBJECT_WIDTH = 0 #The object Width
+	OBJECT_TITLE = "Simple Fulltick" #The default title for all objects
 	
 	#Set the size for all the object that inherited this class @FObject and
 	#ensure to pass only Numbers data type as parameters for the w and h 
@@ -32,7 +33,7 @@ class FObject
 	block setSize(w, h)
 		OBJECT_WIDTH = w
 		OBJECT_HEIGHT = h
-		initialize()
+		notifyObject()
 	
 	#Get the width value of the object @Return object width (number)
 	block getWidth()
@@ -41,5 +42,12 @@ class FObject
 	#Get the height value of the object @Return object height (number)
 	block getHeight()
 		return OBJECT_HEIGHT
+		
+	block setTitle(title)
+		OBJECT_TITLE = title
+		notifyObject()
+		
+	block getTitle()
+		return OBJECT_TITLE
 		
 		
