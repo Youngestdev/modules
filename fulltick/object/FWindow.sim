@@ -24,6 +24,10 @@ class FWindow : FObject
 	block show()
 		__show_window(windowPointer)
 		
+	block run()
+		show()
+		__run_fulltick()
+		
 		
 	private
 		windowPointer = null 
