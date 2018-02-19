@@ -40,15 +40,13 @@ SIMPLE_BLOCK(test_gui)
 
 SIMPLE_BLOCK(init_window)
 {
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
 		return ;
 	}
-	if ( SIMPLE_API_ISSTRING(1) && SIMPLE_API_ISSTRING(2) ) {
-		Fl_Window *window = new Fl_Window(340,180);
-		window->end();
-		window->show();
-		int ret = Fl::run();
+	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) ) {
+		Fl_Window *window = new Fl_Window(SIMPLE_API_GETNUMBER(1),SIMPLE_API_GETNUMBER(2));
+		SIMPLE_API_RETCPOINTER(window,"SIMPLE_FLTK_");
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
