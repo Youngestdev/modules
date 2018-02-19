@@ -1,0 +1,15 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - Core.sim
+ * #author - Azeez Adewale
+ * #date - 19 Febuary 2017
+ */
+ 
+call "simple/core/DynamicLoader.sim" ? simple.core
+callModule("dynamic_modules\fulltick\Debug\fulltick.dll")
+
