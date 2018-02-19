@@ -21,6 +21,11 @@ class FWindow : FObject
 		OBJECT_WIDTH = 0
 		initialize()
 		
+	#Show the window object. This block is useful if you will be creating a 
+	#custom event loop to hold the window because calling this block will
+	#just pop the object up otherwise you should call the @Block run() which
+	#call the event loop in the @Module fltk[[link]["http://www.fltk.org"]]
+	#to display the object
 	block show()
 		__show_window(windowPointer)
 		
