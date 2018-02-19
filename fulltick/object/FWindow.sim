@@ -25,7 +25,7 @@ class FWindow : FObject
 	#call the event loop in the @Module fltk[[link]["http://www.fltk.org"]]
 	#to display the object
 	block show()
-		__show_window(objectPointer)
+		__show_window(OBJECTPOINTER)
 		
 	#This Display the object and wait the dispose/exit command from the
 	#object to get dispose it. It calls @Block show() which prepare the 
@@ -39,7 +39,7 @@ class FWindow : FObject
 	private 
 		
 		block notifyObject()
-			objectPointer = __init_window(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_TITLE)
+			OBJECTPOINTER = __init_window(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_TITLE)
 			
 			
 			
