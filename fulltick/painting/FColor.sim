@@ -12,12 +12,19 @@
 
 module fulltick.painting
 
-FColor = new FColor
+FColor = new fulltick.painting.FColor
 
-NONE = 0
-BLACK = 1
+BLACK = 56
+RED = 88
+GREEN = 63
 
 class FColor
 
 	block BLACK()
 		return BLACK
+		
+	block RED()
+		return RED
+		
+	block GREEN()
+		return GREEN

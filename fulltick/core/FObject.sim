@@ -76,6 +76,10 @@ class FObject
 		return ISRESIZABLE
 		
 	block setBackground(color)
-		__set_bg(OBJECTPOINTER, color)
+		try {
+			__set_bg(OBJECTPOINTER, color)
+		catch
+			__set_bg(OBJECTPOINTER, color)
+		}
 		
 		
