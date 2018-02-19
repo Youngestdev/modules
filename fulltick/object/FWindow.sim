@@ -34,16 +34,12 @@ class FWindow : FObject
 		show()
 		__run_fulltick()
 		
-	block resizable(condition)
-		__resizable(OBJECTPOINTER)
-		notifyObject()
-		
 	#all the private attributes, fields and block not accessible outside
 	#the class
 	private 
 		
 		block notifyObject()
-			OBJECTPOINTER = __init_window(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_TITLE)
+			OBJECTPOINTER = __init_window(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_TITLE, ISRESIZABLE)
 			
 			
 			

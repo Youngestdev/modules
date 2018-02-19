@@ -26,6 +26,7 @@ class FObject
 	OBJECT_HEIGHT = 0 #The object Height
 	OBJECT_WIDTH = 0 #The object Width
 	OBJECT_TITLE = "Simple Fulltick" #The default title for all objects
+	ISRESIZABLE = false
 	
 	#Set the size for all the object that inherited this class @FObject and
 	#ensure to pass only Numbers data type as parameters for the w and h 
@@ -56,11 +57,8 @@ class FObject
 		return OBJECT_TITLE
 		
 	block resizable(condition)
-		if condition 
-			__resizable(OBJECTPOINTER)
-		else
-			#__resizable(null)
-		end
+		ISRESIZABLE = true
+		notifyObject()
 		
 		
 		
