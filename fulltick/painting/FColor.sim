@@ -12,10 +12,10 @@
 
 module fulltick.painting
 
-call "simple/management/Throw.sim"
+call "simple/debugging/Throw.sim"
 call "simple/core/BaseFields.sim"
 
-FColor = new fulltick.painting.FColor
+FColor = new FColor
 
 BLACK = 56
 RED = 88
@@ -36,9 +36,9 @@ class FColor
 		return FCOLOR
 		
 	block setRGB(r, g, b)
-		if (r > 255 || g > 255 || b > 255)
+		if (r > 255 || g > 255 || b > 255 )
 			throw(COLOR_GREATER_THAN_255)
-		elif (r > 255 || g > 255 || b > 255)
+		elif (r < 0 || g < 0 || b < 0 )
 			throw(COLOR_LESSER_THAN_ZERO)
 		end
 		if (r == 0 && g == 0 && b == 0 ) 

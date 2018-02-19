@@ -100,8 +100,8 @@ SIMPLE_BLOCK(object_background)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
-		Fl_Group& window = *((Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"));
-		window.color(SIMPLE_API_GETNUMBER(2));
+		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		window->color(SIMPLE_API_GETNUMBER(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_MISINGPOINTER);
 	}
