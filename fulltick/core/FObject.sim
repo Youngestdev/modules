@@ -12,17 +12,20 @@
 
 module fulltick.core
 
+#call the GUI(fulltick) Dynamic Module from the core file @File Core.sim
 call "Core.sim"
 
 #All the GUI object base class. Some of the block in this class are abstract 
 #i.e they are not declared here so it has to be declared in the child object 
-#class to avoid runtime error
+#class to avoid runtime error.
+#@Note the class use the dynamic module 'fulltick.dll' loaded in the 
+#@File Core.sim 
 class FObject
 
-	OBJECT_HEIGHT = 0
-	OBJECT_WIDTH = 0
+	OBJECT_HEIGHT = 0 #The object Height
+	OBJECT_WIDTH = 0 #The object Width
 	
-	
+	#
 	block setSize(h, w)
 		OBJECT_HEIGHT = h
 		OBJECT_WIDTH = w
