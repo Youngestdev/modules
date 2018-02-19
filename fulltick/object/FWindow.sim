@@ -11,14 +11,20 @@
  */
  
 call "fulltick/core/Object.sim"
+ 
+module fulltick.object
 
 class FWindow
 
+	#
 	block FWindow()
 		windowPointer = __init_window(200, 400)
 		
 	block show()
 		__show_window(windowPointer)
+		
+	block setSize(h, w)
+		windowPointer = __init_window(h, w)
 		
 	private
 		windowPointer = null 

@@ -11,3 +11,5 @@
  */
  
 call "Core.sim"
+
+module fulltick.core
