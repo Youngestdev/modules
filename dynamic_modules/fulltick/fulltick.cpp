@@ -38,6 +38,22 @@ SIMPLE_BLOCK(test_gui)
 	}
 }
 
+SIMPLE_BLOCK(init_window)
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) && SIMPLE_API_ISSTRING(2) ) {
+		Fl_Window *window = new Fl_Window(340,180);
+		window->end();
+		window->show();
+		int ret = Fl::run();
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
