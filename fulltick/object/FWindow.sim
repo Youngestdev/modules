@@ -9,16 +9,17 @@
  * #author - Azeez Adewale
  * #date - 19 Febuary 2017
  */
- 
-call "fulltick/core/Object.sim"
- 
 module fulltick.object
 
-class FWindow
+call "fulltick/core/Object.sim" ? fulltick.core
 
-	#
+class FWindow : FObject
+
+	#initialize the Window object with zero width and height.
 	block FWindow()
-		windowPointer = __init_window(200, 400)
+		OBJECT_HEIGHT = 0
+		OBJECT_WIDTH = 0
+		initialize()
 		
 	block show()
 		__show_window(windowPointer)
@@ -28,3 +29,12 @@ class FWindow
 		
 	private
 		windowPointer = null 
+		
+		block initialize()
+			windowPointer = __init_window(OBJECT_HEIGHT, OBJECT_WIDTH)
+			
+			
+			
+			
+			
+			

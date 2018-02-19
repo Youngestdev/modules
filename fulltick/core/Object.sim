@@ -12,4 +12,9 @@
  
 call "Core.sim"
 
-module fulltick.core
+class FObject
+
+	OBJECT_HEIGHT = 0
+	OBJECT_WIDTH = 0
+	
+	block test()
