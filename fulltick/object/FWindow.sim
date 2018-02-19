@@ -17,12 +17,12 @@ class FWindow : FObject
 
 	#initialize the Window object with zero width and height.
 	block FWindow()
-		notifyObject()
+		initialize()
 		
 	#Show the window object. This block is useful if you will be creating a 
 	#custom event loop to hold the window because calling this block will
 	#just pop the object up otherwise you should call the @Block run() which
-	#call the event loop in the @Module fltk[[link]["http://www.fltk.org"]]
+	#call the event loop in the @Module [[link][fltk]["http://www.fltk.org"]]
 	#to display the object
 	block show()
 		__show_window(OBJECTPOINTER)
@@ -33,13 +33,21 @@ class FWindow : FObject
 	block run()
 		show()
 		__run_fulltick()
+	
+	#Minimize the window to the task bar. 
+	block iconize()
+		__set_visibility(OBJECTPOINTER, 2)
+		
+	block notifyObject()
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
 	private 
 		
-		block notifyObject()
-			OBJECTPOINTER = __init_window(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_TITLE, ISRESIZABLE)
+		block initialize()
+			OBJECTPOINTER = __init_window(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_TITLE, OBJECT_ISRESIZABLE)
+			
+		
 			
 			
 			

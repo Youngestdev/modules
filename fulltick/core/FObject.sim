@@ -22,64 +22,132 @@ call "Core.sim"
 #@File Core.sim 
 class FObject
 
-	OBJECTPOINTER = null
+	OBJECTPOINTER = null #
+	
 	OBJECT_HEIGHT = 0 #The object Height
 	OBJECT_WIDTH = 0 #The object Width
 	OBJECT_TITLE = "Simple Fulltick" #The default title for all objects
-	ISRESIZABLE = false
+	OBJECT_TOOLTIP = "" #
+	
+	OBJECT_ISRESIZABLE = false #
+	OBJECT_VISIBILITY = true
 	
 	#Set the size for all the object that inherited this class @FObject and
 	#ensure to pass only Numbers data type as parameters for the w and h 
 	#the @Block notifyObject() called within this block is abstract and has 
 	#to be implemented/declared in the corresponding inheriting class
+	#@Note It @Returns this which is the object to allow the inline usage 
+	#of the object
 	block setSize(w, h)
 		OBJECT_WIDTH = w
 		OBJECT_HEIGHT = h
-		notifyObject()
+		__set_size(OBJECTPOINTER, OBJECT_WIDTH, OBJECT_HEIGHT)
+		return this
 	
-	#Get the width value of the object @Return object width (number)
+	#Get the width value of the object @Return object width 
+	#@DataType Number
 	block getWidth()
 		return OBJECT_WIDTH
 	
-	#Get the height value of the object @Return object height (number)
-	block getHeight()
+	#Get the height value of the object @Return object height 
+	#@DataType Number
+	block getHeigth()
 		return OBJECT_HEIGHT
 		
 	#Change the title value for the object inheriting this class. Don'that
 	#forget to implement/declare the @Block notifyObject() in the inheriting 
 	#class to treat all newly set data, fields and attributed
+	#@Note It @Returns this which is the object to allow the inline usage 
+	#of the object
 	block setTitle(title)
 		OBJECT_TITLE = title
-		notifyObject()
+		__set_title(OBJECTPOINTER, OBJECT_TITLE)
+		return this
 		
-	#Get the current title value of the Object @Return object title (String)
+	#Get the current title value of the Object @Return object title 
+	#@DataType String
 	block getTitle()
 		return OBJECT_TITLE
 		
 	#Forcefully set the realizability of object to true. Note this is 
 	#unsafe as it give no regard to other object data instead use the
 	#@Block resizable(condition) to safely set realizability of object
+	#@Note It @Returns this which is the object to allow the inline usage 
+	#of the object
 	block objectResizable()
+		OBJECT_ISRESIZABLE = true
 		__resizable(OBJECTPOINTER)
+		return this
 		
 	#Make an object realizability to custom boolean and notify the object to
 	#treat the new data this is safer than using @Block objectResizable() 
 	#which forcefully set the object realizability without regard to other 
 	#objcet data
+	#@Note It @Returns this which is the object to allow the inline usage 
+	#of the object
 	block resizable(condition)
-		ISRESIZABLE = condition
+		OBJECT_ISRESIZABLE = condition
+		__resizable(OBJECTPOINTER)
 		notifyObject()
+		return this
 		
 	#Get the realizability condition of an object. Check whether the object 
-	#is re sizable @Return object realizability (boolean) 
+	#is re sizable @Return object realizability @DataType boolean
 	block isResisable()
-		return ISRESIZABLE
-		
+		return OBJECT_ISRESIZABLE
+	
+	#Change the background color of the object. Color is of @DataType Number
+	#The @Class FColor can be passed as parameter to the block which get the 
+	#color value from the @Class FColor or Integer/Number can be passed 
+	#directly 
+	#@Note It @Returns this which is the object to allow the in-line usage 
+	#of the object
 	block setBackground(color)
 		try {
 			__set_bg(OBJECTPOINTER, color.getColor())
 		catch
 			__set_bg(OBJECTPOINTER, color)
 		}
+		return this
+	
+	#Set the tooltip value for the object this accept @DataType String as 
+	#parameter 
+	#@Note It @Returns this which is the object to allow the in-line usage 
+	#of the object
+	block setTooltip(tip)
+		OBJECT_TOOLTIP = tip
+		__set_tooltip(OBJECTPOINTER, OBJECT_TOOLTIP)
+		return this
+	
+	#Get the current tool-tip value of the Object @Return object tool-tip
+	#@DataType String
+	block getTooltip()
+		return OBJECT_TOOLTIP
+	
+	#Change the visibility of the object to either visible/show or invisible/
+	#hide. The block accept @DataType Boolean as parameter in which 
+	#[[color][true][blue]] translate to visible and [[color][false][blue]]
+	#translate to invisible
+	#@Note It @Returns this which is the object to allow the in-line usage 
+	#of the object
+	block setVisibility(condition)
+		OBJECT_VISIBILITY = condition
+		__set_visibility(OBJECTPOINTER, condition)
+		return this
+	
+	#Get the current object visibility @Return object visibility
+	#@DataType String
+	block isVisible()
+		return OBJECT_VISIBILITY
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
 		
