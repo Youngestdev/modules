@@ -141,7 +141,7 @@ class FObject
 		return OBJECT_VISIBILITY
 		
 	block onClick()
-		__on_click(OBJECTPOINTER, "hello")
+		__on_click(OBJECTPOINTER, null)
 	
 	
 	
