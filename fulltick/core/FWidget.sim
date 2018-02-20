@@ -12,10 +12,12 @@
 
 module fulltick.core
 
-#call the GUI(fulltick) Dynamic Module which is a port from the C++ Based
+#@Call the GUI(fulltick) Dynamic Module which is a port from the C++ Based
 #Library [[link][FLTK]["http://www.fltk.org"]] from the core file 
 #@File Core.sim
 call "Core.sim"
+#@Call the 
+call "fulltick/painting/FColor.sim" ? fulltick.painting
 
 #All the GUI widget base class. Some of the block in this class are abstract 
 #i.e they are not declared here so it has to be declared in the child widget 
@@ -24,18 +26,18 @@ call "Core.sim"
 #@File Core.sim 
 class FWidget
 
-	/* POINTERS */
+	/* POINTERS AND CLASSES */
 	WIDGETPOINTER = null #initialize the widget pointer to null
+	WIDGET_BACKGROUND_COLOR = null #The default background color is 
+	#inherited from the [[link][FLTK]["http://www.fltk.org"]] Library
+	WIDGET_LABEL_COLOR = null #The default label color is 
+	#inherited from the [[link][FLTK]["http://www.fltk.org"]] Library
 	
 	/* NUMBERS */
 	WIDGET_HEIGHT = 0 #The widget Height
 	WIDGET_WIDTH = 0 #The widget Width
 	WIDGET_X = 0 #The widget X axis/position
 	WIDGET_Y = 0 #The widget Y axis/position
-	WIDGET_BACKGROUND_COLOR = null #The default background color is 
-	#inherited from the [[link][FLTK]["http://www.fltk.org"]] Library
-	WIDGET_LABEL_COLOR = null #The default label color is 
-	#inherited from the [[link][FLTK]["http://www.fltk.org"]] Library
 	
 	/* STRINGS */
 	WIDGET_TYPE = "WIDGET" #Declare the type of widget. This is assumed to 
@@ -97,18 +99,18 @@ class FWidget
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block setLabelColor(color)
-		WIDGET_LABEL_COLOR = color
 		try {
-			WIDGET_LABEL_COLOR = color.getColor()
+			color.getColor() WIDGET_LABEL_COLOR = color
 		catch
-			WIDGET_LABEL_COLOR = color
+			WIDGET_LABEL_COLOR = new FColor(color)
 		}
-		__set_label_color(WIDGETPOINTER, WIDGET_LABEL_COLOR)
+		__set_label_color(WIDGETPOINTER, WIDGET_LABEL_COLOR.getColor())
 		return this
 		
-	#Get the current label value of the Object @Return widget label 
-	#@DataType String
-	block getLabel()
+	#Get the current label color of the widget 
+	#@Returns widget label color in form of the @Class FColor to support 
+	#and allow more color usage
+	block getLabelColor()
 		return WIDGET_LABEL
 		
 	#Forcefully set the realizability of widget to true. Note this is 
