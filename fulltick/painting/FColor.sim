@@ -22,6 +22,10 @@ call "simple/core/BaseFields.sim"
 #the @Class FColor
 FColor = new FColor
 
+/*
+
+*/
+
 /* NUMBERS */
 
 FCOLOR_BLACK 		= 56 	#color blue
@@ -85,36 +89,50 @@ class FColor
 	block getBlue()
 		return BLUE
 	
+	#color black
 	block BLACK()
 		return FCOLOR_BLACK
-		
+	
+	#color red
 	block RED()
 		return FCOLOR_RED
 		
+	#color green	
 	block GREEN()
 		return FCOLOR_GREEN
 		
+	#color blue
 	block BLUE()
 		return FCOLOR_BLUE
-		
+	
+	#color gray
 	block GRAY()
 		return FCOLOR_GRAY
 		
+	#color white	
 	block WHITE()
 		return FCOLOR_WHITE
-		
+	
+	#color yellow
 	block YELLOW()
 		return FCOLOR_YELLOW
-		
+	
+	#color cyan
 	block CYAN()
 		return FCOLOR_CYAN
 		
+	#color magenta	
 	block MAGENTA()
 		return FCOLOR_MAGENTA
-		
+	
+	#all the private attributes, fields and block not accessible outside
+	#the class
 	private 
 	
-		FCOLOR = 8
+		FCOLOR = 56 	#default color black
+		RED = 88		#default color red
+		BLUE = 216		#default color blue
+		GREEN = 63		#default color green
 		
 		
 		
