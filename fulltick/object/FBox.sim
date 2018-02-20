@@ -41,7 +41,7 @@ class FBox : FWidget
 		initialize()
 		
 	block boxType(type)
-		__set_box_type(WIDGETPOINTER, type)
+		__set_box_type(WIDGETPOINTER, type.getType())
 	
 	private 
 	
