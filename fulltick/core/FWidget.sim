@@ -161,7 +161,10 @@ class FWidget
 		return this
 		
 	block addWidget(widget)
-		__add_widget(OBJECTPOINTER, widget)
+		__add_widget(OBJECTPOINTER, widget.getWidgetPointer())
+		
+	block getWidgetPointer()
+		return OBJECTPOINTER
 		
 	private 
 		
