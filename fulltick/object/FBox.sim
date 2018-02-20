@@ -19,13 +19,8 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 #Most of it blocks from the @Class [[link][FWidget]["github:fwidget"]]
 #some block are available only for this widget. The Widget is use to draw
 #Window Object directly on the Computer Display @Skip
-#  ___________   _________________________________________
-# |___________| |####|                     |    | __ |    |
-# |           | |#@@#|                     | __ ||__||  X |
-# |           | |####|_____________________|____|____|____|
-# |___________| |                                         |
-#               |                                         |
-#               |                                         |
+#  ____________________________________________________________
+# |
 # @EndSkip
 #The FWindow instance can be call as much time as possible and @Block show()
 #can be called to add it to FApp stack or @Block run() to display the window
