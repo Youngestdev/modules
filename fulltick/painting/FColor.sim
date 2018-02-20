@@ -17,21 +17,23 @@ call "simple/core/BaseFields.sim"
 
 FColor = new FColor
 
-FCOLOR_BLACK = 56 #color blue
-FCOLOR_WHITE = 255 #color white
-FCOLOR_RED = 88 #color red
-FCOLOR_GREEN = 63 #color green 
-FCOLOR_BLUE = 216 #color blue
-FCOLOR_GRAY = 32 #color gray
-FCOLOR_MAGENTA = 248 #color magenta
-FCOLOR_CYAN = 223 #color cyan 
-FCOLOR_YELLOW = 95 #color yellow
+/* NUMBERS */
 
-FCOLOR_DARK_RED = 72
-FCOLOR_DARK_GREEN = 60
-FCOLOR_DARK_BLUE = 136
-FCOLOR_DARK_MAGENTA = 152
-FCOLOR_DARK_CYAN = 140
+FCOLOR_BLACK 		= 56 	#color blue
+FCOLOR_WHITE 		= 255 	#color white
+FCOLOR_RED 			= 88 	#color red
+FCOLOR_GREEN 		= 63 	#color green 
+FCOLOR_BLUE 		= 216 	#color blue
+FCOLOR_GRAY 		= 32 	#color gray
+FCOLOR_MAGENTA 		= 248 	#color magenta
+FCOLOR_CYAN 		= 223 	#color cyan 
+FCOLOR_YELLOW 		= 95 	#color yellow
+
+FCOLOR_DARK_RED 	= 72 	#color dark red 
+FCOLOR_DARK_GREEN 	= 60 	#color dark green
+FCOLOR_DARK_BLUE 	= 136	#color dark blue
+FCOLOR_DARK_MAGENTA = 152	#color dark magenta
+FCOLOR_DARK_CYAN 	= 140	#color dark cyan
 
 
 class FColor

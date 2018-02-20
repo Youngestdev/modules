@@ -38,6 +38,7 @@ class FWidget
 	#be abstract and is to be implemented/declared in all inheriting classes
 	WIDGET_TITLE = "Simple Fulltick" #The default title for all objects
 	WIDGET_TOOLTIP = "" #The widget tooltip
+	WIDGET_LABEL = "" #The label attribute of the widget
 	
 	/* BOOLEAN */
 	WIDGET_ISRESIZABLE = false #The boolean value indicating if widget can resize
@@ -74,9 +75,9 @@ class FWidget
 	#class to treat all newly set data, fields and attributed
 	#@Note It @Returns this which is the widget to allow the inline usage 
 	#of the widget
-	block setLabel(title)
-		WIDGET_TITLE = title
-		__set_title(WIDGETPOINTER, WIDGET_TITLE)
+	block setLabel(label)
+		WIDGET_LABEL = label
+		__set_title(WIDGETPOINTER, WIDGET_LABEL)
 		notifyObject()
 		return this
 		
@@ -97,7 +98,7 @@ class FWidget
 	#Get the current label value of the Object @Return widget label 
 	#@DataType String
 	block getLabel()
-		return WIDGET_TITLE
+		return WIDGET_LABEL
 		
 	#Forcefully set the realizability of widget to true. Note this is 
 	#unsafe as it give no regard to other widget data instead use the
