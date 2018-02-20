@@ -29,6 +29,28 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 # @EndSkip
 #The FWindow instance can be call as much time as possible and @Block show()
 #can be called to add it to FApp stack or @Block run() to display the window
-class FBox : 
+class FBox : FWidget
+
+	#initialize the FBox Widget with zero width, height, y and x axis
+	block FBox()
+		initialize()
+	
+	private 
+	
+		block initialize()
+			OBJECTPOINTER = __init_box(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_TITLE, "")
 
 class FPanel : FBox
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
