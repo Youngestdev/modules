@@ -15,10 +15,13 @@ module fulltick.core
 #@Call the GUI(fulltick) Dynamic Module which is a port from the C++ Based
 #Library [[link][FLTK]["http://www.fltk.org"]] from the core file 
 #@File Core.sim
-call "Core.sim"
 #@Call the FColor class to use the FColor fields for widget color
 #attributes
+#@Call the Hash class to use the @Block hash(content) to calculate the hash
+#of the widget
+call "Core.sim"
 call "fulltick/painting/FColor.sim" ? fulltick.painting
+call "simple/security/Hash.sim" ? simple.security
 
 #All the GUI widget base class. Some of the block in this class are abstract 
 #i.e they are not declared here so it has to be declared in the child widget 
@@ -276,6 +279,9 @@ class FWidget
 	#@Returns widget string value @DataType String
 	block toString()
 		return "["+WIDGET_TYPE+"["+WIDGET_WIDTH+":"+WIDGET_HEIGHT+"]["+WIDGET_X+":"+WIDGET_Y+"]"+"]"
+		
+	block getHash()
+		return hash(WIDGET_TYPE)
 		
 	private 
 		
