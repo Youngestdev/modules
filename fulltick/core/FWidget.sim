@@ -80,6 +80,14 @@ class FWidget
 		notifyObject()
 		return this
 		
+	block setLabelColor(color)
+		try {
+			__set_label_color(WIDGETPOINTER, color.getColor())
+		catch
+			__set_label_color(WIDGETPOINTER, color)
+		}
+		return this
+		
 	#Get the current label value of the Object @Return widget label 
 	#@DataType String
 	block getLabel()

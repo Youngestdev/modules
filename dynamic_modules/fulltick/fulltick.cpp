@@ -95,6 +95,20 @@ SIMPLE_BLOCK(object_background)
 	}
 }
 
+SIMPLE_BLOCK(set_label_color)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		window->labelcolor(((Fl_Color) SIMPLE_API_GETNUMBER(2)));
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_BLOCK(set_title)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
@@ -325,6 +339,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	/** WIDGETS **/
 	register_block("__resizable",resizable_object);
 	register_block("__set_bg",object_background);
+	register_block("__set_label_color",set_label_color);
 	register_block("__set_title",set_title);
 	register_block("__set_size",set_size);
 	register_block("__set_position",set_position);
