@@ -217,6 +217,40 @@ SIMPLE_BLOCK(set_position)
 	}
 }
 
+SIMPLE_BLOCK(full_screen)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2)) {
+		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		if (SIMPLE_API_ISNUMBER(2) == 1) {
+			window->fullscreen();
+		} else {
+			window->fullscreen_off();
+		}
+		
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
+SIMPLE_BLOCK(no_border)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2)) {
+		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		window->border((int)SIMPLE_API_GETNUMBER(2));
+		
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
@@ -224,6 +258,8 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__set_look_and_feel",set_look_and_feel);
 	register_block("__init_window",init_window);
 	register_block("__show_window",show_window);
+	register_block("__full_screen",full_screen);
+	register_block("__no_border",no_border);
 	register_block("__resizable",resizable_object);
 	register_block("__set_bg",object_background);
 	register_block("__set_title",set_title);
