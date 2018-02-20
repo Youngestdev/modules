@@ -61,6 +61,9 @@ class FWindow : FWidget
 	block setFullscreen(condition)
 		__full_screen(OBJECTPOINTER, condition)
 		
+	block setBorderVisibility(condition)
+		__set_window_border(OBJECTPOINTER, condition)
+		
 	#all the private attributes, fields and block not accessible outside
 	#the class
 	private 

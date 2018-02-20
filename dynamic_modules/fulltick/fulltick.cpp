@@ -236,7 +236,7 @@ SIMPLE_BLOCK(full_screen)
 	}
 }
 
-SIMPLE_BLOCK(no_border)
+SIMPLE_BLOCK(set_window_border)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -259,7 +259,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__init_window",init_window);
 	register_block("__show_window",show_window);
 	register_block("__full_screen",full_screen);
-	register_block("__no_border",no_border);
+	register_block("__set_window_border",set_window_border);
 	register_block("__resizable",resizable_object);
 	register_block("__set_bg",object_background);
 	register_block("__set_title",set_title);

@@ -24,7 +24,7 @@ BLUE = 216
 GRAY = 32
 MAGENTA = 248
 CYAN = 223
-YELLO = 95
+YELLOW = 95
 
 class FColor
 		
@@ -57,6 +57,15 @@ class FColor
 		
 	block GRAY()
 		return GRAY
+		
+	block YELLOW()
+		return YELLOW
+		
+	block CYAN()
+		return CYAN
+		
+	block MAGENTA()
+		return MAGENTA
 		
 	private 
 		FCOLOR = BLACK
