@@ -37,6 +37,8 @@ class FWidget
 	WIDGET_ISRESIZABLE = false #
 	WIDGET_VISIBILITY = true
 	
+	WIDGET_CHILDREN = []
+	
 	#Set the size for all the widget that inherited this class @FWidget and
 	#ensure to pass only Numbers data type as parameters for the w and h 
 	#the @Block notifyObject() called within this block is abstract and has 
@@ -174,9 +176,11 @@ class FWidget
 		#isList()
 		try 
 			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), false)
+			add(WIDGET_CHILDREN, widget)
 		catch
 			for a = 0 to lengthOf(widget) 
 				__add_widget(WIDGETPOINTER, widget[a].getWidgetPointer(), false)
+				add(WIDGET_CHILDREN, widget[a])
 			end
 		end
 		return this
@@ -191,17 +195,31 @@ class FWidget
 	block addResizableWidget()
 		try 
 			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), true)
+			add(WIDGET_CHILDREN, widget)
 		catch
 			for a = 0 to lengthOf(widget) 
 				__add_widget(WIDGETPOINTER, widget[a].getWidgetPointer(), true)
+				add(WIDGET_CHILDREN, widget[a])
 			end
 		end
 		return this
 	
 	#Get the WidgetPointer that can be passed to another program e.g
 	#[[link][C/C++ Program]["documentation:extending_with_c_cpp"]]
+	#@Note you should only call this block if you know what  you are doing
+	#else you might break your program
 	block getWidgetPointer()
 		return WIDGETPOINTER
+	
+	#Get all the sub widget that has been added to this widget 
+	#@Returns sub widget @DataType List 
+	block getWidgetChildren()
+		return WIDGET_CHILDREN
+	
+	#Get all the sub widget that has been added to this widget 
+	#@Returns sub widget @DataType List
+	block getAddedWidgets()
+		return WIDGET_CHILDREN
 		
 	private 
 		
