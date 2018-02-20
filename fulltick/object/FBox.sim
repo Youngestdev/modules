@@ -1,6 +1,6 @@
 /* 
 	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
-	MIT License Copyright (c) 2018 simple 
+	MIT License Copyright (c) 2018 SIMPLE
 
 */
 
@@ -15,6 +15,20 @@ module fulltick.widget
 #call the @Class FWidget File for general widget blocks inheritance
 call "fulltick/core/FWidget.sim" ? fulltick.core
 
-class FBox
+#The @Class [[link][FWindow]["github:fwindow"]] is a child class inheriting
+#Most of it blocks from the @Class [[link][FWidget]["github:fwidget"]]
+#some block are available only for this widget. The Widget is use to draw
+#Window Object directly on the Computer Display @Skip
+#  ___________   _________________________________________
+# |___________| |####|                     |    | __ |    |
+# |           | |#@@#|                     | __ ||__||  X |
+# |           | |####|_____________________|____|____|____|
+# |___________| |                                         |
+#               |                                         |
+#               |                                         |
+# @EndSkip
+#The FWindow instance can be call as much time as possible and @Block show()
+#can be called to add it to FApp stack or @Block run() to display the window
+class FBox : 
 
 class FPanel : FBox
