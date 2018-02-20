@@ -143,13 +143,9 @@ class FObject
 	#currently failing
 	block onClick(event)
 		__on_click(OBJECTPOINTER, event)
-	
-	block setLocation(x, y)
-		__set_location(OBJECTPOINTER, x, y)
-		return this
 		
 	block setPosition(x, y)
-		__set_location(OBJECTPOINTER, x, y)
+		__set_position(OBJECTPOINTER, x, y)
 		return this
 		
 	
