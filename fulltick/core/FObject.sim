@@ -139,12 +139,14 @@ class FObject
 	#@DataType String
 	block isVisible()
 		return OBJECT_VISIBILITY
-		
+	
+	#currently failing
 	block onClick(event)
 		__on_click(OBJECTPOINTER, event)
+	
+	block setLocation(x, y)
+		__set_location()
 		
-	block hello()
-		display "Yea it works" + crlf
 	
 	
 	
