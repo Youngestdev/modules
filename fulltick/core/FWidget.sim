@@ -161,7 +161,14 @@ class FWidget
 		return this
 		
 	block addWidget(widget)
-		__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), false)
+		#isList()
+		try 
+			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), false)
+		catch
+			for a = 0 to lengthOf(widget) 
+				__add_widget(WIDGETPOINTER, widget[a].getWidgetPointer(), false)
+			end
+		end
 		
 	block addResizableWidget()
 		__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), true)
