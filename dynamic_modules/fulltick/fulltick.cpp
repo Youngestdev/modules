@@ -203,15 +203,15 @@ SIMPLE_BLOCK(on_click)
 	}
 }
 
-SIMPLE_BLOCK(set_location)
+SIMPLE_BLOCK(set_position)
 {
-	if ( SIMPLE_API_PARACOUNT != 0 ) {
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
 		return ;
 	}
-	if ( true ) {
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) ) {
 		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->_set_fullscreen;//((int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3));
+		window->position((int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
@@ -228,7 +228,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__set_bg",object_background);
 	register_block("__set_title",set_title);
 	register_block("__set_size",set_size);
-	register_block("__set_location",set_location);
+	register_block("__set_position",set_position);
 	register_block("__set_tooltip",set_tooltip);
 	register_block("__set_visibility",set_visibility);
 	register_block("__on_click",on_click);
