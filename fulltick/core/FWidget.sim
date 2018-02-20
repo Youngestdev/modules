@@ -106,6 +106,11 @@ class FWidget
 		__set_label_color(WIDGETPOINTER, WIDGET_LABEL_COLOR)
 		return this
 		
+	#Get the current label value of the Object @Return widget label 
+	#@DataType String
+	block getLabel()
+		return WIDGET_LABEL
+		
 	#Forcefully set the realizability of widget to true. Note this is 
 	#unsafe as it give no regard to other widget data instead use the
 	#@Block resizable(condition) to safely set realizability of widget
