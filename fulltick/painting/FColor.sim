@@ -37,6 +37,9 @@ FCOLOR_DARK_CYAN 	= 140	#color dark cyan
 
 
 class FColor
+
+	block setColorValue(value)
+		FCOLOR = value
 		
 	block getColor()
 		return FCOLOR

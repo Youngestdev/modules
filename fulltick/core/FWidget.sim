@@ -16,7 +16,8 @@ module fulltick.core
 #Library [[link][FLTK]["http://www.fltk.org"]] from the core file 
 #@File Core.sim
 call "Core.sim"
-#@Call the 
+#@Call the FColor class to use the FColor fields for widget color
+#attributes
 call "fulltick/painting/FColor.sim" ? fulltick.painting
 
 #All the GUI widget base class. Some of the block in this class are abstract 
@@ -102,7 +103,8 @@ class FWidget
 		try {
 			color.getColor() WIDGET_LABEL_COLOR = color
 		catch
-			WIDGET_LABEL_COLOR = new FColor(color)
+			WIDGET_LABEL_COLOR = new FColor
+			WIDGET_LABEL_COLOR.setColorValue(color)
 		}
 		__set_label_color(WIDGETPOINTER, WIDGET_LABEL_COLOR.getColor())
 		return this
@@ -111,7 +113,7 @@ class FWidget
 	#@Returns widget label color in form of the @Class FColor to support 
 	#and allow more color usage
 	block getLabelColor()
-		return WIDGET_LABEL
+		return WIDGET_LABEL_COLOR
 		
 	#Forcefully set the realizability of widget to true. Note this is 
 	#unsafe as it give no regard to other widget data instead use the
@@ -149,12 +151,19 @@ class FWidget
 	#of the widget
 	block setBackground(color)
 		try {
-			WIDGET_BACKGROUND_COLOR = color.getColor()
+			color.getColor() WIDGET_BACKGROUND_COLOR = color
 		catch
-			WIDGET_BACKGROUND_COLOR = color
+			WIDGET_BACKGROUND_COLOR = new FColor
+			WIDGET_BACKGROUND_COLOR.setColorValue(color)
 		}
-		__set_bg(WIDGETPOINTER, WIDGET_BACKGROUND_COLOR)
+		__set_bg(WIDGETPOINTER, WIDGET_BACKGROUND_COLOR.getColor())
 		return this
+		
+	#Get the background color of the widget 
+	#@Returns widget background color in form of the @Class FColor to 
+	#support and allow more color usage
+	block getBackgroundColor()
+		return WIDGET_LABEL_COLOR
 	
 	#Set the tooltip value for the widget this accept @DataType String as 
 	#parameter 
