@@ -160,9 +160,7 @@ SIMPLE_BLOCK(set_tooltip)
 	} 
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		char file_name_two[200]  ; strcpy(file_name_two,SIMPLE_API_GETSTRING(2));
 		window->tooltip(SIMPLE_API_GETSTRING(2));
-		printf("TOOLTIP : %s\n", file_name_two);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
