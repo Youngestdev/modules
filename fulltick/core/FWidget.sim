@@ -32,6 +32,10 @@ class FWidget
 	WIDGET_WIDTH = 0 #The widget Width
 	WIDGET_X = 0 #The widget X axis/position
 	WIDGET_Y = 0 #The widget Y axis/position
+	WIDGET_BACKGROUND_COLOR = null #The default background color is 
+	#inherited from the [[link][FLTK]["http://www.fltk.org"]] Library
+	WIDGET_LABEL_COLOR = null #The default label color is 
+	#inherited from the [[link][FLTK]["http://www.fltk.org"]] Library
 	
 	/* STRINGS */
 	WIDGET_TYPE = "WIDGET" #Declare the type of widget. This is assumed to 
@@ -81,6 +85,11 @@ class FWidget
 		notifyObject()
 		return this
 		
+	#Get the current label value of the Object @Return widget label 
+	#@DataType String
+	block getLabel()
+		return WIDGET_LABEL
+		
 	#Change the label color of the widget. Color is of @DataType Number
 	#The @Class FColor can be passed as parameter to the block which get the 
 	#color value from the @Class FColor or Integer/Number can be passed 
@@ -88,17 +97,14 @@ class FWidget
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block setLabelColor(color)
+		WIDGET_LABEL_COLOR = color
 		try {
-			__set_label_color(WIDGETPOINTER, color.getColor())
+			WIDGET_LABEL_COLOR = color.getColor()
 		catch
-			__set_label_color(WIDGETPOINTER, color)
+			WIDGET_LABEL_COLOR = color
 		}
+		__set_label_color(WIDGETPOINTER, WIDGET_LABEL_COLOR)
 		return this
-		
-	#Get the current label value of the Object @Return widget label 
-	#@DataType String
-	block getLabel()
-		return WIDGET_LABEL
 		
 	#Forcefully set the realizability of widget to true. Note this is 
 	#unsafe as it give no regard to other widget data instead use the
@@ -136,10 +142,11 @@ class FWidget
 	#of the widget
 	block setBackground(color)
 		try {
-			__set_bg(WIDGETPOINTER, color.getColor())
+			WIDGET_BACKGROUND_COLOR = color.getColor()
 		catch
-			__set_bg(WIDGETPOINTER, color)
+			WIDGET_BACKGROUND_COLOR = color
 		}
+		__set_bg(WIDGETPOINTER, WIDGET_BACKGROUND_COLOR)
 		return this
 	
 	#Set the tooltip value for the widget this accept @DataType String as 
