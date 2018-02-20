@@ -23,12 +23,17 @@ call "simple/core/BaseFields.sim"
 FColor = new FColor
 
 /*
-
+	The value of these color is not meant to be modify because it is in the
+	order of color enum declaration in the loaded dynamic library 
+	[[link][FLTK]["http://www.fltk.org"]]. Instead more color can be add 
+	#after the first 13 color declared here
 */
 
 /* NUMBERS */
 
-FCOLOR_BLACK 		= 56 	#color blue
+#@Skip DO NOT MODIFY @EndSkip #######################
+													#
+FCOLOR_BLACK 		= 56 	#color blue      		#
 FCOLOR_WHITE 		= 255 	#color white
 FCOLOR_RED 			= 88 	#color red
 FCOLOR_GREEN 		= 63 	#color green 
@@ -44,6 +49,7 @@ FCOLOR_DARK_BLUE 	= 136	#color dark blue
 FCOLOR_DARK_MAGENTA = 152	#color dark magenta
 FCOLOR_DARK_CYAN 	= 140	#color dark cyan
 
+#@Skip YOU CAN ADD MORE COLOR BELOW @EndSkip
 
 class FColor
 
