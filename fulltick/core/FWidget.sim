@@ -24,22 +24,26 @@ call "Core.sim"
 #@File Core.sim 
 class FWidget
 
-	/** POINTERS **/
+	/* POINTERS */
 	WIDGETPOINTER = null #initialize the widget pointer to null
-	WIDGET_TYPE = "WIDGET" #Declare the type of widget. This is assumed to 
-	#be abstract and is to be implemented/declared in all inheriting classes
 	
+	/* NUMBERS */
 	WIDGET_HEIGHT = 0 #The widget Height
 	WIDGET_WIDTH = 0 #The widget Width
 	WIDGET_X = 0 #The widget X axis/position
 	WIDGET_Y = 0 #The widget Y axis/position
 	
+	/* STRINGS */
+	WIDGET_TYPE = "WIDGET" #Declare the type of widget. This is assumed to 
+	#be abstract and is to be implemented/declared in all inheriting classes
 	WIDGET_TITLE = "Simple Fulltick" #The default title for all objects
 	WIDGET_TOOLTIP = "" #The widget tooltip
 	
+	/* BOOLEAN */
 	WIDGET_ISRESIZABLE = false #The boolean value indicating if widget can resize
 	WIDGET_VISIBILITY = true #The boolean value indicating the widget visibility
 	
+	/* LIST */
 	WIDGET_CHILDREN = [] #The list that holds all the added sub widgets
 	
 	#Set the size for all the widget that inherited this class @FWidget and
@@ -226,6 +230,9 @@ class FWidget
 		
 	block getType()
 		return WIDGET_TYPE
+		
+	block toString()
+		return "["+WIDGET_TYPE+"["+WIDGET_WIDTH+":"+WIDGET_HEIGHT+"]["+WIDGET_X+":"+WIDGET_Y+"]"+"]"
 		
 	private 
 		
