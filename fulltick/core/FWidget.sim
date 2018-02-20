@@ -155,6 +155,8 @@ class FWidget
 	#Change the position of the widget on the parent widget or modal location
 	#it is a raw block and does not give regard to some widget features
 	#such as the decorated bar of the @Class FWindow widget
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setPosition(x, y)
 		__set_position(WIDGETPOINTER, x, y)
 		notifyObject()
@@ -164,6 +166,8 @@ class FWidget
 	#individually, in a list or in one of the FGroup family. Only valid 
 	#FWidget should be sent to this block as parameter to avoid error 
 	#during runtime
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block addWidget(widget)
 		#isList()
 		try 
@@ -173,10 +177,26 @@ class FWidget
 				__add_widget(WIDGETPOINTER, widget[a].getWidgetPointer(), false)
 			end
 		end
-		
+		return this
+	
+	#Add a child or some child widget to the current widget along with 
+	#inheriting the parent resize attribute i.e It also resize if the
+	#current widget is resized of change size if you want it static you
+	#can choose to call @Block addWidget(widget) instead or set the parent
+	#size to not re-sizable
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block addResizableWidget()
-		__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), true)
-		
+		try 
+			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), true)
+		catch
+			for a = 0 to lengthOf(widget) 
+				__add_widget(WIDGETPOINTER, widget[a].getWidgetPointer(), true)
+			end
+		end
+		return this
+	
+	#Ret
 	block getWidgetPointer()
 		return WIDGETPOINTER
 		
