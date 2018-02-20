@@ -37,7 +37,7 @@ block intHash(content)
 #hash a string using unsigned int on each character in the string along with
 #the characters binary (02) value
 block hash(content)
-	return __hash(content)
+	return __sha1(content) /*+ __hash("simple") */+ __md5(content)
 
 #calculate the md5 value of a string 
 #this block is a delegate to the __md5(content)	block in the security.dll
