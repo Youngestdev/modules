@@ -15,9 +15,11 @@ module fulltick.core
 #call the GUI(fulltick) Dynamic Module from the core file @File Core.sim
 call "Core.sim"
 
+FApp = new FApp
+
 class FApp
 
-	run()
+	block run()
 	__run_fulltick()
 	
-	setScheme(scheme)
+	block setScheme(scheme)
