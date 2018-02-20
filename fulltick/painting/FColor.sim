@@ -20,17 +20,13 @@ FColor = new FColor
 BLACK = 56
 RED = 88
 GREEN = 63
+BLUE = 216
+GRAY = 32
+MAGENTA = 248
+CYAN = 223
+YELLO = 95
 
 class FColor
-
-	block BLACK()
-		return BLACK
-		
-	block RED()
-		return RED
-		
-	block GREEN()
-		return GREEN
 		
 	block getColor()
 		return FCOLOR
@@ -46,6 +42,21 @@ class FColor
 		else 
 			FCOLOR = ((r<<24) + (g<<16) + (b<<8))
 		end
+		
+	block BLACK()
+		return BLACK
+		
+	block RED()
+		return RED
+		
+	block GREEN()
+		return GREEN
+		
+	block BLUE()
+		return BLUE
+		
+	block GRAY()
+		return GRAY
 		
 	private 
 		FCOLOR = BLACK
