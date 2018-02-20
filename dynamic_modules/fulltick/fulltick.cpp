@@ -313,6 +313,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__set_tooltip",set_tooltip);
 	register_block("__set_visibility",set_visibility);
 	register_block("__on_click",on_click);
+	register_block("__add_widget",add_widget);
 
 	/** WINDOW **/
 	register_block("__init_window",init_window);
