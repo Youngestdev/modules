@@ -21,64 +21,66 @@
 	
 */
 
+/* NUMBERS */
+
 #@Skip DO NOT MODIFY 
 
-FBOX_NO_BOX				= 0
-FBOX_FLAT_BOX			= 1 
-  FL_UP_BOX,			///< see figure 1
-  FL_DOWN_BOX,			///< see figure 1
-  FL_UP_FRAME,			///< see figure 1
-  FL_DOWN_FRAME,		///< see figure 1
-  FL_THIN_UP_BOX,		///< see figure 1
-  FL_THIN_DOWN_BOX,		///< see figure 1
-  FL_THIN_UP_FRAME,		///< see figure 1
-  FL_THIN_DOWN_FRAME,		///< see figure 1
-  FL_ENGRAVED_BOX,		///< see figure 1
-  FL_EMBOSSED_BOX,		///< see figure 1
-  FL_ENGRAVED_FRAME,		///< see figure 1
-  FL_EMBOSSED_FRAME,		///< see figure 1
-  FL_BORDER_BOX,		///< see figure 1
-  _FL_SHADOW_BOX,		///< see figure 1
-  FL_BORDER_FRAME,		///< see figure 1
-  _FL_SHADOW_FRAME,		///< see figure 1
-  _FL_ROUNDED_BOX,		///< see figure 1
-  _FL_RSHADOW_BOX,		///< see figure 1
-  _FL_ROUNDED_FRAME,		///< see figure 1
-  _FL_RFLAT_BOX,		///< see figure 1
-  _FL_ROUND_UP_BOX,		///< see figure 1
-  _FL_ROUND_DOWN_BOX,		///< see figure 1
-  _FL_DIAMOND_UP_BOX,		///< see figure 1
-  _FL_DIAMOND_DOWN_BOX,		///< see figure 1
-  _FL_OVAL_BOX,			///< see figure 1
-  _FL_OSHADOW_BOX,		///< see figure 1
-  _FL_OVAL_FRAME,		///< see figure 1
-  _FL_OFLAT_BOX,		///< see figure 1
-  _FL_PLASTIC_UP_BOX,		///< plastic version of FL_UP_BOX
-  _FL_PLASTIC_DOWN_BOX,		///< plastic version of FL_DOWN_BOX
-  _FL_PLASTIC_UP_FRAME,		///< plastic version of FL_UP_FRAME
-  _FL_PLASTIC_DOWN_FRAME,	///< plastic version of FL_DOWN_FRAME
-  _FL_PLASTIC_THIN_UP_BOX,	///< plastic version of FL_THIN_UP_BOX
-  _FL_PLASTIC_THIN_DOWN_BOX,	///< plastic version of FL_THIN_DOWN_BOX
-  _FL_PLASTIC_ROUND_UP_BOX,	///< plastic version of FL_ROUND_UP_BOX
-  _FL_PLASTIC_ROUND_DOWN_BOX,	///< plastic version of FL_ROUND_DOWN_BOX
-  _FL_GTK_UP_BOX,		///< gtk+ version of FL_UP_BOX
-  _FL_GTK_DOWN_BOX,		///< gtk+ version of FL_DOWN_BOX
-  _FL_GTK_UP_FRAME,		///< gtk+ version of FL_UP_FRAME
-  _FL_GTK_DOWN_FRAME,		///< gtk+ version of FL_DOWN_FRAME
-  _FL_GTK_THIN_UP_BOX,		///< gtk+ version of FL_THIN_UP_BOX
-  _FL_GTK_THIN_DOWN_BOX,	///< gtk+ version of FL_THIN_DOWN_BOX
-  _FL_GTK_THIN_UP_FRAME,	///< gtk+ version of FL_THIN_UP_FRAME
-  _FL_GTK_THIN_DOWN_FRAME,	///< gtk+ version of FL_THIN_DOWN_FRAME
-  _FL_GTK_ROUND_UP_BOX,		///< gtk+ version of FL_ROUND_UP_BOX
-  _FL_GTK_ROUND_DOWN_BOX,	///< gtk+ version of FL_ROUND_DOWN_BOX
-  _FL_GLEAM_UP_BOX,		///< gleam version of FL_UP_BOX
-  _FL_GLEAM_DOWN_BOX,		///< gleam version of FL_DOWN_BOX
-  _FL_GLEAM_UP_FRAME,		///< gleam version of FL_UP_FRAME
-  _FL_GLEAM_DOWN_FRAME,		///< gleam version of FL_DOWN_FRAME
-  _FL_GLEAM_THIN_UP_BOX,	///< gleam version of FL_THIN_UP_BOX
-  _FL_GLEAM_THIN_DOWN_BOX,	///< gleam version of FL_THIN_DOWN_BOX
-  _FL_GLEAM_ROUND_UP_BOX,	///< gleam version of FL_ROUND_UP_BOX
-  _FL_GLEAM_ROUND_DOWN_BOX,	///< gleam version of FL_ROUND_DOWN_BOX
-  FL_FREE_BOXTYPE
+FBOX_NO_BOX						= 0
+FBOX_FLAT_BOX					= 1 
+FL_UP_BOX,						= 2
+FBOX_DOWN_BOX,					= 3
+FBOX_UP_FRAME,					= 4
+FBOX_DOWN_FRAME,				= 5
+FBOX_THIN_UP_BOX,				= 6
+FBOX_THIN_DOWN_BOX,				= 7
+FBOX_THIN_UP_FRAME,				= 8
+FBOX_THIN_DOWN_FRAME,			= 9
+FBOX_ENGRAVED_BOX,				= 10
+FBOX_EMBOSSED_BOX,				= 11
+FBOX_ENGRAVED_FRAME,			= 12
+FBOX_EMBOSSED_FRAME,			= 13
+FBOX_BORDER_BOX,				= 14
+FBOX_SHADOW_BOX,				= 15
+FBOX_BORDER_FRAME,				= 16
+FBOX_SHADOW_FRAME,				= 17
+FBOX_ROUNDED_BOX,				= 18
+FBOX_RSHADOW_BOX,				= 19
+FBOX_ROUNDED_FRAME,				= 20
+FBOX_RFLAT_BOX,					= 21
+FBOX_ROUND_UP_BOX,				= 22
+FBOX_ROUND_DOWN_BOX,			= 23
+FBOX_DIAMOND_UP_BOX,			= 24
+FBOX_DIAMOND_DOWN_BOX,			= 25
+FBOX_OVAL_BOX,			///< see figure 1
+FBOX_OSHADOW_BOX,		///< see figure 1
+FBOX_OVAL_FRAME,		///< see figure 1
+FBOX_OFLAT_BOX,		///< see figure 1
+FBOX_PLASTIC_UP_BOX,		///< plastic version of FL_UP_BOX
+FBOX_PLASTIC_DOWN_BOX,		///< plastic version of FL_DOWN_BOX
+FBOX_PLASTIC_UP_FRAME,		///< plastic version of FL_UP_FRAME
+FBOX_PLASTIC_DOWN_FRAME,	///< plastic version of FL_DOWN_FRAME
+FBOX_PLASTIC_THIN_UP_BOX,	///< plastic version of FL_THIN_UP_BOX
+FBOX_PLASTIC_THIN_DOWN_BOX,	///< plastic version of FL_THIN_DOWN_BOX
+FBOX_PLASTIC_ROUND_UP_BOX,	///< plastic version of FL_ROUND_UP_BOX
+FBOX_PLASTIC_ROUND_DOWN_BOX,	///< plastic version of FL_ROUND_DOWN_BOX
+FBOX_GTK_UP_BOX,		///< gtk+ version of FL_UP_BOX
+FBOX_GTK_DOWN_BOX,		///< gtk+ version of FL_DOWN_BOX
+FBOX_GTK_UP_FRAME,		///< gtk+ version of FL_UP_FRAME
+FBOX_GTK_DOWN_FRAME,		///< gtk+ version of FL_DOWN_FRAME
+FBOX_GTK_THIN_UP_BOX,		///< gtk+ version of FL_THIN_UP_BOX
+FBOX_GTK_THIN_DOWN_BOX,	///< gtk+ version of FL_THIN_DOWN_BOX
+FBOX_GTK_THIN_UP_FRAME,	///< gtk+ version of FL_THIN_UP_FRAME
+FBOX_GTK_THIN_DOWN_FRAME,	///< gtk+ version of FL_THIN_DOWN_FRAME
+FBOX_GTK_ROUND_UP_BOX,		///< gtk+ version of FL_ROUND_UP_BOX
+FBOX_GTK_ROUND_DOWN_BOX,	///< gtk+ version of FL_ROUND_DOWN_BOX
+FBOX_GLEAM_UP_BOX,		///< gleam version of FL_UP_BOX
+FBOX_GLEAM_DOWN_BOX,		///< gleam version of FL_DOWN_BOX
+FBOX_GLEAM_UP_FRAME,		///< gleam version of FL_UP_FRAME
+FBOX_GLEAM_DOWN_FRAME,		///< gleam version of FL_DOWN_FRAME
+FBOX_GLEAM_THIN_UP_BOX,	///< gleam version of FL_THIN_UP_BOX
+FBOX_GLEAM_THIN_DOWN_BOX,	///< gleam version of FL_THIN_DOWN_BOX
+FBOX_GLEAM_ROUND_UP_BOX,	///< gleam version of FL_ROUND_UP_BOX
+FBOX_GLEAM_ROUND_DOWN_BOX,	///< gleam version of FL_ROUND_DOWN_BOX
+FBOX_FREE_BOXTYPE
 
 
