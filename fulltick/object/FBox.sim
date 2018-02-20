@@ -34,20 +34,23 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 #The FBox instance can be call as much time as possible a
 class FBox : FWidget
 
-	WIDGET_TYPE = "BOX"
+	WIDGET_TYPE = "BOX" #Implement the name of the widget
 
 	#initialize the FBox Widget with zero width, height, y and x axis
 	block FBox()
-		WIDGET_WIDTH = 20
-		WIDGET_HEIGHT = 40
-		WIDGET_X = 300
-		WIDGET_Y = 100
 		initialize()
+		
+	block boxType(type)
+		__set_box_type(WIDGETPOINTER, type)
 	
 	private 
 	
+	    ##Create an instance of the FBox/FPanel Widget with the default
+		#Widget attributes the size is actually zero
 		block initialize()
 			WIDGETPOINTER = __init_box(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_X, WIDGET_Y)
+			
+#@Skip--------------------------------------------------------------@EndSkip
 
 #The @Class [[link][FPanel]["github:fbox"]] is a child class inheriting
 #Most of it blocks from the @Class [[link][FWidget]["github:fwidget"]]
@@ -68,8 +71,9 @@ class FBox : FWidget
 #The FPanel instance can be call as much time as possible a
 class FPanel : FBox
 
-	WIDGET_TYPE = "PANEL"
+	WIDGET_TYPE = "PANEL" #Implement the name of the widget
 
+	#initialize the FPanel Widget with zero width, height, y and x axis
 	block FPanel()
 		initialize()
 

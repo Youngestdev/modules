@@ -17,7 +17,7 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 #The @Class [[link][FWindow]["github:fwindow"]] is a child class inheriting
 #Most of it blocks from the @Class [[link][FWidget]["github:fwidget"]]
 #some block are available only for this widget. The Widget is use to draw
-#Window Object directly on the Computer Display @Skip
+#Window Widget directly on the Computer Display @Skip
 #  ___________   _________________________________________
 # |___________| |####|                     |    | __ |    |
 # |           | |#@@#|                     | __ ||__||  X |
@@ -75,7 +75,7 @@ class FWindow : FWidget
 	#necessary things on the widget
 	block notifyObject()
 	
-	#Make the FWindow Object Full screen in which it occupies the entire
+	#Make the FWindow Widget Full screen in which it occupies the entire
 	#Computer display space and with no border. So There must be a way to
 	#exit the window as the exit button in the decoration bar/border is 
 	#visible
@@ -103,7 +103,7 @@ class FWindow : FWidget
 	#the class
 	private 
 		
-		#Create an instance of the FWindow Widget with Object Width and 
+		#Create an instance of the FWindow Widget with Widget Width and 
 		#Height, Title and set window resizability
 		block initialize()
 			WIDGETPOINTER = __init_window(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_TITLE, WIDGET_ISRESIZABLE)

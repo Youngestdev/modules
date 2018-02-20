@@ -91,7 +91,7 @@ class FWidget
 		notifyObject()
 		return this
 		
-	#Get the current label value of the Object @Return widget label 
+	#Get the current label value of the Widget @Return widget label 
 	#@DataType String
 	block getLabel()
 		return WIDGET_LABEL
@@ -178,7 +178,7 @@ class FWidget
 		notifyObject()
 		return this
 	
-	#Get the current tool-tip value of the Object @Return widget tool-tip
+	#Get the current tool-tip value of the Widget @Return widget tool-tip
 	#@DataType String
 	block getTooltip()
 		return WIDGET_TOOLTIP
@@ -288,7 +288,7 @@ class FWidget
 	private 
 		
 		#This block is abstract and has to be implemented in inheriting child
-		#class to notify the Object/Widget/Class of changes to the widget
+		#class to notify the Widget/Widget/Class of changes to the widget
 		#@Note this block should be kept empty at all time to avoid BUGS
 		#and unwanted implementations
 		block notifyObject()
