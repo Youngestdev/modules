@@ -33,12 +33,16 @@ class FBox : FWidget
 
 	#initialize the FBox Widget with zero width, height, y and x axis
 	block FBox()
+		OBJECT_WIDTH = 20
+		OBJECT_HEIGHT = 40
+		OBJECT_X = 300
+		OBJECT_Y = 100
 		initialize()
 	
 	private 
 	
 		block initialize()
-			OBJECTPOINTER = __init_box(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_TITLE, "")
+			OBJECTPOINTER = __init_box(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_X, OBJECT_Y)
 
 class FPanel : FBox
 
