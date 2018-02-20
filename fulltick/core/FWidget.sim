@@ -12,7 +12,9 @@
 
 module fulltick.core
 
-#call the GUI(fulltick) Dynamic Module from the core file @File Core.sim
+#call the GUI(fulltick) Dynamic Module which is a port from the C++ Based
+#Library [[link][FLTK]["http://www.fltk.org"]] from the core file 
+#@File Core.sim
 call "Core.sim"
 
 #All the GUI widget base class. Some of the block in this class are abstract 
@@ -196,7 +198,8 @@ class FWidget
 		end
 		return this
 	
-	#Ret
+	#Get the WidgetPointer that can be passed to another program e.g
+	#[[link][C/C++ Program]["documentation:extending_with_c_cpp"]]
 	block getWidgetPointer()
 		return WIDGETPOINTER
 		
