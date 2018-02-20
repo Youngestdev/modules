@@ -53,6 +53,8 @@ class FColor
 	block getColor()
 		return FCOLOR
 		
+	#Create a color value from the provided RGB values. The RGB value must
+	#be a valid numbers between 0 to 255 else error will thrown.
 	block setRGB(r, g, b)
 		if (r > 255 || g > 255 || b > 255 )
 			throw(COLOR_GREATER_THAN_255)
@@ -60,10 +62,25 @@ class FColor
 			throw(COLOR_LESSER_THAN_ZERO)
 		end
 		if (r == 0 && g == 0 && b == 0 ) 
-			return BLACK;
+			FCOLOR = BLACK
 		else 
 			FCOLOR = ((r<<24) + (g<<16) + (b<<8))
 		end
+	
+	#Get the Red value of the current color
+	#@Returns color red value @DataType Number
+	block getRed()
+		return RED 
+		
+	#Get the Green value of the current color
+	#@Returns color green value @DataType Number
+	block getGreen()
+		return GREEN
+	
+	#Get the Blue value of the current color
+	#@Returns color blue value @DataType Number
+	block getBlue()
+		return BLUE
 		
 	block BLACK()
 		return FCOLOR_BLACK
@@ -93,4 +110,11 @@ class FColor
 		return FCOLOR_MAGENTA
 		
 	private 
-		FCOLOR = BLACK
+	
+		FCOLOR = FCOLOR_BLACK
+		RED = FCOLOR_RED
+		BLUE = FCOLOR_BLUE
+		GREEN = FCOLOR_GREEN
+		
+		
+		
