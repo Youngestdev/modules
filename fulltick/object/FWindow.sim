@@ -18,11 +18,13 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 #Most of it blocks from the @Class [[link][FWidget]["github:fwidget"]]
 #some block are available only for this widget. The Widget is use to draw
 #Window Object directly on the Computer Display @Skip
-#  ___________
-# |___________| 
-# |           |
-# |           |
-# |___________|
+#  ___________   _________________________________________
+# |___________| |####|                     |    | __ |    |
+# |           | |#@@#|                     | __ ||__||  X |
+# |           | |####|_____________________|____|____|____|
+# |___________| |                                         |
+#               |                                         |
+#               |                                         |
 # @EndSkip
 class FWindow : FWidget
 
