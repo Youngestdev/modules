@@ -14,6 +14,7 @@ module fulltick.object
 #call the @Class FWidget File for general widget blocks inheritance
 call "fulltick/core/FWidget.sim" ? fulltick.core
 
+#
 class FWindow : FWidget
 
 	#initialize the Window object with zero width and height.
