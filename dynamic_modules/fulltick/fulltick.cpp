@@ -245,7 +245,8 @@ SIMPLE_BLOCK(set_window_border)
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2)) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->border((int)SIMPLE_API_GETNUMBER(2));
-		
+		int windowx = window->x(), windowy = window->y();
+		 window->hide(); window->show(); window->position(windowx, windowy);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
