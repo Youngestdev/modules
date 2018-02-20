@@ -43,9 +43,13 @@ FCOLOR_DARK_CYAN 	= 140	#color dark cyan
 
 class FColor
 
+	#set the color value from the number parameter. only a number is allowed
+	#in this block as a parameter 
 	block setColorValue(value)
 		FCOLOR = value
 		
+	#Get the Color value of the current @Class FColor 
+	#@Returns Number value of the color @DataType Number
 	block getColor()
 		return FCOLOR
 		
