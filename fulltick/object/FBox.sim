@@ -46,6 +46,9 @@ class FBox : FWidget
 
 class FPanel : FBox
 
+	block FPanel()
+		initialize()
+
 	
 	
 		
