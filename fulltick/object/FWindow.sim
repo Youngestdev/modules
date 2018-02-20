@@ -80,15 +80,22 @@ class FWindow : FWidget
 	#@Note useful for creating full screen required app/games
 	block setFullscreen(condition)
 		__full_screen(WIDGETPOINTER, condition)
+		return this
 	
 	#Toggle between the window Decoration bar/border visibility 
 	block setBorderVisibility(condition)
 		__set_window_border(WIDGETPOINTER, condition)
+		return this
 		
 	#currently failing	
 	block setIcon(path)
 		#display "to create rc for : "+path
 		__set_window_icon(WIDGETPOINTER, 101)
+		return this
+		
+	block setTitle(title)
+		setLabel(title)
+		return this
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
