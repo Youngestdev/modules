@@ -14,7 +14,7 @@ module fulltick.object
 #call the @Class FWidget File for general widget blocks inheritance
 call "fulltick/core/FWidget.sim" ? fulltick.core
 
-#
+#The @Class [[link][FWindow]["github:fwindow"]]
 class FWindow : FWidget
 
 	#initialize the Window object with zero width and height.
@@ -26,7 +26,7 @@ class FWindow : FWidget
 	#just pop the object up. It is very useful if you are having more than 
 	#one window to display at once before calling the @Block run() from the
 	#@Class QApp. otherwise you should call the @Block run() which
-	#call the event loop in the @Module [[link][FLTK]["http://www.fltk.org"]]
+	#call the event loop in @Module [[link][FLTK]["http://www.fltk.org"]]
 	#to display the object
 	block show()
 		__show_window(OBJECTPOINTER)
