@@ -313,6 +313,23 @@ SIMPLE_BLOCK(init_box)
 	}
 	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
 		Fl_Box *box = new Fl_Box((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3),(int)SIMPLE_API_GETNUMBER(4));
+		box->labelfont(FL_BOLD+FL_ITALIC);
+		box->labelsize(36);
+		box->labeltype(FL_SHADOW_LABEL);
+		SIMPLE_API_RETCPOINTER(box,"SIMPLE_FLTK_");
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+SIMPLE_BLOCK(set_box_type)
+{
+	if ( SIMPLE_API_PARACOUNT != 4 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
+		Fl_Box *box = new Fl_Box((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3),(int)SIMPLE_API_GETNUMBER(4));
 		box->box(FL_UP_BOX);
 		box->labelfont(FL_BOLD+FL_ITALIC);
 		box->labelsize(36);
@@ -352,4 +369,5 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 
 	/** BOX/PANEL **/
 	register_block("__init_box",init_box);
+	register_block("__set_box_type",set_box_type);
 }

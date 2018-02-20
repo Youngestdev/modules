@@ -25,7 +25,7 @@
 
 #@Skip 	DO NOT MODIFY @EndSkip ################################
 															###
-FBOX_NO_BOX						= 0 #default no box        	###
+FBOX_NO_BOX						= 0    #default no box     	###
 FBOX_FLAT_BOX					= 1 						###
 FL_UP_BOX,						= 2							###
 FBOX_DOWN_BOX,					= 3							###
@@ -83,6 +83,8 @@ FBOX_GLEAM_ROUND_UP_BOX,		= 54						###
 FBOX_GLEAM_ROUND_DOWN_BOX,		= 55						###
 FBOX_FREE_BOXTYPE				= 56						###
 															###
-							
+#@Skip DO NOT MODIFY @EndSkip #################################
+
+
 
 
