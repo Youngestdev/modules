@@ -264,7 +264,7 @@ SIMPLE_BLOCK(set_window_icon)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->icon((char*)LoadIcon(fl_display, MAKEINTRESOURCE(SIMPLE_API_GETNUMBER(2))));
+		window->icon((char*)LoadIcon(fl_display, MAKEINTRESOURCE(101)));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}

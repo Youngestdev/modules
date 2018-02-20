@@ -86,7 +86,8 @@ class FWindow : FWidget
 		__set_window_border(OBJECTPOINTER, condition)
 		
 	block setIcon(path)
-		
+		display "to create rc for : "+path
+		__set_window_icon(OBJECTPOINTER, 101)
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
