@@ -227,10 +227,15 @@ class FWidget
 	#@Returns sub widget @DataType List
 	block getAddedWidgets()
 		return WIDGET_CHILDREN
-		
+	
+	#Use it to get the type of the current widget, Useful for comparison 
+	#@Returns widget type @DataType String
 	block getType()
 		return WIDGET_TYPE
 		
+	#Get the string value of the widget which is some of the notable 
+	#attributes of the widget 
+	#@Returns widget string value @DataType String
 	block toString()
 		return "["+WIDGET_TYPE+"["+WIDGET_WIDTH+":"+WIDGET_HEIGHT+"]["+WIDGET_X+":"+WIDGET_Y+"]"+"]"
 		
