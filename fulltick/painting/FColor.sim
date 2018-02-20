@@ -18,6 +18,7 @@ call "simple/core/BaseFields.sim"
 FColor = new FColor
 
 BLACK = 56
+WHITE = 255
 RED = 88
 GREEN = 63
 BLUE = 216
@@ -57,6 +58,9 @@ class FColor
 		
 	block GRAY()
 		return GRAY
+		
+	block WHITE()
+		return WHITE
 		
 	block YELLOW()
 		return YELLOW

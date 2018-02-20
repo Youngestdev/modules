@@ -80,6 +80,7 @@ class FWidget
 		notifyObject()
 		return this
 		
+	#Change the label color of the widget 	
 	block setLabelColor(color)
 		try {
 			__set_label_color(WIDGETPOINTER, color.getColor())
