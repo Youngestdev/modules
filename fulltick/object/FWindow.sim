@@ -73,9 +73,15 @@ class FWindow : FWidget
 	#necessary things on the widget
 	block notifyObject()
 	
+	#Make the FWindow Object Full screen in which it occupies the entire
+	#Computer display space and with no border. So There must be a way to
+	#exit the window as the exit button in the decoration bar/border is 
+	#visible
+	#@Note useful for creating full screen required app/games
 	block setFullscreen(condition)
 		__full_screen(OBJECTPOINTER, condition)
-		
+	
+	#Toggle between the window Decoration bar/border visibility 
 	block setBorderVisibility(condition)
 		__set_window_border(OBJECTPOINTER, condition)
 		
