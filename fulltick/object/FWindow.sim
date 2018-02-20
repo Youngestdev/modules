@@ -11,9 +11,9 @@
  */
 module fulltick.object
 
-call "fulltick/core/FObject.sim" ? fulltick.core
+call "fulltick/core/FWidget.sim" ? fulltick.core
 
-class FWindow : FObject
+class FWindow : FWidget
 
 	#initialize the Window object with zero width and height.
 	block FWindow()
@@ -53,10 +53,11 @@ class FWindow : FObject
 		return this
 		
 	#This block is implemented base on the abstract block in the parent
-	#@Class FObject. This block is used to update the widget whwn a new 
+	#@Class FWidget. This block is used to update the widget when a new 
 	#property is called it then notify this block which do all other 
 	#neccessary things on the widget
 	block notifyObject()
+		
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class

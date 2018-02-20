@@ -20,7 +20,7 @@ call "Core.sim"
 #class to avoid runtime error.
 #@Note the class use the dynamic module 'fulltick.dll' loaded in the 
 #@File Core.sim 
-class FObject
+class FWidget
 
 	OBJECTPOINTER = null #
 	
@@ -32,7 +32,7 @@ class FObject
 	OBJECT_ISRESIZABLE = false #
 	OBJECT_VISIBILITY = true
 	
-	#Set the size for all the object that inherited this class @FObject and
+	#Set the size for all the object that inherited this class @FWidget and
 	#ensure to pass only Numbers data type as parameters for the w and h 
 	#the @Block notifyObject() called within this block is abstract and has 
 	#to be implemented/declared in the corresponding inheriting class
@@ -42,6 +42,7 @@ class FObject
 		OBJECT_WIDTH = w
 		OBJECT_HEIGHT = h
 		__set_size(OBJECTPOINTER, OBJECT_WIDTH, OBJECT_HEIGHT)
+		notifyObject()
 		return this
 	
 	#Get the width value of the object @Return object width 
@@ -62,6 +63,7 @@ class FObject
 	block setTitle(title)
 		OBJECT_TITLE = title
 		__set_title(OBJECTPOINTER, OBJECT_TITLE)
+		notifyObject()
 		return this
 		
 	#Get the current title value of the Object @Return object title 
@@ -77,6 +79,7 @@ class FObject
 	block objectResizable()
 		OBJECT_ISRESIZABLE = true
 		__resizable(OBJECTPOINTER)
+		notifyObject()
 		return this
 		
 	#Make an object realizability to custom boolean and notify the object to
@@ -117,6 +120,7 @@ class FObject
 	block setTooltip(tip)
 		OBJECT_TOOLTIP = tip
 		__set_tooltip(OBJECTPOINTER, OBJECT_TOOLTIP)
+		notifyObject()
 		return this
 	
 	#Get the current tool-tip value of the Object @Return object tool-tip
@@ -133,6 +137,7 @@ class FObject
 	block setVisibility(condition)
 		OBJECT_VISIBILITY = condition
 		__set_visibility(OBJECTPOINTER, condition)
+		notifyObject()
 		return this
 	
 	#Get the current object visibility @Return object visibility
@@ -146,9 +151,11 @@ class FObject
 		
 	block setPosition(x, y)
 		__set_position(OBJECTPOINTER, x, y)
+		notifyObject()
 		return this
 		
-	
+	private 
+		block notifyObject()
 	
 	
 	
