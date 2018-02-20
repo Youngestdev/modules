@@ -69,7 +69,7 @@ SIMPLE_BLOCK(init_window)
 		Fl_Window *window = new Fl_Window((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
 		if (SIMPLE_API_GETNUMBER(4) == 1) 
 		{
-			Fl_Widget& reswindow = *window; reswindow.resizable(&reswindow);
+			Fl_Group& reswindow = *window; reswindow.resizable(&reswindow);
 		}
 		SIMPLE_API_RETCPOINTER(window,"SIMPLE_FLTK_");
 	} else {
@@ -84,7 +84,7 @@ SIMPLE_BLOCK(show_window)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) ) {
-		Fl_Widget& window = *((Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"));
+		Fl_Group& window = *((Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"));
 		window.end();
 		window.show();
 	} else {
@@ -113,7 +113,7 @@ SIMPLE_BLOCK(object_background)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
-		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->color(((Fl_Color) SIMPLE_API_GETNUMBER(2)));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
@@ -127,7 +127,7 @@ SIMPLE_BLOCK(set_title)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
-		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->copy_label(SIMPLE_API_GETSTRING(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
@@ -141,7 +141,7 @@ SIMPLE_BLOCK(set_size)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) ) {
-		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->size((int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
@@ -155,7 +155,7 @@ SIMPLE_BLOCK(set_tooltip)
 		return ;
 	} 
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
-		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->tooltip(SIMPLE_API_GETSTRING(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
@@ -169,7 +169,7 @@ SIMPLE_BLOCK(set_visibility)
 		return ;
 	} 
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
-		Fl_Widget *object = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Group *object = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		if (SIMPLE_API_GETNUMBER(2) == 0) {
 			object->hide();
 		} else if (SIMPLE_API_GETNUMBER(2) == 1) {

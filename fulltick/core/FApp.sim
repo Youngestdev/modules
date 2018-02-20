@@ -1,0 +1,23 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * #filename - FApp.sim
+ * #author - Azeez Adewale
+ * #date - 20 Febuary 2017
+ */
+
+module fulltick.core
+
+#call the GUI(fulltick) Dynamic Module from the core file @File Core.sim
+call "Core.sim"
+
+class FApp
+
+	run()
+	__run_fulltick()
+	
+	setScheme(scheme)
