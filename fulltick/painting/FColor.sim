@@ -56,15 +56,18 @@ class FColor
 	#Create a color value from the provided RGB values. The RGB value must
 	#be a valid numbers between 0 to 255 else error will thrown.
 	block setRGB(r, g, b)
-		if (r > 255 || g > 255 || b > 255 )
+		RED = r
+		GREEN = g
+		BLUE = b
+		if (RED > 255 || GREEN > 255 || BLUE > 255 )
 			throw(COLOR_GREATER_THAN_255)
-		elif (r < 0 || g < 0 || b < 0 )
+		elif (RED < 0 || GREEN < 0 || BLUE < 0 )
 			throw(COLOR_LESSER_THAN_ZERO)
 		end
-		if (r == 0 && g == 0 && b == 0 ) 
+		if (RED == 0 && GREEN == 0 && BLUE == 0 ) 
 			FCOLOR = BLACK
 		else 
-			FCOLOR = ((r<<24) + (g<<16) + (b<<8))
+			FCOLOR = ((RED<<24) + (GREEN<<16) + (BLUE<<8))
 		end
 	
 	#Get the Red value of the current color
@@ -81,7 +84,7 @@ class FColor
 	#@Returns color blue value @DataType Number
 	block getBlue()
 		return BLUE
-		
+	
 	block BLACK()
 		return FCOLOR_BLACK
 		
@@ -111,10 +114,7 @@ class FColor
 		
 	private 
 	
-		FCOLOR = FCOLOR_BLACK
-		RED = FCOLOR_RED
-		BLUE = FCOLOR_BLUE
-		GREEN = FCOLOR_GREEN
+		FCOLOR = 8
 		
 		
 		
