@@ -85,8 +85,9 @@ class FWindow : FWidget
 	block setBorderVisibility(condition)
 		__set_window_border(OBJECTPOINTER, condition)
 		
+	#currently failing	
 	block setIcon(path)
-		display "to create rc for : "+path
+		#display "to create rc for : "+path
 		__set_window_icon(OBJECTPOINTER, 101)
 		
 	#all the private attributes, fields and block not accessible outside
