@@ -26,6 +26,8 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 #               |                                         |
 #               |                                         |
 # @EndSkip
+#The FWindow instance can be call as much time as possible and @Block show()
+#can be called to add it to FApp stack or @Block run() to display the window
 class FWindow : FWidget
 
 	#initialize the Window object with zero width and height.
@@ -68,7 +70,7 @@ class FWindow : FWidget
 	#This block is implemented base on the abstract block in the parent
 	#@Class FWidget. This block is used to update the widget when a new 
 	#property is called it then notify this block which do all other 
-	#neccessary things on the widget
+	#necessary things on the widget
 	block notifyObject()
 	
 	block setFullscreen(condition)
@@ -81,6 +83,8 @@ class FWindow : FWidget
 	#the class
 	private 
 		
+		#Create an instance of the FWindow Widget with Object Width and 
+		#Height, Title and set window resizability
 		block initialize()
 			OBJECTPOINTER = __init_window(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_TITLE, OBJECT_ISRESIZABLE)
 			
