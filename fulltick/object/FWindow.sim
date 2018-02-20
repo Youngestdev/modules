@@ -9,7 +9,7 @@
  * #author - Azeez Adewale
  * #date - 19 Febuary 2017
  */
-module fulltick.object
+module fulltick.widget
 
 #call the @Class FWidget File for general widget blocks inheritance
 call "fulltick/core/FWidget.sim" ? fulltick.core

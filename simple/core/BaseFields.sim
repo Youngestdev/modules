@@ -7,7 +7,7 @@
 /* 
  * #filename - BaseFields.sim
  * #author - Azeez Adewale
- * #date - 7 Febuary 2017
+ * #date - 7 Febuary 2018
  */
  
 NULL_ERROR_POINTER = "The field, attribute or variable provided is NULL"

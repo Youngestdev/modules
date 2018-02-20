@@ -1,0 +1,20 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * @Filename - FBox.sim
+ * @Author - Azeez Adewale
+ * @Date - 20 Febuary 2018
+ */
+
+module fulltick.widget
+
+#call the @Class FWidget File for general widget blocks inheritance
+call "fulltick/core/FWidget.sim" ? fulltick.core
+
+class FBox
+
+class FPanel : FBox
