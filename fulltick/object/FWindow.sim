@@ -24,7 +24,7 @@ class FWindow : FObject
 	#just pop the object up. It is very useful if you are having more than 
 	#one window to display at once before calling the @Block run() from the
 	#@Class QApp. otherwise you should call the @Block run() which
-	#call the event loop in the @Module [[link][fltk]["http://www.fltk.org"]]
+	#call the event loop in the @Module [[link][FLTK]["http://www.fltk.org"]]
 	#to display the object
 	block show()
 		__show_window(OBJECTPOINTER)
@@ -40,11 +40,22 @@ class FWindow : FObject
 	block iconize()
 		__set_visibility(OBJECTPOINTER, 2)
 		
-	#
+	#Set the location of the window on the display screen not the addition of
+	#the 28 to the Y offset. Since [[link][FLTK]["http://www.fltk.org"]] 
+	#treat windows as a Fl_Widget the decorated aspect of the window is not 
+	#considered. So by the default height of the decorated bar of the window
+	#which is between 20 - 30 on various OS. If You are not confortable 
+	#with the calculation you can choose to call the @Block setPosition(x, y)
+	#on the window which does same as this block but with no regard to the 
+	#window decorated bar
 	block setLocation(x, y)
 		__set_position(OBJECTPOINTER, x, y+28)
 		return this
 		
+	#This block is implemented base on the abstract block in the parent
+	#@Class FObject. This block is used to update the widget whwn a new 
+	#property is called it then notify this block which do all other 
+	#neccessary things on the widget
 	block notifyObject()
 		
 	#all the private attributes, fields and block not accessible outside
