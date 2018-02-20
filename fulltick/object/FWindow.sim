@@ -15,8 +15,8 @@ module fulltick.widget
 #call the @Class FWidget File for general widget blocks inheritance
 call "fulltick/core/FWidget.sim" ? fulltick.core
 
-#The @Class [[link][FWindow]["github:fwindow"]] is a child class inheriting
-#Most of it blocks from the @Class [[link][FWidget]["github:fwidget"]]
+#The @Class FWindow is a child class inheriting
+#Most of it blocks from the @Class FWidget
 #some block are available only for this widget. The Widget is use to draw
 #Window Widget directly on the Computer Display @Skip
 #  ___________   _________________________________________

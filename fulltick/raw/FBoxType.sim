@@ -12,5 +12,11 @@
  */
  
 /*
-	This File holds all possible box types
+	This File holds all possible box types for the @Class FBox and @Class 
+	FPanel widgets the values below are not meant to be edited as it is 
+	declared with regard to the [[link][FLTK]["http://www.fltk.org"]] library
+	Fl_Boxtype enum. In case you need to create a new box/panel type you 
+	are required to re draw the box from scratch and not add or modify any
+	of the box type below to avoid breaking the @Module GUI(fulltick) Module
+	
 */
