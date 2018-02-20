@@ -160,7 +160,7 @@ SIMPLE_BLOCK(set_tooltip)
 	} 
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->tooltip(SIMPLE_API_GETSTRING(2));
+		window->tooltip((char *)SIMPLE_API_GETSTRING(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
