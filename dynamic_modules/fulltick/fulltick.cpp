@@ -172,11 +172,6 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
-class Foo {
-	void my_callback(Fl_Widget *w);
-	static void my_static_callback(Fl_Widget *w, void *f) { ((Foo *)f)->my_callback(w); }
-}
-
 /** on click / callback failing **/
 SIMPLE_BLOCK(on_click)
 {
@@ -186,7 +181,7 @@ SIMPLE_BLOCK(on_click)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->callback((Fl_Callback *)(SIMPLE_API_GETSTRING(2), (void *)SIMPLE_API_GETSTRING(2)));
+		window->callback((Fl_Callback *)SIMPLE_API_GETSTRING(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
