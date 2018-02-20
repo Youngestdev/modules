@@ -183,6 +183,8 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
+void Hello(Fl_Widget *, void *) {exit(0);}
+
 SIMPLE_BLOCK(on_click)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
@@ -192,7 +194,7 @@ SIMPLE_BLOCK(on_click)
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		printf("CALL %s\n", SIMPLE_API_GETSTRING(2));
-		window->callback((Fl_Callback *)( window, SIMPLE_API_GETSTRING(2)));
+		window->callback((Fl_Callback *)(SIMPLE_API_GETSTRING(2)));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
