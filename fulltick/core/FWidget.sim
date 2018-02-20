@@ -160,6 +160,10 @@ class FWidget
 		notifyObject()
 		return this
 		
+	#Add a child widget to the current widget. The widget can be added 
+	#individually, in a list or in one of the FGroup family. Only valid 
+	#FWidget should be sent to this block as parameter to avoid error 
+	#during runtime
 	block addWidget(widget)
 		#isList()
 		try 
