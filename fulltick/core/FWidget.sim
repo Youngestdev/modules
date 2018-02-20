@@ -15,159 +15,159 @@ module fulltick.core
 #call the GUI(fulltick) Dynamic Module from the core file @File Core.sim
 call "Core.sim"
 
-#All the GUI object base class. Some of the block in this class are abstract 
-#i.e they are not declared here so it has to be declared in the child object 
+#All the GUI widget base class. Some of the block in this class are abstract 
+#i.e they are not declared here so it has to be declared in the child widget 
 #class to avoid runtime error.
 #@Note the class use the dynamic module 'fulltick.dll' loaded in the 
 #@File Core.sim 
 class FWidget
 
-	OBJECTPOINTER = null #
+	WIDGETPOINTER = null #
 	
-	OBJECT_HEIGHT = 0 #The object Height
-	OBJECT_WIDTH = 0 #The object Width
-	OBJECT_X = 0 #The object X axis/position
-	OBJECT_Y = 0 #The object Y axis/position
+	WIDGET_HEIGHT = 0 #The widget Height
+	WIDGET_WIDTH = 0 #The widget Width
+	WIDGET_X = 0 #The widget X axis/position
+	WIDGET_Y = 0 #The widget Y axis/position
 	
-	OBJECT_TITLE = "Simple Fulltick" #The default title for all objects
-	OBJECT_TOOLTIP = "" #
+	WIDGET_TITLE = "Simple Fulltick" #The default title for all objects
+	WIDGET_TOOLTIP = "" #
 	
-	OBJECT_ISRESIZABLE = false #
-	OBJECT_VISIBILITY = true
+	WIDGET_ISRESIZABLE = false #
+	WIDGET_VISIBILITY = true
 	
-	#Set the size for all the object that inherited this class @FWidget and
+	#Set the size for all the widget that inherited this class @FWidget and
 	#ensure to pass only Numbers data type as parameters for the w and h 
 	#the @Block notifyObject() called within this block is abstract and has 
 	#to be implemented/declared in the corresponding inheriting class
-	#@Note It @Returns this which is the object to allow the inline usage 
-	#of the object
+	#@Note It @Returns this which is the widget to allow the inline usage 
+	#of the widget
 	block setSize(w, h)
-		OBJECT_WIDTH = w
-		OBJECT_HEIGHT = h
-		__set_size(OBJECTPOINTER, OBJECT_WIDTH, OBJECT_HEIGHT)
+		WIDGET_WIDTH = w
+		WIDGET_HEIGHT = h
+		__set_size(WIDGETPOINTER, WIDGET_WIDTH, WIDGET_HEIGHT)
 		notifyObject()
 		return this
 	
-	#Get the width value of the object @Return object width 
+	#Get the width value of the widget @Return widget width 
 	#@DataType Number
 	block getWidth()
-		return OBJECT_WIDTH
+		return WIDGET_WIDTH
 	
-	#Get the height value of the object @Return object height 
+	#Get the height value of the widget @Return widget height 
 	#@DataType Number
 	block getHeigth()
-		return OBJECT_HEIGHT
+		return WIDGET_HEIGHT
 		
-	#Change the title value for the object inheriting this class. Don'that
+	#Change the label value for the widget inheriting this class. Don'that
 	#forget to implement/declare the @Block notifyObject() in the inheriting 
 	#class to treat all newly set data, fields and attributed
-	#@Note It @Returns this which is the object to allow the inline usage 
-	#of the object
-	block setTitle(title)
-		OBJECT_TITLE = title
-		__set_title(OBJECTPOINTER, OBJECT_TITLE)
+	#@Note It @Returns this which is the widget to allow the inline usage 
+	#of the widget
+	block setLabel(title)
+		WIDGET_TITLE = title
+		__set_title(WIDGETPOINTER, WIDGET_TITLE)
 		notifyObject()
 		return this
 		
-	#Get the current title value of the Object @Return object title 
+	#Get the current label value of the Object @Return widget label 
 	#@DataType String
-	block getTitle()
-		return OBJECT_TITLE
+	block getLabel()
+		return WIDGET_TITLE
 		
-	#Forcefully set the realizability of object to true. Note this is 
-	#unsafe as it give no regard to other object data instead use the
-	#@Block resizable(condition) to safely set realizability of object
-	#@Note It @Returns this which is the object to allow the inline usage 
-	#of the object
+	#Forcefully set the realizability of widget to true. Note this is 
+	#unsafe as it give no regard to other widget data instead use the
+	#@Block resizable(condition) to safely set realizability of widget
+	#@Note It @Returns this which is the widget to allow the inline usage 
+	#of the widget
 	block objectResizable()
-		OBJECT_ISRESIZABLE = true
-		__resizable(OBJECTPOINTER)
+		WIDGET_ISRESIZABLE = true
+		__resizable(WIDGETPOINTER)
 		notifyObject()
 		return this
 		
-	#Make an object realizability to custom boolean and notify the object to
+	#Make a widget realizability to custom boolean and notify the widget to
 	#treat the new data this is safer than using @Block objectResizable() 
-	#which forcefully set the object realizability without regard to other 
+	#which forcefully set the widget realizability without regard to other 
 	#objcet data
-	#@Note It @Returns this which is the object to allow the inline usage 
-	#of the object
+	#@Note It @Returns this which is the widget to allow the inline usage 
+	#of the widget
 	block resizable(condition)
-		OBJECT_ISRESIZABLE = condition
-		__resizable(OBJECTPOINTER)
+		WIDGET_ISRESIZABLE = condition
+		__resizable(WIDGETPOINTER)
 		notifyObject()
 		return this
 		
-	#Get the realizability condition of an object. Check whether the object 
-	#is re sizable @Return object realizability @DataType boolean
+	#Get the realizability condition of a widget. Check whether the widget 
+	#is re sizable @Return widget realizability @DataType boolean
 	block isResisable()
-		return OBJECT_ISRESIZABLE
+		return WIDGET_ISRESIZABLE
 	
-	#Change the background color of the object. Color is of @DataType Number
+	#Change the background color of the widget. Color is of @DataType Number
 	#The @Class FColor can be passed as parameter to the block which get the 
 	#color value from the @Class FColor or Integer/Number can be passed 
 	#directly 
-	#@Note It @Returns this which is the object to allow the in-line usage 
-	#of the object
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setBackground(color)
 		try {
-			__set_bg(OBJECTPOINTER, color.getColor())
+			__set_bg(WIDGETPOINTER, color.getColor())
 		catch
-			__set_bg(OBJECTPOINTER, color)
+			__set_bg(WIDGETPOINTER, color)
 		}
 		return this
 	
-	#Set the tooltip value for the object this accept @DataType String as 
+	#Set the tooltip value for the widget this accept @DataType String as 
 	#parameter 
-	#@Note It @Returns this which is the object to allow the in-line usage 
-	#of the object
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setTooltip(tip)
-		OBJECT_TOOLTIP = tip
-		__set_tooltip(OBJECTPOINTER, OBJECT_TOOLTIP)
+		WIDGET_TOOLTIP = tip
+		__set_tooltip(WIDGETPOINTER, WIDGET_TOOLTIP)
 		notifyObject()
 		return this
 	
-	#Get the current tool-tip value of the Object @Return object tool-tip
+	#Get the current tool-tip value of the Object @Return widget tool-tip
 	#@DataType String
 	block getTooltip()
-		return OBJECT_TOOLTIP
+		return WIDGET_TOOLTIP
 	
-	#Change the visibility of the object to either visible/show or invisible/
+	#Change the visibility of the widget to either visible/show or invisible/
 	#hide. The block accept @DataType Boolean as parameter in which 
 	#[[color][true][blue]] translate to visible and [[color][false][blue]]
 	#translate to invisible
-	#@Note It @Returns this which is the object to allow the in-line usage 
-	#of the object
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setVisibility(condition)
-		OBJECT_VISIBILITY = condition
-		__set_visibility(OBJECTPOINTER, condition)
+		WIDGET_VISIBILITY = condition
+		__set_visibility(WIDGETPOINTER, condition)
 		notifyObject()
 		return this
 	
-	#Get the current object visibility @Return object visibility
+	#Get the current widget visibility @Return widget visibility
 	#@DataType String
 	block isVisible()
-		return OBJECT_VISIBILITY
+		return WIDGET_VISIBILITY
 	
 	#currently failing
 	block onClick(event)
-		__on_click(OBJECTPOINTER, event)
+		__on_click(WIDGETPOINTER, event)
 	
 	#Change the position of the widget on the parent widget or modal location
 	#it is a raw block and does not give regard to some widget features
 	#such as the decorated bar of the @Class FWindow widget
 	block setPosition(x, y)
-		__set_position(OBJECTPOINTER, x, y)
+		__set_position(WIDGETPOINTER, x, y)
 		notifyObject()
 		return this
 		
 	block addWidget(widget)
-		__add_widget(OBJECTPOINTER, widget.getWidgetPointer(), false)
+		__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), false)
 		
 	block addResizableWidget()
-		__add_widget(OBJECTPOINTER, widget.getWidgetPointer(), true)
+		__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), true)
 		
 	block getWidgetPointer()
-		return OBJECTPOINTER
+		return WIDGETPOINTER
 		
 	private 
 		
