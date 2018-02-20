@@ -5,9 +5,10 @@
 */
 
 /* 
- * #filename - FWindow.sim
- * #author - Azeez Adewale
- * #date - 19 Febuary 2017
+ * @Filename - FWindow.sim
+ * @Author - Azeez Adewale
+ * @Date - 19 Febuary 2017
+ * @Time - 01:11 PM
  */
 module fulltick.widget
 

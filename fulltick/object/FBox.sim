@@ -8,6 +8,7 @@
  * @Filename - FBox.sim
  * @Author - Azeez Adewale
  * @Date - 20 Febuary 2018
+ * @Time - 08:42 PM
  */
 
 module fulltick.widget
@@ -78,7 +79,7 @@ class FPanel : FBox
 		initialize()
 
 	
-	
+
 		
 
 

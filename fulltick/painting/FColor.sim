@@ -5,9 +5,10 @@
 */
 
 /* 
- * #filename - FColor.sim
- * #author - Azeez Adewale
- * #date - 19 Febuary 2017
+ * @Filename - FColor.sim
+ * @Author - Azeez Adewale
+ * @Date - 19 Febuary 2017
+ * @Time - 03:11 PM
  */
 
 module fulltick.painting
