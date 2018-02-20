@@ -279,7 +279,9 @@ class FWidget
 	#@Returns widget string value @DataType String
 	block toString()
 		return "["+WIDGET_TYPE+"["+WIDGET_WIDTH+":"+WIDGET_HEIGHT+"]["+WIDGET_X+":"+WIDGET_Y+"]"+"]"
-		
+	
+	#Get the calculated hash of this class/object 
+	#@Returns object hash @DataType Numbers
 	block getHash()
 		return hash(WIDGET_TYPE)
 		

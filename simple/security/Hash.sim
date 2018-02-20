@@ -36,6 +36,8 @@ block intHash(content)
 	
 #hash a string using unsigned int on each character in the string along with
 #the characters binary (02) value
+#@Note currently using sha1 and md5 hash of content until a standard or
+#preferred method for the hash has been created
 block hash(content)
 	return __sha1(content) /*+ __hash("simple") */+ __md5(content)
 
