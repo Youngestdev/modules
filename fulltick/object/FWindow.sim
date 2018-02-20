@@ -59,7 +59,7 @@ class FWindow : FWidget
 	block notifyObject()
 	
 	block setFullscreen(condition)
-		__full_screen(OBJECTPOINTER, 0)
+		__full_screen(OBJECTPOINTER, condition)
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
