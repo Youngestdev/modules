@@ -21,7 +21,9 @@ class FWindow : FObject
 		
 	#Show the window object. This block is useful if you will be creating a 
 	#custom event loop to hold the window because calling this block will
-	#just pop the object up otherwise you should call the @Block run() which
+	#just pop the object up. It is very useful if you are having more than 
+	#one window to display at once before calling the @Block run() from the
+	#@Class QApp. otherwise you should call the @Block run() which
 	#call the event loop in the @Module [[link][fltk]["http://www.fltk.org"]]
 	#to display the object
 	block show()
@@ -38,6 +40,7 @@ class FWindow : FObject
 	block iconize()
 		__set_visibility(OBJECTPOINTER, 2)
 		
+	#
 	block setLocation(x, y)
 		__set_position(OBJECTPOINTER, x, y+28)
 		return this
