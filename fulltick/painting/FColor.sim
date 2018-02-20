@@ -17,15 +17,22 @@ call "simple/core/BaseFields.sim"
 
 FColor = new FColor
 
-BLACK = 56
-WHITE = 255
-RED = 88
-GREEN = 63
-BLUE = 216
-GRAY = 32
-MAGENTA = 248
-CYAN = 223
-YELLOW = 95
+FCOLOR_BLACK = 56 #color blue
+FCOLOR_WHITE = 255 #color white
+FCOLOR_RED = 88 #color red
+FCOLOR_GREEN = 63 #color green 
+FCOLOR_BLUE = 216 #color blue
+FCOLOR_GRAY = 32 #color gray
+FCOLOR_MAGENTA = 248 #color magenta
+FCOLOR_CYAN = 223 #color cyan 
+FCOLOR_YELLOW = 95 #color yellow
+
+FCOLOR_DARK_RED = 72
+FCOLOR_DARK_GREEN = 60
+FCOLOR_DARK_BLUE = 136
+FCOLOR_DARK_MAGENTA = 152
+FCOLOR_DARK_CYAN = 140
+
 
 class FColor
 		
@@ -45,31 +52,31 @@ class FColor
 		end
 		
 	block BLACK()
-		return BLACK
+		return FCOLOR_BLACK
 		
 	block RED()
-		return RED
+		return FCOLOR_RED
 		
 	block GREEN()
-		return GREEN
+		return FCOLOR_GREEN
 		
 	block BLUE()
-		return BLUE
+		return FCOLOR_BLUE
 		
 	block GRAY()
-		return GRAY
+		return FCOLOR_GRAY
 		
 	block WHITE()
-		return WHITE
+		return FCOLOR_WHITE
 		
 	block YELLOW()
-		return YELLOW
+		return FCOLOR_YELLOW
 		
 	block CYAN()
-		return CYAN
+		return FCOLOR_CYAN
 		
 	block MAGENTA()
-		return MAGENTA
+		return FCOLOR_MAGENTA
 		
 	private 
 		FCOLOR = BLACK

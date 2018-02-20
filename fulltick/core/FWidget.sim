@@ -80,7 +80,12 @@ class FWidget
 		notifyObject()
 		return this
 		
-	#Change the label color of the widget 	
+	#Change the label color of the widget. Color is of @DataType Number
+	#The @Class FColor can be passed as parameter to the block which get the 
+	#color value from the @Class FColor or Integer/Number can be passed 
+	#directly 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setLabelColor(color)
 		try {
 			__set_label_color(WIDGETPOINTER, color.getColor())
