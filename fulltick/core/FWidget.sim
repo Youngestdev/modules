@@ -160,6 +160,9 @@ class FWidget
 		notifyObject()
 		return this
 		
+	block addWidget(widget)
+		__add_widget(OBJECTPOINTER, widget)
+		
 	private 
 		
 		#This block is abstract and has to be implemented in inheriting child

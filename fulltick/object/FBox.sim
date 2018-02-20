@@ -43,8 +43,6 @@ class FBox : FWidget
 	
 		block initialize()
 			OBJECTPOINTER = __init_box(OBJECT_WIDTH, OBJECT_HEIGHT, OBJECT_X, OBJECT_Y)
-			
-			display OBJECTPOINTER
 
 class FPanel : FBox
 
