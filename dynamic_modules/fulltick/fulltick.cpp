@@ -254,13 +254,12 @@ SIMPLE_BLOCK(set_window_border)
 
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
+	/** APP **/
 	register_block("__test_gui",test_gui);
 	register_block("__run_fulltick",run_fulltick);
 	register_block("__set_look_and_feel",set_look_and_feel);
-	register_block("__init_window",init_window);
-	register_block("__show_window",show_window);
-	register_block("__full_screen",full_screen);
-	register_block("__set_window_border",set_window_border);
+
+	/** WIDGETS **/
 	register_block("__resizable",resizable_object);
 	register_block("__set_bg",object_background);
 	register_block("__set_title",set_title);
@@ -269,4 +268,12 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__set_tooltip",set_tooltip);
 	register_block("__set_visibility",set_visibility);
 	register_block("__on_click",on_click);
+
+	/** Window **/
+	register_block("__init_window",init_window);
+	register_block("__show_window",show_window);
+	register_block("__full_screen",full_screen);
+	register_block("__set_window_border",set_window_border);
+
+	/** BOX/PANEL **/
 }
