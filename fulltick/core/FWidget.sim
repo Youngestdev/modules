@@ -22,6 +22,7 @@ module fulltick.core
 #of the widget
 call "Core.sim"
 call "fulltick/painting/FColor.sim" ? fulltick.painting
+call "fulltick/drawing/FFont.sim" ? fulltick.painting
 call "simple/security/Hash.sim" ? simple.security
 
 #All the GUI widget base class. Some of the block in this class are abstract 
@@ -45,6 +46,7 @@ class FWidget
 	WIDGET_X = 0 #The widget X axis/position
 	WIDGET_Y = 0 #The widget Y axis/position
 	WIDGET_LABEL_SIZE = 10 #Initialize the default label size 
+	WIDGET_LABEL_FONT = FFONT_HELVETICA #The default label font
 	
 	/* STRINGS */
 	WIDGET_TYPE = "WIDGET" #Declare the type of widget. This is assumed to 
@@ -109,6 +111,10 @@ class FWidget
 		WIDGET_LABEL_SIZE = size
 		__set_label_size(WIDGETPOINTER, WIDGET_LABEL_SIZE)
 		return this
+		
+	#Get the current label size of the widget @Returns widget label size @DataType Number
+	block getLabelSize()
+		return WIDGET_LABEL_SIZE
 	
 	#Change the font type of the widget label, the only valid parameter
 	#is any font declared in the @Class FFont. This block should not be 
@@ -121,8 +127,7 @@ class FWidget
 		__set_label_font(WIDGETPOINTER, WIDGET_LABEL_FONT)
 		return this
 		
-	#Get the current label font of the widget 
-	#@Returns widget label font @DataType Number
+	#Get the current label font of the widget @Returns widget label font @DataType Number
 	block getLabelFont()
 		return WIDGET_LABEL_FONT
 		
