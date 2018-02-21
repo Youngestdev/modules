@@ -74,11 +74,11 @@ class FBox : FWidget
 		
 		
 		block notifyObject()
-			getTrueParent().redraw()
+			#getTrueParent().redraw()
 		
 		#The FBox widget currently does not allow adding another widget
 		#into it
-		block addWidget(widget)
+		#block addWidget(widget)
 			
 #@Skip--------------------------------------------------------------@EndSkip
 

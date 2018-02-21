@@ -226,12 +226,10 @@ class FWidget
 	block addWidget(widget)
 		#isList()
 		try 
-			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), false)
-			add(WIDGET_CHILDREN, widget)
+			addChildWidget(widget.getWidgetPointer(), false)
 		catch
 			for a = 0 to lengthOf(widget) 
-				__add_widget(WIDGETPOINTER, widget[a].getWidgetPointer(), false)
-				add(WIDGET_CHILDREN, widget[a])
+				addChildWidget(widget[a].getWidgetPointer(), false)
 			end
 		end
 		return this
@@ -243,14 +241,12 @@ class FWidget
 	#size to not re-sizable
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
-	block addResizableWidget()
+	block addResizableWidget(widget)
 		try 
-			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), true)
-			add(WIDGET_CHILDREN, widget)
+			addChildWidget(widget.getWidgetPointer(), true)
 		catch
 			for a = 0 to lengthOf(widget) 
-				__add_widget(WIDGETPOINTER, widget[a].getWidgetPointer(), true)
-				add(WIDGET_CHILDREN, widget[a])
+				addChildWidget(widget[a].getWidgetPointer(), true)
 			end
 		end
 		return this
@@ -323,8 +319,8 @@ class FWidget
 		block notifyObject()
 		
 		block addChildWidget(widget, condition)
-			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), condition)
-			add(WIDGET_CHILDREN, widget[a])
+			__add_widget(WIDGETPOINTER, widget, condition)
+			add(WIDGET_CHILDREN, widget)
 	
 	
 	

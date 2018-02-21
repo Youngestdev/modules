@@ -383,6 +383,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__set_tooltip",set_tooltip);
 	register_block("__set_visibility",set_visibility);
 	register_block("__on_click",on_click);
+	register_block("__add_widget",add_widget);
 	register_block("__redraw_widget",redraw_widget);
 	register_block("__get_parent_widget",get_parent_widget);
 
