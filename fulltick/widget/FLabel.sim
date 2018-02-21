@@ -45,7 +45,6 @@ class FLabel: FBox
 		initialize()
 		setLabel(label) 
 		display "LENGTH OF LABEL : "+lengthOf(getLabel())
-		setSize((lengthOf(getLabel())*70), 20)
 		setBackground(255)
 		
 	block setBackground(color)
