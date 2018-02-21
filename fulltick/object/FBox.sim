@@ -74,7 +74,8 @@ class FBox : FWidget
 			
 		block notifyObject()
 		
-		#The FBox widget does not allow adding another widget into it
+		#The FBox widget currently does not allow adding another widget
+		#into it
 		block addWidget(widget)
 			
 #@Skip--------------------------------------------------------------@EndSkip
