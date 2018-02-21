@@ -170,6 +170,10 @@ class FWidget
 	#@Returns widget background color in form of the @Class FColor to 
 	#support and allow more color usage
 	block getBackgroundColor()
+		if WIDGET_BACKGROUND_COLOR == null
+			WIDGET_BACKGROUND_COLOR = new FColor
+			WIDGET_BACKGROUND_COLOR.setColorValue(255) 
+		end
 		return WIDGET_BACKGROUND_COLOR
 	
 	#Set the tooltip value for the widget this accept @DataType String as 
