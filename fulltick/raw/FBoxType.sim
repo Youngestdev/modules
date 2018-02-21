@@ -25,6 +25,7 @@
 
 #@Skip 	DO NOT MODIFY @EndSkip ################################
 															###
+FBOX_NONE						= 0    #default no box     	###
 FBOX_NO_BOX						= 0    #default no box     	###
 FBOX_FLAT_BOX					= 1 						###
 FBOX_UP_BOX						= 2							###
