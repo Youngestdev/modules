@@ -32,42 +32,46 @@ FFont = new FFont
 
 /* NUMBERS */
 
-#@Skip DO NOT MODIFY @EndSkip #################################################################
-																							###
-FFONT_HELVETICA              = 0	# Helvetica (or Arial) normal (0)						###
-FFONT_HELVETICA_BOLD         = 1	# Helvetica (or Arial) bold								###
-FFONT_HELVETICA_ITALIC       = 2	# Helvetica (or Arial) oblique							###
-FFONT_HELVETICA_BOLD_ITALIC  = 3	# Helvetica (or Arial) bold-oblique						###
-FFONT_COURIER                = 4	# Courier normal										###
-FFONT_COURIER_BOLD           = 5	# Courier bold 											###
-FFONT_COURIER_ITALIC         = 6	# Courier italic										###
-FFONT_COURIER_BOLD_ITALIC    = 7	# Courier bold-italic									###
-FFONT_TIMES                  = 8	# Times roman											###
-FFONT_TIMES_BOLD             = 9	# Times roman bold										###
-FFONT_TIMES_ITALIC           = 10	# Times roman italic									###
-FFONT_TIMES_BOLD_ITALIC      = 11	# Times roman bold-italic								###
-FFONT_SYMBOL                 = 12	# Standard symbol font									###
-FFONT_SCREEN                 = 13	# Default mono-spaced screen font						###
-FFONT_SCREEN_BOLD            = 14	# Default mono-spaced bold screen font					###
-FFONT_ZAPF_DINGBATS          = 15	# Zapf-dingbats font									###
-																							###
-FFONT_FREE_FONT              = 16	# first one to allocate									###
-FFONT_BOLD                   = 1	# this can be added to helvetica, courier, or times		###
-FFONT_ITALIC                 = 2	# add this to helvetica, courier, or times				###
-FFONT_BOLD_ITALIC            = 3	# add this to helvetica, courier, or times				###
-																							###
-#@Skip YOU CAN ADD MORE FONT BELOW @EndSkip ###################################################
+#@Skip DO NOT MODIFY @EndSkip #####################################################################
+																								###
+FFONT_HELVETICA              = 0	# Helvetica (or Arial) normal (0)							###
+FFONT_HELVETICA_BOLD         = 1	# Helvetica (or Arial) bold									###
+FFONT_HELVETICA_ITALIC       = 2	# Helvetica (or Arial) oblique								###
+FFONT_HELVETICA_BOLD_ITALIC  = 3	# Helvetica (or Arial) bold-oblique							###
+FFONT_COURIER                = 4	# Courier normal											###
+FFONT_COURIER_BOLD           = 5	# Courier bold 												###
+FFONT_COURIER_ITALIC         = 6	# Courier italic											###
+FFONT_COURIER_BOLD_ITALIC    = 7	# Courier bold-italic										###
+FFONT_TIMES                  = 8	# Times roman												###
+FFONT_TIMES_BOLD             = 9	# Times roman bold											###
+FFONT_TIMES_ITALIC           = 10	# Times roman italic										###
+FFONT_TIMES_BOLD_ITALIC      = 11	# Times roman bold-italic									###
+FFONT_SYMBOL                 = 12	# Standard symbol font										###
+FFONT_SCREEN                 = 13	# Default mono-spaced screen font							###
+FFONT_SCREEN_BOLD            = 14	# Default mono-spaced bold screen font						###
+FFONT_ZAPF_DINGBATS          = 15	# Zapf-dingbats font										###
+																								###
+FFONT_FREE_FONT              = 16	# first one to allocate										###
+FFONT_BOLD                   = 1	# this can be added to helvetica, courier, or times			###
+FFONT_ITALIC                 = 2	# add this to helvetica, courier, or times					###
+FFONT_BOLD_ITALIC            = 3	# add this to helvetica, courier, or times					###
+																								###
+#@Skip YOU CAN ADD MORE FONT BELOW @EndSkip #######################################################
 
-FFONT_TYPE_NORMAL_LABEL	= 0, ///< draws the text (0)
-  FFONT_TYPE_NO_LABEL,         ///< does nothing
-  FFONT_TYPE_SHADOW_LABEL,    ///< draws a drop shadow under the text
-  FFONT_TYPE_ENGRAVED_LABEL,	 ///< draws edges as though the text is engraved
-  FFONT_TYPE_EMBOSSED_LABEL,  ///< draws edges as though the text is raised
-  FFONT_TYPE_MULTI_LABEL,     ///< draws a composite label \see Fl_Multi_Label
-  FFONT_TYPE_ICON_LABEL,      ///< draws the icon associated with the text
-  FFONT_TYPE_IMAGE_LABEL,     ///< the label displays an "icon" based on a Fl_Image
-
-  FFONT_TYPE_FREE_LABELTYPE    ///< first free labeltype to use for creating own labeltypes
+#@Skip DO NOT MODIFY @EndSkip #####################################################################
+																								###
+FFONT_TYPE_NORMAL_LABEL		= 0 	# draws the text (0)										###
+FFONT_TYPE_NO_LABEL    		= 1     # does nothing												###
+FFONT_TYPE_SHADOW_LABEL 	= 2  	# draws a drop shadow under the text						###
+FFONT_TYPE_ENGRAVED_LABEL	= 3	 	# draws edges as though the text is engraved				###
+FFONT_TYPE_EMBOSSED_LABEL	= 4  	# draws edges as though the text is raised					###
+FFONT_TYPE_MULTI_LABEL   	= 6  	# draws a composite label \see Fl_Multi_Label				###
+FFONT_TYPE_ICON_LABEL 		= 7     # draws the icon associated with the text					###
+FFONT_TYPE_IMAGE_LABEL 		= 8    	# the label displays an "icon" based on a Fl_Image			###
+																								###
+FFONT_TYPE_FREE_LABELTYPE  	= 9		# first free labeltype to use for creating own labeltypes	###
+																								###
+#@Skip YOU CAN CREATE MORE FONT TYPES @EndSkip ####################################################
 
 #The right color class to use on any of the @Class FWidget. It can be use 
 #get RGB value of color and the @Class FWidget just know how to treat the
