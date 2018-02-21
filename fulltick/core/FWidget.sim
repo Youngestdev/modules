@@ -291,15 +291,27 @@ class FWidget
 	block setParent(parent)
 		PARENT_WIDGET = parent
 		
-	block getParent()
-		return PARENT_WIDGET
+	block getParentPointer()
+		return PARENT_WIDGETPOINTER
 		
-	block getTrueParent()
+	block getTrueParentPointer()
 		return __get_parent_widget(WIDGETPOINTER)
 		
-	block setWidgetPointer(pointer)
+	block getParent()
 		nwp = new FWidget
-		nwp.setWidgetPointer(pointer)
+		nwp.setWidgetPointer(getParentPointer())
+		return nwp 
+		
+	block getTrueParent()
+		nwp = new FWidget
+		nwp.setWidgetPointer(getTrueParentPointer())
+		return nwp 
+		
+	block setWidgetPointer(pointer)
+		WIDGETPOINTER = pointer
+		
+	block redraw()
+		__redraw_widget(WIDGETPOINTER)
 		
 	private 
 		
