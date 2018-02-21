@@ -40,7 +40,7 @@ class FLabel: FBox
 
 	block FLabel(label)
 		initialize()
-		setLabel(label) 
+		setLabel(label)
 		
 		
 	block notifyObject()
