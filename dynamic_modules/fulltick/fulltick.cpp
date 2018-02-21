@@ -117,7 +117,7 @@ SIMPLE_BLOCK(set_label)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->label(SIMPLE_API_GETSTRING(2));
+		window->copy_label(SIMPLE_API_GETSTRING(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
@@ -357,7 +357,7 @@ SIMPLE_BLOCK(init_box)
 	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
 		Fl_Box *box = new Fl_Box((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3),(int)SIMPLE_API_GETNUMBER(4));
 		box->labelfont(FL_BOLD+FL_ITALIC);
-		box->labelsize(36);
+		box->labelsize(5);
 		box->labeltype(FL_SHADOW_LABEL);
 		SIMPLE_API_RETCPOINTER(box,"SIMPLE_FLTK_");
 	} else {
