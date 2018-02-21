@@ -58,6 +58,17 @@ FFONT_BOLD_ITALIC            = 3	# add this to helvetica, courier, or times				#
 																							###
 #@Skip YOU CAN ADD MORE FONT BELOW @EndSkip ###################################################
 
+FFONT_TYPE_NORMAL_LABEL	= 0, ///< draws the text (0)
+  FFONT_TYPE_NO_LABEL,         ///< does nothing
+  FFONT_TYPE_SHADOW_LABEL,    ///< draws a drop shadow under the text
+  FFONT_TYPE_ENGRAVED_LABEL,	 ///< draws edges as though the text is engraved
+  FFONT_TYPE_EMBOSSED_LABEL,  ///< draws edges as though the text is raised
+  FFONT_TYPE_MULTI_LABEL,     ///< draws a composite label \see Fl_Multi_Label
+  FFONT_TYPE_ICON_LABEL,      ///< draws the icon associated with the text
+  FFONT_TYPE_IMAGE_LABEL,     ///< the label displays an "icon" based on a Fl_Image
+
+  FFONT_TYPE_FREE_LABELTYPE    ///< first free labeltype to use for creating own labeltypes
+
 #The right color class to use on any of the @Class FWidget. It can be use 
 #get RGB value of color and the @Class FWidget just know how to treat the
 #@Class FColor right
