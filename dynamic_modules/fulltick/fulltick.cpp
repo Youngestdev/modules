@@ -429,9 +429,9 @@ SIMPLE_BLOCK(set_size_with_label)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) ) {
 		Fl_Widget *widget = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		int wi=0, hi=0; fl_font(FL_HELVETICA, 14); 
-		fl_measure("This is a test", wi,hi);
-		widget->size(wi,hi);
+		int wi=0, hi=0; fl_font(widget->labelfont(), widget->labelsize()); 
+		fl_measure(widget->label(), wi,hi);
+		widget->size(wi+5,hi+5);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
