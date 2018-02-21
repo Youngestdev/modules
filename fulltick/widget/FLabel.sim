@@ -35,7 +35,14 @@ call "fulltick/widget/FBox.sim" ? fulltick.core
 #The FBox instance can be call as much time as possible a
 class FLabel: FBox
 
+	WIDGET_WIDTH = 10
+	WIDGET_HEIGHT = 5
+
 	block FLabel()
+		initialize()
+		setLabel("FLabel")
+		
+		
 		
 
 	
