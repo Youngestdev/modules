@@ -71,8 +71,10 @@ class FBox : FWidget
 		#Widget attributes the size is actually zero
 		block initialize()
 			WIDGETPOINTER = __init_box(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_X, WIDGET_Y) setType(BOX_TYPE)
-			
+		
+		
 		block notifyObject()
+			getParent().redraw()
 		
 		#The FBox widget currently does not allow adding another widget
 		#into it

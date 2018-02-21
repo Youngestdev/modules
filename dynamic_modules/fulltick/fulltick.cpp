@@ -205,6 +205,42 @@ SIMPLE_BLOCK(add_widget)
 	}
 }
 
+SIMPLE_BLOCK(redraw_widget)
+{
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISCPOINTER(1) && SIMPLE_API_ISCPOINTER(2) && SIMPLE_API_ISNUMBER(3)) {
+		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		if ( (int)SIMPLE_API_GETNUMBER(3) == 1) {
+			window->add_resizable(*((Fl_Group* ) SIMPLE_API_GETCPOINTER(2,"SIMPLE_FLTK_")));
+		} else {
+			window->add(((Fl_Group* ) SIMPLE_API_GETCPOINTER(2,"SIMPLE_FLTK_")));
+		}
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
+SIMPLE_BLOCK(get_parent_widget)
+{
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISCPOINTER(1) && SIMPLE_API_ISCPOINTER(2) && SIMPLE_API_ISNUMBER(3)) {
+		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		if ( (int)SIMPLE_API_GETNUMBER(3) == 1) {
+			window->add_resizable(*((Fl_Group* ) SIMPLE_API_GETCPOINTER(2,"SIMPLE_FLTK_")));
+		} else {
+			window->add(((Fl_Group* ) SIMPLE_API_GETCPOINTER(2,"SIMPLE_FLTK_")));
+		}
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_BLOCK(set_position)
 {
 	if ( SIMPLE_API_PARACOUNT != 3 ) {
@@ -354,7 +390,8 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__set_tooltip",set_tooltip);
 	register_block("__set_visibility",set_visibility);
 	register_block("__on_click",on_click);
-	register_block("__add_widget",add_widget);
+	register_block("__redraw_widget",redraw_widget);
+	register_block("__get_parent_widget",get_parent_widget);
 
 	/** WINDOW **/
 	register_block("__init_window",init_window);
