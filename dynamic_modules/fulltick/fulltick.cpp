@@ -219,6 +219,20 @@ SIMPLE_BLOCK(redraw_widget)
 	}
 }
 
+SIMPLE_BLOCK(redraw_widget_parent)
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISCPOINTER(1) ) {
+		Fl_Group *widget = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		widget->parent()->redraw();
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_BLOCK(get_parent_widget)
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
@@ -385,6 +399,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__on_click",on_click);
 	register_block("__add_widget",add_widget);
 	register_block("__redraw_widget",redraw_widget);
+	register_block("__redraw_widget_parent",redraw_widget_parent);
 	register_block("__get_parent_widget",get_parent_widget);
 
 	/** WINDOW **/

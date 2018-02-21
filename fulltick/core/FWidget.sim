@@ -310,6 +310,9 @@ class FWidget
 	block redraw()
 		try __redraw_widget(WIDGETPOINTER) catch end
 		
+	block redrawParent()
+		try __redraw_widget_parent(WIDGETPOINTER) catch end
+		
 	private 
 		
 		#This block is abstract and has to be implemented in inheriting child
