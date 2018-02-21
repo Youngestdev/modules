@@ -98,8 +98,15 @@ class FWidget
 	block getLabel()
 		return WIDGET_LABEL
 		
+	#Change the size of the label for the current widget. This block does 
+	#not execute on all type of widget for example calling this block
+	#on a @Class FWindow id meamimgless as the label is used to set the 
+	#decorated bar title
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setLabelSize(size)
 		__set_label_size(WIDGETPOINTER, size)
+		return this
 		
 	#Change the label color of the widget. Color is of @DataType Number
 	#The @Class FColor can be passed as parameter to the block which get the 
