@@ -36,6 +36,7 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 class FBox : FWidget
 
 	WIDGET_TYPE = "BOX" #Implement the name of the widget
+	BOX_TYPE = 2 #Declare the default type box type which is FBOX_UP_BOX
 
 	#initialize the FBox Widget with zero width, height, y and x axis
 	block FBox()
@@ -47,7 +48,8 @@ class FBox : FWidget
 	#@Note It @Returns this which is the widget to allow the inline usage 
 	#of the widget
 	block boxType(type)
-		__set_box_type(WIDGETPOINTER, type)
+		BOX_TYPE = type
+		__set_box_type(WIDGETPOINTER, BOX_TYPE)
 		return this
 	
 	#This block can be called instead of the above but they are functionally
@@ -58,12 +60,15 @@ class FBox : FWidget
 		boxType(type)
 		return this
 		
+	block getType()
+		return BOX_TYPE
+		
 	private 
 	
 	    ##Create an instance of the FBox/FPanel Widget with the default
 		#Widget attributes the size is actually zero
 		block initialize()
-			WIDGETPOINTER = __init_box(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_X, WIDGET_Y) setType(1)
+			WIDGETPOINTER = __init_box(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_X, WIDGET_Y) setType(BOX_TYPE)
 			
 		block notifyObject()
 			
