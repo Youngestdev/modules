@@ -295,7 +295,11 @@ class FWidget
 		return PARENT_WIDGET
 		
 	block getTrueParent()
-		return __
+		return __get_parent_widget(WIDGETPOINTER)
+		
+	block setWidgetPointer(pointer)
+		nwp = new FWidget
+		nwp.setWidgetPointer(pointer)
 		
 	private 
 		
