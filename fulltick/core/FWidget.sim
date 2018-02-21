@@ -44,6 +44,7 @@ class FWidget
 	WIDGET_WIDTH = 0 #The widget Width
 	WIDGET_X = 0 #The widget X axis/position
 	WIDGET_Y = 0 #The widget Y axis/position
+	WIDGET_LABEL_SIZE = 10 #Initialize the default label size 
 	
 	/* STRINGS */
 	WIDGET_TYPE = "WIDGET" #Declare the type of widget. This is assumed to 
@@ -105,7 +106,8 @@ class FWidget
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block setLabelSize(size)
-		__set_label_size(WIDGETPOINTER, size)
+		WIDGET_LABEL_SIZE = size
+		__set_label_size(WIDGETPOINTER, WIDGET_LABEL_SIZE)
 		return this
 	
 	#Change the font type of the widget label, the only valid parameter
@@ -114,21 +116,15 @@ class FWidget
 	#as it own parameter
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
-	block setLabeFont(font)
-		__set_label_font(WIDGETPOINTER, font)
+	block setLabelFont(font)
+		WIDGET_LABEL_FONT = font
+		__set_label_font(WIDGETPOINTER, WIDGET_LABEL_FONT)
 		return this
 		
-	block setFont(font)
-		if font.getFont() != null
-			setLabelFont(font.getFont())
-		end
-		if font.getSize() != null
-			setLabelSize(font.getSize())
-		end		
-		if font.getColor() != null
-			setLabelColor(font.getColor())
-		end
-		#setLabelType(font.getType())
+	#Get the current label font of the widget 
+	#@Returns widget label font @DataType Number
+	block getLabelFont()
+		return WIDGET_LABEL_FONT
 		
 	#Change the label color of the widget. Color is of @DataType Number
 	#The @Class FColor can be passed as parameter to the block which get the 
@@ -151,6 +147,18 @@ class FWidget
 	#and allow more color usage
 	block getLabelColor()
 		return WIDGET_LABEL_COLOR
+		
+	block setFont(font)
+		if font.getFont() != null
+			setLabelFont(font.getFont())
+		end
+		if font.getSize() != null
+			setLabelSize(font.getSize())
+		end		
+		if font.getColor() != null
+			setLabelColor(font.getColor())
+		end
+		#setLabelType(font.getType())
 		
 	#Forcefully set the realizability of widget to true. Note this is 
 	#unsafe as it give no regard to other widget data instead use the
