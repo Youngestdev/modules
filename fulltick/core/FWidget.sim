@@ -136,6 +136,10 @@ class FWidget
 		WIDGET_LABEL_TYPE = type
 		__set_label_type(WIDGETPOINTER, WIDGET_LABEL_TYPE)
 		
+	#Get the current label font of the widget @Returns widget label font @DataType Number
+	block getLabelFont()
+		return WIDGET_LABEL_FONT
+		
 	#Change the label color of the widget. Color is of @DataType Number
 	#The @Class FColor can be passed as parameter to the block which get the 
 	#color value from the @Class FColor or Integer/Number can be passed 
