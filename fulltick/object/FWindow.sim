@@ -96,11 +96,15 @@ class FWindow : FWidget
 		__set_window_icon(WIDGETPOINTER, 101)
 		return this
 	
-	#Set the 
+	#Set the label of the window title bar 
+	#@Note It @Returns this which is the widget to allow the in line usage 
+	#of the widget
 	block setTitle(title)
 		setLabel(title)
 		return this
-		
+	
+	#Get the current title of the Window Widget @Return widget label 
+	#@DataType String
 	block getTitle()
 		return getLabel()
 		

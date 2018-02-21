@@ -60,6 +60,8 @@ class FBox : FWidget
 		boxType(type)
 		return this
 		
+	#Get the current type of box used for this widget @Return box type 
+	#@DataType Number
 	block getType()
 		return BOX_TYPE
 		
