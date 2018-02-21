@@ -194,11 +194,11 @@ SIMPLE_BLOCK(add_widget)
 		return ;
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) && SIMPLE_API_ISCPOINTER(2) && SIMPLE_API_ISNUMBER(3)) {
-		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Group *window = (Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		if ( (int)SIMPLE_API_GETNUMBER(3) == 1) {
-			window->add_resizable(*((Fl_Widget* ) SIMPLE_API_GETCPOINTER(2,"SIMPLE_FLTK_")));
+			window->add_resizable(*((Fl_Group* ) SIMPLE_API_GETCPOINTER(2,"SIMPLE_FLTK_")));
 		} else {
-			window->add(((Fl_Widget* ) SIMPLE_API_GETCPOINTER(2,"SIMPLE_FLTK_")));
+			window->add(((Fl_Group* ) SIMPLE_API_GETCPOINTER(2,"SIMPLE_FLTK_")));
 		}
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
@@ -274,7 +274,7 @@ SIMPLE_BLOCK(init_window)
 		Fl_Window *window = new Fl_Window((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
 		if (SIMPLE_API_GETNUMBER(4) == 1) 
 		{
-			Fl_Widget& reswindow = *window; reswindow.resizable(&reswindow);
+			Fl_Window& reswindow = *window; reswindow.resizable(&reswindow);
 		}
 		SIMPLE_API_RETCPOINTER(window,"SIMPLE_FLTK_");
 	} else {
@@ -289,7 +289,7 @@ SIMPLE_BLOCK(show_window)
 		return ;
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
-		Fl_Widget& window = *((Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"));
+		Fl_Window& window = *((Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"));
 		window.end();
 		window.show();
 	} else {
