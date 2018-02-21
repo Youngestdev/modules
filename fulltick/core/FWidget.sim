@@ -99,7 +99,7 @@ class FWidget
 		return WIDGET_LABEL
 		
 	block setLabelSize(size)
-		
+		__set_label_size(WIDGETPOINTER, size)
 		
 	#Change the label color of the widget. Color is of @DataType Number
 	#The @Class FColor can be passed as parameter to the block which get the 
