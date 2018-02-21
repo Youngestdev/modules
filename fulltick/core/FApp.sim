@@ -21,9 +21,9 @@ class FApp
 
 	block run()
 		if (__run_fulltick() == 0 )
-			
+			#display "GUI Program Run Successfully : FULLTICK"+ crlf
 		else 
-			display "Error occur while running the GUI Programe : FULLTICK"
+			display "Error occur while running the GUI Program : FULLTICK" + crlf
 		end
 	
 	block setScheme(scheme)
