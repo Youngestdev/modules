@@ -100,7 +100,7 @@ class FWidget
 		
 	#Change the size of the label for the current widget. This block does 
 	#not execute on all type of widget for example calling this block
-	#on a @Class FWindow id meamimgless as the label is used to set the 
+	#on a @Class FWindow id meaningless as the label is used to set the 
 	#decorated bar title
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
