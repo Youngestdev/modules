@@ -73,6 +73,9 @@ class FBox : FWidget
 			WIDGETPOINTER = __init_box(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_X, WIDGET_Y) setType(BOX_TYPE)
 			
 		block notifyObject()
+		
+		#The FBox widget does not allow adding another widget into it
+		block addWidget(widget)
 			
 #@Skip--------------------------------------------------------------@EndSkip
 
