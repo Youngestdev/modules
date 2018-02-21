@@ -107,9 +107,16 @@ class FWidget
 	block setLabelSize(size)
 		__set_label_size(WIDGETPOINTER, size)
 		return this
-		
+	
+	#Change the font type of the widget label, the only valid parameter
+	#is any font declared in the @Class FFont. This block should not be 
+	#mistaken for the @Block setFont(font) which accept the @Class FFont 
+	#as it own parameter
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setLabeFont(font)
 		__set_label_font(WIDGETPOINTER, font)
+		return this
 		
 	#Change the label color of the widget. Color is of @DataType Number
 	#The @Class FColor can be passed as parameter to the block which get the 
