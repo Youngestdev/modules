@@ -41,9 +41,9 @@ class FLabel: FBox
 	WIDGET_Y = 5
 	BOX_TYPE = 1
 
-	block FLabel()
+	block FLabel(label)
 		initialize()
-		setLabel("FLabelFLabelFLabel") 
+		setLabel(label) 
 		display "LENGTH OF LABEL : "+lengthOf(getLabel())
 		setSize((lengthOf(getLabel())*70), 20)
 		setBackground(255)
