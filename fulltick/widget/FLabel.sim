@@ -41,7 +41,7 @@ class FLabel: FBox
 	block FLabel(label)
 		initialize()
 		setLabel(label) 
-		setBackground(255)
+		
 		
 	block notifyObject()
 		__set_size_with_label(WIDGETPOINTER, LABEL_EXTRA_LEAD_TRAIL)
