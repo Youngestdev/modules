@@ -65,6 +65,8 @@ class FBox : FWidget
 		block initialize()
 			WIDGETPOINTER = __init_box(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_X, WIDGET_Y) setType(1)
 			
+		block notifyObject()
+			
 #@Skip--------------------------------------------------------------@EndSkip
 
 #The @Class FPanel is a child class inheriting
