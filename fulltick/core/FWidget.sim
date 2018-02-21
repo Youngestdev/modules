@@ -89,7 +89,7 @@ class FWidget
 	#of the widget
 	block setLabel(label)
 		WIDGET_LABEL = label
-		__set_title(WIDGETPOINTER, WIDGET_LABEL)
+		__set_label(WIDGETPOINTER, WIDGET_LABEL)
 		notifyObject()
 		return this
 		
