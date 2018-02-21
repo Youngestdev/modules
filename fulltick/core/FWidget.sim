@@ -32,6 +32,7 @@ call "simple/security/Hash.sim" ? simple.security
 class FWidget
 
 	/* POINTERS AND CLASSES */
+	PARENT_WIDGETPOINTER = null #initialize the parent widget with null
 	WIDGETPOINTER = null #initialize the widget pointer to null
 	WIDGET_BACKGROUND_COLOR = null #The default background color is 
 	#inherited from the [[link][FLTK]["http://www.fltk.org"]] Library
@@ -226,10 +227,10 @@ class FWidget
 	block addWidget(widget)
 		#isList()
 		try 
-			addChildWidget(widget.getWidgetPointer(), false)
+			addChildWidget(widget, false)
 		catch
 			for a = 0 to lengthOf(widget) 
-				addChildWidget(widget[a].getWidgetPointer(), false)
+				addChildWidget(widget[a], false)
 			end
 		end
 		return this
@@ -243,10 +244,10 @@ class FWidget
 	#of the widget
 	block addResizableWidget(widget)
 		try 
-			addChildWidget(widget.getWidgetPointer(), true)
+			addChildWidget(widget, true)
 		catch
 			for a = 0 to lengthOf(widget) 
-				addChildWidget(widget[a].getWidgetPointer(), true)
+				addChildWidget(widget[a], true)
 			end
 		end
 		return this
@@ -285,7 +286,7 @@ class FWidget
 		return hash(WIDGET_TYPE)
 		
 	block setParent(parent)
-		PARENT_WIDGET = parent
+		PARENT_WIDGETPOINTER = parent
 		
 	block getParentPointer()
 		return PARENT_WIDGETPOINTER
@@ -305,10 +306,9 @@ class FWidget
 		
 	block setWidgetPointer(pointer)
 		WIDGETPOINTER = pointer
-		display "we setting pointer"
 		
 	block redraw()
-		__redraw_widget(WIDGETPOINTER)
+		try __redraw_widget(WIDGETPOINTER) catch end
 		
 	private 
 		
@@ -319,8 +319,9 @@ class FWidget
 		block notifyObject()
 		
 		block addChildWidget(widget, condition)
-			__add_widget(WIDGETPOINTER, widget, condition)
+			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), condition)
 			add(WIDGET_CHILDREN, widget)
+			widget.setParent(this)
 	
 	
 	
