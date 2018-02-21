@@ -39,12 +39,14 @@ class FLabel: FBox
 	WIDGET_HEIGHT = 5
 	WIDGET_X = 7
 	WIDGET_Y = 5
-	BOX_TYPE = 1
+	BOX_TYPE = 1 
 
 	block FLabel(label)
 		initialize()
 		setLabel(label) 
-		display "LENGTH OF LABEL : "+lengthOf(getLabel())
+		#display "LENGTH OF LABEL : "+lengthOf(getLabel())
+		#__set_size_with_label(WIDGETPOINTER, WIDGET_WIDTH, WIDGET_HEIGHT)
+		display WIDGET_WIDTH
 		setBackground(255)
 		
 	block setBackground(color)
