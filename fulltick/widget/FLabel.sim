@@ -45,7 +45,7 @@ class FLabel: FBox
 		initialize()
 		setLabel(label) 
 		#display "LENGTH OF LABEL : "+lengthOf(getLabel())
-		#__set_size_with_label(WIDGETPOINTER, WIDGET_WIDTH, WIDGET_HEIGHT)
+		__set_size_with_label(WIDGETPOINTER, WIDGET_WIDTH, WIDGET_HEIGHT)
 		display WIDGET_WIDTH
 		setBackground(255)
 		

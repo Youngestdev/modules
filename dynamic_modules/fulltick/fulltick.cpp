@@ -429,8 +429,9 @@ SIMPLE_BLOCK(set_size_with_label)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) ) {
 		Fl_Widget *widget = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		fl_measure("Hello Worlder", (int&)SIMPLE_API_GETNUMBER(2),(int&)SIMPLE_API_GETNUMBER(3));
-		widget->size((int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(2));
+		int wi=0, hi=0; fl_font(FL_HELVETICA, 14); 
+		fl_measure("This is a test", wi,hi);
+		widget->size(wi,hi);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
