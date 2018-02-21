@@ -47,6 +47,7 @@ class FWidget
 	WIDGET_Y = 0 #The widget Y axis/position
 	WIDGET_LABEL_SIZE = 10 #Initialize the default label size 
 	WIDGET_LABEL_FONT = FFONT_HELVETICA #The default label font
+	WIDGET_LABEL_TYPE = FLABEL_TYPE_NORMAL_LABEL #Initialize the default label type
 	
 	/* STRINGS */
 	WIDGET_TYPE = "WIDGET" #Declare the type of widget. This is assumed to 
@@ -132,7 +133,8 @@ class FWidget
 		return WIDGET_LABEL_FONT
 		
 	block setLabelType(type)
-		
+		WIDGET_LABEL_TYPE = type
+		__set_label_type(WIDGETPOINTER, WIDGET_LABEL_TYPE)
 		
 	#Change the label color of the widget. Color is of @DataType Number
 	#The @Class FColor can be passed as parameter to the block which get the 
