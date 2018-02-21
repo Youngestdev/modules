@@ -136,6 +136,10 @@ SIMPLE_BLOCK(set_label_type)
 			widget->labeltype(FL_SHADOW_LABEL);
 		else if ((FL_NORMAL_LABEL == ((Fl_Labeltype)(int)SIMPLE_API_GETNUMBER(2))))
 			widget->labeltype(FL_SYMBOL_LABEL);
+		else if ((_FL_ENGRAVED_LABEL == ((Fl_Labeltype)(int)SIMPLE_API_GETNUMBER(2))))
+			widget->labeltype(FL_ENGRAVED_LABEL);
+		else if ((_FL_EMBOSSED_LABEL == ((Fl_Labeltype)(int)SIMPLE_API_GETNUMBER(2))))
+			widget->labeltype(FL_EMBOSSED_LABEL);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
