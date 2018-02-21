@@ -43,11 +43,12 @@ class FLabel: FBox
 
 	block FLabel()
 		initialize()
-		setLabel("FLabel")
-		setBackground(33)
+		setLabel("FLabelFLabelFLabel") 
+		display "LENGTH OF LABEL : "+lengthOf(getLabel())
+		setSize((lengthOf(getLabel())*70), 20)
+		setBackground(255)
 		
 	block setBackground(color)
-		boxType(BOX_TYPE)
 		try {
 			color.getColor() WIDGET_BACKGROUND_COLOR = color
 		catch
