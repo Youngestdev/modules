@@ -312,7 +312,9 @@ class FWidget
 		
 	block redrawParent()
 		try __redraw_widget_parent(WIDGETPOINTER) catch end
-		
+	
+	#all the private attributes, fields and block not accessible outside
+	#the class
 	private 
 		
 		#This block is abstract and has to be implemented in inheriting child

@@ -109,7 +109,8 @@ class FWindow : FWidget
 		return getLabel()
 		
 	#all the private attributes, fields and block not accessible outside
-	#the class
+	#the class this can also be used to override block that should not
+	#be called outside this Context
 	private 
 		
 		#Create an instance of the FWindow Widget with Widget Width and 
