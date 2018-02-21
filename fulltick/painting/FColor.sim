@@ -27,7 +27,7 @@ FColor = new FColor
 	The value of these color is not meant to be modify because it is in the
 	order of color enum declaration in the loaded dynamic library 
 	[[link][FLTK]["http://www.fltk.org"]]. Instead more color can be add 
-	#after the first 13 color declared here
+	after the first 13 color declared here
 */
 
 /* NUMBERS */

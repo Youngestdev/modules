@@ -5,10 +5,10 @@
 */
 
 /* 
- * @Filename - FColor.sim
+ * @Filename - FFont.sim
  * @Author - Azeez Adewale
- * @Date - 19 Febuary 2017
- * @Time - 03:11 AM
+ * @Date - 21 Febuary 2017
+ * @Time - 10:17 PM
  */
 
 module fulltick.drawing
@@ -18,41 +18,23 @@ module fulltick.drawing
 call "simple/debugging/Throw.sim"
 call "simple/core/BaseFields.sim"
 
-#Declare a variable of same @Class FColor name to allow blocks access 
-#possible with FColor.block() without need to redeclare a new instance of 
-#the @Class FColor
-FColor = new FColor
+#Declare a variable of same @Class FFont name to allow blocks access 
+#possible with FFont.block() without need to redeclare a new instance of 
+#the @Class FFont
+FFont = new FFont
 
 /*
-	The value of these color is not meant to be modify because it is in the
-	order of color enum declaration in the loaded dynamic library 
-	[[link][FLTK]["http://www.fltk.org"]]. Instead more color can be add 
-	#after the first 13 color declared here
+	The value of these fonts are not meant to be modify because it is in the
+	order of font declaration in the loaded dynamic library 
+	[[link][FLTK]["http://www.fltk.org"]]. Instead more font can be add 
+	after the first 13 color declared here
 */
 
 /* NUMBERS */
 
-#@Skip DO NOT MODIFY @EndSkip #########################
-													###
-FCOLOR_BLACK 		= 56 	#color blue      		###
-FCOLOR_WHITE 		= 255 	#color white			###
-FCOLOR_RED 			= 88 	#color red				###
-FCOLOR_GREEN 		= 63 	#color green 			###
-FCOLOR_BLUE 		= 216 	#color blue				###
-FCOLOR_GRAY 		= 32 	#color gray				###
-FCOLOR_MAGENTA 		= 248 	#color magenta			###
-FCOLOR_CYAN 		= 223 	#color cyan 			###
-FCOLOR_YELLOW 		= 95 	#color yellow			###
-													###
-FCOLOR_DARK_RED 	= 72 	#color dark red 		###
-FCOLOR_DARK_GREEN 	= 60 	#color dark green		###
-FCOLOR_DARK_BLUE 	= 136	#color dark blue		###
-FCOLOR_DARK_MAGENTA = 152	#color dark magenta		###
-FCOLOR_DARK_CYAN 	= 140	#color dark cyan		###
-													###
-#@Skip YOU CAN ADD MORE COLOR BELOW @EndSkip ##########
+#@Skip DO NOT MODIFY @EndSkip ##################################################
 
-FFONT_HELVETICA              = 0
+FFONT_HELVETICA              = 0	# Helvetica (or Arial) normal (0)
 FFONT_HELVETICA_BOLD         = 1	# Helvetica (or Arial) bold
 FFONT_HELVETICA_ITALIC       = 2	# Helvetica (or Arial) oblique
 FFONT_HELVETICA_BOLD_ITALIC  = 3	# Helvetica (or Arial) bold-oblique
@@ -73,6 +55,8 @@ FFONT_FREE_FONT              = 16	# first one to allocate
 FFONT_BOLD                   = 1	# this can be added to helvetica, courier, or times
 FFONT_ITALIC                 = 2	# add this to helvetica, courier, or times
 FFONT_BOLD_ITALIC            = 3	# add this to helvetica, courier, or times
+
+#@Skip YOU CAN ADD MORE COLOR BELOW @EndSkip ##############################################
 
 #The right color class to use on any of the @Class FWidget. It can be use 
 #get RGB value of color and the @Class FWidget just know how to treat the

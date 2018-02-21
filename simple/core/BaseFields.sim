@@ -1,13 +1,14 @@
 /* 
-	Copyright (c) 2017-2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
 	MIT License Copyright (c) 2018 SIMPLE
 
 */
 
 /* 
- * #filename - BaseFields.sim
- * #author - Azeez Adewale
- * #date - 7 Febuary 2018
+ * @Filename - BaseFields.sim
+ * @Author - Azeez Adewale
+ * @Date - 7 Febuary 2018
+ * @Time - 02:58 AM
  */
  
 NULL_ERROR_POINTER = "The field, attribute or variable provided is NULL"
