@@ -42,8 +42,11 @@ class FBox : FWidget
 		initialize()
 		
 	block boxType(type)
-		__set_box_type(WIDGETPOINTER, type.getType())
-	
+		__set_box_type(WIDGETPOINTER, type)
+		
+	block setType(type)
+		boxType(type)
+		
 	private 
 	
 	    ##Create an instance of the FBox/FPanel Widget with the default

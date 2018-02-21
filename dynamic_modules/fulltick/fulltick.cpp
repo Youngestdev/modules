@@ -245,7 +245,7 @@ SIMPLE_BLOCK(show_window)
 		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) ) {
+	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Group& window = *((Fl_Group* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"));
 		window.end();
 		window.show();
@@ -328,7 +328,7 @@ SIMPLE_BLOCK(set_box_type)
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) ) {
+	if ( SIMPLE_API_ISCPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_Box *box = ((Fl_Box* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"));
 		box->box((Fl_Boxtype)(int)SIMPLE_API_GETNUMBER(2));
 	} else {
