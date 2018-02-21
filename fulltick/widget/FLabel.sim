@@ -35,29 +35,18 @@ call "fulltick/widget/FBox.sim" ? fulltick.core
 #The FBox instance can be call as much time as possible a
 class FLabel: FBox
 
-	WIDGET_WIDTH = 10
-	WIDGET_HEIGHT = 5
-	WIDGET_X = 7
-	WIDGET_Y = 5
 	BOX_TYPE = 1 
+	LABEL_EXTRA_LEAD_TRAIL = 10
 
 	block FLabel(label)
 		initialize()
 		setLabel(label) 
-		#display "LENGTH OF LABEL : "+lengthOf(getLabel())
-		__set_size_with_label(WIDGETPOINTER, WIDGET_WIDTH, WIDGET_HEIGHT)
-		display WIDGET_WIDTH
 		setBackground(255)
 		
-	block setBackground(color)
-		try {
-			color.getColor() WIDGET_BACKGROUND_COLOR = color
-		catch
-			WIDGET_BACKGROUND_COLOR = new FColor
-			WIDGET_BACKGROUND_COLOR.setColorValue(color)
-		}
-		__set_bg(WIDGETPOINTER, WIDGET_BACKGROUND_COLOR.getColor())
-		return this
+	block notifyObject()
+		__set_size_with_label(WIDGETPOINTER, LABEL_EXTRA_LEAD_TRAIL)
+		#to set width and height from above block
+		
 		
 		
 		
