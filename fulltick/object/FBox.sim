@@ -62,8 +62,14 @@ class FBox : FWidget
 		
 	#Get the current type of box used for this widget @Return box type 
 	#@DataType Number
-	block getType()
+	block getBoxType()
 		return BOX_TYPE
+		
+	#This block is implemented base on the abstract block in the parent
+	#@Class FWidget. This block is used to update the widget when a new 
+	#property is called it then notify this block which do all other 
+	#necessary things on the widget
+	block notifyObject()
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class. This can also be used to override block that should not
@@ -75,12 +81,9 @@ class FBox : FWidget
 		block initialize()
 			WIDGETPOINTER = __init_box(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_X, WIDGET_Y) setType(BOX_TYPE)
 		
-		
-		block notifyObject()
-		
 		#The FBox widget currently does not allow adding another widget
 		#into it
-		#block addWidget(widget)
+		block addWidget(widget)
 			
 #@Skip--------------------------------------------------------------@EndSkip
 

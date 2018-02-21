@@ -170,7 +170,7 @@ class FWidget
 	#@Returns widget background color in form of the @Class FColor to 
 	#support and allow more color usage
 	block getBackgroundColor()
-		return WIDGET_LABEL_COLOR
+		return WIDGET_BACKGROUND_COLOR
 	
 	#Set the tooltip value for the widget this accept @DataType String as 
 	#parameter 
