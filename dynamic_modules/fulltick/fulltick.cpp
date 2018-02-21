@@ -7,6 +7,7 @@ extern "C" {
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Box.H>
+#include <FL/fl_draw.H>
 #ifdef WIN32
 #include <FL/x.H>           // needed for fl_display
 #include <windows.h>		// needed for LoadIcon()
@@ -428,7 +429,7 @@ SIMPLE_BLOCK(set_size_with_label)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) ) {
 		Fl_Widget *widget = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		widget->measure_label((int&)SIMPLE_API_GETNUMBER(2),(int&)SIMPLE_API_GETNUMBER(3));
+		fl_measure("", (int&)SIMPLE_API_GETNUMBER(2),(int&)SIMPLE_API_GETNUMBER(3));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
