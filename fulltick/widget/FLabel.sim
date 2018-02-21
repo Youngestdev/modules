@@ -37,10 +37,25 @@ class FLabel: FBox
 
 	WIDGET_WIDTH = 10
 	WIDGET_HEIGHT = 5
+	WIDGET_X = 7
+	WIDGET_Y = 5
+	BOX_TYPE = 1
 
 	block FLabel()
 		initialize()
 		setLabel("FLabel")
+		setBackground(33)
+		
+	block setBackground(color)
+		boxType(BOX_TYPE)
+		try {
+			color.getColor() WIDGET_BACKGROUND_COLOR = color
+		catch
+			WIDGET_BACKGROUND_COLOR = new FColor
+			WIDGET_BACKGROUND_COLOR.setColorValue(color)
+		}
+		__set_bg(WIDGETPOINTER, WIDGET_BACKGROUND_COLOR.getColor())
+		return this
 		
 		
 		
