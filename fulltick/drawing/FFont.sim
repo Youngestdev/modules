@@ -32,123 +32,42 @@ FFont = new FFont
 
 /* NUMBERS */
 
-#@Skip DO NOT MODIFY @EndSkip ##################################################
-
-FFONT_HELVETICA              = 0	# Helvetica (or Arial) normal (0)
-FFONT_HELVETICA_BOLD         = 1	# Helvetica (or Arial) bold
-FFONT_HELVETICA_ITALIC       = 2	# Helvetica (or Arial) oblique
-FFONT_HELVETICA_BOLD_ITALIC  = 3	# Helvetica (or Arial) bold-oblique
-FFONT_COURIER                = 4	# Courier normal
-FFONT_COURIER_BOLD           = 5	# Courier bold 
-FFONT_COURIER_ITALIC         = 6	# Courier italic
-FFONT_COURIER_BOLD_ITALIC    = 7	# Courier bold-italic
-FFONT_TIMES                  = 8	# Times roman
-FFONT_TIMES_BOLD             = 9	# Times roman bold
-FFONT_TIMES_ITALIC           = 10	# Times roman italic
-FFONT_TIMES_BOLD_ITALIC      = 11	# Times roman bold-italic
-FFONT_SYMBOL                 = 12	# Standard symbol font
-FFONT_SCREEN                 = 13	# Default mono-spaced screen font
-FFONT_SCREEN_BOLD            = 14	# Default mono-spaced bold screen font
-FFONT_ZAPF_DINGBATS          = 15	# Zapf-dingbats font
-
-FFONT_FREE_FONT              = 16	# first one to allocate
-FFONT_BOLD                   = 1	# this can be added to helvetica, courier, or times
-FFONT_ITALIC                 = 2	# add this to helvetica, courier, or times
-FFONT_BOLD_ITALIC            = 3	# add this to helvetica, courier, or times
-
-#@Skip YOU CAN ADD MORE COLOR BELOW @EndSkip ##############################################
+#@Skip DO NOT MODIFY @EndSkip #################################################################
+																							###
+FFONT_HELVETICA              = 0	# Helvetica (or Arial) normal (0)						###
+FFONT_HELVETICA_BOLD         = 1	# Helvetica (or Arial) bold								###
+FFONT_HELVETICA_ITALIC       = 2	# Helvetica (or Arial) oblique							###
+FFONT_HELVETICA_BOLD_ITALIC  = 3	# Helvetica (or Arial) bold-oblique						###
+FFONT_COURIER                = 4	# Courier normal										###
+FFONT_COURIER_BOLD           = 5	# Courier bold 											###
+FFONT_COURIER_ITALIC         = 6	# Courier italic										###
+FFONT_COURIER_BOLD_ITALIC    = 7	# Courier bold-italic									###
+FFONT_TIMES                  = 8	# Times roman											###
+FFONT_TIMES_BOLD             = 9	# Times roman bold										###
+FFONT_TIMES_ITALIC           = 10	# Times roman italic									###
+FFONT_TIMES_BOLD_ITALIC      = 11	# Times roman bold-italic								###
+FFONT_SYMBOL                 = 12	# Standard symbol font									###
+FFONT_SCREEN                 = 13	# Default mono-spaced screen font						###
+FFONT_SCREEN_BOLD            = 14	# Default mono-spaced bold screen font					###
+FFONT_ZAPF_DINGBATS          = 15	# Zapf-dingbats font									###
+																							###
+FFONT_FREE_FONT              = 16	# first one to allocate									###
+FFONT_BOLD                   = 1	# this can be added to helvetica, courier, or times		###
+FFONT_ITALIC                 = 2	# add this to helvetica, courier, or times				###
+FFONT_BOLD_ITALIC            = 3	# add this to helvetica, courier, or times				###
+																							###
+#@Skip YOU CAN ADD MORE FONT BELOW @EndSkip ###################################################
 
 #The right color class to use on any of the @Class FWidget. It can be use 
 #get RGB value of color and the @Class FWidget just know how to treat the
 #@Class FColor right
 class FFont
-
-	#set the color value from the number parameter. only a number is allowed
-	#in this block as a parameter 
-	block setColorValue(value)
-		FCOLOR = value
-		
-	#Get the Color value of the current @Class FColor 
-	#@Returns Number value of the color @DataType Number
-	block getColor()
-		return FCOLOR
-		
-	#Create a color value from the provided RGB values. The RGB value must
-	#be a valid numbers between 0 to 255 else error will thrown.
-	block setRGB(r, g, b)
-		RED = r
-		GREEN = g
-		BLUE = b
-		if (RED > 255 || GREEN > 255 || BLUE > 255 )
-			throw(COLOR_GREATER_THAN_255)
-		elif (RED < 0 || GREEN < 0 || BLUE < 0 )
-			throw(COLOR_LESSER_THAN_ZERO)
-		end
-		if (RED == 0 && GREEN == 0 && BLUE == 0 ) 
-			FCOLOR = BLACK
-		else 
-			FCOLOR = ((RED<<24) + (GREEN<<16) + (BLUE<<8))
-		end
-	
-	#Get the Red value of the current color
-	#@Returns color red value @DataType Number
-	block getRed()
-		return RED 
-		
-	#Get the Green value of the current color
-	#@Returns color green value @DataType Number
-	block getGreen()
-		return GREEN
-	
-	#Get the Blue value of the current color
-	#@Returns color blue value @DataType Number
-	block getBlue()
-		return BLUE
-	
-	#color black
-	block BLACK()
-		return FCOLOR_BLACK
-	
-	#color red
-	block RED()
-		return FCOLOR_RED
-		
-	#color green	
-	block GREEN()
-		return FCOLOR_GREEN
-		
-	#color blue
-	block BLUE()
-		return FCOLOR_BLUE
-	
-	#color gray
-	block GRAY()
-		return FCOLOR_GRAY
-		
-	#color white	
-	block WHITE()
-		return FCOLOR_WHITE
-	
-	#color yellow
-	block YELLOW()
-		return FCOLOR_YELLOW
-	
-	#color cyan
-	block CYAN()
-		return FCOLOR_CYAN
-		
-	#color magenta	
-	block MAGENTA()
-		return FCOLOR_MAGENTA
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class
 	private 
-	
-		FCOLOR = 56 	#default color black
-		RED = 88		#default color red
-		BLUE = 216		#default color blue
-		GREEN = 63		#default color green
+		
+		
 		
 		
 		
