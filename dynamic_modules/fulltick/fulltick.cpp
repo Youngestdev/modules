@@ -42,7 +42,7 @@ SIMPLE_BLOCK(test_gui)
 	}
 }
 
-/** APP **/
+/** FAPP **/
 
 SIMPLE_BLOCK(run_fulltick)
 {
@@ -65,7 +65,7 @@ SIMPLE_BLOCK(set_look_and_feel)
 	} 
 }
 
-/** WIDGETS **/
+/** FWIDGETS **/
 
 SIMPLE_BLOCK(resizable_object)
 {
@@ -304,7 +304,7 @@ SIMPLE_BLOCK(set_position)
 	}
 }
 
-/** WINDOW **/
+/** FWINDOW **/
 
 SIMPLE_BLOCK(init_window)
 {
@@ -388,7 +388,7 @@ SIMPLE_BLOCK(set_window_icon)
 	}
 }
 
-/** BOX/PANEL **/
+/** FBOX/FPANEL **/
 
 SIMPLE_BLOCK(init_box)
 {
@@ -418,15 +418,31 @@ SIMPLE_BLOCK(set_box_type)
 	}
 }
 
+/** FLABEL **/
+
+SIMPLE_BLOCK(set_size_with_label)
+{
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) ) {
+		Fl_Widget *widget = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		widget->measure_label((int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3));
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
 
-	/** APP **/
+	/** FAPP **/
 	register_block("__run_fulltick",run_fulltick);
 	register_block("__set_look_and_feel",set_look_and_feel);
 
-	/** WIDGETS **/
+	/** FWIDGETS **/
 	register_block("__resizable",resizable_object);
 	register_block("__set_bg",object_background);
 	register_block("__set_label",set_label);
@@ -444,14 +460,17 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__redraw_widget_parent",redraw_widget_parent);
 	register_block("__get_parent_widget",get_parent_widget);
 
-	/** WINDOW **/
+	/** FWINDOW **/
 	register_block("__init_window",init_window);
 	register_block("__show_window",show_window);
 	register_block("__full_screen",full_screen);
 	register_block("__set_window_border",set_window_border);
 	register_block("__set_window_icon",set_window_icon);
 
-	/** BOX/PANEL **/
+	/** FBOX/FPANEL **/
 	register_block("__init_box",init_box);
 	register_block("__set_box_type",set_box_type);
+
+	/** FLABEL **/
+	register_block("__set_size_with_label",set_size_with_label);
 }
