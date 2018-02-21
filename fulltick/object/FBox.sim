@@ -74,8 +74,7 @@ class FBox : FWidget
 		
 		
 		block notifyObject()
-			display getTrueParent()
-			#getTrueParent().redraw()
+			getTrueParent().redraw()
 		
 		#The FBox widget currently does not allow adding another widget
 		#into it

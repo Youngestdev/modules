@@ -309,6 +309,7 @@ class FWidget
 		
 	block setWidgetPointer(pointer)
 		WIDGETPOINTER = pointer
+		display "we setting pointer"
 		
 	block redraw()
 		__redraw_widget(WIDGETPOINTER)
@@ -320,6 +321,10 @@ class FWidget
 		#@Note this block should be kept empty at all time to avoid BUGS
 		#and unwanted implementations
 		block notifyObject()
+		
+		block addChildWidget(widget, condition)
+			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), condition)
+			add(WIDGET_CHILDREN, widget[a])
 	
 	
 	
