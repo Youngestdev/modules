@@ -288,6 +288,15 @@ class FWidget
 	block getHash()
 		return hash(WIDGET_TYPE)
 		
+	block setParent(parent)
+		PARENT_WIDGET = parent
+		
+	block getParent()
+		return PARENT_WIDGET
+		
+	block getTrueParent()
+		return __
+		
 	private 
 		
 		#This block is abstract and has to be implemented in inheriting child
