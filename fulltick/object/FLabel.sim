@@ -1,0 +1,36 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 SIMPLE
+
+*/
+
+/* 
+ * @Filename - FLabel.sim
+ * @Author - Azeez Adewale
+ * @Date - 20 Febuary 2018
+ * @Time - 08:42 PM
+ */
+
+module fulltick.widget
+
+#call the @Class FWidget File for general widget blocks inheritance
+call "fulltick/core/FWidget.sim" ? fulltick.core
+
+#The @Class FBox is a child class inheriting
+#Most of it blocks from the @Class FWidget
+#some block are available only for this widget. The Widget is use to draw
+#Box/Panel widget on a parent widget @Skip
+#  _____________________________________________________________
+# |                                                             |\
+# |                                                             ||
+# |                                                             ||
+# |                                                             ||
+# |                         SOME LABEL                          ||
+# |                                                             ||
+# |                                                             ||
+# |                                                             ||
+# |_____________________________________________________________||
+#  \_____________________________________________________________\
+# @EndSkip
+#The FBox instance can be call as much time as possible a
+class FLabel: FWidget
