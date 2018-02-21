@@ -41,11 +41,22 @@ class FBox : FWidget
 	block FBox()
 		initialize()
 		
+	#Change the type of box by which the box/panel is rendered the type 
+	#can be sent as Number between 0 and 56 or you can send one of the 
+	#declared box type in the @File FBoxType 
+	#@Note It @Returns this which is the widget to allow the inline usage 
+	#of the widget
 	block boxType(type)
 		__set_box_type(WIDGETPOINTER, type)
-		
+		return this
+	
+	#This block can be called instead of the above but they are functionally
+	#the same 
+	#@Note It @Returns this which is the widget to allow the inline usage 
+	#of the widget
 	block setType(type)
 		boxType(type)
+		return this
 		
 	private 
 	
