@@ -132,7 +132,7 @@ SIMPLE_BLOCK(set_label_type)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_Widget *widget = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		widget->labeltype((Fl_Labeltype)(int)SIMPLE_API_GETNUMBER(2));
+		widget->labeltype(_FL_SHADOW_LABEL);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}

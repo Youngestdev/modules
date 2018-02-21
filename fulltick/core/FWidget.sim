@@ -134,7 +134,7 @@ class FWidget
 		
 	block setLabelType(type)
 		WIDGET_LABEL_TYPE = type
-		__set_label_type(WIDGETPOINTER, WIDGET_LABEL_TYPE)
+		__set_label_type(WIDGETPOINTER, 1)
 		
 	#Change the label color of the widget. Color is of @DataType Number
 	#The @Class FColor can be passed as parameter to the block which get the 
