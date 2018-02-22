@@ -30,17 +30,17 @@ extern "C" {
 class CallbackStruct
 {
 public:
-  PyObject *func;
-  PyObject *data;
-  PyObject *widget;
+  void *func;
+  void *data;
+  void *widget;
   void     *type;
-  PyObject *link;
-  CallbackStruct( PyObject *theFunc, PyObject *theData, PyObject *theWidget, PyObject *theLink = 0):
+  void *link;
+  CallbackStruct( void *theFunc, void *theData, void *theWidget, void *theLink = 0):
     func(theFunc),
     data(theData),
     widget(theWidget)
   {}
-  CallbackStruct( PyObject *theFunc, PyObject *theData, void *theType):
+  CallbackStruct( void *theFunc, void *theData, void *theType):
     func(theFunc),
     data(theData),
     widget(0),
