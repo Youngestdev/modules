@@ -314,15 +314,7 @@ SIMPLE_BLOCK(set_position)
 /** FWINDOW **/
 
 int MyWindow::handle(int msg) {
-  if (msg==FL_MOUSEWHEEL)
-  {
-    printf("you are fatai rolling dollar \n");
-    return 1;
-  } else if (msg == FL_PUSH) {
-	  printf("you just clicked \n");
-    return 1;
-  }
-  return 0;
+  return msg;
 }
 
 SIMPLE_BLOCK(init_window)
