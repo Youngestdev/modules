@@ -15,6 +15,55 @@ extern "C" {
 
 }
 
+static void SimpleCallBack(Fl_Widget *widget, void *clientdata)
+    {
+      PyObject *func, *arglist;
+      PyObject *result;
+      PyObject *obj = 0;
+      CallbackStruct* cb = (CallbackStruct*)clientdata;
+
+      // This is the function .... 
+      func = cb->func;
+
+      if (cb->widget != 0) {
+        // the parent widget
+        obj = (PyObject *)( ((CallbackStruct *)clientdata)->widget);
+      }
+      else if (cb->type != 0) {
+        // this is the type of widget
+        swig_type_info *descr = (swig_type_info *)cb->type;
+        if (descr != 0) {
+          //printf("success\n");
+          obj = SWIG_NewPointerObj(widget, (swig_type_info *)descr, 0);
+        }
+      }
+      if (obj == 0) {
+        // generic fallback
+        obj = SWIG_NewPointerObj(widget, SWIGTYPE_p_Fl_Widget, 0);
+      }
+
+      if (((CallbackStruct *)clientdata)->data)
+	{
+	  arglist = Py_BuildValue("(OO)", obj, (PyObject *)(((CallbackStruct *)clientdata)->data) ); 
+	}
+      else
+	{
+	  arglist = Py_BuildValue("(O)", obj ); 
+	}
+
+      result =  PyEval_CallObject(func, arglist);
+   
+      //Py_XDECREF(arglist);                           // Trash arglist
+      Py_XDECREF(result);
+      if (PyErr_Occurred())
+	{
+	  PyErr_Print();
+	}
+   
+      return /*void*/;
+    }
+  
+
 SIMPLE_BLOCK(test_gui)
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {

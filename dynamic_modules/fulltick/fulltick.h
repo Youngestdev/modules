@@ -27,6 +27,28 @@
 extern "C" {
 #endif
 
+class CallbackStruct
+{
+public:
+  PyObject *func;
+  PyObject *data;
+  PyObject *widget;
+  void     *type;
+  PyObject *link;
+  CallbackStruct( PyObject *theFunc, PyObject *theData, PyObject *theWidget, PyObject *theLink = 0):
+    func(theFunc),
+    data(theData),
+    widget(theWidget)
+  {}
+  CallbackStruct( PyObject *theFunc, PyObject *theData, void *theType):
+    func(theFunc),
+    data(theData),
+    widget(0),
+    type(theType)
+  {}
+  
+};
+
 class MyWindow : public Fl_Window {
   int handle(int);
 public:
