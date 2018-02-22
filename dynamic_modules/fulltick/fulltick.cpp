@@ -222,8 +222,8 @@ SIMPLE_BLOCK(set_visibility)
 void test_click(Fl_Widget*, void* pointer) {
 	String *str ;
 	VM *vm = (VM*) pointer ;
-	str = simple_string_new_gc(((VM *) pointer)->sState,"Hello('ade')");
-	simple_vm_eval(vm,simple_string_get(str));
+	str = simple_string_new_gc(((VM *) pointer)->sState,"Hello");
+	simple_vm_callblock(vm,simple_string_get(str));
 	simple_string_delete_gc(((VM *) pointer)->sState,str);
 }
 
