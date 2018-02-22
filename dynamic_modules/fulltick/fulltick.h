@@ -44,10 +44,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState) ;
 #define FULLTICK_MISING5PARAM "Five parameters are required for this block "
 #define FULLTICK_MISING6PARAM "Six parameters are required for this block "
 #define FULLTICK_WRONGPARAM "An invalid parameter has been passed to the (GUI)fulltick Module "
-#define FULLTICK_CALLBACK ((Fl_Widget *v)->callback(key_cb))
-
-void key_cb(Fl_Widget* w, void* v) ;
-
 
 #ifdef __cplusplus
 }

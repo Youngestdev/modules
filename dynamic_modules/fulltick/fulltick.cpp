@@ -228,7 +228,7 @@ SIMPLE_BLOCK(on_click)
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		FULLTICK_CALLBACK(window);
+		window->callback((Fl_Callback*)SIMPLE_API_GETPOINTER(2));
 		
 		//SIMPLE_API_RETNUMBER(handle(Fl::event_button()));
 	} else {
