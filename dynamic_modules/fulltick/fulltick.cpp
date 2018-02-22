@@ -219,6 +219,10 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
+void test_click(Fl_Widget*, void*) {
+	RingVM_CallFunc("Hello()")
+}
+
 /** on click / callback failing **/
 SIMPLE_BLOCK(on_click)
 {
