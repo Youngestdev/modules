@@ -222,8 +222,8 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
-void execute_click(Fl_Widget *, void *) {
-  exit(0);
+void execute_click(Fl_Widget *, void * block) {
+  printf("CALL BLOCK : %s\n", (char *) block);
 }
 
 /** on click / callback failing **/
@@ -235,8 +235,7 @@ SIMPLE_BLOCK(on_click)
 	}
 	if ( SIMPLE_API_ISCPOINTER(1)  ) {
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		printf("CALL BLOCK : %s\n", SIMPLE_API_GETSTRING(2));
-		window->callback(execute_click,0/*(Fl_Callback *)(&window,(void*)(SIMPLE_API_GETPOINTER(2)))*/);
+		window->callback(execute_click,SIMPLE_API_GETSTRING(2)/*(Fl_Callback *)(&window,(void*)(SIMPLE_API_GETPOINTER(2)))*/);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
