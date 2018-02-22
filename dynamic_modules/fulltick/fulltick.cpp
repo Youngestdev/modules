@@ -223,10 +223,12 @@ void test_click(Fl_Widget*, void* pointer) {
 	String *str ;
 	VM *vm = (VM*) pointer ;
 	str = simple_string_new_gc(((VM *) pointer)->sState,"Hello()");
+	simple_vm_callblock(vm,simple_string_get(str));
+	simple_string_delete_gc(((VM *) pointer)->sState,str);
 }
 
 /** on click / callback failing **/
-SIMPLE_BLOCK(on_click)
+void on_click( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -234,9 +236,7 @@ SIMPLE_BLOCK(on_click)
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->callback((Fl_Callback*)(void*)SIMPLE_API_GETSTRING(2));
-		
-		printf("TEST VAL : %s\n", SIMPLE_API_GETSTRING(2));
+		window->callback(test_click,pointer);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
