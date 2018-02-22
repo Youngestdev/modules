@@ -33,11 +33,7 @@ public:
   void *pointer;
   char *block;
   Fl_Widget *widget;
-  CallbackStruct( void *the_pointer, char *the_block, Fl_Widget *the_widget):
-    pointer(the_pointer),
-    block(the_block),
-    widget(the_widget)
-  {}
+  CallbackStruct( void *the_pointer, char *the_block, Fl_Widget *the_widget);
   
 };
 
