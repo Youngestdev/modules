@@ -221,6 +221,10 @@ SIMPLE_BLOCK(set_visibility)
 
 class doo {
 
+	doo(void* pointer, void *block, Fl_Widget widget) {
+
+	}
+
 }
 
 void test_click(Fl_Widget*, void* callback_struct) {
