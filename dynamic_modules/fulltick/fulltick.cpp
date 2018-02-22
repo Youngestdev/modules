@@ -222,8 +222,8 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
-SIMPLE_BLOCK(execute_click) {
-	printf("CALL BLOCK : %s\n", "adewale");
+void execute_click(Fl_Widget *, void * block) {
+	printf("CALL BLOCK : %s\n", "blocker");
 	//SimpleState *sState = init_simple_state();
 	//execute_simple_code(sState, (char *) block);
 	//free_simple_state(sState);
@@ -239,7 +239,7 @@ SIMPLE_BLOCK(on_click)
 	if ( SIMPLE_API_ISCPOINTER(1) && SIMPLE_API_GETSTRING(2) ) {
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		char * b = "Hello()" ; //,&((char *)SIMPLE_API_GETSTRING(2))
-		window->callback(execute_click);
+		window->callback((Fl_Callback *)(&window,(void*)(SIMPLE_API_GETSTRING(2))));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
