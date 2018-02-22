@@ -223,11 +223,12 @@ SIMPLE_BLOCK(set_visibility)
 }
 
 int handle(int e) {
-	if (e == FL_SHORTCUT) {
+	if (e == Fl::event_button()) {
 		return 2000 ;
+		printf("You want to close right \n");
 	} 
-	return 1000 ;
-	//return (e == FL_SHORTCUT); // eat all keystrokes
+	//return 1000 ;
+	return (e == FL_SHORTCUT); // eat all keystrokes
 }
 
 /** on click / callback failing **/
@@ -241,7 +242,7 @@ SIMPLE_BLOCK(on_click)
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		//window->callback(execute_click);
 		Fl::add_handler(handle);
-		SIMPLE_API_RETNUMBER(handle(Fl::event_button()));
+		//SIMPLE_API_RETNUMBER(handle(Fl::event_button()));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
