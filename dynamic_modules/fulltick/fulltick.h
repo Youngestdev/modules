@@ -30,21 +30,13 @@ extern "C" {
 class CallbackStruct
 {
 public:
-  void *func;
-  void *data;
-  void *widget;
-  void     *type;
-  void *link;
-  CallbackStruct( void *theFunc, void *theData, void *theWidget, void *theLink = 0):
-    func(theFunc),
-    data(theData),
-    widget(theWidget)
-  {}
-  CallbackStruct( void *theFunc, void *theData, void *theType):
-    func(theFunc),
-    data(theData),
-    widget(0),
-    type(theType)
+  void *pointer;
+  char *block;
+  Fl_Widget *widget;
+  CallbackStruct( void *the_pointer, char *the_block, Fl_Widget *the_widget):
+    pointer(the_pointer),
+    block(the_block),
+    widget(the_widget)
   {}
   
 };
