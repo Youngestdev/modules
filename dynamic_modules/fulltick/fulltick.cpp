@@ -219,13 +219,17 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
+class doo {
+
+}
+
 void test_click(Fl_Widget*, void* callback_struct) {
 	String *str ;
 	CallbackStruct *cbs = (CallbackStruct *) callback_struct ;
 	VM *vm = (VM*) cbs->pointer ; printf("BLOCK NAME : %s\n",cbs->block);
-	str = simple_string_new_gc(((VM *) cbs->pointer)->sState,cbs->block);
-	simple_vm_callblock(vm,simple_string_get(str));
-	simple_string_delete_gc(((VM *) cbs->pointer)->sState,str);
+	//str = simple_string_new_gc(((VM *) cbs->pointer)->sState,cbs->block);
+	//simple_vm_callblock(vm,simple_string_get(str));
+	//simple_string_delete_gc(((VM *) cbs->pointer)->sState,str);
 }
 
 /** on click / callback failing **/
