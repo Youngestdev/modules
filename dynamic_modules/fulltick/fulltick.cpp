@@ -38,12 +38,21 @@ SIMPLE_BLOCK(test_gui)
 
 /** FAPP **/
 
+int handle(int e) {
+	if (e == FL_MOUSEWHEEL ) {
+		printf("you are fatai rolling dollar \n");
+		return 1;
+	} 
+	//return 1000 ;
+	return (e == FL_SHORTCUT); // eat all keystrokes
+}
+
 SIMPLE_BLOCK(run_fulltick)
 {
 	if ( SIMPLE_API_PARACOUNT != 0 ) {
 		SIMPLE_API_ERROR(FULLTICK_NOPARAM);
 		return ;
-	} SIMPLE_API_RETNUMBER(Fl::run()); 
+	} SIMPLE_API_RETNUMBER(Fl::run()); Fl::add_handler(handle);
 }
 
 SIMPLE_BLOCK(set_look_and_feel)
@@ -215,13 +224,16 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
-int handle(int e) {
-	if (e == Fl::event_button()) {
-		return 2000 ;
-		printf("You want to close right \n");
-	} 
-	//return 1000 ;
-	return (e == FL_SHORTCUT); // eat all keystrokes
+int MyWindow::handle(int msg) {
+  if (msg==FL_MOUSEWHEEL)
+  {
+    printf("you are fatai rolling dollar \n");
+    return 1;
+  } else if (msg == FL_PUSH) {
+	  printf("you just clicked \n");
+    return 1;
+  }
+  return 0;
 }
 
 /** on click / callback failing **/
@@ -234,7 +246,7 @@ SIMPLE_BLOCK(on_click)
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		//window->callback(execute_click);
-		Fl::add_handler(handle);
+		
 		//SIMPLE_API_RETNUMBER(handle(Fl::event_button()));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
@@ -317,15 +329,6 @@ SIMPLE_BLOCK(set_position)
 }
 
 /** FWINDOW **/
-
-int MyWindow::handle(int msg) {
-  if (msg==FL_MOUSEWHEEL)
-  {
-    printf("you are fatai rolling dollar \n");
-    return 1;
-  }
-  return 0;
-}
 
 SIMPLE_BLOCK(init_window)
 {
