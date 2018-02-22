@@ -230,7 +230,7 @@ SIMPLE_BLOCK(on_click)
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		window->callback((Fl_Callback*)SIMPLE_API_GETPOINTER(2));
 		
-		//SIMPLE_API_RETNUMBER(handle(Fl::event_button()));
+		printf("TEST VAL : %s\n", SIMPLE_OOM);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
