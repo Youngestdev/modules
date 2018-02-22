@@ -18,7 +18,6 @@
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Box.H>
 #include <FL/fl_draw.H>
-#include <flstring.H>
 #ifdef WIN32
 #include <FL/x.H>           
 #include <windows.h>		

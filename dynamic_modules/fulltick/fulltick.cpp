@@ -243,7 +243,7 @@ void on_click( void *pointer )
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		char nn[50] ; snprintf(nn, "%s", SIMPLE_API_GETSTRING(2));
+		
 		printf("IT %s\n", SIMPLE_API_GETSTRING(2));
 		CallbackStruct *cbs = new CallbackStruct(pointer, SIMPLE_API_GETSTRING(2), window);
 		window->callback(test_click,cbs);
