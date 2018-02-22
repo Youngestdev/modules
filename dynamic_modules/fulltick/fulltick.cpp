@@ -228,7 +228,7 @@ SIMPLE_BLOCK(on_click)
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->callback(SIMPLE_API_GETSTRING(2));
+		window->callback((Fl_Callback*)(void*)SIMPLE_API_GETSTRING(2));
 		
 		printf("TEST VAL : %s\n", SIMPLE_API_GETSTRING(2));
 	} else {
