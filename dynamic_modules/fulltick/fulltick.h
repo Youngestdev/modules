@@ -14,6 +14,15 @@
 #ifndef FULLTICK_H
 #define FULLTICK_H
 
+#include <FL/Fl.H>
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Box.H>
+#include <FL/fl_draw.H>
+#ifdef WIN32
+#include <FL/x.H>           
+#include <windows.h>		
+#endif 
+
 #ifdef __cplusplus
 extern "C" {
 #endif
