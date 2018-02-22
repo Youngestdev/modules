@@ -233,9 +233,9 @@ SIMPLE_BLOCK(on_click)
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISCPOINTER(1)  ) {
+	if ( SIMPLE_API_ISCPOINTER(1) && SIMPLE_API_GETSTRING(2) ) {
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->callback(execute_click,SIMPLE_API_GETSTRING(2)/*(Fl_Callback *)(&window,(void*)(SIMPLE_API_GETPOINTER(2)))*/);
+		window->callback(execute_click,(char *)SIMPLE_API_GETSTRING(2)/*(Fl_Callback *)(&window,(void*)(SIMPLE_API_GETPOINTER(2)))*/);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
