@@ -4,15 +4,6 @@ extern "C" {
 	#include "fulltick.h"
 }
 
-#include <FL/Fl.H>
-#include <FL/Fl_Window.H>
-#include <FL/Fl_Box.H>
-#include <FL/fl_draw.H>
-#ifdef WIN32
-#include <FL/x.H>           
-#include <windows.h>		
-#endif 
-
 extern "C" {
 
 	SIMPLE_API void init_simple_module(SimpleState *sState)
@@ -325,6 +316,15 @@ SIMPLE_BLOCK(set_position)
 
 /** FWINDOW **/
 
+int MyWindow::handle(int msg) {
+  if (msg==FL_MOUSEWHEEL)
+  {
+    printf("you are fatai rolling dollar \n");
+    return 1;
+  }
+  return 0;
+}
+
 SIMPLE_BLOCK(init_window)
 {
 	if ( SIMPLE_API_PARACOUNT != 4 ) {
@@ -332,10 +332,10 @@ SIMPLE_BLOCK(init_window)
 		return ;
 	}
 	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISSTRING(3) && SIMPLE_API_ISNUMBER(4)) {
-		Fl_Window *window = new Fl_Window((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
+		MyWindow *window = new MyWindow((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
 		if (SIMPLE_API_GETNUMBER(4) == 1) 
 		{
-			Fl_Window& reswindow = *window; reswindow.resizable(&reswindow);
+			//Fl_Window& reswindow = *window; reswindow.resizable(&reswindow);
 		}
 		SIMPLE_API_RETCPOINTER(window,"SIMPLE_FLTK_");
 	} else {

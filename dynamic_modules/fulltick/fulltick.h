@@ -18,6 +18,13 @@
 extern "C" {
 #endif
 
+class MyWindow : public Fl_Window {
+  int handle(int);
+public:
+  MyWindow(int w, int h, const char *t=0L) 
+    : Fl_Window( w, h, t ) { }
+};
+
 SIMPLE_API void init_full_tick(SimpleState *sState) ;
 
 #define FULLTICK_NOPARAM "No parameter is required for this block"
