@@ -222,6 +222,14 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
+void execute_click(Fl_Widget *, void * block) {
+	
+}
+
+void doo(){
+	SIMPLE_API_RETNUMBER(Fl::event_button());
+}
+
 /** on click / callback failing **/
 SIMPLE_BLOCK(on_click)
 {
@@ -231,9 +239,9 @@ SIMPLE_BLOCK(on_click)
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->callback((Fl_Callback *)SIMPLE_API_GETSTRING(2));
-		printf("CALL BLOCK : MOUSE : %i - X %i - Y %i\n", Fl::event_button(), Fl::event_x(), Fl::event_y());
-		SIMPLE_API_RETNUMBER(Fl::event_button());
+		window->callback(execute_click);
+		//printf("CALL BLOCK : MOUSE : %i - X %i - Y %i\n", Fl::event_button(), Fl::event_x(), Fl::event_y());
+		
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
