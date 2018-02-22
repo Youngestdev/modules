@@ -222,11 +222,12 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
-void execute_click(Fl_Widget *, void * block) {
-	printf("CALL BLOCK : %s\n", "blocker");
-	//SimpleState *sState = init_simple_state();
-	//execute_simple_code(sState, (char *) block);
-	//free_simple_state(sState);
+int handle(int e) {
+	if (e == FL_SHORTCUT) {
+		return 2000 ;
+	} 
+	return 1000 ;
+	//return (e == FL_SHORTCUT); // eat all keystrokes
 }
 
 /** on click / callback failing **/
@@ -238,8 +239,9 @@ SIMPLE_BLOCK(on_click)
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->callback(execute_click);
-		SIMPLE_API_RETNUMBER(window->handle(0));
+		//window->callback(execute_click);
+		Fl::add_handler(handle);
+		SIMPLE_API_RETNUMBER(handle(Fl::event_button()));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}

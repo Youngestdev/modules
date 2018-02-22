@@ -282,7 +282,7 @@ class FWidget
 	#currently failing
 	block onClick(event)
 		
-		display __on_click(WIDGETPOINTER, "execute_click")
+		display __on_click(WIDGETPOINTER, event) + crlf
 	
 	#Change the position of the widget on the parent widget or modal location
 	#it is a raw block and does not give regard to some widget features
