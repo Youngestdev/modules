@@ -224,7 +224,7 @@ SIMPLE_BLOCK(set_visibility)
 
 void execute_click(Fl_Widget *, void * block) {
 	printf("CALL BLOCK : %s\n", (char *) block);
-	SimpleState *sState = init_simple_state();
+	SimpleState *sState = simple_state_new();
 	execute_simple_code(sState, (char *) block);
 	free_simple_state(sState);
 }
