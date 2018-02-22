@@ -219,12 +219,13 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
-void test_click(Fl_Widget*, void* pointer) {
+void test_click(Fl_Widget*, void* callback_struct) {
 	String *str ;
-	VM *vm = (VM*) pointer ;
-	str = simple_string_new_gc(((VM *) pointer)->sState,"Hello");
+	CallbackStruct *cbs = (CallbackStruct *) callback_struct ;
+	VM *vm = (VM*) cbs->pointer ; printf("BLOCK NAME : %s\n",cbs->block);
+	str = simple_string_new_gc(((VM *) cbs->pointer)->sState,cbs->block);
 	simple_vm_callblock(vm,simple_string_get(str));
-	simple_string_delete_gc(((VM *) pointer)->sState,str);
+	simple_string_delete_gc(((VM *) cbs->pointer)->sState,str);
 }
 
 /** on click / callback failing **/
@@ -236,7 +237,8 @@ void on_click( void *pointer )
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->callback(test_click,pointer);
+		CallbackStruct *cbs = new CallbackStruct(pointer, SIMPLE_API_GETSTRING(2), window);
+		window->callback(test_click,cbs);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
