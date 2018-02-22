@@ -9,9 +9,9 @@ extern "C" {
 #include <FL/Fl_Box.H>
 #include <FL/fl_draw.H>
 #ifdef WIN32
-#include <FL/x.H>           // needed for fl_display
-#include <windows.h>		// needed for LoadIcon()
-#endif /*WIN32*/
+#include <FL/x.H>           
+#include <windows.h>		
+#endif 
 
 extern "C" {
 
