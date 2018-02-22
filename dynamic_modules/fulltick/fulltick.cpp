@@ -226,7 +226,7 @@ CallbackStruct::CallbackStruct(void *the_pointer, char *the_block, Fl_Widget *th
 }
 
 void test_click(Fl_Widget*, void* callback_struct) {
-	//String *str ;
+	String *str ;
 	CallbackStruct *cbs = (CallbackStruct *) callback_struct ;
 	printf("BLOCK NAME : %s\n",cbs->block);
 	//str = simple_string_new_gc(((VM *) cbs->pointer)->sState,cbs->block);
@@ -243,9 +243,9 @@ void on_click( void *pointer )
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		
-		printf("IT %s\n", SIMPLE_API_GETSTRING(2));
-		CallbackStruct *cbs = new CallbackStruct(pointer, SIMPLE_API_GETSTRING(2), window);
+		String * str = simple_string_new_gc(((VM *) pointer)->sState,SIMPLE_API_GETSTRING(2)); 
+		//printf("IT %s\n", str->cStr);
+		CallbackStruct *cbs = new CallbackStruct(pointer, str, window);
 		window->callback(test_click,cbs);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
