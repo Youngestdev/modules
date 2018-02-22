@@ -226,12 +226,10 @@ CallbackStruct::CallbackStruct(void *the_pointer, String *the_block, Fl_Widget *
 }
 
 void test_click(Fl_Widget*, void* callback_struct) {
-	//String *str ;
 	CallbackStruct *cbs = (CallbackStruct *) callback_struct ;
 	printf("BLOCK NAME : %s\n",cbs->block->cStr);
-	//str = simple_string_new_gc(((VM *) cbs->pointer)->sState,cbs->block);
-	//simple_vm_callblock(vm,simple_string_get(str));
-	//simple_string_delete_gc(((VM *) cbs->pointer)->sState,str);
+	simple_vm_callblock((VM *) cbs->pointer,simple_string_get(cbs->block));
+	simple_string_delete_gc(((VM *) cbs->pointer)->sState,cbs->block);
 }
 
 /** on click / callback failing **/
