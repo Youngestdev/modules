@@ -219,18 +219,6 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
-int MyWindow::handle(int msg) {
-  if (msg==FL_MOUSEWHEEL)
-  {
-    printf("you are fatai rolling dollar \n");
-    return 1;
-  } else if (msg == FL_PUSH) {
-	  printf("you just clicked \n");
-    return 1;
-  }
-  return 0;
-}
-
 /** on click / callback failing **/
 SIMPLE_BLOCK(on_click)
 {
@@ -324,6 +312,18 @@ SIMPLE_BLOCK(set_position)
 }
 
 /** FWINDOW **/
+
+int MyWindow::handle(int msg) {
+  if (msg==FL_MOUSEWHEEL)
+  {
+    printf("you are fatai rolling dollar \n");
+    return 1;
+  } else if (msg == FL_PUSH) {
+	  printf("you just clicked \n");
+    return 1;
+  }
+  return 0;
+}
 
 SIMPLE_BLOCK(init_window)
 {
