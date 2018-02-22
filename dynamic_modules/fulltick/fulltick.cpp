@@ -38,16 +38,16 @@ SIMPLE_BLOCK(test_gui)
 
 /** FAPP **/
 
-int handle(int e) {
-	return (e == FL_SHORTCUT); // eat all keystrokes
-}
+//int handle(int e) {
+//	return (e == FL_SHORTCUT); // eat all keystrokes
+//}
 
 SIMPLE_BLOCK(run_fulltick)
 {
 	if ( SIMPLE_API_PARACOUNT != 0 ) {
 		SIMPLE_API_ERROR(FULLTICK_NOPARAM);
 		return ;
-	} SIMPLE_API_RETNUMBER(Fl::run()); Fl::add_handler(handle);
+	} SIMPLE_API_RETNUMBER(Fl::run()); //Fl::add_handler(handle);
 }
 
 SIMPLE_BLOCK(set_look_and_feel)
@@ -313,7 +313,7 @@ SIMPLE_BLOCK(set_position)
 
 /** FWINDOW **/
 
-int MyWindow::handle(int msg) {
+SIMPLE_API int handle(int msg) {
   return msg;
 }
 
