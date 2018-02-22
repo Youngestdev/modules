@@ -228,7 +228,7 @@ CallbackStruct::CallbackStruct(void *the_pointer, char *the_block, Fl_Widget *th
 void test_click(Fl_Widget*, void* callback_struct) {
 	//String *str ;
 	CallbackStruct *cbs = (CallbackStruct *) callback_struct ;
-	VM *vm = (VM*) cbs->pointer ; printf("BLOCK NAME : %s\n",cbs->block);
+	printf("BLOCK NAME : %s\n",cbs->block);
 	//str = simple_string_new_gc(((VM *) cbs->pointer)->sState,cbs->block);
 	//simple_vm_callblock(vm,simple_string_get(str));
 	//simple_string_delete_gc(((VM *) cbs->pointer)->sState,str);
@@ -243,6 +243,7 @@ void on_click( void *pointer )
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		printf("IT %s\n", SIMPLE_API_GETSTRING(2));
 		CallbackStruct *cbs = new CallbackStruct(pointer, SIMPLE_API_GETSTRING(2), window);
 		window->callback(test_click,cbs);
 	} else {
