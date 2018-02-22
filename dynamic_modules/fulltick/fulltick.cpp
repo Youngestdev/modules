@@ -238,6 +238,7 @@ void on_click( void *pointer )
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		CallbackStruct *cbs = new CallbackStruct(pointer, SIMPLE_API_GETSTRING(2), window);
+		cbs->block = SIMPLE_API_GETSTRING(2) ; cbs->pointer = pointer ; cbs->widget = window ;
 		window->callback(test_click,cbs);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
