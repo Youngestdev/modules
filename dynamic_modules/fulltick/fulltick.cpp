@@ -219,13 +219,11 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
-char * block ; 
-
 void test_click(Fl_Widget*, void* pointer) {
 	String *str ;
 	VM *vm = (VM*) pointer ;
 	str = simple_string_new_gc(((VM *) pointer)->sState,block);
-	simple_vm_callblock(vm,simple_string_get(str));
+	simple_vm_callblock(vm,"Hello()");
 	simple_string_delete_gc(((VM *) pointer)->sState,str);
 }
 
