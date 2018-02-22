@@ -31,9 +31,9 @@ class CallbackStruct
 {
 public:
   void *pointer;
-  char *block;
+  String *block;
   Fl_Widget *widget;
-  CallbackStruct( void *the_pointer, char *the_block, Fl_Widget *the_widget);
+  CallbackStruct( void *the_pointer, String *the_block, Fl_Widget *the_widget);
   
 };
 
