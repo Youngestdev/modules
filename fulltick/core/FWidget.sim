@@ -37,8 +37,9 @@ class FWidget
 	WIDGETPOINTER = null #initialize the widget pointer to null
 	WIDGET_BACKGROUND_COLOR = null #The default background color is 
 	#inherited from the [[link][FLTK]["http://www.fltk.org"]] Library
-	WIDGET_LABEL_COLOR = null #The default label color is 
+	WIDGET_LABEL_COLOR = new FColor #The default label color is 
 	#inherited from the [[link][FLTK]["http://www.fltk.org"]] Library
+	WIDGET_FONT = new FFont #The font contains no attribute 
 	
 	/* NUMBERS */
 	WIDGET_HEIGHT = 0 #The widget Height
@@ -65,7 +66,7 @@ class FWidget
 	
 	#Set the size for all the widget that inherited this class @FWidget and
 	#ensure to pass only Numbers data type as parameters for the w and h 
-	#the @Block notifyObject() called within this block is abstract and has 
+	#the @Block notifyWidget() called within this block is abstract and has 
 	#to be implemented/declared in the corresponding inheriting class
 	#@Note It @Returns this which is the widget to allow the inline usage 
 	#of the widget
@@ -73,7 +74,7 @@ class FWidget
 		WIDGET_WIDTH = w
 		WIDGET_HEIGHT = h
 		__set_size(WIDGETPOINTER, WIDGET_WIDTH, WIDGET_HEIGHT)
-		notifyObject()
+		notifyWidget()
 		return this
 	
 	#Get the width value of the widget @Return widget width 
@@ -87,14 +88,14 @@ class FWidget
 		return WIDGET_HEIGHT
 		
 	#Change the label value for the widget inheriting this class. Don'that
-	#forget to implement/declare the @Block notifyObject() in the inheriting 
+	#forget to implement/declare the @Block notifyWidget() in the inheriting 
 	#class to treat all newly set data, fields and attributed
 	#@Note It @Returns this which is the widget to allow the inline usage 
 	#of the widget
 	block setLabel(label)
 		WIDGET_LABEL = label
 		__set_label(WIDGETPOINTER, WIDGET_LABEL)
-		notifyObject()
+		notifyWidget()
 		return this
 		
 	#Get the current label value of the Widget @Return widget label 
@@ -141,7 +142,8 @@ class FWidget
 		__set_label_type(WIDGETPOINTER, WIDGET_LABEL_TYPE)
 		return this
 		
-	#Get the current label type of the widget @Returns widget label type @DataType Number
+	#Get the current label type of the widget @Returns widget label 
+	#type @DataType Number
 	block getLabelType()
 		return WIDGET_LABEL_TYPE
 		
@@ -166,18 +168,34 @@ class FWidget
 	#and allow more color usage
 	block getLabelColor()
 		return WIDGET_LABEL_COLOR
-		
+	
+	#Use the @Class FFont to set all the attributes of the widget label 
+	#which include the color, label, size, type and font if one of the
+	#attributes is not set in the @Class FFont parameter sent to this block 
+	#then the attribute will be ignored.
+	#@Note It @Returns this which is the widget to allow the inline usage 
+	#of the widget
 	block setFont(font)
-		if font.getFont() != null
-			setLabelFont(font.getFont())
+		WIDGET_FONT = font
+		if WIDGET_FONT.getFont() != null
+			setLabelFont(WIDGET_FONT.getFont())
 		end
-		if font.getSize() != null
-			setLabelSize(font.getSize())
+		if WIDGET_FONT.getSize() != null
+			setLabelSize(WIDGET_FONT.getSize())
 		end		
-		if font.getColor() != null
-			setLabelColor(font.getColor())
+		if WIDGET_FONT.getColor() != null
+			setLabelColor(WIDGET_FONT.getColor())
 		end
-		#setLabelType(font.getType())
+		if WIDGET_FONT.getType() != null
+			setLabelType(WIDGET_FONT.getType())
+		end
+		return this
+		
+	#Get the current widget font 
+	#@Returns widget widget font in form of the @Class FFont to support 
+	#and allow more font usage
+	block getFont()
+		return WIDGET_FONT
 		
 	#Forcefully set the realizability of widget to true. Note this is 
 	#unsafe as it give no regard to other widget data instead use the
@@ -187,7 +205,7 @@ class FWidget
 	block objectResizable()
 		WIDGET_ISRESIZABLE = true
 		__resizable(WIDGETPOINTER)
-		notifyObject()
+		notifyWidget()
 		return this
 		
 	#Make a widget realizability to custom boolean and notify the widget to
@@ -199,7 +217,7 @@ class FWidget
 	block resizable(condition)
 		WIDGET_ISRESIZABLE = condition
 		__resizable(WIDGETPOINTER)
-		notifyObject()
+		notifyWidget()
 		return this
 		
 	#Get the realizability condition of a widget. Check whether the widget 
@@ -236,7 +254,7 @@ class FWidget
 	block setTooltip(tip)
 		WIDGET_TOOLTIP = tip
 		__set_tooltip(WIDGETPOINTER, WIDGET_TOOLTIP)
-		notifyObject()
+		notifyWidget()
 		return this
 	
 	#Get the current tool-tip value of the Widget @Return widget tool-tip
@@ -253,7 +271,7 @@ class FWidget
 	block setVisibility(condition)
 		WIDGET_VISIBILITY = condition
 		__set_visibility(WIDGETPOINTER, condition)
-		notifyObject()
+		notifyWidget()
 		return this
 	
 	#Get the current widget visibility @Return widget visibility
@@ -272,7 +290,7 @@ class FWidget
 	#of the widget
 	block setPosition(x, y)
 		__set_position(WIDGETPOINTER, x, y)
-		notifyObject()
+		notifyWidget()
 		return this
 		
 	#Add a child widget to the current widget. The widget can be added 
@@ -378,7 +396,7 @@ class FWidget
 		#class to notify the Widget/Widget/Class of changes to the widget
 		#@Note this block should be kept empty at all time to avoid BUGS
 		#and unwanted implementations
-		block notifyObject()
+		block notifyWidget()
 		
 		block addChildWidget(widget, condition)
 			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), condition)

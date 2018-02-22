@@ -34,7 +34,7 @@ FColor = new FColor
 
 #@Skip DO NOT MODIFY @EndSkip #########################
 													###
-FCOLOR_BLACK 		= 56 	#color blue      		###
+FCOLOR_BLACK 		= 56 	#color black     		###
 FCOLOR_WHITE 		= 255 	#color white			###
 FCOLOR_RED 			= 88 	#color red				###
 FCOLOR_GREEN 		= 63 	#color green 			###

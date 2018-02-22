@@ -69,7 +69,7 @@ class FBox : FWidget
 	#@Class FWidget. This block is used to update the widget when a new 
 	#property is called it then notify this block which do all other 
 	#necessary things on the widget
-	block notifyObject()
+	block notifyWidget()
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class. This can also be used to override block that should not

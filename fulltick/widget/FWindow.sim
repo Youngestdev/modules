@@ -74,7 +74,7 @@ class FWindow : FWidget
 	#@Class FWidget. This block is used to update the widget when a new 
 	#property is called it then notify this block which do all other 
 	#necessary things on the widget
-	block notifyObject()
+	block notifyWidget()
 	
 	#Make the FWindow Widget Full screen in which it occupies the entire
 	#Computer display space and with no border. So There must be a way to

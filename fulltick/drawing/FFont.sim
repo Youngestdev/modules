@@ -82,14 +82,61 @@ FLABEL_TYPE_FREE_LABELTYPE  = 9		# first free labeltype to use for creating own 
 																								###
 #@Skip YOU CAN CREATE MORE LABEL TYPES @EndSkip ###################################################
 
-#The right color class to use on any of the @Class FWidget. It can be use 
-#get RGB value of color and the @Class FWidget just know how to treat the
-#@Class FColor right
+#This class is most useful for creating a single font that can be used 
+#by various widget across the program. This class is not a widget but a
+#widget supportive class to set various label attributes at once 
+#see @Class FLabel
 class FFont
+
+	#Construct the @Class FFont with all the label attributes 
+	block FFont(type, font, color, size)
+		FFONT_TYPE = type
+		FFONT_FONT = font
+		FFONT_COLOR = color
+		FFONT_SIZE = size
+		
+	#Set or change the label font
+	block setFont(font)
+		FFONT_FONT = font
+	
+	#Get the font's font @Returns font's font @DataType Number
+	block getFont()
+		return FFONT_FONT
+		
+	#Set or Change the size of the font
+	block setSize(size)
+		FFONT_SIZE = size
+		
+	#Get the font size @Returns font size @DataType Number
+	block getSize()
+		return FFONT_SIZE
+	
+	#Set or change the font color
+	block setColor(color)
+		FFONT_COLOR = color
+		
+	#Get the font color @Returns font color @DataType Number
+	block getColor()
+		return FFONT_COLOR
+		
+	#Set or get the label type	
+	block setType(type)
+		FFONT_TYPE = type
+		
+	#Get the label type @Returns label type @DataType Number
+	block getType()
+		return FFONT_TYPE
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class
 	private 
+		
+		/* NUMBERS */
+		FFONT_FONT = null #null so as not to escape check in @Class FWidget
+		FFONT_SIZE = null #null so as not to escape check in @Class FWidget
+		FFONT_COLOR = null #null so as not to escape check in @Class FWidget
+		FFONT_TYPE = null #null so as not to escape check in @Class FWidget
+		
 		
 		
 		
