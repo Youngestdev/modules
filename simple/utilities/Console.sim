@@ -12,7 +12,7 @@
  
 module simple.utilities
 
-#Call the @Class  ConsoleColor 
+#Call the @Class  ConsoleColor which calls the @DyLib Consoler Module
 call "ConsoleColor.sim" ? simple.utilities
 
 #Console is initialized as a variable in order to allow usage as Console.block()
