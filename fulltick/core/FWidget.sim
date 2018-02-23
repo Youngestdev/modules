@@ -313,6 +313,7 @@ class FWidget
 	block actionEvent(cb)
 		__on_click(WIDGETPOINTER, cb) 
 		
+	#pending
 	block when()
 		#to work on when gotten to callback
 	

@@ -40,6 +40,9 @@ class FLabel: FBox
 		initialize()
 		setLabel(label)
 		
+	block setText(text)
+		setLabel(text)
+		
 	#This block is <b>important</b> to 	this widget in orser to set the 
 	#size in accordance to the label value/content 
 	#Currently un complete as it should return a list with new height
