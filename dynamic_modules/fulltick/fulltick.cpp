@@ -35,16 +35,12 @@ SIMPLE_BLOCK(test_gui)
 
 /** FAPP **/
 
-int handle(int e) {
-	return (e == FL_SHORTCUT); // eat all keystrokes
-}
-
 SIMPLE_BLOCK(run_fulltick)
 {
 	if ( SIMPLE_API_PARACOUNT != 0 ) {
 		SIMPLE_API_ERROR(FULLTICK_NOPARAM);
 		return ;
-	} SIMPLE_API_RETNUMBER(Fl::run()); Fl::add_handler(handle);
+	} SIMPLE_API_RETNUMBER(Fl::run()); 
 }
 
 SIMPLE_BLOCK(set_look_and_feel)
@@ -217,22 +213,7 @@ SIMPLE_BLOCK(set_visibility)
 	}
 }
 
-CallbackStruct::CallbackStruct(void *the_pointer, String *the_block, Fl_Widget *the_widget) {
-	pointer = the_pointer ;
-	block = the_block ;
-	widget = the_widget ;
-}
-
-static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
-	CallbackStruct *cbs = (CallbackStruct *) callback_struct ;
-	simple_vm_callblock((VM *) cbs->pointer,simple_string_get(cbs->block));
-	/*if ( simple_vm_exec((VM *) cbs->pointer,cbs->block->str) == 0 ) {
-		((VM *) cbs->pointer)->nEvalCalledFromSimpleCode = 0 ;
-	}*/
-	//simple_string_delete_gc(((VM *) cbs->pointer)->sState,cbs->block);
-}
-
-void on_click( void *pointer )
+SIMPLE_BLOCK(on_click)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -325,10 +306,6 @@ SIMPLE_BLOCK(set_position)
 
 /** FWINDOW **/
 
-int MyWindow::handle(int msg) {
-  return msg;
-}
-
 SIMPLE_BLOCK(init_window)
 {
 	if ( SIMPLE_API_PARACOUNT != 4 ) {
@@ -339,7 +316,7 @@ SIMPLE_BLOCK(init_window)
 		Fl_Window *window = new Fl_Window((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
 		if (SIMPLE_API_GETNUMBER(4) == 1) 
 		{
-			//Fl_Window& reswindow = *window; reswindow.resizable(&reswindow);
+			Fl_Window& reswindow = *window; reswindow.resizable(&reswindow);
 		}
 		SIMPLE_API_RETCPOINTER(window,"SIMPLE_FLTK_");
 	} else {
