@@ -231,7 +231,7 @@ void test_click(Fl_Widget*, void* callback_struct) {
 	/*if ( simple_vm_eval((VM *) cbs->pointer,cbs->block->str) == 0 ) {
 		((VM *) cbs->pointer)->nEvalCalledFromSimpleCode = 0 ;
 	}*/
-	//simple_string_delete_gc(((VM *) cbs->pointer)->sState,cbs->block);
+	simple_string_delete_gc(((VM *) cbs->pointer)->sState,cbs->block);
 }
 
 /** on click / callback failing **/
