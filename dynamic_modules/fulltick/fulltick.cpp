@@ -228,10 +228,10 @@ CallbackStruct::CallbackStruct(void *the_pointer, String *the_block, Fl_Widget *
 void test_click(Fl_Widget*, void* callback_struct) {
 	CallbackStruct *cbs = (CallbackStruct *) callback_struct ;
 	//printf("BLOCK NAME : %s\n",cbs->block->str);
-	simple_vm_callblock((VM *) cbs->pointer,simple_string_get(cbs->block));
-	/*if ( simple_vm_eval((VM *) cbs->pointer,cbs->block->str) == 0 ) {
+	simple_vm_callblock((VM *) cbs->pointer,"$$$$$");
+	if ( simple_vm_exec((VM *) cbs->pointer,"Hello('a')") == 0 ) {
 		((VM *) cbs->pointer)->nEvalCalledFromSimpleCode = 0 ;
-	}*/
+	}
 	//simple_string_delete_gc(((VM *) cbs->pointer)->sState,cbs->block);
 }
 
