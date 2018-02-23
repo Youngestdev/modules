@@ -32,12 +32,17 @@ call "fulltick/widget/FBox.sim" ? fulltick.core
 #The FBox instance can be call as much time as possible a
 class FButton: FWidget
 
+	/* NUMBERS */
+	WIDGET_WIDTH = 130 #Change the default width to avoid the button been rendered like a label
+	WIDGET_HEIGHT = 30 #Change the default height to avoid the button been rendered like a label
+
+	#Initialize the @Class FButton widget with a label value/content
 	block FButton(label)
 		initialize()
 		setLabel(label)
 		
 	block initialize()
-		WIDGETPOINTER = __init_button(0, 0, 130, 30)
+		WIDGETPOINTER = __init_button(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
 		
 		
 		
