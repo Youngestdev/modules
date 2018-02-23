@@ -1,13 +1,14 @@
 
 
 
-extern "C" {
-	#include "../../../simple/bootsrc/includes/simple.h"
-	
-}
+#include "fulltick_delegate.cpp"
 
-#include "fulltick.h"
-#include "fulltick_delegate.h"
+/** the callback class for fulltick library **/
+CallbackStruct::CallbackStruct(void *the_pointer, String *the_block, Fl_Widget *the_widget) {
+	pointer = the_pointer ;
+	block = the_block ;
+	widget = the_widget ;
+}
 
 extern "C" {
 

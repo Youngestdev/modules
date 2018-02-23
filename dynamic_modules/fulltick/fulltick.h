@@ -36,6 +36,8 @@
 extern "C" {
 #endif
 
+#include "../../../simple/bootsrc/includes/simple.h"
+
 class CallbackStruct
 {
 public:

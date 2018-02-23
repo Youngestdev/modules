@@ -6,12 +6,7 @@ extern "C" {
 
 #include "fulltick.h"
 
-/** the callback class for fulltick library **/
-CallbackStruct::CallbackStruct(void *the_pointer, String *the_block, Fl_Widget *the_widget) {
-	pointer = the_pointer ;
-	block = the_block ;
-	widget = the_widget ;
-}
+
 
 /** the callback delegate for the fulltick library **/
 static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
