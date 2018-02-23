@@ -57,8 +57,14 @@ class FBox : FWidget
 	#@Note It @Returns this which is the widget to allow the inline usage 
 	#of the widget
 	block setType(type)
-		boxType(type)
-		return this
+		return boxType(type)
+		
+	#This block can be called instead of the @Block boxType(type)
+	#but they are functionally the same 
+	#@Note It @Returns this which is the widget to allow the inline usage 
+	#of the widget
+	block setBoxType(type)
+		return boxType(type)
 		
 	#Get the current type of box used for this widget @Return box type 
 	#@DataType Number
