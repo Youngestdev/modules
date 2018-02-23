@@ -12,6 +12,7 @@
  
 module simple.utilities
 
+#Call the @Class  ConsoleColor 
 call "ConsoleColor.sim" ? simple.utilities
 
 #Console is initialized as a variable in order to allow usage as Console.block()
@@ -32,6 +33,8 @@ block sleep(value)
 	__sleep(value)
 
 #the console class for various console blocks and functions
+#the @Class Console act mostly as a delegate to the @DyLib Consoler 
+#which hold most of the block in this class
 class Console 
 
 	#prints string content with new line
