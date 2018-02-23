@@ -191,6 +191,7 @@ class FWidget
 		if WIDGET_FONT.getType() != null
 			setLabelType(WIDGET_FONT.getType())
 		end
+		redrawParent() notifyWidget()
 		return this
 		
 	#Get the current widget font 
@@ -241,6 +242,7 @@ class FWidget
 			WIDGET_BACKGROUND_COLOR.setColorValue(color)
 		}
 		__set_bg(WIDGETPOINTER, WIDGET_BACKGROUND_COLOR.getColor())
+		redrawParent() notifyWidget()
 		return this
 		
 	#Get the background color of the widget 
