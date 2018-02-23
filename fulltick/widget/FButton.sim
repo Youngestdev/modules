@@ -30,4 +30,4 @@ call "fulltick/widget/FBox.sim" ? fulltick.core
 # |_________________|  #################
 # @EndSkip
 #The FBox instance can be call as much time as possible a
-class FLabel: FBox
+class FButton: FWidget
