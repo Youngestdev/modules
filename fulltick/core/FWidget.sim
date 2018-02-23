@@ -75,6 +75,7 @@ class FWidget
 		WIDGET_WIDTH = w
 		WIDGET_HEIGHT = h
 		__set_size(WIDGETPOINTER, WIDGET_WIDTH, WIDGET_HEIGHT)
+		redrawParent()
 		notifyWidget()
 		return this
 	
@@ -96,7 +97,7 @@ class FWidget
 	block setLabel(label)
 		WIDGET_LABEL = label
 		__set_label(WIDGETPOINTER, WIDGET_LABEL)
-		notifyWidget()
+		redrawParent() notifyWidget()
 		return this
 		
 	#Get the current label value of the Widget @Return widget label 
@@ -206,7 +207,7 @@ class FWidget
 	block objectResizable()
 		WIDGET_ISRESIZABLE = true
 		__resizable(WIDGETPOINTER)
-		notifyWidget()
+		redrawParent() notifyWidget()
 		return this
 		
 	#Make a widget realizability to custom boolean and notify the widget to
@@ -218,7 +219,7 @@ class FWidget
 	block resizable(condition)
 		WIDGET_ISRESIZABLE = condition
 		__resizable(WIDGETPOINTER)
-		notifyWidget()
+		redrawParent() notifyWidget()
 		return this
 		
 	#Get the realizability condition of a widget. Check whether the widget 
@@ -255,7 +256,7 @@ class FWidget
 	block setTooltip(tip)
 		WIDGET_TOOLTIP = tip
 		__set_tooltip(WIDGETPOINTER, WIDGET_TOOLTIP)
-		notifyWidget()
+		redrawParent() notifyWidget()
 		return this
 	
 	#Get the current tool-tip value of the Widget @Return widget tool-tip
@@ -272,7 +273,7 @@ class FWidget
 	block setVisibility(condition)
 		WIDGET_VISIBILITY = condition
 		__set_visibility(WIDGETPOINTER, condition)
-		notifyWidget()
+		redrawParent() notifyWidget()
 		return this
 	
 	#Get the current widget visibility @Return widget visibility
@@ -291,7 +292,7 @@ class FWidget
 	#of the widget
 	block setPosition(x, y)
 		__set_position(WIDGETPOINTER, x, y)
-		notifyWidget()
+		redrawParent() notifyWidget()
 		return this
 		
 	#Add a child widget to the current widget. The widget can be added 
@@ -395,7 +396,10 @@ class FWidget
 		try __redraw_widget(WIDGETPOINTER) catch end
 		
 	block redrawParent()
-		try __redraw_widget_parent(WIDGETPOINTER) catch end
+		if hasParent() __redraw_widget_parent(WIDGETPOINTER) end
+		
+	block forceRedrawParent()
+		__redraw_widget_parent(WIDGETPOINTER)
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class
@@ -406,7 +410,6 @@ class FWidget
 		#@Note this block should be kept empty at all time to avoid BUGS
 		#and unwanted implementations
 		block notifyWidget()
-			if hasParent() redrawParent() end
 		
 		block addChildWidget(widget, condition)
 			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), condition)
