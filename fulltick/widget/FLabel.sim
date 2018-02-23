@@ -46,6 +46,7 @@ class FLabel: FBox
 	#and width of the widget
 	block notifyWidget()
 		__set_size_with_label(WIDGETPOINTER, LABEL_EXTRA_LEAD_TRAIL)
+		redrawParent()
 		#to set width and height from above block
 		
 		
