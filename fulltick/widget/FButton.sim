@@ -42,7 +42,7 @@ class FButton: FWidget
 		setLabel(label)
 		
 	block setDownBox(box)
-		set_button_down_box(box)
+		__set_button_down_box(WIDGETPOINTER, box)
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class
