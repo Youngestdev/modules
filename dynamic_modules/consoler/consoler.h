@@ -23,6 +23,8 @@ void print_with_foreground_background ( void *pointer ) ;
 
 void console_beep ( void *pointer ) ;
 
+void program_exit ( void *pointer ) ;
+
 #ifdef __cplusplus
 }
 #endif

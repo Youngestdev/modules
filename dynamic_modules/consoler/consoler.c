@@ -23,6 +23,8 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
     register_block("__printwfb",print_with_foreground_background);
     register_block("__beep",console_beep);
+    register_block("__exit",program_exit);
+    
 }
 
 void print_with_foreground_background ( void *pointer )
@@ -67,4 +69,15 @@ void console_beep ( void *pointer )
         }
     #endif
     toot( SIMPLE_API_ISNUMBER(1) , SIMPLE_API_ISNUMBER(2) ) ; 
+}
+
+void program_exit ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT == 1 ) {
+		if ( SIMPLE_API_ISNUMBER(1) ) {
+			exit(SIMPLE_API_GETNUMBER(1));
+			return ;
+		}
+	}
+	exit(0);
 }
