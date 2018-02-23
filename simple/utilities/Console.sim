@@ -20,6 +20,9 @@ Console = new Console
 #a character that move caret to start of line or simply clear line
 $__clearLine = char(13)
 
+block exit(value)
+	__exit(value)
+
 #the console class for various console blocks and functions
 class Console 
 
