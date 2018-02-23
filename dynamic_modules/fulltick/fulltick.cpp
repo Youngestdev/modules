@@ -192,7 +192,7 @@ SIMPLE_BLOCK(set_tooltip)
 	} 
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->tooltip(SIMPLE_API_GETSTRING(2));
+		window->tooltip(simple_string_get(SIMPLE_API_GETSTRING(2)));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
@@ -234,7 +234,6 @@ static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
 	//simple_string_delete_gc(((VM *) cbs->pointer)->sState,cbs->block);
 }
 
-/** on click / callback failing **/
 void on_click( void *pointer )
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
@@ -244,7 +243,6 @@ void on_click( void *pointer )
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
 		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		String * str = simple_string_new_gc(((VM *) pointer)->sState,SIMPLE_API_GETSTRING(2)); 
-		//printf("IT %s\n", str->cStr);
 		CallbackStruct *cbs = new CallbackStruct(pointer, str, window);
 		window->callback(SimpleCallBack,cbs);
 	} else {
