@@ -45,9 +45,18 @@ class FButton: FBox
 		
 	block setDownBox(box)
 		__set_button_down_box(WIDGETPOINTER, box)
+		return this
 		
 	block setDownBoxBackground(color)
-		__set_button_down_color(WIDGETPOINTER, color)
+		try {
+			color.getColor() WIDGET_BACKGROUND_COLOR = color
+		catch
+			WIDGET_BACKGROUND_COLOR = new FColor
+			WIDGET_BACKGROUND_COLOR.setColorValue(color)
+		}
+		__set_button_down_color(WIDGETPOINTER, WIDGET_BACKGROUND_COLOR.getColor())
+		redrawParent() notifyWidget()
+		return this
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class
