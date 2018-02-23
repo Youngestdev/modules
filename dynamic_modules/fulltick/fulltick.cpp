@@ -436,6 +436,8 @@ SIMPLE_BLOCK(set_size_with_label)
 	}
 }
 
+/** FBUTTON (s) **/
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
@@ -475,4 +477,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 
 	/** FLABEL **/
 	register_block("__set_size_with_label",set_size_with_label);
+
+	/** FBUTTON (s) **/
+
 }
