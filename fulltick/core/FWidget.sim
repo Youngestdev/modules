@@ -308,7 +308,7 @@ class FWidget
 	
 	#Work same as the @Block callback(cb) used to fire the default event 
 	#that occur when the state of the widget changes
-	block onClick(cb)
+	block actionEvent(cb)
 		__on_click(WIDGETPOINTER, cb) 
 	
 	#Change the position of the widget on the parent widget or modal location
