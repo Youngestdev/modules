@@ -40,14 +40,14 @@ CONSOLE_COLOR_DARK_CYAN = 7		#color dark cyan	###
 CONSOLE_COLOR_GRAY = 8			#color gray			###
 CONSOLE_COLOR_DARK_GRAY = 9		#color dark gray	###
 CONSOLE_COLOR_RED = 10			#color red			###
-CONSOLE_COLOR_GREEN = 11		#color green
-CONSOLE_COLOR_YELLOW = 12
-CONSOLE_COLOR_BLUE = 13							
-CONSOLE_COLOR_MAGENTA = 14						###
-CONSOLE_COLOR_CYAN = 15							###
-CONSOLE_COLOR_WHITE = 16						###
-												###
-#@Skip YOU CAN ADD MORE COLOR BELOW @EndSkip ######
+CONSOLE_COLOR_GREEN = 11		#color green		###
+CONSOLE_COLOR_YELLOW = 12		#color yellow		###
+CONSOLE_COLOR_BLUE = 13			#color blue			###				
+CONSOLE_COLOR_MAGENTA = 14		#color magenta		###
+CONSOLE_COLOR_CYAN = 15			#color cyan			###
+CONSOLE_COLOR_WHITE = 16		#color white		###
+													###
+#@Skip YOU CAN ADD MORE COLOR BELOW @EndSkip ##########
 
 #ConsoleColor class that holds the colors in respect to console-color.h
 class ConsoleColor 
