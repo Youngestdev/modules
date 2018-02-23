@@ -37,6 +37,7 @@ class FButton: FBox
 	WIDGET_WIDTH = 130 #Change the default width to avoid the button been rendered like a label
 	WIDGET_HEIGHT = 30 #Change the default height to avoid the button been rendered like a label
 	WIDGET_DOWN_BOX = 5 #The default button that is drawn when the button is clicked 'FBOX_DOWN_FRAME'
+	WIDGET_DOWN_BACKGROUND_COLOR = 32 #The background color of the drawn button when this button widget is pressed
 
 	#Initialize the @Class FButton widget with a label value/content
 	block FButton(label)
@@ -49,14 +50,20 @@ class FButton: FBox
 		
 	block setDownBoxBackground(color)
 		try {
-			color.getColor() WIDGET_BACKGROUND_COLOR = color
+			color.getColor() WIDGET_DOWN_BACKGROUND_COLOR = color
 		catch
-			WIDGET_BACKGROUND_COLOR = new FColor
-			WIDGET_BACKGROUND_COLOR.setColorValue(color)
+			WIDGET_DOWN_BACKGROUND_COLOR = new FColor
+			WIDGET_DOWN_BACKGROUND_COLOR.setColorValue(color)
 		}
-		__set_button_down_color(WIDGETPOINTER, WIDGET_BACKGROUND_COLOR.getColor())
+		__set_button_down_color(WIDGETPOINTER, WIDGET_DOWN_BACKGROUND_COLOR.getColor())
 		redrawParent() notifyWidget()
 		return this
+		
+	#Get the background color of the button down
+	#@Returns widget button down color background color in form of the
+	#@Class FColor to support and allow more color usage
+	block getDownBoxBackgroundColor()
+		return WIDGET_BACKGROUND_COLOR
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class
