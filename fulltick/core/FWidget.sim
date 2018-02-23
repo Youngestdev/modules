@@ -422,7 +422,7 @@ class FWidget
 		try __redraw_widget(WIDGETPOINTER) catch end
 		
 	block redrawParent()
-		#if hasParent() __redraw_widget_parent(WIDGETPOINTER) end
+		if hasParent() __redraw_widget_parent(WIDGETPOINTER) end
 		
 	block forceRedrawParent()
 		__redraw_widget_parent(WIDGETPOINTER)
