@@ -313,7 +313,8 @@ class FWidget
 	block actionEvent(cb)
 		__on_click(WIDGETPOINTER, cb) 
 		
-	block 
+	block when()
+		#to work on when gotten to callback
 	
 	#Change the position of the widget on the parent widget or modal location
 	#it is a raw block and does not give regard to some widget features
