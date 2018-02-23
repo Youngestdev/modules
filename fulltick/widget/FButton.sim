@@ -33,8 +33,10 @@ call "fulltick/widget/FBox.sim" ? fulltick.core
 class FButton: FWidget
 
 	/* NUMBERS */
+	
 	WIDGET_WIDTH = 130 #Change the default width to avoid the button been rendered like a label
 	WIDGET_HEIGHT = 30 #Change the default height to avoid the button been rendered like a label
+	WIDGET_DOWN_BOX = 5 #The default button that is drawn when the button is clicked 'FBOX_DOWN_FRAME'
 
 	#Initialize the @Class FButton widget with a label value/content
 	block FButton(label)
@@ -43,6 +45,8 @@ class FButton: FWidget
 		
 	block setDownBox(box)
 		__set_button_down_box(WIDGETPOINTER, box)
+		
+	block setDownBoxBackground(colors)
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class
