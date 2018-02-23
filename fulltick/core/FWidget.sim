@@ -60,6 +60,7 @@ class FWidget
 	/* BOOLEAN */
 	WIDGET_ISRESIZABLE = false #The boolean value indicating if widget can resize
 	WIDGET_VISIBILITY = true #The boolean value indicating the widget visibility
+	WIDGET_HAS_PARENT = false #The boolean value that is true if the current widget is a child of another widget or has a parenting widget
 	
 	/* LIST */
 	WIDGET_CHILDREN = [] #The list that holds all the added sub widgets
@@ -359,6 +360,13 @@ class FWidget
 	#@Returns object hash @DataType Numbers
 	block getHash()
 		return hash(WIDGET_TYPE)
+		
+	block hasParent()
+		if WIDGET_HAS_PARENT 
+			return true
+		else 
+			return false 
+		end
 		
 	block setParent(parent)
 		PARENT_WIDGETPOINTER = parent
