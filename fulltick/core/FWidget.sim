@@ -280,6 +280,11 @@ class FWidget
 	#@DataType String
 	block isVisible()
 		return WIDGET_VISIBILITY
+		
+	#Use this block to change the event to fire when the state of the widget
+	#changes. The state change type can be changed by calling the 
+	#@Block when(event) or the @Block stateChange(event) 
+	block callback(cb)
 	
 	#Work same as the @Block callback(cb) used to fire the default event 
 	#that occur when the state of the widget changes
