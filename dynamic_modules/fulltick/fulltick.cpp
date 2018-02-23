@@ -10,6 +10,17 @@ CallbackStruct::CallbackStruct(void *the_pointer, String *the_block, Fl_Widget *
 	widget = the_widget ;
 }
 
+/** the callback delegate for the fulltick library **/
+static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
+	CallbackStruct *cbs = (CallbackStruct *) callback_struct ;
+	simple_vm_callblock((VM *) cbs->pointer,simple_string_get(cbs->block));
+}
+
+/** might be needed later for key listeners **/
+int MyWindow::handle(int msg) {
+  return msg;
+}
+
 extern "C" {
 
 	SIMPLE_API void init_simple_module(SimpleState *sState)
