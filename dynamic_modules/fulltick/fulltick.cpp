@@ -497,5 +497,11 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__set_size_with_label",set_size_with_label);
 
 	/** FBUTTON (s) **/
+	register_block("__init_button",init_button);
+	register_block("__init_return_button",init_return_button);
+	register_block("__init_repeat_button",init_repeat_button);
+	register_block("__init_light_button",init_light_button);
+	register_block("__init_round_button",init_round_button);
+	register_block("__init_check_button",init_check_button);
 
 }
