@@ -83,7 +83,7 @@ class FBox : FWidget
 	#be called outside this Context
 	private 
 	
-	    ##Create an instance of the FBox/FPanel Widget with the default
+	    #Create an instance of the FBox/FPanel Widget with the default
 		#Widget attributes the size is actually zero
 		block initialize()
 			WIDGETPOINTER = __init_box(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_X, WIDGET_Y) setType(BOX_TYPE)
