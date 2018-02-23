@@ -294,7 +294,17 @@ class FWidget
 	#	block Show()
 	#		display "We are showing " + crlf
 	#@CodeEnd
+	#Note the way the callback is called above the declared block is Show()
+	#but when using it in the call back it is passes as string as "Show" 
+	#without the brackets () 
+	#@Note a block with parameter cannot be sent as a callback eg Show(a) 
+	#cannot be passed to the callback. Instead you can store your param 
+	#global variable and work with it in your callback block. More efficient
+	#way of sending a callback will be supported in future
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block callback(cb)
+		__on_click(WIDGETPOINTER, cb) 
 	
 	#Work same as the @Block callback(cb) used to fire the default event 
 	#that occur when the state of the widget changes
