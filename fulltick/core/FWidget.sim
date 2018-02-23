@@ -369,6 +369,7 @@ class FWidget
 		end
 		
 	block setParent(parent)
+		WIDGET_HAS_PARENT = true
 		PARENT_WIDGETPOINTER = parent
 		
 	block getParentPointer()
@@ -405,6 +406,7 @@ class FWidget
 		#@Note this block should be kept empty at all time to avoid BUGS
 		#and unwanted implementations
 		block notifyWidget()
+			if hasParent() redrawParent() end
 		
 		block addChildWidget(widget, condition)
 			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), condition)
