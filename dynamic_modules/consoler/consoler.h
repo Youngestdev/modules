@@ -25,6 +25,8 @@ void console_beep ( void *pointer ) ;
 
 void program_exit ( void *pointer ) ;
 
+void program_sleep ( void *pointer ) ;
+
 #ifdef __cplusplus
 }
 #endif

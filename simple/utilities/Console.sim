@@ -27,6 +27,9 @@ $__clearLine = char(13)
 #to the program execution level at all and close the program at once
 block exit(value)
 	__exit(value)
+	
+block sleep(value)
+	__sleep(value)
 
 #the console class for various console blocks and functions
 class Console 
