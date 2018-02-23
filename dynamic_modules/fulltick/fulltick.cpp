@@ -231,7 +231,14 @@ static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
 	/*((VM *) cbs->pointer)->nEvalCalledFromSimpleCode = 1 ;
 	if ( simple_vm_exec((VM *) cbs->pointer,cbs->block->str) == 0 ) {
 		((VM *) cbs->pointer)->nEvalCalledFromSimpleCode = 0 ;
-	}*/ simple_vmlib_exec(cbs->block->str);
+	}*/
+	const char *cStr  ; VM *vm  ;
+    printf("TO EXECUTE : %s\n", cStr);
+	vm = (VM *) cbs->pointer ;
+	vm->nEvalCalledFromSimpleCode = 1 ;
+	if ( simple_vm_exec(vm,cStr) == 0 ) {
+		vm->nEvalCalledFromSimpleCode = 0 ;
+	}
 	//simple_string_delete_gc(((VM *) cbs->pointer)->sState,cbs->block);
 }
 
