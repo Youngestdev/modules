@@ -225,13 +225,13 @@ CallbackStruct::CallbackStruct(void *the_pointer, String *the_block, Fl_Widget *
 	widget = the_widget ;
 }
 
-void test_click(Fl_Widget*, void* callback_struct) {
+static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
 	CallbackStruct *cbs = (CallbackStruct *) callback_struct ;
 	simple_vm_callblock((VM *) cbs->pointer,simple_string_get(cbs->block));
-	/*if ( simple_vm_eval((VM *) cbs->pointer,cbs->block->str) == 0 ) {
+	if ( simple_vm_evec((VM *) cbs->pointer,cbs->block->str) == 0 ) {
 		((VM *) cbs->pointer)->nEvalCalledFromSimpleCode = 0 ;
-	}*/
-	simple_string_delete_gc(((VM *) cbs->pointer)->sState,cbs->block);
+	}
+	//simple_string_delete_gc(((VM *) cbs->pointer)->sState,cbs->block);
 }
 
 /** on click / callback failing **/
@@ -246,7 +246,7 @@ void on_click( void *pointer )
 		String * str = simple_string_new_gc(((VM *) pointer)->sState,SIMPLE_API_GETSTRING(2)); 
 		//printf("IT %s\n", str->cStr);
 		CallbackStruct *cbs = new CallbackStruct(pointer, str, window);
-		window->callback(test_click,cbs);
+		window->callback(SimpleCallBack,cbs);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
