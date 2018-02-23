@@ -233,7 +233,7 @@ static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
 		((VM *) cbs->pointer)->nEvalCalledFromSimpleCode = 0 ;
 	}*/
 	const char *cStr  ; VM *vm  ;
-    printf("TO EXECUTE : %s\n", cStr);
+	cStr = cbs->block->str ;
 	vm = (VM *) cbs->pointer ;
 	vm->nEvalCalledFromSimpleCode = 1 ;
 	if ( simple_vm_exec(vm,cStr) == 0 ) {
