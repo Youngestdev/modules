@@ -1,10 +1,7 @@
 
-extern "C" {
-	#include "../../../simple/bootsrc/includes/simple.h"
-	
-}
 
-#include "fulltick.h"
+
+#include "fulltick_delegate.cpp"
 
 extern "C" {
 
