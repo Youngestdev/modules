@@ -191,9 +191,9 @@ SIMPLE_BLOCK(set_tooltip)
 		return ;
 	} 
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
-		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		//String* tooltip = simple_string_new_gc(((VM*)pointer)->sState,SIMPLE_API_GETSTRING(2));//simple_string_get(SIMPLE_API_GETSTRING(2)) ;
-		window->tooltip("adewale");
+		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		String* tooltip = simple_string_new_gc(((VM*)pointer)->sState,SIMPLE_API_GETSTRING(2));
+		window->tooltip(tooltip->str);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
@@ -339,7 +339,7 @@ SIMPLE_BLOCK(init_window)
 		return ;
 	}
 	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISSTRING(3) && SIMPLE_API_ISNUMBER(4)) {
-		MyWindow *window = new MyWindow((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
+		Fl_Window *window = new Fl_Window((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
 		if (SIMPLE_API_GETNUMBER(4) == 1) 
 		{
 			//Fl_Window& reswindow = *window; reswindow.resizable(&reswindow);
