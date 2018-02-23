@@ -19,11 +19,6 @@ static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
 	simple_vm_callblock((VM *) cbs->pointer,simple_string_get(cbs->block));
 }
 
-/** might be needed later for key listeners **/
-int MyWindow::handle(int msg) {
-  return msg;
-}
-
 /*
 	JUNK YARD
 	----------------------------------------------------------------------

@@ -18,14 +18,6 @@
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Box.H>
 #include <FL/fl_draw.H>
-#include <FL/Fl_Button.H>
-#include <FL/Fl_Return_Button.H>
-#include <FL/Fl_Repeat_Button.H>
-#include <FL/Fl_Check_Button.H>
-#include <FL/Fl_Light_Button.H>
-#include <FL/Fl_Round_Button.H>
-#include <FL/Fl_Tooltip.H>
-
 #ifdef WIN32
 #include <FL/x.H>           
 #include <windows.h>		
