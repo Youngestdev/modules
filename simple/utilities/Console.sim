@@ -23,7 +23,8 @@ $__clearLine = char(13)
 #This block is Most useful for exiting the program/application at any level 
 #during the development of the GUI(fulltick) library using @Var __exit__ 
 #failed to execute in callbacks due to the fact that the callback block
-#is executed as a virtual method in the library 
+#is executed as a virtual method in the library. This block give no regard
+#to the program execution level at all and close the program at once
 block exit(value)
 	__exit(value)
 
@@ -33,6 +34,11 @@ class Console
 	#prints string content with new line
 	block println(content) 
 		print(content+crlf) 
+	
+	#just making the @Block exit(value) available in the @Class Console 
+	#to support OOP
+	block hard_exit(value)
+		exit(value)
 	
 	#prints string content
 	block print(content)
