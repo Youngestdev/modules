@@ -53,6 +53,8 @@ public:
     : Fl_Window( w, h, t ) { }
 };
 
+static void SimpleCallBack(Fl_Widget*, void* callback_struct) ;
+
 SIMPLE_API void init_full_tick(SimpleState *sState) ;
 
 #define FULLTICK_NOPARAM "No parameter is required for this block"

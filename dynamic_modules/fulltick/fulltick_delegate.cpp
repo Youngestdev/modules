@@ -14,15 +14,15 @@ CallbackStruct::CallbackStruct(void *the_pointer, String *the_block, Fl_Widget *
 }
 
 /** the callback delegate for the fulltick library **/
-/*static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
+static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
 	CallbackStruct *cbs = (CallbackStruct *) callback_struct ;
 	simple_vm_callblock((VM *) cbs->pointer,simple_string_get(cbs->block));
-}*/
+}
 
 /** might be needed later for key listeners **/
-/*int MyWindow::handle(int msg) {
+int MyWindow::handle(int msg) {
   return msg;
-}*/
+}
 
 /*
 	JUNK YARD
