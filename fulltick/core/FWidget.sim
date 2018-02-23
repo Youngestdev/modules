@@ -283,7 +283,17 @@ class FWidget
 		
 	#Use this block to change the event to fire when the state of the widget
 	#changes. The state change type can be changed by calling the 
-	#@Block when(event) or the @Block stateChange(event) 
+	#@Block when(event) or the @Block stateChange(event) . The block only 
+	#accept a string as parameter which is usually the name/identifier of 
+	#block to call when the callback is fired. For example to change the 
+	#callback for a button 
+	#@Code
+	#	button = new FButton()
+	#	button.callback("Show")
+	#
+	#	block Show()
+	#		display "We are showing " + crlf
+	#@CodeEnd
 	block callback(cb)
 	
 	#Work same as the @Block callback(cb) used to fire the default event 
