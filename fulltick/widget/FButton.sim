@@ -37,7 +37,7 @@ class FButton: FWidget
 		setLabel(label)
 		
 	block initialize()
-		WIDGETPOINTER = __init_button(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_X, WIDGET_Y)
+		WIDGETPOINTER = __init_button(10, 10, 130, 30)
 		
 		
 		
