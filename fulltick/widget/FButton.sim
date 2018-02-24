@@ -80,6 +80,10 @@ class FButton: FBox
 	block getDownBoxBackgroundColor()
 		return WIDGET_BACKGROUND_COLOR
 		
+	#Make the button widget the only active button in the group with other
+	#buttons
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setOnly()
 		if WIDGET_HAS_GROUP 
 			__set_button_only(WIDGETPOINTER)
