@@ -49,7 +49,11 @@ class FButton: FBox
 		setLabel(label)
 	
 	#Change the type of button/box that is drawn when the button widget is 
-	#clicked you can choose one of the 
+	#clicked you can choose one of the box type in the @Class FBoxType or 
+	#create a new Box type if you intend to have a custom button or create
+	#a material type button
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setDownBox(box)
 		__set_button_down_box(WIDGETPOINTER, box)
 		return this
