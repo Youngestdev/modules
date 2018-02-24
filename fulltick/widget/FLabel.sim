@@ -30,7 +30,7 @@ call "fulltick/widget/FBox.sim" ? fulltick.core
 # |_________________|  #################
 # @EndSkip
 #The FBox instance can be call as much time as possible a
-class FLabel: FBox
+class FLabel : FBox
 
 	BOX_TYPE = 1  #The type of box for this widget is NONE
 	LABEL_EXTRA_LEAD_TRAIL = 10 #This variable is use to set additional spacing with the new height and width of this widget
