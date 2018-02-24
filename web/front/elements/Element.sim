@@ -19,7 +19,8 @@ class Element
 	elementContent = ""
 	styleClass = 'class="'
 	
-	block init()
+	block init(name)
+		#elementName = name
 		elementHead = '<'+elementName+' '
 	
 	block addHTML(inelement)

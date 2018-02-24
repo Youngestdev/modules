@@ -16,6 +16,7 @@ class Div : Element
 		elementHeight = height
 		elementWidth = width
 		elementStyle += 'height:'+elementHeight+';width:'+elementWidth+';'
+		init(elementName)
 		
 	block addDiv(indiv)
 		elementContent + indiv.toString() + crlf

@@ -32,7 +32,7 @@ class Webpage
 		head = ihead
 		
 	block addToBody(element)
-		websiteBody += '\t\t'+element+'
+		websiteBody += '\t\t'+element.toString()+'
 		'
 		
 	block addFooter(footer)
