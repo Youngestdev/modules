@@ -16,6 +16,9 @@ module fulltick.widget
 #call the @Class FBox File for blocks inheritance
 call "fulltick/widget/FBox.sim" ? fulltick.core
 
+BUTTON_PRESSED = 1
+BUTTON_NOT_PRESSED = 0
+
 #The @Class FLabel is a child class inheriting
 #Most of it blocks from the @Class FBox widget the different between this 
 #widget and the parent widget @Class FBox is that the size of the 
@@ -91,6 +94,19 @@ class FButton: FBox
 		
 	block setValue(value)
 		__set_button_value(WIDGETPOINTER, value)
+		
+	#Get the pressed value of this widget button 
+	#@Return widget pressed value  @DataType Number
+	block getValue()
+		return WIDGET_SHORTCUT	
+		
+	block setState(value)
+		__set_button_value(WIDGETPOINTER, value)
+		
+	#Get the pressed value of this widget button same as @Block getValue()
+	#@Return widget pressed value  @DataType Number
+	block getState()
+		return WIDGET_SHORTCUT	
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class
