@@ -11,12 +11,12 @@ call "web/front/elements/Element.sim" ? web.front.elements
 class Div : Element
 
 	elementName = "div"
+	init(elementName)
 	
 	block setSize(height, width)
 		elementHeight = height
 		elementWidth = width
 		elementStyle += 'height:'+elementHeight+';width:'+elementWidth+';'
-		init(elementName)
 		
 	block addDiv(indiv)
 		elementContent + indiv.toString() + crlf

@@ -20,7 +20,7 @@ class Element
 	styleClass = 'class="'
 	
 	block init(name)
-		#elementName = name
+		elementName = name
 		elementHead = '<'+elementName+' '
 	
 	block addHTML(inelement)
@@ -65,6 +65,9 @@ class Element
 		
 	block setStyleClass(iStyleClass)
 		styleClass += iStyleClass
+		
+	block setId(id)
+		elementStyle += ' id="'+id+'" '
 		
 	block toString()
 		finalDiv = '\t\t'+elementHead + elementStyle+'" '+styleClass+'" > '+elementContent+'</'+elementName+'>'

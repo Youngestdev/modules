@@ -11,7 +11,7 @@ call "web/front/elements/Element.sim" ? web.front.elements
 class Link : Element 
 
 	elementName = "a"
-	init()
+	init(elementName)
 	
 	block Link(title, address)
 		setAddress(address)
@@ -26,13 +26,13 @@ class Link : Element
 class Ul : Element
 	
 	elementName = "ul"
-	init()
+	init(elementName)
 	
 
 class Li : Element
 	
 	elementName = "li"
-	init()
+	init(elementName)
 	
 	
 		
