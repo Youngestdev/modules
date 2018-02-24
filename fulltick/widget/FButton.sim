@@ -72,7 +72,7 @@ class FButton: FBox
 		end
 		return this
 		
-	#just string only	
+	#just string only	to create FShortcut class
 	block setShortcut(shortcut)
 		WIDGET_SHORTCUT = shortcut
 		if (shortcut == 7676/*isNumber(WIDGET_SHORTCUT)*/) 
@@ -82,6 +82,15 @@ class FButton: FBox
 			__set_button_shortcut(WIDGETPOINTER, false, WIDGET_SHORTCUT)
 		end
 		return this
+		
+	#Get the shortcut of this widget button 
+	#@Returns widget button down color background color in form of the
+	#@Class FShortcut to support and allow more shortcuts usage
+	block getShortcut()
+		return WIDGET_SHORTCUT
+		
+	block setValue(value)
+		
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class
