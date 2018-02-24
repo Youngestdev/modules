@@ -36,10 +36,10 @@ BUTTON_NOT_PRESSED = 0 #the default state of the @Class FButton widget
 #  ================        ##################
 # @EndSkip
 #The FBox instance can be call as much time as possible a
-class FRepeatButton : FButton
+class FLightButton : FButton
 
-	#Initialize the @Class FCheckButton widget with no attribute
-	block FRepeatButton(label)
+	#Initialize the @Class FLightButton widget with no attribute
+	block FLightButton(label)
 		initialize()
 		setLabel(label)
 	
@@ -47,11 +47,10 @@ class FRepeatButton : FButton
 	#the class
 	private 
 		
-		#Create an instance of the @Class FCheckButton Widget with a 
-		#custom width and height to avoid being rendered like a @Class 
-		#FLabel
+		#Create an instance of the FLightButton Widget with a custom width 
+		#and height to avoid being rendered like a @Class FLabel
 		block initialize()
-			WIDGETPOINTER = __init_repeat_button(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
+			WIDGETPOINTER = __init_light_button(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
 
 
 
