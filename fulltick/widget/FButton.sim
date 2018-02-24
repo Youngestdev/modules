@@ -72,11 +72,13 @@ class FButton: FBox
 		end
 		return this
 		
+	#just string only	
 	block setShortcut(shortcut)
 		WIDGET_SHORTCUT = shortcut
-		try 
+		if (shortcut == 7676/*isNumber(WIDGET_SHORTCUT)*/) 
 			__set_button_shortcut(WIDGETPOINTER, true, WIDGET_SHORTCUT) 
-		catch 
+			display "Hello"
+		else
 			__set_button_shortcut(WIDGETPOINTER, false, WIDGET_SHORTCUT)
 		end
 		return this
