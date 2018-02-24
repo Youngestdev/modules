@@ -40,7 +40,7 @@ class FCheckButton : FButton
 
 	FCHECKBUTTON_LEAD_SPACE = "  " #
 
-	#Initialize the @Class FCheckButton widget with no attribute
+	#Initialize the @Class FCheckButton widget with a label
 	block FCheckButton(label)
 		initialize()
 		setLabel(FCHECKBUTTON_LEAD_SPACE+label)
