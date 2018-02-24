@@ -16,8 +16,10 @@ module fulltick.widget
 #call the @Class FBox File for blocks inheritance
 call "fulltick/widget/FBox.sim" ? fulltick.core
 
-BUTTON_PRESSED = 1
-BUTTON_NOT_PRESSED = 0
+/* NUMBERS */
+
+BUTTON_PRESSED = 1 #The state of the button when pressed not the box down is rendered
+BUTTON_NOT_PRESSED = 0 #the default state of the @Class FButton widget
 
 #The @Class FLabel is a child class inheriting
 #Most of it blocks from the @Class FBox widget the different between this 
@@ -112,6 +114,12 @@ class FButton: FBox
 	block getShortcut()
 		return WIDGET_SHORTCUT
 		
+	#Set the state of the @FButton widget. This simply means you can use 
+	#this block to set the box that is rendered by default for the button
+	#i.e if you set it to @Field BUTTON_PRESSED the @Bold Box Down @EndBold 
+	#will be rendered
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setValue(value)
 		__set_button_value(WIDGETPOINTER, value)
 		
@@ -120,6 +128,9 @@ class FButton: FBox
 	block getValue()
 		return WIDGET_SHORTCUT	
 		
+	#This block works same as the @Block setValue(value)
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget	
 	block setState(value)
 		__set_button_value(WIDGETPOINTER, value)
 		
