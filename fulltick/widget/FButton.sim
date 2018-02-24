@@ -89,7 +89,12 @@ class FButton: FBox
 			__set_button_only(WIDGETPOINTER)
 		end
 		return this
-		
+	
+	#Assign shortcut to the @FButton widget. The shortcut can be either a
+	#Number value of the keyboard key, the keyboard char or an instance of
+	#the @Class FShortcut 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	#just string only	to create FShortcut class
 	block setShortcut(shortcut)
 		WIDGET_SHORTCUT = shortcut
