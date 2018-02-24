@@ -17,15 +17,12 @@ class Head
 	
 	block setTitle(ititle)
 		title = '<title>'+ititle+'</title>' + crlf
-		return this
 		
 	block setIcon(iconLocation)
 		icon = '<link rel="icon" href="'+iconLocation+'" >' + crlf
-		return this
 		
 	block setFavicon(iconLocation)
 		setIcon(iconLocation)
-		return this
 	
 	block addElement(element)
 		headContent += '\t'+element.toString() + '
@@ -34,22 +31,18 @@ class Head
 	block addMeta(headMeta)
 		headContent += '\t'+headMeta.toString() + '
 		'
-		return this
 		
 	block addLink(headLink)
 		headContent += '\t'+headLink.toString() + '
 		'
-		return this
 		
 	block addScript(script)
 		headContent += '\t'+script.toString() + '
 		'
-		return this
 		
 	block addContent(itoppings)
 		toppings += '\t'+istoppings + '
 		'
-		return this
 	
 	block toString()
 		return '<head>
@@ -66,19 +59,15 @@ class HeadMeta
 
 	block setName(name)
 		headMetaData += 'name="'+name+'" '
-		return this
 
 	block setProperty(prop)
 		headMetaData += 'property="'+prop+'" '
-		return this
 		
 	block setItemProp(item)
 		headMetaData += 'itemprop="'+item+'" '
-		return this
 		
 	block setContent(content)
 		headMetaData += 'content="'+content+'" '
-		return this
 		
 	block toString()
 		headMetaData += '/>'
@@ -90,23 +79,18 @@ class HeadLink
 
 	block setRel(rel)
 		headLink += 'rel="'+rel+'" '
-		return this
 		
 	block setType(type)
 		headLink += 'type="'+type+'" '
-		return this
 		
 	block setTitle(title)
 		headLink += 'title="'+title+'" '
-		return this
 		
 	block setLink(link)
 		headLink += 'href="'+link+'" '
-		return this
 		
 	block setHref(link)
 		headLink += 'href="'+link+'" '
-		return this
 	
 	block toString()
 		headLink += '/>'
