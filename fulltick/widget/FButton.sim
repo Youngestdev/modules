@@ -60,7 +60,7 @@ class FButton: FBox
 		
 	#Set the background color for the down box for this button widget not 
 	#if the down box is NONE then then setting the background wont be 
-	#effective
+	#effective. The @Class FColor can be sent as parameter or @DataType #Number can also be sent as parameter
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block setDownBoxBackground(color)
