@@ -27,7 +27,8 @@ BUTTON_NOT_PRESSED = 0 #the default state of the @Class FButton widget
 #FWidget. This class is the parenting class of other type of button and 
 #can be used to create custom button types along with the classes in the 
 #@Module fulltick.raw . Custom buttons that can be used in game or 
-#implementing material designs@Skip
+#implementing material designs can inherit this @Class FButton and add more
+#styling and few other attributes @Skip
 #  _________________
 # |	______________				|  #################
 # |		LABEL		|  ######LABEL######
