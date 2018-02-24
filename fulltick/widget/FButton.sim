@@ -29,10 +29,11 @@ BUTTON_NOT_PRESSED = 0 #the default state of the @Class FButton widget
 #@Module fulltick.raw . Custom buttons that can be used in game or 
 #implementing material designs can inherit this @Class FButton and add more
 #styling and few other attributes @Skip
-#  _________________
-# |	______________				|  #################
-# |		LABEL		|  ######LABEL######
-# |_________________|  #################
+#  ================        ##################
+# ||		       ||	   ##################
+# ||	  LABEL	   ||      #####LABEL########
+# ||               ||      ##################
+#  ================        ##################
 # @EndSkip
 #The FBox instance can be call as much time as possible a
 class FButton: FBox
