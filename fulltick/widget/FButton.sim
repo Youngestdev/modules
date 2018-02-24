@@ -117,7 +117,8 @@ class FButton: FBox
 	#Set the state of the @FButton widget. This simply means you can use 
 	#this block to set the box that is rendered by default for the button
 	#i.e if you set it to @Field BUTTON_PRESSED the @Bold Box Down @EndBold 
-	#will be rendered
+	#will be rendered and the default @Bold Box Type @EndBold will be 
+	#rendered when the button is pressed
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block setValue(value)
