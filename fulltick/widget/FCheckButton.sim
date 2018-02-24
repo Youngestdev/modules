@@ -47,7 +47,7 @@ class FCheckButton : FButton
 		#Create an instance of the FCheckButton Widget with a custom width 
 		#and height to avoid being rendered like a @Class FLabel
 		block initialize()
-			WIDGETPOINTER = __init_button(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
+			WIDGETPOINTER = __init_check_button(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
 
 
 
