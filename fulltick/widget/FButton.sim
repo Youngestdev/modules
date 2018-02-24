@@ -47,7 +47,9 @@ class FButton: FBox
 	block FButton(label)
 		initialize()
 		setLabel(label)
-		
+	
+	#Change the type of button/box that is drawn when the button widget is 
+	#clicked you can choose one of the 
 	block setDownBox(box)
 		__set_button_down_box(WIDGETPOINTER, box)
 		return this
