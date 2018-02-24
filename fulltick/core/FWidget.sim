@@ -40,6 +40,7 @@ class FWidget
 	WIDGET_LABEL_COLOR = new FColor #The default label color is 
 	#inherited from the [[link][FLTK]["http://www.fltk.org"]] Library
 	WIDGET_FONT = new FFont #The font contains no attribute 
+	WIDGET_GROUP = null #the group of which the widget belong
 	
 	/* NUMBERS */
 	WIDGET_HEIGHT = 0 #The widget Height
@@ -61,6 +62,7 @@ class FWidget
 	WIDGET_ISRESIZABLE = false #The boolean value indicating if widget can resize
 	WIDGET_VISIBILITY = true #The boolean value indicating the widget visibility
 	WIDGET_HAS_PARENT = false #The boolean value that is true if the current widget is a child of another widget or has a parenting widget
+	WIDGET_HAS_GROUP = false #The boolean value that is true if the current widget has a group
 	
 	/* LIST */
 	WIDGET_CHILDREN = [] #The list that holds all the added sub widgets
@@ -432,6 +434,13 @@ class FWidget
 		
 	block forceRedrawParent()
 		__redraw_widget_parent(WIDGETPOINTER)
+		
+	block setGroup(group)
+		WIDGET_GROUP = group
+		WIDGET_HAS_GROUP = true
+		
+	block getGroup()
+		return WIDGET_GROUP
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class

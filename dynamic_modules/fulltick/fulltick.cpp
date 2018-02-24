@@ -568,6 +568,20 @@ SIMPLE_BLOCK(set_button_down_color)
 	}
 }
 
+SIMPLE_BLOCK(set_button_only)
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) ) {
+		Fl_Button *button = (Fl_Button* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		button->setonly();
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
@@ -617,5 +631,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__init_check_button",init_check_button);
 	register_block("__set_button_down_box",set_button_down_box);
 	register_block("__set_button_down_color",set_button_down_color);
+	register_block("__set_button_only",set_button_only);
 
 }
