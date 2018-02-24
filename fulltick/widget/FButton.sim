@@ -58,6 +58,11 @@ class FButton: FBox
 		__set_button_down_box(WIDGETPOINTER, box)
 		return this
 		
+	#Set the background color for the down box for this button widget not 
+	#if the down box is NONE then then setting the background wont be 
+	#effective
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setDownBoxBackground(color)
 		try {
 			color.getColor() WIDGET_DOWN_BACKGROUND_COLOR = color
