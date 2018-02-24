@@ -584,13 +584,18 @@ SIMPLE_BLOCK(set_button_only)
 
 SIMPLE_BLOCK(set_button_shortcut)
 {
-	if ( SIMPLE_API_PARACOUNT != 2 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_Button *button = (Fl_Button* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		button->shortcut((int)SIMPLE_API_GETNUMBER(2));
+		if (((int)SIMPLE_API_GETNUMBER(2)) == 1) {
+			button->shortcut(((int)SIMPLE_API_GETNUMBER(3)));
+		} else {
+			button->shortcut(((char *)SIMPLE_API_GETSTRING(3)));
+		}
+		
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
