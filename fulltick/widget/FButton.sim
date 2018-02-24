@@ -44,7 +44,11 @@ class FButton : FBox
 	WIDGET_HEIGHT = 30 #Change the default height to avoid the button been rendered like a label
 	WIDGET_DOWN_BOX = 5 #The default button that is drawn when the button is clicked 'FBOX_DOWN_FRAME'
 	WIDGET_DOWN_BACKGROUND_COLOR = 32 #The background color of the drawn button when this button widget is pressed
+	
+	/** STRINGS **/
+	
 	WIDGET_SHORTCUT = '^M' #Default shortcut for all button the 'ENTER' key
+	FCHECKBUTTON_LEAD_SPACE = "  " #a lead spacing for the label on the widget
 
 	#Initialize the @Class FButton widget with a label value/content
 	block FButton(label)
