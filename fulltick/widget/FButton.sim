@@ -38,6 +38,7 @@ class FButton: FBox
 	WIDGET_HEIGHT = 30 #Change the default height to avoid the button been rendered like a label
 	WIDGET_DOWN_BOX = 5 #The default button that is drawn when the button is clicked 'FBOX_DOWN_FRAME'
 	WIDGET_DOWN_BACKGROUND_COLOR = 32 #The background color of the drawn button when this button widget is pressed
+	WIDGET_SHORTCUT = 
 
 	#Initialize the @Class FButton widget with a label value/content
 	block FButton(label)
