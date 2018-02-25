@@ -21,6 +21,7 @@ class Element
 	elementId = ""
 	inline = false
 	elementSetClass = false
+	elementSetStyle = false
 	
 	block init(name)
 		elementName = name
@@ -87,7 +88,10 @@ class Element
 		inline = con
 		
 	block toString()
-		finalDiv = '\t\t'+elementHead + elementStyle+'" '+elementId+' '
+		finalDiv = '\t\t'+elementHead + elementId+' '
+		if elementSetStyle
+			finalDiv += elementStyle+'" '
+		end
 		if elementSetClass 
 			finalDiv += styleClass+'" ' 
 		end
