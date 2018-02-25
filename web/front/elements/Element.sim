@@ -29,7 +29,14 @@ class Element
 		elementContent += "\n\t\t"+inelement + crlf
 		
 	block add(element)
-		elementContent += "\n\t\t"+element.toString() + crlf
+		try 
+			elementContent += "\n\t\t"+element.toString() + crlf
+		catch
+			for a = 0 to lengthOf(element)
+				elementContent += "\n\t\t"+element[a].toString() + crlf
+			end
+		end
+		
 	
 	block setPostion(pos)
 		elementStyle += 'position:'+pos+';'

@@ -58,6 +58,14 @@ class H2 : Element
 	block H2(id)
 		setId(id)
 		
+class Nav : Element
+	
+	elementName = "nav"
+	init(elementName)	
+
+	block Nav(id)
+		setId(id)
+		
 	
 		
 	
