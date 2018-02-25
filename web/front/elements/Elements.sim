@@ -16,6 +16,7 @@ class Link : Element
 	block Link(title, address)
 		setAddress(address)
 		setTitle(title)
+		setInline(true)
 	
 	block setAddress(address)
 		elementHead += 'href="'+address+'" '
@@ -34,6 +35,10 @@ class Li : Element
 	elementName = "li"
 	init(elementName)
 	
+	block Li(id)
+		setId(id)	
+		setInline(true)
+	
 class Header : Div
 
 	elementName = "header"
@@ -49,6 +54,7 @@ class H1 : Element
 
 	block H1(id)
 		setId(id)	
+		setInline(true)
 
 class H2 : Element
 	
@@ -57,6 +63,7 @@ class H2 : Element
 
 	block H2(id)
 		setId(id)
+		setInline(true)
 		
 class Nav : Element
 	
