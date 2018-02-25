@@ -20,6 +20,7 @@ class Element
 	styleClass = 'class="'
 	elementId = ""
 	inline = false
+	elementSetClass = false
 	
 	block init(name)
 		elementName = name
@@ -73,9 +74,11 @@ class Element
 		
 	block addStyleClass(iStyleClass)
 		styleClass += ' '+iStyleClass
+		elementSetClass = true
 		
 	block setStyleClass(iStyleClass)
 		styleClass += iStyleClass
+		elementSetClass = true
 		
 	block setId(id)
 		elementId += ' id="'+id+'" '
@@ -84,7 +87,11 @@ class Element
 		inline = con
 		
 	block toString()
-		finalDiv = '\t\t'+elementHead + elementStyle+'" '+elementId+' '+styleClass+'" > '+elementContent
+		finalDiv = '\t\t'+elementHead + elementStyle+'" '+elementId+' '
+		if elementSetClass 
+			finalDiv += styleClass+'" ' 
+		end
+		finalDiv += '> '+elementContent
 		if inline 
 			finalDiv += '</'+elementName+'>' 
 		else 
