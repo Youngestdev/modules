@@ -28,6 +28,8 @@ class Element
 	block addHTML(inelement)
 		elementContent += "\t\t"+inelement + crlf
 		
+	block add(element)
+		elementContent += "\t\t"+element.toString() + crlf
 	
 	block setPostion(pos)
 		elementStyle += 'position:'+pos+';'

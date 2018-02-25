@@ -34,6 +34,13 @@ class Li : Element
 	elementName = "li"
 	init(elementName)
 	
+class Header : Div
+
+	elementName = "header"
+	init(elementName)
+	
+	block Header(id)
+		setId(id)
 	
 		
 	
