@@ -41,6 +41,23 @@ class Header : Div
 	
 	block Header(id)
 		setId(id)
+		
+class H1 : Element
+	
+	elementName = "h1"
+	init(elementName)
+
+	block H1(id)
+		setId(id)	
+
+class H2 : Element
+	
+	elementName = "h1"
+	init(elementName)	
+
+	block H2(id)
+		setId(id)
+		
 	
 		
 	

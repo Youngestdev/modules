@@ -26,10 +26,10 @@ class Element
 		elementHead = '<'+elementName+' '
 	
 	block addHTML(inelement)
-		elementContent += "\t\t"+inelement + crlf
+		elementContent += "\n\t\t"+inelement + crlf
 		
 	block add(element)
-		elementContent += "\t\t"+element.toString() + crlf
+		elementContent += "\n\t\t"+element.toString() + crlf
 	
 	block setPostion(pos)
 		elementStyle += 'position:'+pos+';'
