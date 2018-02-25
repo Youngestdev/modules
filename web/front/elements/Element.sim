@@ -18,6 +18,8 @@ class Element
 	elementScript = "<script> "
 	elementContent = ""
 	styleClass = 'class="'
+	elementId = ""
+	inline = false
 	
 	block init(name)
 		elementName = name
@@ -67,8 +69,18 @@ class Element
 		styleClass += iStyleClass
 		
 	block setId(id)
-		elementStyle += ' id="'+id+'" '
+		elementId += ' id="'+id+'" '
+		
+	block setInline(con)
+		inline = con
 		
 	block toString()
-		finalDiv = '\t\t'+elementHead + elementStyle+'" '+styleClass+'" > '+elementContent+'</'+elementName+'>'
+		finalDiv = '\t\t'+elementHead + elementStyle+'" '+elementId+' '+styleClass+'" > '+elementContent
+		if inline 
+			finalDiv += '</'+elementName+'>' 
+		else 
+			finalDiv += '
+		\t</'+elementName+'>'
+		end
+		
 		return finalDiv
