@@ -47,6 +47,14 @@ class Header : Div
 	block Header(id)
 		setId(id)
 		
+class Section : Div
+
+	elementName = "section"
+	init(elementName)
+	
+	block Section(id)
+		setId(id)
+		
 class H1 : Element
 	
 	elementName = "h1"
