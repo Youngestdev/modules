@@ -42,33 +42,42 @@ class Element
 	
 	block setPostion(pos)
 		elementStyle += 'position:'+pos+';'
+		elementSetStyle = true
 		
 	block setBottom(px)
 		elementStyle += 'bottom:'+px+';'
+		elementSetStyle = true
 		
 	block setTop(px)
 		elementStyle += 'top:'+px+';'
+		elementSetStyle = true
 		
 	block setLeft(px)
 		elementStyle += 'left:'+px+';'
+		elementSetStyle = true
 		
 	block setRight(px)
 		elementStyle += 'right:'+px+';'
+		elementSetStyle = true
 	
 	block setBackground(icolor)
 		elementStyle += 'background:'+icolor+';'
+		elementSetStyle = true
 		
 	block setTextColor(icolor)
 		elementStyle += 'color:'+icolor+';'
+		elementSetStyle = true
 		
 	block setHeight(height)
 		setSize(height, elementWidth)
+		elementSetStyle = true
 		
 	block getHeight()
 		return elementHeight
 	
 	block setWidth(width)
 		setSize(elementHeight, width)
+		elementSetStyle = true
 		
 	block getWidth()
 		return elementWidth
