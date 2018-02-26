@@ -23,6 +23,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__curl_easy_init",curl_init);
     register_block("__curl_easy_perform",curl_perform);
     register_block("__curl_easy_cleanup",curl_cleanup);
+    register_block("__curl_easy_setopt",curl_setopt);
 }
 
 void curl_init ( void *pointer )
@@ -54,6 +55,21 @@ void curl_perform ( void *pointer )
 }
 
 void curl_cleanup ( void *pointer )
+{
+    if ( SIMPLE_API_PARACOUNT != 1 ) {
+        SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+        return ;
+    }
+    SIMPLE_API_IGNORECPOINTERTYPE ;
+    if ( SIMPLE_API_ISPOINTER(1) ) {
+        curl_easy_cleanup((CURL *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL_CODE"));
+    } else {
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+        return ;
+    }
+}
+
+void curl_setopt ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
         SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
