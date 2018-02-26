@@ -25,13 +25,10 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
 
 void curl_init ( void *pointer )
 {
-    if ( SIMPLE_API_PARACOUNT != 1 ) {
-            SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+    if ( SIMPLE_API_PARACOUNT != 0 ) {
+            SIMPLE_API_ERROR(SIMPLE_API_BADPARACOUNT);
             return ;
     }
-    if ( SIMPLE_API_ISNUMBER(1) ) {
-            SIMPLE_API_RETNUMBER(sin(SIMPLE_API_GETNUMBER(1)));
-    } else {
-            SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-    }
+    SIMPLE_API_IGNORECPOINTERTYPE ;
+    SIMPLE_API_RETCPOINTER(curl_easy_init(),"SIMPLE_CURL");
 }
