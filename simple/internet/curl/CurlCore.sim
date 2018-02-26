@@ -29,6 +29,13 @@ class CurlCore
 	/* TYPE */
 	CURLPOINTER = null #initialize the curl pointer with null
 	
+	#Initialize the curl pointer with the @LowLevelFunction 
+	#__curl_easy_init() to create an instance of the curl object
+	#all classes that are inheriting this class must call this block
+	#to avoid the pointer to be initialize and avoid null error
+	block initCurl()
+		CURLPOINTER = __curl_easy_init()
+	
 	#Assign a custom pointer to the curl object. The old pointer is 
 	#freed from the memory and the new pointer is assigned during the 
 	#process the @Class CurlCore losses all it @Bold pointer @EndBold
@@ -39,11 +46,20 @@ class CurlCore
 		#garbageCollect(CURLPOINTER)
 		CURLPOINTER = pointer
 		
+	block addOption(option, value)
+		try 
+		
+		catch
+		
+		end
+		
 	#Get the current pointer of the @Class CurlCore 
 	#@Return the curl pointer @DataType POINTER
 	block getCurlPointer()
 		return CURLPOINTER
-		
-		
+	
+	#All the private objects,attributes and blocks exclusive to this
+	#class alone are declared below
+	private 	
 		
 		

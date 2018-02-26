@@ -18,9 +18,9 @@ call "CurlCore.sim"
 class CurlHTTP : CurlCore
 	
 	block CurlHTTP()
-		CURLPOINTER = __curl_easy_init()
-		
-		
+		initCurl()
+
+	
 		
 	private 
 		
