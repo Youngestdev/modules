@@ -137,12 +137,7 @@ void curl_setopt ( void *pointer )
 void new_curl_list ( void *pointer )
 {
     
-    if ( SIMPLE_API_PARACOUNT != 1 ) {
-        SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
-        return ;
-    }
-    SIMPLE_API_IGNORECPOINTERTYPE ;
-    if ( SIMPLE_API_ISPOINTER(1) ) {
+    if ( SIMPLE_API_PARACOUNT == 0 ) {
         CURL_LIST *curl_list = (CURL_LIST *) simple_state_malloc(((VM *) pointer)->sState,sizeof(CURL_LIST)); 
         if (curl_list == NULL ) {
             SIMPLE_API_ERROR(SIMPLE_OOM);

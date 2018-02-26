@@ -18,7 +18,7 @@ call "CurlCore.sim"
 class CurlHTTP : CurlCore
 
 	/* LIST */
-	CURL_HEADER = [] #create the container list for all header
+	#CURL_HEADER = [] #create the container list for all header
 	
 	block CurlHTTP(url)
 		initCurl(url) 
@@ -32,14 +32,15 @@ class CurlHTTP : CurlCore
 		try 
 			a = 23 + "" + header
 			for a = 0 to lengthOf(header)
-				add(CURL_HEADER, header[a])
+				__curl_list_append(CURL_HEADER, header[a])
 			end
 		catch 
-			add(CURL_HEADER, header)
+			__curl_list_append(CURL_HEADER, header)
 		end
 		
 	block prepare()
-		addOption(42, CURL_HEADER)
+		display CURL_HEADER
+		#addOption(42, CURL_HEADER)
 		
 	private 
 		
