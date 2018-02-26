@@ -55,6 +55,12 @@ void curl_perform ( void *pointer )
     }
 }
 
+size_t simple_get_curl_data ( void *buffer, size_t size, size_t mem_size, void *string )
+{
+	simple_string_add2(string,buffer,size*mem_size);
+	return size*mem_size ;
+}
+
 void curl_string_perform ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 1 ) {
@@ -63,12 +69,12 @@ void curl_string_perform ( void *pointer )
     }
     SIMPLE_API_IGNORECPOINTERTYPE ;
     if ( SIMPLE_API_ISPOINTER(1) ) {
-        String string = simple_string_new("");
-        CURL curl = (CURL *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL") ;
+        String *string = simple_string_new("");
+        CURL *curl = (CURL *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL") ;
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,simple_get_curl_data);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA,string);
         curl_easy_perform(curl);
-        SIMPLE_API_RETSTRING2(ring_string_get(string),ring_string_size(string));
+        SIMPLE_API_RETSTRING2(simple_string_get(string),simple_string_size(string));
         simple_string_delete(string);
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
