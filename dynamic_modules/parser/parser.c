@@ -20,10 +20,10 @@ SIMPLE_API __declspec(dllexport)
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
-    //register_block("sin",math_sin);
+    register_block("test_json_c",test_json_c);
 }
 
-void test_json_c()
+void test_json_c ( void *pointer )
 {
     const char *input = "\"\\ud840\\udd26,\\ud840\\udd27,\\ud800\\udd26,\\ud800\\udd27\"";
     const char *expected = "\xF0\xA0\x84\xA6,\xF0\xA0\x84\xA7,\xF0\x90\x84\xA6,\xF0\x90\x84\xA7";
