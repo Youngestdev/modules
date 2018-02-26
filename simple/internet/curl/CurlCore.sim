@@ -113,6 +113,8 @@ class CurlCore
 		CURL_URL = url
 		addOption(10002, CURL_URL)
 		
+	#Get the url address associated with this cur object 
+	#@Return url address @DataType STRING
 	block getUrl()	
 		return 
 		
@@ -124,6 +126,10 @@ class CurlCore
 		CURL_OUTPUT = __curl_easy_string_perform(CURLPOINTER)
 		return CURL_OUTPUT
 
+	#Get the output gotten from executing the curl object. This 
+	#return the actual @Bold object/pointer @EndBold which can be 
+	#further worked on. If you prefer the string value instead you 
+	#should rather call the @Block getStringOutput()
 	block getOutput()
 		if CURL_OUTPUT == null
 			return perform()
