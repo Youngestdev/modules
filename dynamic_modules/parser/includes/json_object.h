@@ -19,10 +19,10 @@ extern "C" {
 #define JSON_OBJECT_DEF_HASH_ENTRIES 16
 
 #undef FALSE
-#define FALSE ((boolean)0)
+#define FALSE ((json_boolean)0)
 
 #undef TRUE
-#define TRUE ((boolean)1)
+#define TRUE ((json_boolean)1)
 
 extern const char *json_number_chars;
 extern const char *json_hex_chars;
@@ -37,7 +37,7 @@ struct json_object_iter
 
 /* forward structure definitions */
 
-typedef int booleani;
+typedef int json_boolean;
 typedef struct printbuf printbuf;
 typedef struct lh_table lh_table;
 typedef struct array_list array_list;
@@ -233,26 +233,26 @@ extern int json_object_array_put_idx(struct json_object *obj, int idx,
 extern struct json_object* json_object_array_get_idx(struct json_object *obj,
 						     int idx);
 
-/* boolean type methods */
+/* json_boolean type methods */
 
 /** Create a new empty json_object of type json_type_boolean
- * @param b a boolean TRUE or FALSE (0 or 1)
+ * @param b a json_boolean TRUE or FALSE (0 or 1)
  * @returns a json_object of type json_type_boolean
  */
-extern struct json_object* json_object_new_boolean(boolean b);
+extern struct json_object* json_object_new_boolean(json_boolean b);
 
-/** Get the boolean value of a json_object
+/** Get the json_boolean value of a json_object
  *
- * The type is coerced to a boolean if the passed object is not a boolean.
+ * The type is coerced to a json_boolean if the passed object is not a json_boolean.
  * integer and double objects will return FALSE if there value is zero
  * or TRUE otherwise. If the passed object is a string it will return
  * TRUE if it has a non zero length. If any other object type is passed
  * TRUE will be returned if the object is not NULL.
  *
  * @param obj the json_object instance
- * @returns a boolean
+ * @returns a json_boolean
  */
-extern boolean json_object_get_boolean(struct json_object *obj);
+extern json_boolean json_object_get_boolean(struct json_object *obj);
 
 
 /* int type methods */

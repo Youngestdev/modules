@@ -50,7 +50,7 @@ const char* json_tokener_errors[] = {
   "unexpected end of data",
   "unexpected character",
   "null expected",
-  "boolean expected",
+  "json_boolean expected",
   "number expected",
   "array value separator ',' expected",
   "quoted object property name expected",
