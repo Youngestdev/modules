@@ -22,6 +22,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
     register_block("__curl_easy_init",curl_init);
     register_block("__curl_easy_perform",curl_perform);
+    register_block("__curl_easy_string_perform",curl_string_perform);
     register_block("__curl_easy_cleanup",curl_cleanup);
     register_block("__curl_easy_setopt",curl_setopt);
 }
@@ -48,6 +49,27 @@ void curl_perform ( void *pointer )
         curl_code = (CURLcode *) simple_state_malloc(((VM *) pointer)->sState,sizeof(CURLcode)) ;
         *curl_code = curl_easy_perform((CURL *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL"));
         SIMPLE_API_RETCPOINTER(curl_code,"SIMPLE_CURL_CODE");    
+    } else {
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+        return ;
+    }
+}
+
+void curl_string_perform ( void *pointer )
+{
+    if ( SIMPLE_API_PARACOUNT != 1 ) {
+        SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+        return ;
+    }
+    SIMPLE_API_IGNORECPOINTERTYPE ;
+    if ( SIMPLE_API_ISPOINTER(1) ) {
+        String string = simple_string_new("");
+        CURL curl = (CURL *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL") ;
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,simple_get_curl_data);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA,string);
+        curl_easy_perform(curl);
+        SIMPLE_API_RETSTRING2(ring_string_get(string),ring_string_size(string));
+        simple_string_delete(string);
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
         return ;

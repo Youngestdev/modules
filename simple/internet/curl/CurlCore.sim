@@ -100,7 +100,7 @@ class CurlCore
 		return CURL_OUTPUT
 
 	block stringPerform()
-		CURL_OUTPUT = __curl_easy_perform_silent(CURLPOINTER)
+		CURL_OUTPUT = __curl_easy_string_perform(CURLPOINTER)
 		return CURL_OUTPUT
 
 	block getOutput()
