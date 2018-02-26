@@ -35,8 +35,8 @@ class CurlCore
 	#of the @Class CurlClass you will have to call the @Block 
 	#initCurl() to initialize the @Bold Curl Pointer @EndBold
 	block CurlCore(url)
-		addOption(10002, url)
 		initCurl()
+		addOption(10002, url)
 	
 	#Initialize the curl pointer with the @LowLevelFunction 
 	#__curl_easy_init() to create an instance of the curl object
@@ -103,6 +103,7 @@ class CurlCore
 			end
 		catch end
 		
+	#Directly add the url to the 
 	block addUrl(url)
 		addOption(10002, url)
 		
