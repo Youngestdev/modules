@@ -29,6 +29,7 @@ class CurlCore
 	/* TYPE */
 	CURLPOINTER = null #initialize the curl pointer with null
 	CURL_OUTPUT = null #Initialize the curl object output
+	CURL_HEADER = null #Init the curl header to null
 	
 	/* STRING */
 	CURL_URL = "" #The url address associated with this curl object
