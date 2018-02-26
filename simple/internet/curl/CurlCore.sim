@@ -78,6 +78,15 @@ class CurlCore
 	block done()	
 		__curl_easy_cleanup(CURLPOINTER)
 		
+	#This block is miraculously useful if you care about how your 
+	#program or app is using the memory calling this block 
+	#automatically flush all child classes/object and pointers 
+	#related or used along with this @Class CurlCore. The child 
+	#includes @Class CurlOption, .. and related others
+	#@Note you should only call this block if you are sure you want 
+	#to dispose of all the associated member of this class as they
+	#will all be unusable along with this class. If they are still 
+	#needed they will have to be recreated
 	block safeFlush()
 		try 
 			for a = 0 to lengthOf(CURL_CHILDREN)
