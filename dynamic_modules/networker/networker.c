@@ -118,11 +118,11 @@ void curl_setopt ( void *pointer )
         curl_code = (CURLcode *) simple_state_malloc(((VM *) pointer)->sState,sizeof(CURLcode)) ;
         *curl_code = curl_easy_setopt((CURL *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL"), (CURLoption ) SIMPLE_API_GETNUMBER(2), SIMPLE_API_GETSTRING(3));
         SIMPLE_API_RETCPOINTER(curl_code,"SIMPLE_CURL_CODE");
-    } else if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISPOINTER(3) && SIMPLE_API_ISNUMBER(4) ) {
+    } else if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISPOINTER(3) && SIMPLE_API_ISNUMBER(4) && SIMPLE_API_GETNUMBER(4) == 1 ) {
         CURLcode *curl_code ; 
         curl_code = (CURLcode *) simple_state_malloc(((VM *) pointer)->sState,sizeof(CURLcode)) ;
         *curl_code = curl_easy_setopt((CURL *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL"), (CURLoption ) SIMPLE_API_GETNUMBER(2), (CURL_LIST *) SIMPLE_API_GETCPOINTER(3,"SIMPLE_CURL_LIST"));
-        SIMPLE_API_RETCPOINTER(curl_code,"SIMPLE_CURL_CODE");
+        printf("IT REACH HERE curllist \n"); SIMPLE_API_RETCPOINTER(curl_code,"SIMPLE_CURL_CODE");
     } else if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISPOINTER(3) ) {
         CURLcode *curl_code ; 
         curl_code = (CURLcode *) simple_state_malloc(((VM *) pointer)->sState,sizeof(CURLcode)) ;
