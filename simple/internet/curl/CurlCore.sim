@@ -45,12 +45,17 @@ class CurlCore
 	block setCurlPointer(pointer)
 		#garbageCollect(CURLPOINTER)
 		CURLPOINTER = pointer
-		
+	
+	#
 	block addOption(option, value)
 		try 
-		
+			a = "" + value 
+			add__option(option,value)
+			a = null
 		catch
-		
+			for a = 0 to lengthOf(value)
+				add__option(option,value[a])
+			end
 		end
 		
 	#Get the current pointer of the @Class CurlCore 
@@ -62,4 +67,5 @@ class CurlCore
 	#class alone are declared below
 	private 	
 		
-		
+		block add__option(option,value)
+			__curl_easy_setopt(CURLPOINTER, option, value)
