@@ -72,7 +72,8 @@ void init_json_c ( void *pointer )
         return ;
     }
     if ( SIMPLE_API_ISSTRING(1) ) {
-        SIMPLE_API_RETNUMBER(sin(SIMPLE_API_GETNUMBER(1)));
+        struct json_object *new_obj = json_tokener_parse(SIMPLE_API_GETSTRING(1));
+        SIMPLE_API_RETCPOINTER(new_obj, "SIMPLE_JSON_C");
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
     }
