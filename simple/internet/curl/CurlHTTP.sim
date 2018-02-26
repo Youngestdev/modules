@@ -40,7 +40,8 @@ class CurlHTTP : CurlCore
 		end
 		
 	block prepare()
-		addOption(42, CURL_HEADER,1)
+		addOption(10023, CURL_HEADER,1)
+		display CURLPOINTER
 		
 	private 
 		
