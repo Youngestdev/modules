@@ -36,10 +36,18 @@ void curl_init ( void *pointer )
 
 void curl_perform ( void *pointer )
 {
-    if ( SIMPLE_API_PARACOUNT != 0 ) {
-        SIMPLE_API_ERROR(SIMPLE_API_BADPARACOUNT);
+    if ( SIMPLE_API_PARACOUNT != 1 ) {
+        SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
         return ;
     }
     SIMPLE_API_IGNORECPOINTERTYPE ;
-    SIMPLE_API_RETCPOINTER(curl_easy_init(),"SIMPLE_CURL");
+    if ( SIMPLE_API_ISPOINTER(1) ) {
+        CURLcode *curl_code ; 
+        curl_code = (CURLcode *) simple_state_malloc(((VM *) pointer)->sState,sizeof(CURLcode)) ;
+        *curl_code = curl_easy_perform((CURL *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL"));
+        SIMPLE_API_RETCPOINTER(curl_code,"SIMPLE_CURL_CODE");    
+    } else {
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+        return ;
+    }
 }
