@@ -14,6 +14,7 @@
 
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "parser.h"
+#include "includes/arraylist.h"
 
 SIMPLE_API __declspec(dllexport)
 
