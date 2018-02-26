@@ -30,3 +30,6 @@ class JsonObject : JsonParser
 	#freed and a new pointer is assigned
 	block initObject()
 		JSONPOINTER = __init_json_c(JSON_CONTENT)
+		
+	block getString(id)
+		
