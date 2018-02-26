@@ -21,13 +21,24 @@ SIMPLE_API __declspec(dllexport)
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
     register_block("__curl_init",curl_init);
+    register_block("__curl_perform",curl_perform);
 }
 
 void curl_init ( void *pointer )
 {
     if ( SIMPLE_API_PARACOUNT != 0 ) {
-            SIMPLE_API_ERROR(SIMPLE_API_BADPARACOUNT);
-            return ;
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARACOUNT);
+        return ;
+    }
+    SIMPLE_API_IGNORECPOINTERTYPE ;
+    SIMPLE_API_RETCPOINTER(curl_easy_init(),"SIMPLE_CURL");
+}
+
+void curl_perform ( void *pointer )
+{
+    if ( SIMPLE_API_PARACOUNT != 0 ) {
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARACOUNT);
+        return ;
     }
     SIMPLE_API_IGNORECPOINTERTYPE ;
     SIMPLE_API_RETCPOINTER(curl_easy_init(),"SIMPLE_CURL");
