@@ -28,6 +28,7 @@ class CurlCore
 
 	/* TYPE */
 	CURLPOINTER = null #initialize the curl pointer with null
+	CURL_OUTPUT = null #Initialize the curl object output
 	
 	#Initialize the curl pointer with the @LowLevelFunction 
 	#__curl_easy_init() to create an instance of the curl object
@@ -93,6 +94,9 @@ class CurlCore
 				CURL_CHILDREN[a].flush()
 			end
 		catch end
+		
+	block perform()
+		CURL_OUTPUT = __curl_easy_perform(CURLPOINTER)		
 	
 	#All the private objects,attributes and blocks exclusive to this
 	#class alone are declared below
