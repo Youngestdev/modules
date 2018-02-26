@@ -27,6 +27,6 @@ class JsonParser
 	#@Block setContent(content) mean while both blocks calls the 
 	#initJson() which intantiate the @Field JSONPOINTER
 	block JsonParser(content)
-		
+		JSON_CONTENT = content
 		
 

@@ -22,6 +22,7 @@ SIMPLE_API __declspec(dllexport)
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
     register_block("__test_json_c",test_json_c);
+    register_block("__init_json_c",test_json_c);
 }
 
 void print_hex( const char* s) 
