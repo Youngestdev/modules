@@ -15,3 +15,16 @@ module simple.internet.curl
 
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\networker\dist\Debug\MinGW-Windows\networker.dll")
+
+class CurlCore
+
+	/* TYPE */
+	CURLPOINTER = null #initialize the curl pointer with null
+	
+	#Assign a custom pointer to the curl object. The new 
+	block setCurlPointer(pointer)
+		#garbageCollect(CURLPOINTER)
+		CURLPOINTER = pointer
+		
+	block getCurlPointer()
+		return CURLPOINTER
