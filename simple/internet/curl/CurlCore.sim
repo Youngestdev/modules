@@ -13,18 +13,31 @@
  
 module simple.internet.curl
 
+#Call all the low level function of the @DynamicModule networker.dll
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\networker\dist\Debug\MinGW-Windows\networker.dll")
+
 
 class CurlCore
 
 	/* TYPE */
 	CURLPOINTER = null #initialize the curl pointer with null
 	
-	#Assign a custom pointer to the curl object. The new 
+	#Assign a custom pointer to the curl object. The old pointer is 
+	#freed from the memory and the new pointer is assigned during the 
+	#process the @Class CurlCore losses all it @Bold pointer @EndBold
+	#functions and object such as curl list, headers and others and 
+	#it takes all the objects and attributes of the newly assigned 
+	#pointer
 	block setCurlPointer(pointer)
 		#garbageCollect(CURLPOINTER)
 		CURLPOINTER = pointer
 		
+	#Get the current pointer of the @Class CurlCore 
+	#@Return the curl pointer @DataType POINTER
 	block getCurlPointer()
 		return CURLPOINTER
+		
+		
+		
+		

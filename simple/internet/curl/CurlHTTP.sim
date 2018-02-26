@@ -22,13 +22,6 @@ class CurlHTTP : CurlCore
 		
 		
 		
-	block setCurlPointer(pointer)
-		CURLPOINTER = pointer
-		
-	block getCurlPointer()
-		return CURLPOINTER
-		
-		
 	private 
 		
 		
