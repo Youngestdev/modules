@@ -50,7 +50,7 @@ class CurlCore
 	block initCurl(url)
 		CURLPOINTER = __curl_easy_init()
 		CURL_URL = url
-		addOption(10002, CURL_URL)
+		addOption(10002, CURL_URL, "")
 		CURL_HEADER = __new_curl_list()
 	
 	#Assign a custom pointer to the curl object. The old pointer is 
@@ -66,10 +66,10 @@ class CurlCore
 	#Set an option for the curl object. The options can range from
 	#header,crumbs,data,url,file and other curl objects along with 
 	#their curl option from the @File CurlOption or Integer value
-	block addOption(option, value)
+	block addOption(option, value, param)
 		#try 
 			#a = "" + value 
-			add__option(option,value)
+			add__option(option,value,param)
 			#a = null
 		#catch
 			#for a = 0 to lengthOf(value)
@@ -116,7 +116,7 @@ class CurlCore
 	#straight forward adding url to a curl object
 	block addUrl(url)
 		CURL_URL = url
-		addOption(10002, CURL_URL)
+		addOption(10002, CURL_URL, "")
 		
 	#Get the url address associated with this cur object 
 	#@Return url address @DataType STRING
@@ -164,8 +164,9 @@ class CurlCore
 	private 	
 		
 		#set the curl option with value
-		block add__option(option,value)
-			__curl_easy_setopt(CURLPOINTER, option, value, "")
+		block add__option(option,value, param)
+			display "Here"
+			__curl_easy_setopt(CURLPOINTER, option, value, param)
 			
 			
 			
