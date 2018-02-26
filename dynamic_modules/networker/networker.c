@@ -20,8 +20,9 @@ SIMPLE_API __declspec(dllexport)
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
-    register_block("__curl_init",curl_init);
-    register_block("__curl_perform",curl_perform);
+    register_block("__curl_easy_init",curl_init);
+    register_block("__curl_easy_perform",curl_perform);
+    register_block("__curl_easy_cleanup",curl_cleanup);
 }
 
 void curl_init ( void *pointer )
