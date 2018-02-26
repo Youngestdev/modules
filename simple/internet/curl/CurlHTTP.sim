@@ -16,3 +16,14 @@ module simple.internet.curl
 call "CurlCore.sim"
 
 class CurlHTTP
+	
+	block CurlHTTP()
+		
+		
+		
+	private 
+		
+		CURLPOINTER = null #initialize the curl pointer with null
+		
+		
+		
