@@ -68,9 +68,22 @@ class CurlCore
 		
 	#Once you are done with the curl object or @Class CurlCore or
 	#it inheriting classes you can use the @Block flush() or 
-	#@Block done() to clean up the curl pointer and objects this 
+	#@Block done() to clean up the curl pointer and objects.
+	#Calling this block the @Field CURLPOINTER is null and this 
+	#class is rendered finish and unusable
 	block flush()
 		__curl_easy_cleanup(CURLPOINTER)
+		
+	#This block works same as the @Block flush() 
+	block done()	
+		__curl_easy_cleanup(CURLPOINTER)
+		
+	block safeFlush()
+		try 
+			for a = 0 to lengthOf(CURL_CHILDREN)
+				CURL_CHILDREN[a].flush()
+			end
+		catch end
 	
 	#All the private objects,attributes and blocks exclusive to this
 	#class alone are declared below
