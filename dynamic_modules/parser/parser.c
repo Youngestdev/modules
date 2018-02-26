@@ -20,7 +20,7 @@ SIMPLE_API __declspec(dllexport)
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
-    register_block("test_json_c",test_json_c);
+    register_block("__test_json_c",test_json_c);
 }
 
 void test_json_c ( void *pointer )
