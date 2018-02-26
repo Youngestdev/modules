@@ -95,6 +95,9 @@ class CurlCore
 			end
 		catch end
 		
+	block addUrl(url)
+		addOption(10002, url)
+		
 	block perform()
 		CURL_OUTPUT = __curl_easy_perform(CURLPOINTER)
 		return CURL_OUTPUT
