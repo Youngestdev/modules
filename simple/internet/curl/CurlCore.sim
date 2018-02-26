@@ -30,13 +30,17 @@ class CurlCore
 	CURLPOINTER = null #initialize the curl pointer with null
 	CURL_OUTPUT = null #Initialize the curl object output
 	
+	/* STRING */
+	CURL_URL = "" #The url address associated with this curl object
+	
 	#if you are calling the constructor then you must pass the url 
 	#as parameter to the constructor else after declaring an instance
 	#of the @Class CurlClass you will have to call the @Block 
 	#initCurl() to initialize the @Bold Curl Pointer @EndBold
 	block CurlCore(url)
-		initCurl()
-		addOption(10002, url)
+		initCurl() 
+		CURL_URL = url
+		addOption(10002, CURL_URL)
 	
 	#Initialize the curl pointer with the @LowLevelFunction 
 	#__curl_easy_init() to create an instance of the curl object
@@ -103,9 +107,14 @@ class CurlCore
 			end
 		catch end
 		
-	#Directly add the url to the 
+	#Directly add the url to the curl object this is declare for 
+	#straight forward adding url to a curl object
 	block addUrl(url)
-		addOption(10002, url)
+		CURL_URL = url
+		addOption(10002, CURL_URL)
+		
+	block getUrl()	
+		return 
 		
 	block perform()
 		CURL_OUTPUT = __curl_easy_perform(CURLPOINTER)
@@ -121,7 +130,11 @@ class CurlCore
 		else
 			return CURL_OUTPUT
 		end
-		
+	
+	#If you want to get the output as a string directly instead as 
+	#pointer this block is useful but less is what you can do with
+	#the string value instead for extended usage call the @Block 
+	#getOutput() which return a pointer to the output
 	block getStringOutput()
 		if CURL_OUTPUT == null
 			return stringPerform() 
