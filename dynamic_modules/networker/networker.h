@@ -23,6 +23,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState) ;
 
 void curl_init ( void *pointer ) ;
 void curl_perform ( void *pointer ) ;
+void curl_cleanup ( void *pointer ) ;
 
 
 #ifdef __cplusplus
