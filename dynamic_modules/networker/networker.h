@@ -27,6 +27,8 @@ void curl_perform ( void *pointer ) ;
 void curl_string_perform ( void *pointer ) ;
 void curl_cleanup ( void *pointer ) ;
 void curl_setopt ( void *pointer ) ;
+void new_curl_list ( void *pointer ) ;
+void free_curl_list ( void *pointer ) ;
 
 
 #ifdef __cplusplus

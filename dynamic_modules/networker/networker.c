@@ -26,6 +26,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__curl_easy_cleanup",curl_cleanup);
     register_block("__curl_easy_setopt",curl_setopt);
     register_block("__new_curl_list",new_curl_list);
+    register_block("__free_curl_list",free_curl_list);
 }
 
 void curl_init ( void *pointer )
@@ -142,9 +143,31 @@ void new_curl_list ( void *pointer )
     if ( SIMPLE_API_ISPOINTER(1) ) {
         CURL_LIST *curl_list = (CURL_LIST *) simple_state_malloc(((VM *) pointer)->sState,sizeof(CURL_LIST)); 
         if (curl_list == NULL ) {
-            
+            SIMPLE_API_ERROR(SIMPLE_OOM);
+            return ;
         } else {
-            SIMPLE_API_RETCPOINTER(,"SIMPLE_CURL_LIST");
+            SIMPLE_API_RETCPOINTER(curl_list,"SIMPLE_CURL_LIST");
+        }
+    } else {
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+        return ;
+    }
+}
+
+void free_curl_list ( void *pointer )
+{
+    
+    if ( SIMPLE_API_PARACOUNT != 1 ) {
+        SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+        return ;
+    }
+    SIMPLE_API_IGNORECPOINTERTYPE ;
+    if ( SIMPLE_API_ISPOINTER(1) ) {
+        CURL_LIST *curl_list = (CURL_LIST *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL_LIST"); ; 
+        if (curl_list != NULL ) {
+            simple_state_free(((VM *) pointer)->sState,curl_list) ;
+            SIMPLE_API_SETNULLPOINTER(1);
+            return ;
         }
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
