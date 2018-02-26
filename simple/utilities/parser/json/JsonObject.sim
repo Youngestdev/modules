@@ -25,7 +25,10 @@ class JsonObject : JsonParser
 		initObject()
 		
 	block getObjectType()
-		return __json_object_get_type(JSONPOINTER)
+		return __json_c_object_get_type(JSONPOINTER)
+		
+	block getObjectTypeName()
+		return __json_c_type_to_name(getObjectType())
 		
 	block getString(id)
 	
