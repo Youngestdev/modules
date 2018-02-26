@@ -13,11 +13,17 @@
  
 module simple.internet.curl
 
-#Call all the low level function of the @DynamicModule networker.dll
+#Call all the low level function of the @DynamicModule networker
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\networker\dist\Debug\MinGW-Windows\networker.dll")
 
-
+#The @Class CurlCore is the base class for all the curl module and
+#classes holding mainly the parenting Blocks and the curl pointer
+#for each instance of the curl classes or object initiated
+#@Note if you are really the whiz type you can look into the 
+#@DynamicModule networker and use all the low-level functions 
+#directly from C which i believe is faster but hard but also simple 
+#as it usage is similar to the [[PHP][https://php.com]] curl module 
 class CurlCore
 
 	/* TYPE */
