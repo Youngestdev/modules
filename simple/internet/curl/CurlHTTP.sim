@@ -39,7 +39,7 @@ class CurlHTTP : CurlCore
 		end
 		
 	block prepare()
-		addOption(option, CURL_HEADER)
+		addOption(42, CURL_HEADER)
 		
 	private 
 		
