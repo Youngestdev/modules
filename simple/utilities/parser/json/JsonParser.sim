@@ -30,5 +30,6 @@ class JsonParser
 	block JsonParser(content)
 		JSON_CONTENT = content
 		
-	
+	block setPointer(pointer)
+		JSONPOINTER = pointer
 
