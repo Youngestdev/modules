@@ -30,6 +30,14 @@ class CurlCore
 	CURLPOINTER = null #initialize the curl pointer with null
 	CURL_OUTPUT = null #Initialize the curl object output
 	
+	#if you are calling the constructor then you must pass the url 
+	#as parameter to the constructor else after declaring an instance
+	#of the @Class CurlClass you will have to call the @Block 
+	#initCurl() to initialize the @Bold Curl Pointer @EndBold
+	block CurlCore(url)
+		addOption(10002, url)
+		initCurl()
+	
 	#Initialize the curl pointer with the @LowLevelFunction 
 	#__curl_easy_init() to create an instance of the curl object
 	#all classes that are inheriting this class must call this block
