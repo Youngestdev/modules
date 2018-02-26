@@ -46,7 +46,9 @@ class CurlCore
 		#garbageCollect(CURLPOINTER)
 		CURLPOINTER = pointer
 	
-	#
+	#Set an option for the curl object. The options can range from
+	#header,crumbs,data,url,file and other curl objects along with 
+	#their curl option from the @File CurlOption or Integer value
 	block addOption(option, value)
 		try 
 			a = "" + value 
@@ -62,10 +64,14 @@ class CurlCore
 	#@Return the curl pointer @DataType POINTER
 	block getCurlPointer()
 		return CURLPOINTER
+		
+	block flush()
+		
 	
 	#All the private objects,attributes and blocks exclusive to this
 	#class alone are declared below
 	private 	
 		
+		#set the curl option with value
 		block add__option(option,value)
 			__curl_easy_setopt(CURLPOINTER, option, value)
