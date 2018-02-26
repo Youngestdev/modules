@@ -24,7 +24,21 @@ class CurlHTTP : CurlCore
 		initCurl(url) 
 
 	block addHeader(header)
-		add(CURL_HEADER, header)
+		/*if isList()
+			
+		else 
+		
+		end*/
+		try 
+			a = 23 + "" + header
+			for a = 0 to lengthOf(header)
+				add(CURL_HEADER, header[a])
+			end
+		catch 
+			add(CURL_HEADER, header)
+		end
+		
+	block setType()
 		
 		
 	private 
