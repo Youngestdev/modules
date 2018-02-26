@@ -34,6 +34,8 @@ class JsonObject : JsonParser
 	block getObjectTypeName()
 		return __json_c_type_to_name(getObjectType())
 		
+	#get the child object with the string value this @Block 
+	#getChildObject(id) returns an instance of the @Class JsonObject
 	block getChildObject(id)
 		JSON_CHILD_POINTER = __json_c_object_object_get(JSONPOINTER, id)
 		newJsonObject = new JsonObject
