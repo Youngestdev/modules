@@ -28,6 +28,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__new_curl_list",new_curl_list);
     register_block("__free_curl_list",free_curl_list);
     register_block("__curl_list_append",curl_list_append);
+    register_block("__curl_list_free_all",curl_list_free_all);
 }
 
 void curl_init ( void *pointer )
@@ -192,3 +193,22 @@ void curl_list_append ( void *pointer )
         return ;
     }
 }
+
+void curl_list_free_all ( void *pointer )
+{
+    
+    if ( SIMPLE_API_PARACOUNT != 1 ) {
+        SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+        return ;
+    }
+    SIMPLE_API_IGNORECPOINTERTYPE ;
+    if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
+        curl_slist_free_all((CURL_LIST *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL_LIST"));
+        return ;
+    } else {
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+        return ;
+    }
+}
+
+
