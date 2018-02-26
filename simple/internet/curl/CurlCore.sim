@@ -51,7 +51,7 @@ class CurlCore
 		CURLPOINTER = __curl_easy_init()
 		CURL_URL = url
 		addOption(10002, CURL_URL, "")
-		CURL_HEADER = __new_curl_list()
+		CURL_HEADER = __curl_list_append(null, 'Accept-Charset: utf-8')
 	
 	#Assign a custom pointer to the curl object. The old pointer is 
 	#freed from the memory and the new pointer is assigned during the 
