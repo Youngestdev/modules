@@ -32,6 +32,7 @@ class CurlCore
 	
 	/* STRING */
 	CURL_URL = "" #The url address associated with this curl object
+	CURL_STRING_OUTPUT = null #the default value for the string output
 	
 	#if you are calling the constructor then you must pass the url 
 	#as parameter to the constructor else after declaring an instance
@@ -130,8 +131,8 @@ class CurlCore
 	#after the complete execution
 	#@Return string/text result of curl execution @DataType STRING
 	block stringPerform()
-		CURL_OUTPUT = __curl_easy_string_perform(CURLPOINTER)
-		return CURL_OUTPUT
+		CURL_STRING_OUTPUT = __curl_easy_string_perform(CURLPOINTER)
+		return CURL_STRING_OUTPUT
 
 	#Get the output gotten from executing the curl object. This 
 	#return the actual @Bold object/pointer @EndBold which can be 
@@ -149,10 +150,10 @@ class CurlCore
 	#the string value instead for extended usage call the @Block 
 	#getOutput() which return a pointer to the output
 	block getStringOutput()
-		if CURL_OUTPUT == null
+		if CURL_STRING_OUTPUT == null
 			return stringPerform() 
 		else
-			return CURL_OUTPUT
+			return CURL_STRING_OUTPUT
 		end
 	
 	#All the private objects,attributes and blocks exclusive to this

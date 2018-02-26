@@ -16,11 +16,16 @@ module simple.internet.curl
 call "CurlCore.sim"
 
 class CurlHTTP : CurlCore
+
+	/* LIST */
+	CURL_HEADER = [] #create the container list for all header
 	
 	block CurlHTTP(url)
 		initCurl(url) 
 
-	block 
+	block addHeader(header)
+		add(CURL_HEADER, header)
+		
 		
 	private 
 		
