@@ -38,6 +38,9 @@ class CurlHTTP : CurlCore
 			add(CURL_HEADER, header)
 		end
 		
+	block prepare()
+		addOption(option, CURL_HEADER)
+		
 	private 
 		
 		
