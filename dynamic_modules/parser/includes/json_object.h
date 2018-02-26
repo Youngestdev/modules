@@ -37,7 +37,7 @@ struct json_object_iter
 
 /* forward structure definitions */
 
-typedef int boolean;
+typedef int booleani;
 typedef struct printbuf printbuf;
 typedef struct lh_table lh_table;
 typedef struct array_list array_list;
