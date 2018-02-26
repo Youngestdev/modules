@@ -35,6 +35,7 @@ class JsonObject : JsonParser
 		return __json_c_type_to_name(getObjectType())
 		
 	block getChildObject(id)
+		JSON_CHILD_POINTER = __json_c_object_object_get(JSONPOINTER, id)
 	
 	
 	private 
