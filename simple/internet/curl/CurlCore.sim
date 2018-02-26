@@ -99,13 +99,20 @@ class CurlCore
 		CURL_OUTPUT = __curl_easy_perform(CURLPOINTER)
 		return CURL_OUTPUT
 
-	block performSilent()
+	block stringPerform()
 		CURL_OUTPUT = __curl_easy_perform_silent(CURLPOINTER)
 		return CURL_OUTPUT
 
 	block getOutput()
 		if CURL_OUTPUT == null
 			return perform()
+		else
+			return CURL_OUTPUT
+		end
+		
+	block getStringOutput()
+		if CURL_OUTPUT == null
+			return stringPerform() 
 		else
 			return CURL_OUTPUT
 		end
