@@ -23,6 +23,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState) ;
 
 void print_hex( const char* s) ;
 void test_json_c ( void *pointer ) ;
+void init_json_c ( void *pointer );
 
 
 #ifdef __cplusplus

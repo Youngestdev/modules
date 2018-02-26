@@ -22,3 +22,7 @@ class JsonObject
 	#initJson() which intantiate the @Field JSONPOINTER
 	block JsonObject(content)
 		JSON_CONTENT = content
+		initObject()
+		
+	block initObject()
+		JSONPOINTER = 
