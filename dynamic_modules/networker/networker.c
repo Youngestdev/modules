@@ -154,7 +154,7 @@ void new_curl_list ( void *pointer )
 void free_curl_list ( void *pointer )
 {
     
-    if ( SIMPLE_API_PARACOUNT != 1 ) {
+    if ( SIMPLE_API_PARACOUNT != 0 ) {
         SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
         return ;
     }
@@ -175,8 +175,8 @@ void free_curl_list ( void *pointer )
 void curl_list_append ( void *pointer )
 {
     
-    if ( SIMPLE_API_PARACOUNT != 1 ) {
-        SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
+    if ( SIMPLE_API_PARACOUNT != 2 ) {
+        SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
         return ;
     }
     SIMPLE_API_IGNORECPOINTERTYPE ;
