@@ -50,7 +50,7 @@ class CurlCore
 	block initCurl(url)
 		CURLPOINTER = __curl_easy_init()
 		CURL_URL = url
-		addOption(10002, CURL_URL, "")
+		addOption(10002, CURL_URL)
 		CURL_HEADER = __curl_list_append(null, 'Accept-Charset: utf-8')
 	
 	#Assign a custom pointer to the curl object. The old pointer is 
@@ -66,17 +66,8 @@ class CurlCore
 	#Set an option for the curl object. The options can range from
 	#header,crumbs,data,url,file and other curl objects along with 
 	#their curl option from the @File CurlOption or Integer value
-	block addOption(option, value, param)
-		#try 
-			#a = "" + value 
-			add__option(option,value,param)
-			#a = null
-		#catch
-			#for a = 0 to lengthOf(value)
-				#add__option(option,value[a])
-			#end
-		#end
-		#use isList() later
+	block addOption(option, value)
+		add__option(option,value,"")
 		
 	#Get the current pointer of the @Class CurlCore 
 	#@Return the curl pointer @DataType POINTER
@@ -158,6 +149,11 @@ class CurlCore
 		else
 			return CURL_STRING_OUTPUT
 		end
+		
+	#it low level Block in the simple context does same as @Block 
+	#addOption(option, value) but accepts three parameter
+	block $$$__add__option(option,value, param)
+		add__option(option,value, param)
 	
 	#All the private objects,attributes and blocks exclusive to this
 	#class alone are declared below
