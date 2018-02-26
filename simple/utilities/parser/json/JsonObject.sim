@@ -24,12 +24,18 @@ class JsonObject : JsonParser
 		JSON_CONTENT = content
 		initObject()
 		
-	#intantiate the @Field JSONPOINTER with the content. if the 
-	#content of this class changes then this block have to be called 
-	#all the attributes and properties of the @Class JsonObject are
-	#freed and a new pointer is assigned
-	block initObject()
-		JSONPOINTER = __init_json_c(JSON_CONTENT)
+	block getObjectType()
+		return __json_object_get_type(JSONPOINTER)
 		
 	block getString(id)
+	
+	
+	private 
+		
+		#intantiate the @Field JSONPOINTER with the content. if the 
+		#content of this class changes then this block have to be 
+		#called all the attributes and properties of the 
+		#@Class JsonObject are freed and a new pointer is assigned
+		block initObject()
+			JSONPOINTER = __init_json_c(JSON_CONTENT)
 		

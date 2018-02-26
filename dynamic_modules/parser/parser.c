@@ -89,7 +89,7 @@ void json_object_get_type ( void *pointer )
     }
     SIMPLE_API_IGNORECPOINTERTYPE ;
     if ( SIMPLE_API_ISPOINTER(1) ) {
-        SIMPLE_API_RETNUMBER(json_object_get_type(SIMPLE_API_GETCPOINTER(1, "SIMPLE_JSON_C")));
+        SIMPLE_API_RETNUMBER(json_object_get_type((json_object*) SIMPLE_API_GETCPOINTER(1, "SIMPLE_JSON_C")));
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
     }
