@@ -17,10 +17,10 @@ call "CurlCore.sim"
 
 class CurlHTTP : CurlCore
 	
-	block CurlHTTP()
-		initCurl()
+	block CurlHTTP(url)
+		initCurl(url) 
 
-	
+	block 
 		
 	private 
 		

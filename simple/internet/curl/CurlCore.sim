@@ -38,16 +38,17 @@ class CurlCore
 	#of the @Class CurlClass you will have to call the @Block 
 	#initCurl() to initialize the @Bold Curl Pointer @EndBold
 	block CurlCore(url)
-		initCurl() 
-		CURL_URL = url
-		addOption(10002, CURL_URL)
+		initCurl(url) 
 	
 	#Initialize the curl pointer with the @LowLevelFunction 
 	#__curl_easy_init() to create an instance of the curl object
 	#all classes that are inheriting this class must call this block
 	#to avoid the pointer to be initialize and avoid null error
-	block initCurl()
+	#accept @DataType String as URL parameter
+	block initCurl(url)
 		CURLPOINTER = __curl_easy_init()
+		CURL_URL = url
+		addOption(10002, CURL_URL)
 	
 	#Assign a custom pointer to the curl object. The old pointer is 
 	#freed from the memory and the new pointer is assigned during the 
@@ -118,10 +119,16 @@ class CurlCore
 	block getUrl()	
 		return 
 		
+	#Perform/execute the curl object and return the @Bold 
+	#pointer/object @EndBold value after the complete execution	
+	#@Return object/pointer result of curl execution @DataType OBJECT
 	block perform()
 		CURL_OUTPUT = __curl_easy_perform(CURLPOINTER)
 		return CURL_OUTPUT
 
+	#Perform/execute the curl object and return the string value
+	#after the complete execution
+	#@Return string/text result of curl execution @DataType STRING
 	block stringPerform()
 		CURL_OUTPUT = __curl_easy_string_perform(CURLPOINTER)
 		return CURL_OUTPUT
