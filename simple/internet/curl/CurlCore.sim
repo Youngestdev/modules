@@ -10,7 +10,7 @@
  * #date - 26 Febuary 2017
  */
  
-module fulltick.core
+module simple.internet.curl
 
 call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\fulltick\Debug\fulltick.dll")
+callModule("dynamic_modules\networker\Debug\fulltick.dll")
