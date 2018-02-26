@@ -23,21 +23,9 @@ class CurlHTTP : CurlCore
 	block CurlHTTP(url)
 		initCurl(url) 
 
+	#to support list later	
 	block addHeader(header)
-		/*if isList()
-			
-		else 
-		
-		end*/
-		#try 
-			#a = 23 + "" + header
-			__curl_list_append(CURL_HEADER, header)
-			#a = null
-		#catch 
-			#for a = 0 to lengthOf(header)
-				#__curl_list_append(CURL_HEADER, header[a])
-			#end
-		#end
+		__curl_list_append(CURL_HEADER, header) 
 		
 	block prepare()
 		addOption(10023, CURL_HEADER, 1)
