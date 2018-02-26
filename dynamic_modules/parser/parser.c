@@ -87,9 +87,9 @@ void json_object_get_type ( void *pointer )
         SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
         return ;
     }
-    if ( SIMPLE_API_ISSTRING(1) ) {
-        struct json_object *new_obj = json_tokener_parse(SIMPLE_API_GETSTRING(1));
-        SIMPLE_API_RETCPOINTER(new_obj, "SIMPLE_JSON_C");
+    SIMPLE_API_IGNORECPOINTERTYPE ;
+    if ( SIMPLE_API_ISPOINTER(1) ) {
+        SIMPLE_API_RETNUMBER(json_object_get_type(SIMPLE_API_GETCPOINTER(1, "SIMPLE_JSON_C")));
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
     }
@@ -101,9 +101,9 @@ void json_c_type_to_name ( void *pointer )
         SIMPLE_API_ERROR(SIMPLE_API_MISS1PARA);
         return ;
     }
-    if ( SIMPLE_API_ISSTRING(1) ) {
-        struct json_object *new_obj = json_tokener_parse(SIMPLE_API_GETSTRING(1));
-        SIMPLE_API_RETCPOINTER(new_obj, "SIMPLE_JSON_C");
+    SIMPLE_API_IGNORECPOINTERTYPE ;
+    if ( SIMPLE_API_ISNUMBER(1) ) {
+        SIMPLE_API_RETSTRING(json_type_to_name(SIMPLE_API_GETNUMBER(1)));
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
     }

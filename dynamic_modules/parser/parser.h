@@ -24,6 +24,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState) ;
 void print_hex( const char* s) ;
 void test_json_c ( void *pointer ) ;
 void init_json_c ( void *pointer ) ;
+void json_object_get_type ( void *pointer ) ;
 void json_c_type_to_name ( void *pointer ) ;
 
 
