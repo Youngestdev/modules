@@ -116,4 +116,7 @@ class CurlCore
 		
 		#set the curl option with value
 		block add__option(option,value)
-			__curl_easy_setopt(CURLPOINTER, option, value)
+			__curl_easy_setopt(CURLPOINTER, option, value, "")
+			
+			
+			

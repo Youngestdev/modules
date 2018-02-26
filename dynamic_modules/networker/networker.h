@@ -19,6 +19,7 @@
 extern "C" {
 #endif
     
+typedef struct curl_slist CURL_LIST ;
 SIMPLE_API void init_simple_module(SimpleState *sState) ;
 
 void curl_init ( void *pointer ) ;
