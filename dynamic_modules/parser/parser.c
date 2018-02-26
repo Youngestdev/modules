@@ -25,6 +25,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__init_json_c",init_json_c);
     register_block("__json_c_object_get_type",json_c_object_get_type);
     register_block("__json_c_type_to_name",json_c_type_to_name);
+    register_block("__json_c_object_object_get",json_c_object_object_get);
 }
 
 void print_hex( const char* s) 
@@ -103,6 +104,21 @@ void json_c_type_to_name ( void *pointer )
     }
     SIMPLE_API_IGNORECPOINTERTYPE ;
     if ( SIMPLE_API_ISNUMBER(1) ) {
+        SIMPLE_API_RETSTRING(json_type_to_name(SIMPLE_API_GETNUMBER(1)));
+    } else {
+        SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+    }
+}
+
+void json_c_object_object_get ( void *pointer )
+{
+    if ( SIMPLE_API_PARACOUNT != 2 ) {
+        SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+        return ;
+    }
+    SIMPLE_API_IGNORECPOINTERTYPE ;
+    if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2)) {
+        struct json_object *new_obj = json_object_object_get(new_obj, field);
         SIMPLE_API_RETSTRING(json_type_to_name(SIMPLE_API_GETNUMBER(1)));
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);

@@ -34,7 +34,7 @@ class JsonObject : JsonParser
 	block getObjectTypeName()
 		return __json_c_type_to_name(getObjectType())
 		
-	block getString(id)
+	block getChildObject(id)
 	
 	
 	private 
