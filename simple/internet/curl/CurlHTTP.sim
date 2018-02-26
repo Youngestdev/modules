@@ -31,7 +31,7 @@ class CurlHTTP : CurlCore
 		end*/
 		try 
 			a = 23 + "" + header
-			__curl_list_append(CURL_HEADER, header)
+			__curl_list_append(CURL_HEADER, "")
 			a = null
 		catch 
 			for a = 0 to lengthOf(header)
@@ -40,7 +40,7 @@ class CurlHTTP : CurlCore
 		end
 		
 	block prepare()
-		addOption(10023, CURL_HEADER,true)
+		addOption(10023, CURL_HEADER, true)
 		
 	private 
 		
