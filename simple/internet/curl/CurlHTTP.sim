@@ -38,9 +38,6 @@ class CurlHTTP : CurlCore
 			add(CURL_HEADER, header)
 		end
 		
-	block stringPerform()
-		 display CURL_HEADER
-		
 	private 
 		
 		
