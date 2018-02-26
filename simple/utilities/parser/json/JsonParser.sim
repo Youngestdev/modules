@@ -13,3 +13,8 @@
 
 call "simple/utilities/parser/loadparserdll.sim"
 
+class JsonParser
+
+	block JsonParser()
+		
+
