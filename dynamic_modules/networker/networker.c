@@ -76,8 +76,16 @@ void curl_setopt ( void *pointer )
         return ;
     }
     SIMPLE_API_IGNORECPOINTERTYPE ;
-    if ( SIMPLE_API_ISPOINTER(1) ) {
-        curl_easy_cleanup((CURL *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL_CODE"));
+    if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3)) {
+        CURLcode *curl_code ; 
+        curl_code = (CURLcode *) simple_state_malloc(((VM *) pointer)->sState,sizeof(CURLcode)) ;
+        *curl_code = curl_easy_setopt((CURL *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL"), (CURLoption ) SIMPLE_API_GETNUMBER(2), (int) SIMPLE_API_GETNUMBER(3));
+        SIMPLE_API_RETCPOINTER(curl_code,"SIMPLE_CURL_CODE");
+    } else if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISSTRING(3)) {
+        CURLcode *curl_code ; 
+        curl_code = (CURLcode *) simple_state_malloc(((VM *) pointer)->sState,sizeof(CURLcode)) ;
+        *curl_code = curl_easy_setopt((CURL *) SIMPLE_API_GETCPOINTER(1,"SIMPLE_CURL"), (CURLoption ) SIMPLE_API_GETNUMBER(2), (int) SIMPLE_API_GETSTRING(3));
+        SIMPLE_API_RETCPOINTER(curl_code,"SIMPLE_CURL_CODE");
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
         return ;
