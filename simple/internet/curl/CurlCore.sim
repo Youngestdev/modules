@@ -59,14 +59,18 @@ class CurlCore
 				add__option(option,value[a])
 			end
 		end
+		#use isList() later
 		
 	#Get the current pointer of the @Class CurlCore 
 	#@Return the curl pointer @DataType POINTER
 	block getCurlPointer()
 		return CURLPOINTER
 		
+	#Once you are done with the curl object or @Class CurlCore or
+	#it inheriting classes you can use the @Block flush() or 
+	#@Block done() to clean up the curl pointer and objects this 
 	block flush()
-		
+		__curl_easy_cleanup(CURLPOINTER)
 	
 	#All the private objects,attributes and blocks exclusive to this
 	#class alone are declared below
