@@ -5,7 +5,7 @@
 */
 
 /* 
- * @filename - CurlCore.sim
+ * @filename - CurlHTTP.sim
  * @author - Azeez Adewale
  * @date - 26 Febuary 2017
  * @Time - 11:44 AM
@@ -13,5 +13,6 @@
  
 module simple.internet.curl
 
-call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\networker\Debug\networker.dll")
+call "CurlCore.sim"
+
+class CurlHTTP
