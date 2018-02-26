@@ -67,15 +67,15 @@ class CurlCore
 	#header,crumbs,data,url,file and other curl objects along with 
 	#their curl option from the @File CurlOption or Integer value
 	block addOption(option, value)
-		try 
-			a = "" + value 
+		#try 
+			#a = "" + value 
 			add__option(option,value)
-			a = null
-		catch
-			for a = 0 to lengthOf(value)
-				add__option(option,value[a])
-			end
-		end
+			#a = null
+		#catch
+			#for a = 0 to lengthOf(value)
+				#add__option(option,value[a])
+			#end
+		#end
 		#use isList() later
 		
 	#Get the current pointer of the @Class CurlCore 
@@ -109,6 +109,7 @@ class CurlCore
 			for a = 0 to lengthOf(CURL_CHILDREN)
 				CURL_CHILDREN[a].flush()
 			end
+			__free_curl_list(CURL_HEADER)
 		catch end
 		
 	#Directly add the url to the curl object this is declare for 
