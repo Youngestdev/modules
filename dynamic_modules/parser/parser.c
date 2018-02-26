@@ -34,7 +34,7 @@ void print_hex( const char* s)
         unsigned char ch;
         while ((ch = *iter++) != 0) {
            if( ',' != ch)
-            printf("%x ", ch);
+            printf("%hhx ", ch);
            else
             printf( ",");
         }
@@ -118,8 +118,8 @@ void json_c_object_object_get ( void *pointer )
     }
     SIMPLE_API_IGNORECPOINTERTYPE ;
     if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2)) {
-        struct json_object *new_obj = json_object_object_get(new_obj, field);
-        SIMPLE_API_RETSTRING(json_type_to_name(SIMPLE_API_GETNUMBER(1)));
+        struct json_object *new_obj = json_object_object_get(((json_object*) SIMPLE_API_GETCPOINTER(1, "SIMPLE_JSON_C")), SIMPLE_API_GETSTRING(2));
+        SIMPLE_API_RETCPOINTER(new_obj, "SIMPLE_JSON_C");
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
     }
