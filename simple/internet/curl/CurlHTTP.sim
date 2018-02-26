@@ -29,18 +29,17 @@ class CurlHTTP : CurlCore
 		else 
 		
 		end*/
-		try 
-			a = 23 + "" + header
+		#try 
+			#a = 23 + "" + header
 			__curl_list_append(CURL_HEADER, header)
-			a = null
-		catch 
-			for a = 0 to lengthOf(header)
-				__curl_list_append(CURL_HEADER, header[a])
-			end
-		end
+			#a = null
+		#catch 
+			#for a = 0 to lengthOf(header)
+				#__curl_list_append(CURL_HEADER, header[a])
+			#end
+		#end
 		
 	block prepare()
-		display CURL_HEADER
 		addOption(10023, CURL_HEADER, 1)
 		
 	private 
