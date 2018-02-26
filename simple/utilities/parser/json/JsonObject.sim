@@ -23,10 +23,14 @@ class JsonObject : JsonParser
 	block JsonObject(content)
 		JSON_CONTENT = content
 		initObject()
-		
+	
+	#Get the type of the object in the @DataType NUMBER value
 	block getObjectType()
 		return __json_c_object_get_type(JSONPOINTER)
-		
+	
+	#Get the type of object in the @DataType String value by passing
+	#the @Block getObjectType() to the @LowLevelFuction #__json_c_type_to_name(value) which then returns the @DataType 
+	#STRING value of the corresponding @Class JsonObject 
 	block getObjectTypeName()
 		return __json_c_type_to_name(getObjectType())
 		
