@@ -39,7 +39,7 @@ class CurlHTTP : CurlCore
 		end
 		
 	block stringPerform()
-		
+		 display CURL_HEADER
 		
 	private 
 		
