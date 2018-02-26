@@ -14,4 +14,4 @@
 module simple.internet.curl
 
 call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\networker\Debug\networker.dll")
+callModule("dynamic_modules\networker\dist\Debug\MinGW-Windows\networker.dll")
