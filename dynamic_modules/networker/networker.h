@@ -29,6 +29,7 @@ void curl_cleanup ( void *pointer ) ;
 void curl_setopt ( void *pointer ) ;
 void new_curl_list ( void *pointer ) ;
 void free_curl_list ( void *pointer ) ;
+void curl_list_append ( void *pointer ) ;
 
 
 #ifdef __cplusplus
