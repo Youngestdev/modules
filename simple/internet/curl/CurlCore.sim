@@ -96,7 +96,19 @@ class CurlCore
 		catch end
 		
 	block perform()
-		CURL_OUTPUT = __curl_easy_perform(CURLPOINTER)		
+		CURL_OUTPUT = __curl_easy_perform(CURLPOINTER)
+		return CURL_OUTPUT
+
+	block performSilent()
+		CURL_OUTPUT = __curl_easy_perform_silent(CURLPOINTER)
+		return CURL_OUTPUT
+
+	block getOutput()
+		if CURL_OUTPUT == null
+			return perform()
+		else
+			return CURL_OUTPUT
+		end
 	
 	#All the private objects,attributes and blocks exclusive to this
 	#class alone are declared below
