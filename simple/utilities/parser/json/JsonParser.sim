@@ -1,4 +1,15 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
 
+*/
 
+/* 
+ * @filename - JsonParser.sim
+ * @author - Azeez Adewale
+ * @date - 26 Febuary 2017
+ * @Time - 08:04 pM
+ */
 
 call "simple/utilities/parser/loadparserdll.sim"
+

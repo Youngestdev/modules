@@ -14,6 +14,7 @@
 
 #include "../../../simple/bootsrc/includes/simple.h"
 #include "parser.h"
+#include <stdint.h>
 #include "includes/json.h"
 
 SIMPLE_API __declspec(dllexport)
@@ -21,6 +22,19 @@ SIMPLE_API __declspec(dllexport)
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
     register_block("__test_json_c",test_json_c);
+}
+
+void print_hex( const char* s) 
+{
+        const char *iter = s;
+        unsigned char ch;
+        while ((ch = *iter++) != 0) {
+           if( ',' != ch)
+            printf("%x ", ch);
+           else
+            printf( ",");
+        }
+        printf("\n");
 }
 
 void test_json_c ( void *pointer )
@@ -47,5 +61,5 @@ void test_json_c ( void *pointer )
         retval = 1;
     }
 	json_object_put(parse_result);
-	return retval;
+	//return retval;
 }
