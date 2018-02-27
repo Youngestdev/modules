@@ -745,4 +745,10 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__set_button_shortcut",set_button_shortcut);
 	register_block("__set_button_value",set_button_value);
 
+	/** FINPUT/FTEXT (s) **/
+	register_block("__init_input",init_input);
+	register_block("__init_float_input",init_float_input);
+	register_block("__init_int_input",init_int_input);
+	register_block("__init_multiline_input",init_multiline_input);
+
 }
