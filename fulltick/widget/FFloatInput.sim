@@ -16,7 +16,15 @@ module fulltick.widget
 #call the @Class FWidget File for blocks inheritance
 call "fulltick/widget/FInput.sim" ? fulltick.widget
 
-
+#This @Class FFloatInput is child class inheriting most of it 
+#attributes,blocks and other from it parent @Class FInput. It is 
+#a direct subclass of @Class FInput but only accept float number
+#type as it value @Skip
+#  ________________________________________________________
+# |   __________________________________________________   |
+# |  |0123456789.877667767676___________________________|  | 
+# |________________________________________________________|
+#@EndSkip
 class FFloatInput : FInput
 
 	WIDGET_WIDTH = 300 #Change the default width 
