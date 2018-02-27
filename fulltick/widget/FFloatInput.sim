@@ -17,7 +17,7 @@ module fulltick.widget
 call "fulltick/widget/FInput.sim" ? fulltick.widget
 
 
-class FFloatInput : FWidget
+class FFloatInput : FInput
 
 	WIDGET_WIDTH = 300 #Change the default width 
 	WIDGET_HEIGHT = 30 #Change the default height 
