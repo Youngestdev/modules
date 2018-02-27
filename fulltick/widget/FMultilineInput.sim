@@ -28,6 +28,8 @@ call "fulltick/widget/FInput.sim" ? fulltick.widget
 #@EndSkip
 class FMultilineInput : FInput
 
+	WIDGET_HEIGHT = 150 #Since it a text view like input increase default height
+
 	#Initialize the @Class FMultilineInput widget 
 	block FMultilineInput()
 		initialize()
