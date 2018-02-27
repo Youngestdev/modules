@@ -238,7 +238,23 @@ SIMPLE_BLOCK(on_click)
 		return ;
 	}
 	if ( SIMPLE_API_ISCPOINTER(1) ) {
-		Fl_Window *window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Widget *widget = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		String * str = simple_string_new_gc(((VM *) pointer)->sState,SIMPLE_API_GETSTRING(2)); 
+		CallbackStruct *cbs = new CallbackStruct(pointer, str, widget);
+		widget->callback(SimpleCallBack,cbs);
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
+SIMPLE_BLOCK(activate_deactivate_widget)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISCPOINTER(1) && SIMPLE_API_ISNUMBER(1) ) {
+		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		String * str = simple_string_new_gc(((VM *) pointer)->sState,SIMPLE_API_GETSTRING(2)); 
 		CallbackStruct *cbs = new CallbackStruct(pointer, str, window);
 		window->callback(SimpleCallBack,cbs);
@@ -637,6 +653,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__set_visibility",set_visibility);
 	register_block("__on_click",on_click);
 	register_block("__add_widget",add_widget);
+	register_block("__activate_deactivate_widget",activate_deactivate_widget);
 	register_block("__redraw_widget",redraw_widget);
 	register_block("__redraw_widget_parent",redraw_widget_parent);
 	register_block("__get_parent_widget",get_parent_widget);
