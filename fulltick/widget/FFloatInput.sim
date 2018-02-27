@@ -27,9 +27,6 @@ call "fulltick/widget/FInput.sim" ? fulltick.widget
 #@EndSkip
 class FFloatInput : FInput
 
-	WIDGET_WIDTH = 300 #Change the default width 
-	WIDGET_HEIGHT = 30 #Change the default height 
-
 	#Initialize the @Class FInput widget 
 	block FFloatInput()
 		initialize()
