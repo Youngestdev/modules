@@ -27,7 +27,7 @@ class FInput : FWidget
 	block FInput()
 		initialize()
 		
-	block setText(text)
+	block setTitle(text)
 		setLabel(text)
 		return this
 		
