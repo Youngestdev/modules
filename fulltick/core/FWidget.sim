@@ -454,6 +454,10 @@ class FWidget
 		WIDGET_IS_ACTIVE = condition
 		__activate_deactivate_widget(WIDGETPOINTER, WIDGET_IS_ACTIVE)
 		
+	#This block is use to check whether the current widget is active.
+	#It returns true if the widget is active and false if t is
+	#inactive @Returns whether widget is active or inactive
+	#@DataType BOOLEAN
 	block isActive()
 		return WIDGET_IS_ACTIVE
 	
