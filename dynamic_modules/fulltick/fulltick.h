@@ -26,6 +26,12 @@
 #include <FL/Fl_Light_Button.H>
 #include <FL/Fl_Round_Button.H>
 #include <FL/Fl_Tooltip.H>
+/** FINPUT/FTEXT(s) **/
+#include <FL/Fl_Input.H>
+#include <FL/Fl_Float_Input.H>
+#include <FL/Fl_Int_Input.H>
+#include <FL/Fl_Secret_Input.H>
+#include <FL/Fl_Multiline_Input.H>
 
 #ifdef WIN32
 #include <FL/x.H>           
