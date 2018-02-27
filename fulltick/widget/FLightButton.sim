@@ -21,27 +21,34 @@ call "fulltick/widget/FBox.sim" ? fulltick.core
 BUTTON_PRESSED = 1 #The state of the button when pressed not the box down is rendered
 BUTTON_NOT_PRESSED = 0 #the default state of the @Class FButton widget
 
-#The @Class FButton is a child class inheriting
-#Most of it blocks from the @Class FBox widget. This widget is a typical
-#button that execute it click in the @Block callback(cb) in the @Class 
-#FWidget. This class is the parenting class of other type of button and 
-#can be used to create custom button types along with the classes in the 
-#@Module fulltick.raw . Custom buttons that can be used in game or 
-#implementing material designs can inherit this @Class FButton and add more
-#styling and few other attributes @Skip
+#The @Class FLightButton  is a child class inheriting
+#Most of it blocks from the @Class FButton widget. This widget is a #typical button that execute it click in the @Block callback(cb) in
+#the @Class FWidget. This class is the parenting class of other 
+#type of button and can be used to create custom button types along 
+#with the classes in the @Module fulltick.raw . 
+#Custom buttons that can be used in game or 
+#implementing material designs can inherit this @Class FLightButton 
+#and add more styling and few other attributes @Skip
 #  ================        ##################
-# ||		       ||	   ##################
-# ||	  LABEL	   ||      #####LABEL########
-# ||               ||      ##################
+# ||===		       ||	   ##################
+# ||  ||  LABEL	   ||      #   #####LABEL####
+# ||===            ||      ##################
 #  ================        ##################
 # @EndSkip
-#The FBox instance can be call as much time as possible a
+#The @Class FLightButton instance can be call anytime. It also uses
+#light indication to show it current state
 class FLightButton : FButton
 
 	#Initialize the @Class FLightButton widget with no attribute
 	block FLightButton(label)
 		initialize()
 		setLabel(FCHECKBUTTON_LEAD_SPACE+label)
+		
+	#Change the color that is on when the button is clicked the 
+	#default is yellow but you can use this 
+	#@Block setLightColor(color) to change the light color
+	block setLightColor(color)
+		setSelectionColor(color)
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class
