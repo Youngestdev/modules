@@ -5,7 +5,7 @@
 */
 
 /* 
- * @Filename - FPasswordInput.sim
+ * @Filename - FMultilineInput.sim
  * @Author - Azeez Adewale
  * @Date - 27 Febuary 2018
  * @Time - 04:53 PM
@@ -17,7 +17,7 @@ module fulltick.widget
 #call the @Class FInput File for blocks inheritance
 call "fulltick/widget/FInput.sim" ? fulltick.widget
 
-#This @Class FPasswordInput is child class inheriting most of it 
+#This @Class FMultilineInput is child class inheriting most of it 
 #attributes,blocks and other from it parent @Class FInput. It is 
 #a direct subclass of @Class FInput but all the entered characters 
 #are converted to dots to hide the inputed string @Skip
@@ -26,20 +26,20 @@ call "fulltick/widget/FInput.sim" ? fulltick.widget
 # |  |......................____________________________|  | 
 # |________________________________________________________|
 #@EndSkip
-class FPasswordInput : FInput
+class FMultilineInput : FInput
 
-	#Initialize the @Class FPasswordInput widget 
-	block FPasswordInput()
+	#Initialize the @Class FMultilineInput widget 
+	block FMultilineInput()
 		initialize()
 		
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
 		
-		#Create an instance of the FPasswordInput Widget with custom width
-		#and height to avoid invisible @Class FInput
+		#Create an instance of the FMultilineInput Widget with 
+		#custom width and height to avoid invisible @Class FInput
 		block initialize()
-			WIDGETPOINTER = __init_secret_input(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
+			WIDGETPOINTER = __init_multiline_input(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
 	
 	
 	
