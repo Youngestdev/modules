@@ -677,6 +677,20 @@ SIMPLE_BLOCK(init_int_input)
 	}
 }
 
+SIMPLE_BLOCK(init_secret_input)
+{
+	if ( SIMPLE_API_PARACOUNT != 4 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
+		Fl_Secret_Input *input = new Fl_Secret_Input((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3),(int)SIMPLE_API_GETNUMBER(4));
+		SIMPLE_API_RETCPOINTER(input,"SIMPLE_FLTK_");
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
 SIMPLE_BLOCK(init_multiline_input)
 {
 	if ( SIMPLE_API_PARACOUNT != 4 ) {
@@ -749,6 +763,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__init_input",init_input);
 	register_block("__init_float_input",init_float_input);
 	register_block("__init_int_input",init_int_input);
+	register_block("__init_secret_input",init_secret_input);
 	register_block("__init_multiline_input",init_multiline_input);
 
 }
