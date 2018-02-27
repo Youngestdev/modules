@@ -5,10 +5,11 @@
 */
 
 /* 
- * @Filename - FFloatInput.sim
+ * @Filename - FIntInput.sim
  * @Author - Azeez Adewale
  * @Date - 27 Febuary 2018
- * @Time - 03:40 PM
+ * @Time - 04:37 PM
+ *
  */
 
 module fulltick.widget
@@ -16,32 +17,32 @@ module fulltick.widget
 #call the @Class FInput File for blocks inheritance
 call "fulltick/widget/FInput.sim" ? fulltick.widget
 
-#This @Class FFloatInput is child class inheriting most of it 
+#This @Class FIntInput is child class inheriting most of it 
 #attributes,blocks and other from it parent @Class FInput. It is 
-#a direct subclass of @Class FInput but only accept float number
+#a direct subclass of @Class FInput but only accept integer number
 #type as it value @Skip
 #  ________________________________________________________
 # |   __________________________________________________   |
-# |  |0123456789.877667767676___________________________|  | 
+# |  |0123456789877667767676____________________________|  | 
 # |________________________________________________________|
 #@EndSkip
-class FFloatInput : FInput
+class FIntInput : FInput
 
 	WIDGET_WIDTH = 300 #Change the default width 
 	WIDGET_HEIGHT = 30 #Change the default height 
 
 	#Initialize the @Class FInput widget 
-	block FFloatInput()
+	block FIntInput()
 		initialize()
 		
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
 		
-		#Create an instance of the FFloatInput Widget with custom 
-		#width and height to avoid invisible @Class FInput
+		#Create an instance of the FIntInput Widget with custom width
+		#and height to avoid invisible @Class FInput
 		block initialize()
-			WIDGETPOINTER = __init_float_input(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
+			WIDGETPOINTER = __init_int_input(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
 	
 	
 	

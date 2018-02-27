@@ -21,6 +21,7 @@ class FInput : FWidget
 
 	WIDGET_WIDTH = 300 #Change the default width 
 	WIDGET_HEIGHT = 30 #Change the default height 
+	WIDGET_Y = 10
 
 	#Initialize the @Class FInput widget 
 	block FInput()
