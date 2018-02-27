@@ -441,6 +441,10 @@ class FWidget
 		
 	block getGroup()
 		return WIDGET_GROUP
+		
+	block activateWidget(condition)
+		WIDGET_IS_ACTIVE = condition
+		__activate_deactivate_widget(WIDGETPOINTER, WIDGET_IS_ACTIVE)
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class

@@ -253,11 +253,13 @@ SIMPLE_BLOCK(activate_deactivate_widget)
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISCPOINTER(1) && SIMPLE_API_ISNUMBER(1) ) {
-		Fl_Widget *window = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		String * str = simple_string_new_gc(((VM *) pointer)->sState,SIMPLE_API_GETSTRING(2)); 
-		CallbackStruct *cbs = new CallbackStruct(pointer, str, window);
-		window->callback(SimpleCallBack,cbs);
+	if ( SIMPLE_API_ISCPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+		Fl_Widget *widget = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		if (SIMPLE_API_GETNUMBER(2) == 1) {
+			widget->activate();
+		} else {
+			widget->deactivate();
+		}
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
