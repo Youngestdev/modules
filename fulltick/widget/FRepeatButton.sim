@@ -31,6 +31,9 @@ call "fulltick/widget/FButton.sim" ? fulltick.core
 #    =============             ######### 
 # @EndSkip
 #The @Class FRepeatButton instance can be call anytime
+#when the state of this button change e.g when it is clicked the 
+#callback keep on executing until the state changed (e.g it is 
+#released from a click)
 class FRepeatButton : FButton
 
 	#Initialize the @Class FCheckButton widget with no attribute

@@ -8,7 +8,7 @@
  * @Filename - FButton.sim
  * @Author - Azeez Adewale
  * @Date - 21 Febuary 2018
- * @Time - 12:00 PM
+ * @Time - 12:50 PM
  */
 
 module fulltick.widget
@@ -16,13 +16,13 @@ module fulltick.widget
 #call the @Class FBox File for blocks inheritance
 call "fulltick/widget/FButton.sim" ? fulltick.widget
 
-#The @Class FRoundButton  is a child class inheriting
+#The @Class FRadioButton  is a child class inheriting
 #Most of it blocks from the @Class FButton widget. This widget is a #typical button that execute it click in the @Block callback(cb) in
 #the @Class FWidget. This class is the parenting class of other 
 #type of button and can be used to create custom button types along 
 #with the classes in the @Module fulltick.raw . 
 #Custom buttons that can be used in game or 
-#implementing material designs can inherit this @Class FRoundButton 
+#implementing material designs can inherit this @Class FRadioButton 
 #and add more styling and few other attributes @Skip
 #     ==========              ########## 
 #   ||		     ||          ############# 
@@ -30,11 +30,12 @@ call "fulltick/widget/FButton.sim" ? fulltick.widget
 #   ||            ||         ############# 
 #    =============             ######### 
 # @EndSkip
-#The @Class FRoundButton instance can be call anytime
-class FRoundButton : FButton
+#The @Class FRadioButton instance can be call anytime
+#This is a button with a radio circle
+class FRadioButton : FButton
 
 	#Initialize the @Class FCheckButton widget with a label
-	block FRoundButton(label)
+	block FRadioButton(label)
 		initialize()
 		setLabel(FCHECKBUTTON_LEAD_SPACE+label)
 	
