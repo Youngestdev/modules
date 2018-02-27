@@ -23,10 +23,8 @@ class FFloatInput : FWidget
 	WIDGET_HEIGHT = 30 #Change the default height 
 
 	#Initialize the @Class FInput widget 
-	block FInput()
+	block FFloatInput()
 		initialize()
-		
-	block copy()
 		
 	
 	#all the private attributes, fields and block not accessible #outside the class
@@ -35,7 +33,7 @@ class FFloatInput : FWidget
 		#Create an instance of the FInput Widget with custom width
 		#and height to avoid invisible @Class FInput
 		block initialize()
-			WIDGETPOINTER = __init_input(70, 10, WIDGET_WIDTH, WIDGET_HEIGHT)
+			WIDGETPOINTER = __init_input(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
 	
 	
 	
