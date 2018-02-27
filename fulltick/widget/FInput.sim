@@ -32,26 +32,3 @@ call "fulltick/widget/FButton.sim" ? fulltick.widget
 # @EndSkip
 #The FReturnButton instance can be call as much time as possible a
 class FReturnButton : FButton
-
-	#Initialize the @Class FReturnButton widget with a label
-	block FReturnButton(label)
-		initialize()
-		setLabel(FCHECKBUTTON_LEAD_SPACE+label)
-	
-	#all the private attributes, fields and block not accessible outside
-	#the class
-	private 
-		
-		#Create an instance of the FReturnButton Widget with a custom width 
-		#and height to avoid being rendered like a @Class FLabel
-		block initialize()
-			WIDGETPOINTER = __init_return_button(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
-
-
-
-
-
-
-
-
-

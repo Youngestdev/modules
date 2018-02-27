@@ -14,12 +14,7 @@
 module fulltick.widget
 
 #call the @Class FBox File for blocks inheritance
-call "fulltick/widget/FBox.sim" ? fulltick.core
-
-/* NUMBERS */
-
-BUTTON_PRESSED = 1 #The state of the button when pressed not the box down is rendered
-BUTTON_NOT_PRESSED = 0 #the default state of the @Class FButton widget
+call "fulltick/widget/FButton.sim" ? fulltick.widget
 
 #The @Class FRoundButton  is a child class inheriting
 #Most of it blocks from the @Class FButton widget. This widget is a #typical button that execute it click in the @Block callback(cb) in
