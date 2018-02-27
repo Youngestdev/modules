@@ -23,7 +23,14 @@ call "fulltick/widget/FInput.sim" ? fulltick.widget
 #are converted to dots to hide the inputed string @Skip
 #  ________________________________________________________
 # |   __________________________________________________   |
-# |  |......................____________________________|  | 
+# |  |ghghghgfhghfghdgfhuyuiuiutiuiuigjiuiikjuiuiuiuiuig|  | 
+# |  |jrfjrhfjhrfjhrjfhjrhfjhrjfhrfrfrfjrlkuelfekjflkuiu|  |
+# |  |gfhhgdfghfdwghfhgfghfhfhghghg hjuyuyuyuyuyu   eury|  |
+# |  |jhj              iuhiyuyuryiueyiutyiueyu khghgjhgg|  |
+# |  |mhghgjh     jgjfgrhjfghjgfehjgjehfghjgehghjghjgjg |  |
+# |  |kjhjhjhjhgfuiyuetytiqeuyqtqeiuqyeeiuuoeeyfuyuiyuyu|  |
+# |  |kjhjhjkhhjghjgjgjhgwhg        jggtyutuytytuytwuyt |  |
+# |  |__________________________________________________|  |
 # |________________________________________________________|
 #@EndSkip
 class FMultilineInput : FInput
