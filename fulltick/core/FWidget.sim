@@ -442,7 +442,7 @@ class FWidget
 	block getGroup()
 		return WIDGET_GROUP
 		
-	block activateWidget(condition)
+	block activate(condition)
 		WIDGET_IS_ACTIVE = condition
 		__activate_deactivate_widget(WIDGETPOINTER, WIDGET_IS_ACTIVE)
 	
