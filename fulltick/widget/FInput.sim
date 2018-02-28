@@ -84,7 +84,11 @@ class FInput : FWidget
 		return WIDGET_CURSOR_COLOR
 		
 	block cut()
-		return __input_cut(WIDGETPOINTER, 0, 5, 3) 
+		copy()
+		return __input_cut(WIDGETPOINTER, 0, 0, 1)
+
+	block delete()
+		return __input_cut(WIDGETPOINTER, 0, 0, 1)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
