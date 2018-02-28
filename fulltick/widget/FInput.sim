@@ -83,6 +83,11 @@ class FInput : FWidget
 	block getCursorColor()
 		return WIDGET_CURSOR_COLOR
 		
+	#This block mimics ^X which cut and copy the selected to clipboard 
+	#unlike @Block copy() the selected text does not remain in the widget
+	#but it is deleted instead
+	#@Returns the cut value which is true if cut successfully and false
+	#if cut fails @DataType BOOLEAN
 	block cut()
 		copy()
 		return __input_cut(WIDGETPOINTER, 0, 0, 1)
