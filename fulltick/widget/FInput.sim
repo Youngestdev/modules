@@ -172,7 +172,10 @@ class FInput : FWidget
 		return INPUT_WIDGET_MAXIMUM_SIZE
 		
 	block position()
-		return __input_position(WIDGETPOINTER,)
+		return __input_position(WIDGETPOINTER,0,0,true)
+		
+	block position(cursorindex,markindex)
+		return __input_position(WIDGETPOINTER,cursorindex,markindex,true)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
