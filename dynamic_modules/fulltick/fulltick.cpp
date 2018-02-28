@@ -759,6 +759,20 @@ SIMPLE_BLOCK(set_input_cursor_color)
 	}
 }
 
+SIMPLE_BLOCK(get_input_index)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		SIMPLE_API_RETSTRING((const char*)input->index((int) SIMPLE_API_GETNUMBER(2)));
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
@@ -822,5 +836,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__input_copy",input_copy);
 	register_block("__input_cut",input_cut);
 	register_block("__set_input_cursor_color",set_input_cursor_color);
+	register_block("__get_input_index",get_input_index);
 
 }

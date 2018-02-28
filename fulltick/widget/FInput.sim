@@ -112,6 +112,9 @@ class FInput : FWidget
 	#if delete fails @DataType BOOLEAN	
 	block delete(startindex, endindex)
 		return __input_cut(WIDGETPOINTER, startindex, endindex, 3)
+		
+	block index(index)
+		return __get_input_index(WIDGETPOINTER,index)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
