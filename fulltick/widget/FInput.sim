@@ -128,12 +128,18 @@ class FInput : FWidget
 	
 	#Insert any text at the current position of the caret/cursor in the
 	#widget with @Bold index @EndBold indication the offset in the text to 
-	#which the text is inserted in the widget
+	#which the text is inserted in the widget. 
+	#@Note the index has to be the length of the @DataType STRING to be 
+	#inserted you can call the @Block lengthOf(object) on the @DataType
+	#STRING to be inserted to get the length else if the index is greater
+	#than the length of the @DataType string to be inserted the block will
+	#do the rounding to @DataType String length
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block insertTo(value, index)
 		if index > lengthOf(value) index = lengthOf(value)+1 end
 		__input_insert(WIDGETPOINTER,value,index)
+		return this
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
