@@ -22,6 +22,7 @@ class FInput : FWidget
 	WIDGET_WIDTH = 300 #Change the default width 
 	WIDGET_HEIGHT = 30 #Change the default height 
 	WIDGET_Y = 10 #The default was change from zero to 10 but the position can be changed anytime
+	WIDGET_CURSOR_COLOR = 56 #the default caret/cursor color is black
 
 	#Initialize the @Class FInput widget 
 	block FInput()
@@ -57,7 +58,16 @@ class FInput : FWidget
 	#@Returns the copy value which is true if copy successfully and false
 	#if copy fails @DataType BOOLEAN
 	block copyCut()
-		return __input_copy(WIDGETPOINTER, null, false)		
+		return __input_copy(WIDGETPOINTER, null, false)	
+
+	block setCursorColor(color)	
+		try {
+			color.getColor() WIDGET_CURSOR_COLOR = color
+		catch
+			WIDGET_CURSOR_COLOR = new FColor
+			WIDGET_CURSOR_COLOR.setColorValue(color)
+		}
+		__set_input_cursor_color(WIDGETPOINTER, WIDGET_CURSOR_COLOR.getColor())
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
