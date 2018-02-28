@@ -152,6 +152,9 @@ class FInput : FWidget
 	#@Return the current mark of the widget @DataType NUMBER	
 	block setMark(index)
 		return __input_mark(WIDGETPOINTER,index,false)
+		
+	block setMaximumSize(size)
+		__input_maximum_size(WIDGETPOINTER,size)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
