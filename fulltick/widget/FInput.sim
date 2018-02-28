@@ -170,11 +170,12 @@ class FInput : FWidget
 	#@Return the number of character this widget can hold @DataType NUMBER	
 	block getMaximumSize()
 		return INPUT_WIDGET_MAXIMUM_SIZE
-		
-	block position()
+	
+	#
+	block cursorPosition()
 		return __input_position(WIDGETPOINTER,0,0,1)
 		
-	block positionAt(cursorindex,markindex)
+	block cursorPositionAt(cursorindex,markindex)
 		return __input_position(WIDGETPOINTER,cursorindex,markindex,0)
 		
 	block setCursorPosition(index)
