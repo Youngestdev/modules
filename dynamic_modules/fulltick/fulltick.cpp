@@ -705,7 +705,7 @@ SIMPLE_BLOCK(init_multiline_input)
 	}
 }
 
-SIMPLE_BLOCK(input_copy_cut)
+SIMPLE_BLOCK(input_copy)
 {
 	if ( SIMPLE_API_PARACOUNT != 3 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
@@ -713,7 +713,12 @@ SIMPLE_BLOCK(input_copy_cut)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) ) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		input->copy();
+		if (SIMPLE_API_GETNUMBER(3) == 1) {
+			SIMPLE_API_RETNUMBER(input->copy((int)SIMPLE_API_GETNUMBER(2)));
+		} else {
+			SIMPLE_API_RETNUMBER(input->copy_cuts());
+		}
+		
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
@@ -779,6 +784,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__init_int_input",init_int_input);
 	register_block("__init_secret_input",init_secret_input);
 	register_block("__init_multiline_input",init_multiline_input);
-	register_block("__input_copy",input_copy_cut);
+	register_block("__input_copy",input_copy);
 
 }
