@@ -28,6 +28,9 @@ class FInput : FWidget
 	
 	/* TYPE */
 	WIDGET_CURSOR_COLOR = new FColor #the default caret/cursor color is black
+	
+	/* BOOLEAN */
+	INPUT_WIDGET_IS_READ_ONLY = false #true if the input widget id read only
 
 	#Initialize the @Class FInput widget 
 	block FInput()
@@ -187,6 +190,9 @@ class FInput : FWidget
 	#This block can be used 
 	block setReadOnly(condition)
 		__input_read_only(WIDGETPOINTER,condition)
+		
+	block isReadOnly()
+		return INPUT_WIDGET_IS_READ_ONLY
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
