@@ -740,14 +740,14 @@ SIMPLE_BLOCK(set_input_cursor_color)
 
 SIMPLE_BLOCK(input_cut)
 {
-	if ( SIMPLE_API_PARACOUNT != 3 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
+	if ( SIMPLE_API_PARACOUNT != 4 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		if (SIMPLE_API_GETNUMBER(4) == 1) {
-			SIMPLE_API_RETNUMBER(input->cut());
+			printf("it plain cut\n"); SIMPLE_API_RETNUMBER(input->cut()); 
 		} else if (SIMPLE_API_GETNUMBER(4) == 2) {
 			SIMPLE_API_RETNUMBER(input->cut((int)SIMPLE_API_GETNUMBER(2)));
 		} else {
