@@ -141,10 +141,15 @@ class FInput : FWidget
 		__input_insert(WIDGETPOINTER,value,index)
 		return this
 		
-		
+	#Get the current mark in the widget not to be mistaken with the 
+	#widget caret/cursor position. The mark is simply the position of then
+	#selection from the position
+	#@Return the current mark of the widget @DataType NUMBER
 	block mark()
 		return __input_mark(WIDGETPOINTER,0,true)
 		
+	#Set the widget mark see also @Block mark()	
+	#@Return the current mark of the widget @DataType NUMBER	
 	block setMark(index)
 		return __input_mark(WIDGETPOINTER,index,false)
 	

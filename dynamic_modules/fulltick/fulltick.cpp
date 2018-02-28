@@ -786,19 +786,35 @@ SIMPLE_BLOCK(input_insert)
 		} else { 
 			input->insert((const char*) SIMPLE_API_GETSTRING(2), (int)SIMPLE_API_GETNUMBER(3));
 		}
-		
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
 }
 
-SIMPLE_BLOCK(input_mark)
+SIMPLE_BLOCK(input_maximum_size)
 {
 	if ( SIMPLE_API_PARACOUNT != 3 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3)) {
+		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		if ((int)SIMPLE_API_GETNUMBER(3) == 1) {
+			SIMPLE_API_RETNUMBER(input->mark());
+		} else { 
+			SIMPLE_API_RETNUMBER(input->mark((int)SIMPLE_API_GETNUMBER(2)));
+		}
+		
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}SIMPLE_BLOCK(input_mark)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2)) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		if ((int)SIMPLE_API_GETNUMBER(3) == 1) {
 			SIMPLE_API_RETNUMBER(input->mark());
