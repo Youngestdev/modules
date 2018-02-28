@@ -101,20 +101,25 @@ class FInput : FWidget
 		
 	#Use this block to delete text from the current position of the 
 	#caret/cursor to the specified @Bold index @EndBold in the widget
-	#@Returns the delete value which is true if delete successfully and false
+	#@Return the delete value which is true if delete successfully and false
 	#if delete fails @DataType BOOLEAN
 	block deleteFromPositionTo(index)
 		return __input_cut(WIDGETPOINTER, index, 0, 2)
 		
 	#This block delete text from the specified @Bold startindex @EndBold
 	#to the specified @Bold endindex @EndBold
-	#@Returns the delete value which is true if delete successfully and false
+	#@Return the delete value which is true if delete successfully and false
 	#if delete fails @DataType BOOLEAN	
 	block delete(startindex, endindex)
 		return __input_cut(WIDGETPOINTER, startindex, endindex, 3)
-		
+	
+	#get the character at the specified @Bold index @EndBold 
+	#@Return the character at the index @DataType STRING
 	block index(index)
 		return __get_input_index(WIDGETPOINTER,6)
+		
+	block insert(value)
+		__input_insert(WIDGETPOINTER,value)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 

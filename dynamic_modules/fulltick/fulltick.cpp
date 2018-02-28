@@ -773,7 +773,7 @@ SIMPLE_BLOCK(get_input_index)
 	}
 }
 
-SIMPLE_BLOCK(get_input_insert)
+SIMPLE_BLOCK(input_insert)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -851,5 +851,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__input_cut",input_cut);
 	register_block("__set_input_cursor_color",set_input_cursor_color);
 	register_block("__get_input_index",get_input_index);
+	register_block("__input_insert",input_insert);
 
 }
