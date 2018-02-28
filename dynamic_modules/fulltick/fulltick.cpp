@@ -781,10 +781,10 @@ SIMPLE_BLOCK(input_insert)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) && SIMPLE_API_ISNUMBER(3)) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		if ((int)SIMPLE_API_GETNUMBER(2) == -1) {
+		if ((int)SIMPLE_API_GETNUMBER(3) == -1) {
 			input->insert((const char*) SIMPLE_API_GETSTRING(2));
-		} else { printf("reach here %i\n",SIMPLE_API_GETNUMBER(2));
-			input->insert((const char*) SIMPLE_API_GETSTRING(2), (int)SIMPLE_API_GETNUMBER(2));
+		} else { 
+			input->insert((const char*) SIMPLE_API_GETSTRING(2), (int)SIMPLE_API_GETNUMBER(3));
 		}
 		
 	} else {
