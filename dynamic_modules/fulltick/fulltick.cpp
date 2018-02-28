@@ -824,6 +824,25 @@ SIMPLE_BLOCK(input_maximum_size)
 	}
 }
 
+SIMPLE_BLOCK(input_position)
+{
+	if ( SIMPLE_API_PARACOUNT != 4 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
+		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		if ((int)SIMPLE_API_GETNUMBER(4) == 1) {
+			SIMPLE_API_RETNUMBER(input->position());
+		} else { 
+			SIMPLE_API_RETNUMBER(input->position((int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3)));
+		}
+		
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
@@ -891,5 +910,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__input_insert",input_insert);
 	register_block("__input_mark",input_mark);
 	register_block("__input_maximum_size",input_maximum_size);
+	register_block("__input_position",input_position);
 
 }
