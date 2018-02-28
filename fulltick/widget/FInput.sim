@@ -41,6 +41,13 @@ class FInput : FWidget
 	block copy()
 		return __input_copy(WIDGETPOINTER, 1, true)
 		
+	#Use this block to copy the @Class FInput and inheriting classes into
+	#a custom clipboard/@Class FClipboard which is just of two type 
+	#>> the text clipboard
+	#>> the cut clipboard
+	#You can read more about the clipboard in @Class FClipboard
+	#@Returns the copy value which is true if copy successfully and false
+	#if copy fails @DataType BOOLEAN
 	block copyToClipboard(clipboard)
 		return __input_copy(WIDGETPOINTER, clipboard, true)
 		
