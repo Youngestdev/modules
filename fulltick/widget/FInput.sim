@@ -92,8 +92,16 @@ class FInput : FWidget
 		copy()
 		return __input_cut(WIDGETPOINTER, 0, 0, 1)
 
+	#This block is most similar to @Block cut() but it does not copy the 
+	#selected text to the clipboard but delete it instead.
+	#@Returns the cut value which is true if cut successfully and false
+	#if cut fails @DataType BOOLEAN
 	block delete()
 		return __input_cut(WIDGETPOINTER, 0, 0, 1)
+		
+	#Use this block to delete text from the begining of 
+	block deleteFromStartTo(index)
+		return __input_cut(WIDGETPOINTER, index, 0, 2)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
