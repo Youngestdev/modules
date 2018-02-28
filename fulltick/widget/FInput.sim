@@ -14,7 +14,7 @@
 module fulltick.widget
 
 #call the @Class FWidget File for blocks inheritance
-call "fulltick/painting/FColor.sim" ? fulltick ? painting
+call "fulltick/painting/FColor.sim" ? fulltick.painting
 call "fulltick/core/FWidget.sim" ? fulltick.widget
 
 
@@ -23,7 +23,7 @@ class FInput : FWidget
 	WIDGET_WIDTH = 300 #Change the default width 
 	WIDGET_HEIGHT = 30 #Change the default height 
 	WIDGET_Y = 10 #The default was change from zero to 10 but the position can be changed anytime
-	WIDGET_CURSOR_COLOR = 56 #the default caret/cursor color is black
+	WIDGET_CURSOR_COLOR = new FColor #the default caret/cursor color is black
 
 	#Initialize the @Class FInput widget 
 	block FInput()
@@ -62,7 +62,11 @@ class FInput : FWidget
 		return __input_copy(WIDGETPOINTER, null, false)	
 
 	#Change the color of the @Class FInput and it inheriting classes
-	#caret/cursor color. This block accept the @Class FColor 
+	#caret/cursor color. This block accept the @Class FColor or the 
+	#absolute @DataType NUMBER value of the color which is then cast to
+	#a new instance to the @Class FColor
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setCursorColor(color)	
 		try {
 			color.getColor() WIDGET_CURSOR_COLOR = color
@@ -71,6 +75,13 @@ class FInput : FWidget
 			WIDGET_CURSOR_COLOR.setColorValue(color)
 		}
 		__set_input_cursor_color(WIDGETPOINTER, WIDGET_CURSOR_COLOR.getColor())
+		return this
+		
+	#Get the caret/cursor color of this widget 
+	#@Return the caret/cursor color in form of the @Class FColor to 
+	#support and allow more color usage
+	block getCursorColor()
+		return WIDGET_CURSOR_COLOR
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
