@@ -157,10 +157,17 @@ class FInput : FWidget
 	block setMark(index)
 		return __input_mark(WIDGETPOINTER,index,false)
 		
+	#If you want to limit the number of character that the widget can hold
+	#you can send the limit to this block
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setMaximumSize(size)
 		INPUT_WIDGET_MAXIMUM_SIZE = size
 		__input_maximum_size(WIDGETPOINTER,INPUT_WIDGET_MAXIMUM_SIZE)
+		return this
 		
+	#get the number of character this widget can hold 
+	#@Return the number of character this widget can hold @DataType NUMBER	
 	block getMaximumSize()
 		return INPUT_WIDGET_MAXIMUM_SIZE
 	
