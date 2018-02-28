@@ -106,6 +106,8 @@ class FInput : FWidget
 	block deleteFromPositionTo(index)
 		return __input_cut(WIDGETPOINTER, index, 0, 2)
 		
+	#This block delete text from the specified @Bold startindex @EndBold
+	#to the specified @Bold endindex @EndBold
 	#@Returns the delete value which is true if delete successfully and false
 	#if delete fails @DataType BOOLEAN	
 	block delete(startindex, endindex)
