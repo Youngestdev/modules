@@ -20,9 +20,13 @@ call "fulltick/core/FWidget.sim" ? fulltick.widget
 
 class FInput : FWidget
 
+	/* NUMBER */
 	WIDGET_WIDTH = 300 #Change the default width 
 	WIDGET_HEIGHT = 30 #Change the default height 
 	WIDGET_Y = 10 #The default was change from zero to 10 but the position can be changed anytime
+	INPUT_WIDGET_MAXIMUM_SIZE = 100000000 #The default maximum is unlimited
+	
+	/* TYPE */
 	WIDGET_CURSOR_COLOR = new FColor #the default caret/cursor color is black
 
 	#Initialize the @Class FInput widget 
@@ -154,7 +158,11 @@ class FInput : FWidget
 		return __input_mark(WIDGETPOINTER,index,false)
 		
 	block setMaximumSize(size)
-		__input_maximum_size(WIDGETPOINTER,size)
+		INPUT_WIDGET_MAXIMUM_SIZE = size
+		__input_maximum_size(WIDGETPOINTER,INPUT_WIDGET_MAXIMUM_SIZE)
+		
+	block getMaximumSize()
+		return INPUT_WIDGET_MAXIMUM_SIZE
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
