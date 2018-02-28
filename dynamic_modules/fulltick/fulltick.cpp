@@ -767,6 +767,7 @@ SIMPLE_BLOCK(get_input_index)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		printf("index : %i\n",(int) SIMPLE_API_GETNUMBER(2));
 		SIMPLE_API_RETSTRING((const char*)input->index((int) SIMPLE_API_GETNUMBER(2)));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);

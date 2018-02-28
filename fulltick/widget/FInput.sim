@@ -114,7 +114,7 @@ class FInput : FWidget
 		return __input_cut(WIDGETPOINTER, startindex, endindex, 3)
 		
 	block index(index)
-		return __get_input_index(WIDGETPOINTER,index)
+		return __get_input_index(WIDGETPOINTER,6)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
