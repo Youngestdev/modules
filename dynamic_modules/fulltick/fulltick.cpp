@@ -705,6 +705,20 @@ SIMPLE_BLOCK(init_multiline_input)
 	}
 }
 
+SIMPLE_BLOCK(input_copy)
+{
+	if ( SIMPLE_API_PARACOUNT != 4 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
+		Fl_Multiline_Input *input = new Fl_Multiline_Input((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3),(int)SIMPLE_API_GETNUMBER(4));
+		SIMPLE_API_RETCPOINTER(input,"SIMPLE_FLTK_");
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
@@ -765,5 +779,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__init_int_input",init_int_input);
 	register_block("__init_secret_input",init_secret_input);
 	register_block("__init_multiline_input",init_multiline_input);
+	register_block("__input_copy",input_copy);
 
 }
