@@ -834,8 +834,10 @@ SIMPLE_BLOCK(input_position)
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		if ((int)SIMPLE_API_GETNUMBER(4) == 1) {
 			SIMPLE_API_RETNUMBER(input->position());
-		} else { 
+		} else if ((int)SIMPLE_API_GETNUMBER(4) == 0)  { 
 			SIMPLE_API_RETNUMBER(input->position((int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3)));
+		} else {
+			SIMPLE_API_RETNUMBER(input->position((int)SIMPLE_API_GETNUMBER(2)));
 		}
 		
 	} else {
