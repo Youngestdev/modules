@@ -90,7 +90,7 @@ SIMPLE_BLOCK(resizable_object)
 	}
 }
 
-SIMPLE_BLOCK(object_background)
+SIMPLE_BLOCK(set_widget_background)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -724,6 +724,20 @@ SIMPLE_BLOCK(input_copy)
 	}
 }
 
+SIMPLE_BLOCK(set_input_cursor_color)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		input->cursor_color(((Fl_Color) SIMPLE_API_GETNUMBER(2)));
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
@@ -734,7 +748,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 
 	/** FWIDGETS **/
 	register_block("__resizable",resizable_object);
-	register_block("__set_bg",object_background);
+	register_block("__set_bg",set_widget_background);
 	register_block("__set_label",set_label);
 	register_block("__set_label_color",set_label_color);
 	register_block("__set_label_size",set_label_size);
@@ -785,5 +799,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__init_secret_input",init_secret_input);
 	register_block("__init_multiline_input",init_multiline_input);
 	register_block("__input_copy",input_copy);
+	register_block("__set_input_cursor_color",set_input_cursor_color);
 
 }

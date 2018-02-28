@@ -14,6 +14,7 @@
 module fulltick.widget
 
 #call the @Class FWidget File for blocks inheritance
+call "fulltick/painting/FColor.sim" ? fulltick ? painting
 call "fulltick/core/FWidget.sim" ? fulltick.widget
 
 
@@ -60,6 +61,8 @@ class FInput : FWidget
 	block copyCut()
 		return __input_copy(WIDGETPOINTER, null, false)	
 
+	#Change the color of the @Class FInput and it inheriting classes
+	#caret/cursor color. This block accept the @Class FColor 
 	block setCursorColor(color)	
 		try {
 			color.getColor() WIDGET_CURSOR_COLOR = color
