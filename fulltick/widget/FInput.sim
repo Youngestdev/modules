@@ -39,8 +39,13 @@ class FInput : FWidget
 	#@Returns the copy value which is true if copy successfully and false
 	#if copy fails @DataType BOOLEAN
 	block copy()
-		return __input_copy(WIDGETPOINTER, 0)
+		return __input_copy(WIDGETPOINTER, 1, true)
 		
+	block copyToClipboard(clipboard)
+		return __input_copy(WIDGETPOINTER, clipboard, true)
+		
+	block copyCut()
+		return __input_copy(WIDGETPOINTER, null, false)		
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
