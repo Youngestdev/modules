@@ -177,7 +177,7 @@ class FInput : FWidget
 	block positionAt(cursorindex,markindex)
 		return __input_position(WIDGETPOINTER,cursorindex,markindex,0)
 		
-	block setPosition(index)
+	block setCursorPosition(index)
 		return __input_position(WIDGETPOINTER,index,0,3)
 	
 	#all the private attributes, fields and block not accessible #outside the class
