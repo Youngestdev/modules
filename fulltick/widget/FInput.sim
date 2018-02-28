@@ -119,7 +119,10 @@ class FInput : FWidget
 		return __get_input_index(WIDGETPOINTER,6)
 		
 	block insert(value)
-		__input_insert(WIDGETPOINTER,value)
+		__input_insert(WIDGETPOINTER,value,-1)
+		
+	block insertAt(value, index)
+		__input_insert(WIDGETPOINTER,value,index)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 

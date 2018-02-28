@@ -775,13 +775,18 @@ SIMPLE_BLOCK(get_input_index)
 
 SIMPLE_BLOCK(input_insert)
 {
-	if ( SIMPLE_API_PARACOUNT != 2 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) && SIMPLE_API_ISNUMBER(3)) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		input->insert((const char*) SIMPLE_API_GETSTRING(2));
+		if ((int)SIMPLE_API_GETNUMBER(2) == -1) {
+			input->insert((const char*) SIMPLE_API_GETSTRING(2));
+		} else { printf("reach here %i\n",SIMPLE_API_GETNUMBER(2));
+			input->insert((const char*) SIMPLE_API_GETSTRING(2), (int)SIMPLE_API_GETNUMBER(2));
+		}
+		
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
