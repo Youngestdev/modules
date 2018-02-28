@@ -309,12 +309,14 @@ class FWidget
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block callback(cb)
-		__on_click(WIDGETPOINTER, cb) 
+		__on_click(WIDGETPOINTER, cb)
+		return this
 	
 	#Work same as the @Block callback(cb) used to fire the default event 
 	#that occur when the state of the widget changes
 	block actionEvent(cb)
 		__on_click(WIDGETPOINTER, cb) 
+		return this
 		
 	#pending
 	block when()
