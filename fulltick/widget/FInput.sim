@@ -32,10 +32,14 @@ class FInput : FWidget
 	block setTitle(text)
 		setLabel(text)
 		return this
-		
-	#@Note It @Returns this which is the widget to allow the in-line usage 
-	#of the widget
+	
+	#Copy the selected text into the clipboard. If you want to specify which
+	#clipboard to copy the text into you should call the 
+	#@Block copyToClipboard(clipboard) instead
+	#@Returns the copy value which is true if copy successfully and false
+	#if copy fails @DataType BOOLEAN
 	block copy()
+		return __input_copy(WIDGETPOINTER, 0)
 		
 	
 	#all the private attributes, fields and block not accessible #outside the class
