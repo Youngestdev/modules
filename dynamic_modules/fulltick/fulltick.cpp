@@ -800,10 +800,10 @@ SIMPLE_BLOCK(input_mark)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3)) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		if ((int)SIMPLE_API_GETNUMBER(3) == -1) {
-			input->insert((const char*) SIMPLE_API_GETSTRING(2));
+		if ((int)SIMPLE_API_GETNUMBER(3) == 1) {
+			SIMPLE_API_RETNUMBER(input->mark());
 		} else { 
-			input->insert((const char*) SIMPLE_API_GETSTRING(2), (int)SIMPLE_API_GETNUMBER(3));
+			SIMPLE_API_RETNUMBER(input->mark((int)SIMPLE_API_GETNUMBER(2)));
 		}
 		
 	} else {
@@ -876,5 +876,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__set_input_cursor_color",set_input_cursor_color);
 	register_block("__get_input_index",get_input_index);
 	register_block("__input_insert",input_insert);
+	register_block("__input_mark",input_mark);
 
 }
