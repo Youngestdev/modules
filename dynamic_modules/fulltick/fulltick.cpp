@@ -792,6 +792,25 @@ SIMPLE_BLOCK(input_insert)
 	}
 }
 
+SIMPLE_BLOCK(input_mark)
+{
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3)) {
+		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		if ((int)SIMPLE_API_GETNUMBER(3) == -1) {
+			input->insert((const char*) SIMPLE_API_GETSTRING(2));
+		} else { 
+			input->insert((const char*) SIMPLE_API_GETSTRING(2), (int)SIMPLE_API_GETNUMBER(3));
+		}
+		
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
