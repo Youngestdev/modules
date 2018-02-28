@@ -51,6 +51,11 @@ class FInput : FWidget
 	block copyToClipboard(clipboard)
 		return __input_copy(WIDGETPOINTER, clipboard, true)
 		
+	#This block copies all the previous contiguous cuts from the undo 
+	#information to the clipboard. This block implements the 
+	#∧K shortcut key. You might want to call @Block copy() instead.
+	#@Returns the copy value which is true if copy successfully and false
+	#if copy fails @DataType BOOLEAN
 	block copyCut()
 		return __input_copy(WIDGETPOINTER, null, false)		
 	
