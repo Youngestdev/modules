@@ -744,12 +744,14 @@ SIMPLE_BLOCK(input_cut)
 		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) ) {
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		if (SIMPLE_API_GETNUMBER(3) == 1) {
-			SIMPLE_API_RETNUMBER(input->copy((int)SIMPLE_API_GETNUMBER(2)));
+		if (SIMPLE_API_GETNUMBER(4) == 1) {
+			SIMPLE_API_RETNUMBER(input->cut());
+		} else if (SIMPLE_API_GETNUMBER(4) == 2) {
+			SIMPLE_API_RETNUMBER(input->cut((int)SIMPLE_API_GETNUMBER(2)));
 		} else {
-			SIMPLE_API_RETNUMBER(input->copy_cuts());
+			SIMPLE_API_RETNUMBER(input->cut((int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3)));
 		}
 		
 	} else {
@@ -818,6 +820,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__init_secret_input",init_secret_input);
 	register_block("__init_multiline_input",init_multiline_input);
 	register_block("__input_copy",input_copy);
+	register_block("__input_cut",input_cut);
 	register_block("__set_input_cursor_color",set_input_cursor_color);
 
 }
