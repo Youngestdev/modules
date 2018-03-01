@@ -31,6 +31,7 @@ void new_curl_list ( void *pointer ) ;
 void free_curl_list ( void *pointer ) ;
 void curl_list_append ( void *pointer ) ;
 void curl_list_free_all ( void *pointer ) ;
+void curl_download ( void *pointer ) ;
 
 
 #ifdef __cplusplus

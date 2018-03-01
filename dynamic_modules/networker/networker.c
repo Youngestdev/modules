@@ -230,11 +230,11 @@ void curl_download ( void *pointer )
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION,1);
 		curl_easy_setopt(curl, CURLOPT_NOSIGNAL,1);
 		curl_easy_setopt(curl, CURLOPT_ACCEPT_ENCODING,"");
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,ring_getcurldata);
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,simple_get_curl_data);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA,pString);
 		res = curl_easy_perform(curl);
 		curl_easy_cleanup(curl);
-		SIMPLE_API_RETSTRING2(ring_string_get(pString),ring_string_size(pString));
+		SIMPLE_API_RETSTRING2(simple_string_get(pString),simple_string_size(pString));
 		simple_string_delete_gc(((VM *) pointer)->sState,pString);
 	}
 }
