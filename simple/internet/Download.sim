@@ -13,6 +13,8 @@
  
 module simple.internet.curl
 
+call "loadinternetdll.sim"
+
 block download(url)
 	return __curl_download(url)
 
