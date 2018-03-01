@@ -163,16 +163,17 @@ block stringAfter(str, lst)
 	end
 	return ret
 	
-block stringSplit(content)
+block stringSplit(content, sp)
 	retList = [] val = ""
 	for a = 0 to lengthOf(content)
-		if content[a] == " "
-			val = ""
+		if stringEquals(content[a], sp, true)
+			add(retList, val)
 		else
 			val += content[a]
 		end
 		
 	end
+	return retList
 	
 
 class String : Object
