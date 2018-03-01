@@ -214,7 +214,7 @@ void curl_download ( void *pointer )
 {
 	CURL *curl  ;
 	CURLcode res  ;
-	String *pString  ;
+	String *string  ;
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARACOUNT);
 		return ;
@@ -225,16 +225,16 @@ void curl_download ( void *pointer )
 	}
 	curl = curl_easy_init();
 	if ( curl ) {
-		pString = simple_string_new_gc(((VM *) pointer)->sState,"");
+		string = simple_string_new_gc(((VM *) pointer)->sState,"");
 		curl_easy_setopt(curl, CURLOPT_URL,SIMPLE_API_GETSTRING(1));
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION,1);
 		curl_easy_setopt(curl, CURLOPT_NOSIGNAL,1);
 		curl_easy_setopt(curl, CURLOPT_ACCEPT_ENCODING,"");
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,simple_get_curl_data);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA,pString);
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA,string);
 		res = curl_easy_perform(curl);
 		curl_easy_cleanup(curl);
-		SIMPLE_API_RETSTRING2(simple_string_get(pString),simple_string_size(pString));
-		simple_string_delete_gc(((VM *) pointer)->sState,pString);
+		SIMPLE_API_RETSTRING2(simple_string_get(string),simple_string_size(string));
+		simple_string_delete_gc(((VM *) pointer)->sState,string);
 	}
 }
