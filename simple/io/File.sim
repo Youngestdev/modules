@@ -43,7 +43,7 @@ class File
 		return readfile(filePath)
 		
 	block write(content)
-		ensureExistence()
+		#ensureExistence()
 		writefile(filePath, content)
 		
 	block append(content)
