@@ -18,6 +18,8 @@ FILE_DOES_NOT_EXIST = "The file does not exist"
 
 class File 	
 
+	filePath = ""
+
 	block File(path)
 		if isPath(path)
 			filePath = path.toString()
@@ -47,11 +49,11 @@ class File
 		writefile(filePath, content)
 		
 	block append(content)
-		ensureExistence()
+		#ensureExistence()
 		writefile(filePath, readFileAsString()+""+content)
 		
 	block appendBoolean(content)
-		ensureExistence()
+		#ensureExistence()
 		if content == true 
 			content = "true"
 		else 
