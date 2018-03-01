@@ -45,12 +45,18 @@ class File
 		return readfile(filePath)
 		
 	block write(content)
-		#ensureExistence()
-		writefile(filePath, content)
+		try 
+			writefile(filePath, content)
+		catch
+			display __err__
+		end
 		
 	block append(content)
-		#ensureExistence()
-		writefile(filePath, readFileAsString()+""+content)
+		try 
+			writefile(filePath, readFileAsString()+""+content)
+		catch
+			display __err__
+		end
 		
 	block appendBoolean(content)
 		#ensureExistence()

@@ -33,6 +33,9 @@ class Download
 		
 	block execute()
 		DOWNLOAD_CONTENT = __curl_download(DOWNLOAD_URL)
+		if isStringEmpty(DOWNLAOD_SAVE_LOCATION) 
+			DOWNLAOD_SAVE_LOCATION = url
+		end
 		f = new File(DOWNLAOD_SAVE_LOCATION) 
 		f.write(DOWNLOAD_CONTENT)
 		
