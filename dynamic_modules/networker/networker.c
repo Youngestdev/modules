@@ -20,6 +20,7 @@ SIMPLE_API __declspec(dllexport)
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
+    /* CURL */
     register_block("__curl_easy_init",curl_init);
     register_block("__curl_easy_perform",curl_perform);
     register_block("__curl_easy_string_perform",curl_string_perform);
@@ -29,6 +30,9 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__free_curl_list",free_curl_list);
     register_block("__curl_list_append",curl_list_append);
     register_block("__curl_list_free_all",curl_list_free_all);
+    
+    /* DOWNLOAD/MAIL */
+    register_block("__curl_download",curl_download);
 }
 
 void curl_init ( void *pointer )
