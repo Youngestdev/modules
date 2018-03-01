@@ -16,3 +16,8 @@ module simple.internet.curl
 call "CurlCore.sim"
 
 class Download 
+
+	DOWNLOAD_CONTENT = null #the content is null be default
+
+	block Download(url)
+		
