@@ -48,7 +48,9 @@ class File
 		try 
 			writefile(filePath, content)
 		catch
-			display __err__
+			display "Error -> " + __err__ + crlf
+			display "	Error occur while writing to file"+crlf
+			display "	Probably the directory does not exists"
 		end
 		
 	block append(content)
