@@ -1,0 +1,18 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * @filename - Download.sim
+ * @author - Azeez Adewale
+ * @date - 1 March 2017
+ * @Time - 02:58 PM
+ */
+ 
+module simple.internet.curl
+
+call "CurlCore.sim"
+
+class Download 
