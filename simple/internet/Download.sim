@@ -14,6 +14,7 @@
 module simple.internet.curl
 
 call "loadinternetdll.sim"
+call "simple/io/File.sim"
 
 block download(url)
 	return __curl_download(url)
@@ -25,13 +26,21 @@ class Download
 	
 	/* STRING */
 	DOWNLOAD_URL = "" #Empty url 
+	DOWNLAOD_SAVE_LOCATION = "" #Where the file will be saved on your computer
 
 	block Download(url)
 		DOWNLOAD_URL = url
 		
 	block execute()
-		DOWNLOAD_CONTENT = __download(DOWNLOAD_URL)
+		DOWNLOAD_CONTENT = __curl_download(DOWNLOAD_URL)
+		f = new File(DOWNLAOD_SAVE_LOCATION) 
+		f.write(DOWNLOAD_CONTENT)
 		
 	block saveLocation(location)
+		DOWNLAOD_SAVE_LOCATION = location
+		
+	block setSaveDirectory(dir)
+		DOWNLAOD_SAVE_DIR = dir
 	
 	block setFileName(filename)
+		DOWNLAOD_SAVE_NAME = filename
