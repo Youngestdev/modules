@@ -5,9 +5,9 @@
 */
 
 /* 
- * @filename - Download.sim
- * @author - Azeez Adewale
- * @date - 1 March 2017
+ * @Filename - Download.sim
+ * @Author - Azeez Adewale
+ * @Date - 1 March 2017
  * @Time - 02:58 PM
  */
  
@@ -15,9 +15,23 @@ module simple.internet.curl
 
 call "CurlCore.sim"
 
+block download(url)
+	return __download(url)
+
 class Download 
 
+	/* TYPE */
 	DOWNLOAD_CONTENT = null #the content is null be default
+	
+	/* STRING */
+	DOWNLOAD_URL = "" #Empty url 
 
 	block Download(url)
+		DOWNLOAD_URL = url
 		
+	block execute()
+		DOWNLOAD_CONTENT = __download(DOWNLOAD_URL)
+		
+	block saveLocation(location)
+	
+	block setFileName(filename)
