@@ -163,6 +163,17 @@ block stringAfter(str, lst)
 	end
 	return ret
 	
+block stringSplit(content)
+	retList = [] val = ""
+	for a = 0 to lengthOf(content)
+		if content[a] == " "
+			val = ""
+		else
+			val += content[a]
+		end
+		
+	end
+	
 
 class String : Object
 
