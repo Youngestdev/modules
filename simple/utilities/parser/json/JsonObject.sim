@@ -42,6 +42,12 @@ class JsonObject : JsonParser
 		newJsonObject.setPointer(JSON_CHILD_POINTER)
 		return newJsonObject
 		
+	#Get the content of a child object in a parent object without creating a 
+	#a new instance of the Object
+	#@Return content of child object @DataType STRING
+	block getChildObjectContent(id)
+		return getChildObject(id).getContent()
+		
 	#This block get the content of the JSON object and return it as string 
 	#no matter the type of content be it string, int, big int, boolean 
 	#or any other it just return it as string
@@ -56,6 +62,9 @@ class JsonObject : JsonParser
 	#@Return content of object @DataType STRING
 	block getStringContent()
 		return __json_c_object_get_string(JSONPOINTER)
+		
+	block addToObject(object)
+		
 	
 	
 	private 
