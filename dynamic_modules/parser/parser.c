@@ -133,9 +133,9 @@ void json_c_object_to_json_string ( void *pointer )
         return ;
     }
     SIMPLE_API_IGNORECPOINTERTYPE ;
-    if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2)) {
-        struct json_object *new_obj = SIMPLE_API_GETCPOINTER(1, "SIMPLE_JSON_C");
-        SIMPLE_API_RETSTRING(json_object_to_json_string(new_obj));
+    if ( SIMPLE_API_ISPOINTER(1) ) {
+        struct json_object *obj = (json_object*) SIMPLE_API_GETCPOINTER(1, "SIMPLE_JSON_C");
+        SIMPLE_API_RETSTRING(json_object_to_json_string(obj));
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
     }
