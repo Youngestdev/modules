@@ -35,12 +35,16 @@ class JsonObject : JsonParser
 		return __json_c_type_to_name(getObjectType())
 		
 	#get the child object with the string value this @Block 
-	#getChildObject(id) returns an instance of the @Class JsonObject
-	block getChildObject(id)
-		JSON_CHILD_POINTER = __json_c_object_object_get(JSONPOINTER, id)
+	#getChildObject(object) returns an instance of the @Class JsonObject
+	block getChildObject(object)
+		JSON_CHILD_POINTER = __json_c_object_object_get(JSONPOINTER, object)
 		newJsonObject = new JsonObject
 		newJsonObject.setPointer(JSON_CHILD_POINTER)
 		return newJsonObject
+		
+	#Does same thing as the @Block getChildObject(object)	
+	block getObject(object)
+		return getChildObject(object)
 		
 	#Get the content of a child object in a parent object without creating a 
 	#a new instance of the Object
@@ -90,8 +94,13 @@ class JsonObject : JsonParser
 			return false
 		end
 		
+	#Get the size of objects in the object	
+	#@Return length of object @DataType NUMBER
 	block length()
 		return __json_c_object_length(JSONPOINTER)
+		
+	block getObjectById(id)
+		return __json_object_array_get_idx(JSONPOINTER,id)
 	
 	private 
 		
