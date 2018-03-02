@@ -101,4 +101,5 @@ class JsonObject : JsonParser
 		#@Class JsonObject are freed and a new pointer is assigned
 		block initObject()
 			JSONPOINTER = __init_json_c(_JSON_CONTENT)
+			length()
 		
