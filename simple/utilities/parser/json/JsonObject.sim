@@ -78,8 +78,17 @@ class JsonObject : JsonParser
 	block getDecimalContent()
 		return  __json_c_object_get_decimal(JSONPOINTER)
 		
+	#Get the boolean type of JSON object. It does not equals calling 
+	#@Block getContent() as it return the boolean value as @DataType STRING
+	#but this block return the boolean value correctly which interpretes to 
+	#1 and 0 on the low level
+	#@Return boolean content of JSON object @DataType BOOLEAN
 	block getBooleanContent()
-		return __json_c_object_get_boolean(JSONPOINTER)
+		if __json_c_object_get_boolean(JSONPOINTER) == true
+			return true
+		else 
+			return false
+		end
 	
 	private 
 		
