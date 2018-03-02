@@ -89,6 +89,9 @@ class JsonObject : JsonParser
 		else 
 			return false
 		end
+		
+	block length()
+		return __json_c_object_length(JSONPOINTER)
 	
 	private 
 		
