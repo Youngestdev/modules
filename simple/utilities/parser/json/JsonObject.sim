@@ -63,8 +63,17 @@ class JsonObject : JsonParser
 	block getStringContent()
 		return __json_c_object_get_string(JSONPOINTER)
 		
+	#Get the value/content of your JSON object as @DataType Number if you
+	#are sure it content is number only else an error might occur. This is quite
+	#different from double type of content calling this on a double type of 
+	#object will definitely break the decimals and end up rounding it to whole
+	#number for decimal call the @Block getDecimalContent() instead
+	#@Return number content of object @DataType NUMBER
 	block getNumberContent()
 		return  __json_c_object_get_number(JSONPOINTER)
+		
+	block getDecimalContent()
+		return  __json_c_object_get_decimal(JSONPOINTER)
 	
 	private 
 		
