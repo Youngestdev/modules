@@ -81,6 +81,7 @@ void init_json_c ( void *pointer )
         return ;
     }
     if ( SIMPLE_API_ISSTRING(1) ) {
+        printf("STR : %s\n",SIMPLE_API_GETSTRING(1));
         struct json_object *new_obj = json_tokener_parse(SIMPLE_API_GETSTRING(1));
         SIMPLE_API_RETCPOINTER(new_obj, "SIMPLE_JSON_C");
     } else {

@@ -19,7 +19,7 @@ class JsonParser
 	JSONPOINTER = null #init the json pointer to null
 	
 	/* STRING */
-	JSON_CONTENT = "" #initialize the content of the parser to empty string
+	_JSON_CONTENT = "" #initialize the content of the parser to empty string
 
 	#Initialize the constructor with the string to parse.
 	#Alternatively the class can be intantiated without the constructor
@@ -28,7 +28,7 @@ class JsonParser
 	#initJson() which intantiate the @Field JSONPOINTER which are in
 	#the inheriting classes @Class JsonObject and @Class JsonArray
 	block JsonParser(content)
-		JSON_CONTENT = content
+		_JSON_CONTENT = content
 		
 	block setPointer(pointer)
 		JSONPOINTER = pointer

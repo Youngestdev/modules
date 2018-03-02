@@ -21,7 +21,7 @@ class JsonObject : JsonParser
 	#@Block setContent(content) mean while both blocks calls the 
 	#initJson() which intantiate the @Field JSONPOINTER
 	block JsonObject(content)
-		JSON_CONTENT = content
+		_JSON_CONTENT = content
 		initObject()
 	
 	#Get the type of the object in the @DataType NUMBER value
@@ -100,5 +100,5 @@ class JsonObject : JsonParser
 		#called all the attributes and properties of the 
 		#@Class JsonObject are freed and a new pointer is assigned
 		block initObject()
-			JSONPOINTER = __init_json_c(JSON_CONTENT)
+			JSONPOINTER = __init_json_c(_JSON_CONTENT)
 		
