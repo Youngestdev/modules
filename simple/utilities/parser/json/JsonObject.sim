@@ -48,7 +48,12 @@ class JsonObject : JsonParser
 	#@Return content of object @DataType STRING
 	block getContent()
 		return __json_c_object_to_json_string(JSONPOINTER)
-		
+	
+	#If you are certain your object content is @DataType STRING you can use
+	#this block to get the content. The edge of using this is that the content
+	#is returned without the "" wrap around the string. If you are not sure 
+	#of the JSON object type you should call the @Block getContent() instead
+	#@Return content of object @DataType STRING
 	block getStringContent()
 		return __json_c_object_get_string(JSONPOINTER)
 	
