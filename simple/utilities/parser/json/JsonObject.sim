@@ -114,10 +114,10 @@ class JsonObject : JsonParser
 		#@Class JsonObject are freed and a new pointer is assigned
 		block initObject()
 			JSONPOINTER = __init_json_c(_JSON_CONTENT)
-			try  getContent() catch 
+			/*try  getContent() catch 
 				display "-----> Error occur while parsing JSON "+crlf
 				display "	Your JSON format might be incorrect"
 				__exit__
-			end
+			end*/
 			
 		
