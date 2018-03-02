@@ -100,8 +100,11 @@ class JsonObject : JsonParser
 		return __json_c_object_length(JSONPOINTER)
 		
 	block getObjectById(id)
-		display "REACHED "+(id+1)
-		return __json_c_object_object_get_id(JSONPOINTER,id)
+		#display __json_c_object_object_get_id(JSONPOINTER,id)
+		JSON_CHILD_POINTER = __json_c_object_object_get_id(JSONPOINTER, id)
+		newJsonObject = new JsonObject
+		newJsonObject.setPointer(JSON_CHILD_POINTER)
+		return newJsonObject
 	
 	private 
 		
