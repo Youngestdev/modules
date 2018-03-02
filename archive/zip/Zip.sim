@@ -12,7 +12,7 @@
  
 module archive.zip
 
-call "archiver/loadarchiver.sim"
+call "C:\Users\thecarisma\Documents\SIMPLE GITHUB\modules\archive\loadarchiver.sim"
 call "archive/zip/ZipMode.sim" 
 
 #to check if param is a Zip object
