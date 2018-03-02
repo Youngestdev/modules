@@ -22,6 +22,7 @@ class JsonObject : JsonParser
 	#initJson() which intantiate the @Field JSONPOINTER
 	block JsonObject(content)
 		JSON_CONTENT = content
+		display "content : "+JSON_CONTENT
 		initObject()
 	
 	#Get the type of the object in the @DataType NUMBER value
