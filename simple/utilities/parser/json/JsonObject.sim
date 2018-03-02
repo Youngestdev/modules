@@ -100,7 +100,8 @@ class JsonObject : JsonParser
 		return __json_c_object_length(JSONPOINTER)
 		
 	block getObjectById(id)
-		return __json_object_array_get_idx(JSONPOINTER,id)
+		display "REACHED "+(id+1)
+		return __json_c_object_object_get_id(JSONPOINTER,id)
 	
 	private 
 		
@@ -115,6 +116,5 @@ class JsonObject : JsonParser
 				display "	Your JSON format might be incorrect"
 				__exit__
 			end
-			display "endder  "
 			
 		
