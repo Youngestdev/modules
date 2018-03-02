@@ -72,8 +72,14 @@ class JsonObject : JsonParser
 	block getNumberContent()
 		return  __json_c_object_get_number(JSONPOINTER)
 		
+	#This block is used for getting the decimal/double/float type of JSON
+	#content if other type of content are used it might break the decimals
+	#Return decimal content of JSON object @DataType NUMBER
 	block getDecimalContent()
 		return  __json_c_object_get_decimal(JSONPOINTER)
+		
+	block getBooleanContent()
+		return __json_c_object_get_boolean(JSONPOINTER)
 	
 	private 
 		

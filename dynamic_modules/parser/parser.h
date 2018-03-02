@@ -31,6 +31,7 @@ void json_c_object_to_json_string ( void *pointer ) ;
 void json_c_object_get_string ( void *pointer ) ;
 void json_c_object_get_number ( void *pointer ) ;
 void json_c_object_get_decimal ( void *pointer ) ;
+void json_c_object_get_boolean ( void *pointer ) ;
 
 
 #ifdef __cplusplus
