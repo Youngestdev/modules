@@ -63,9 +63,8 @@ class JsonObject : JsonParser
 	block getStringContent()
 		return __json_c_object_get_string(JSONPOINTER)
 		
-	block addToObject(object)
-		
-	
+	block getNumberContent()
+		return  __json_c_object_get_number(JSONPOINTER)
 	
 	private 
 		
