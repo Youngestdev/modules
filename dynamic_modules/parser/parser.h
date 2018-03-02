@@ -27,7 +27,7 @@ void init_json_c ( void *pointer ) ;
 void json_c_object_get_type ( void *pointer ) ;
 void json_c_type_to_name ( void *pointer ) ;
 void json_c_object_object_get ( void *pointer ) ;
-void json_c_object_get_string ( void *pointer ) ;
+void json_c_object_to_json_string ( void *pointer ) ;
 
 
 #ifdef __cplusplus

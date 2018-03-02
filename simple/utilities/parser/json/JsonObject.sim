@@ -42,8 +42,8 @@ class JsonObject : JsonParser
 		newJsonObject.setPointer(JSON_CHILD_POINTER)
 		return newJsonObject
 		
-	block getStringContent(id)
-		return __json_c_object_get_string(id)
+	block getStringContent()
+		return __json_c_object_to_json_string(JSONPOINTER)
 	
 	
 	private 
