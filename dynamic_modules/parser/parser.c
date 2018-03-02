@@ -142,7 +142,7 @@ void json_c_object_object_get_id ( void *pointer )
     if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2)) {
         struct json_object *obj = (json_object*) SIMPLE_API_GETCPOINTER(1, "SIMPLE_JSON_C") ;
         json_object *new_obj = json_object_array_get_idx(obj, SIMPLE_API_GETNUMBER(2));
-        SIMPLE_API_RETCPOINTER(new_obj, "SIMPLE_JSON_C");
+        SIMPLE_API_RETCPOINTER(obj, "SIMPLE_JSON_C");
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
     }

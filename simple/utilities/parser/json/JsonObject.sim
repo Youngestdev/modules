@@ -99,6 +99,7 @@ class JsonObject : JsonParser
 	block length()
 		return __json_c_object_length(JSONPOINTER)
 		
+	#currently failing	
 	block getObjectById(id)
 		#display __json_c_object_object_get_id(JSONPOINTER,id)
 		JSON_CHILD_POINTER = __json_c_object_object_get_id(JSONPOINTER, id)
