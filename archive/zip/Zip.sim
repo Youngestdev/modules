@@ -12,6 +12,7 @@
  
 module archive.zip
 
+call "archiver/loadarchiver.sim"
 call "archive/zip/ZipMode.sim" 
 
 #to check if param is a Zip object

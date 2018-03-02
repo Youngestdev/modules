@@ -38,8 +38,7 @@
  
 module archive.zip
 
-call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\archiver\dist\Debug\MinGW-Windows\archiver.dll")
+call "archiver/loadarchiver.sim"
 
 #zip mode for writing into the zip archive
 ZIP_WRITE = "w"
