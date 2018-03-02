@@ -167,7 +167,7 @@ void json_c_object_get_number ( void *pointer )
     SIMPLE_API_IGNORECPOINTERTYPE ;
     if ( SIMPLE_API_ISPOINTER(1) ) {
         struct json_object *obj = (json_object*) SIMPLE_API_GETCPOINTER(1, "SIMPLE_JSON_C");
-        SIMPLE_API_RETSTRING(json_object_get_string(obj));
+        SIMPLE_API_RETNUMBER(json_object_get_int64(obj));
     } else {
         SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
     }
