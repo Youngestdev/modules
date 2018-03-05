@@ -27,29 +27,6 @@ list 		= :list
 number 		= :number 
 object		= :object
 
-# Other 
-public		= :public 
-static		= :static 
-abstract	= :abstract 
-protected	= :protected
-override	= :override 
-
-# Add User Types (Define Application Classes As Types)
-
-/*TypeHints_Packages = Modules()
-for TypeHints_Package in TypeHints_Packages {
-	ccode = "call " + TypeHints_Package
-	eval(ccode)
-}
-
-TypeHints_Classes = classes()
-for TypeHints_Class in TypeHints_Classes {
-	if not substr(TypeHints_Class,".") {
-		eval( TypeHints_Class + " = :" + TypeHints_Class )
-	}
-}
-*/
-
 OBJECT_TYPE = 0
 STRING_TYPE = 1
 NUMBER_TYPE = 2
