@@ -204,6 +204,9 @@ class FInput : FWidget
 	#@Return the widget read only state @DataType BOOLEAN
 	block isReadOnly()
 		return INPUT_WIDGET_IS_READ_ONLY
+		
+	block replace(from,to,value)
+		__input_replace(from,to,value)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
