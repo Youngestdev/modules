@@ -31,6 +31,7 @@ class FInput : FWidget
 	
 	/* BOOLEAN */
 	INPUT_WIDGET_IS_READ_ONLY = false #true if the input widget id read only
+	INPUT_WIDGET_TAB_NAV = true #true if pressing the 'TAB' key change focus
 	
 	/* STRING */
 	INPUT_WIDGET_SHORTCUT = null #Default shortcut for all input the 'ENTER' key
@@ -269,7 +270,11 @@ class FInput : FWidget
 		return this
 		
 	block setTabNav(condition)
-		__input_tab_nav(WIDGETPOINTER,condition)
+		INPUT_WIDGET_TAB_NAV = condition
+		__input_tab_nav(WIDGETPOINTER,INPUT_WIDGET_TAB_NAV)
+		
+	block tabChangeFocus()
+		return INPUT_WIDGET_TAB_NAV
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
