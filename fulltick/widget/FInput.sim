@@ -188,12 +188,12 @@ class FInput : FWidget
 		return __input_position(WIDGETPOINTER,index,0,3)
 	
 	#This block can be used 
-	block setReadOnly(condition)
+	block setReadOnlyk(condition)
 		INPUT_WIDGET_IS_READ_ONLY = condition 
 		__input_read_only(WIDGETPOINTER,INPUT_WIDGET_IS_READ_ONLY)
 		
 	block isReadOnly()
-		return false
+		return INPUT_WIDGET_IS_READ_ONLY
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
