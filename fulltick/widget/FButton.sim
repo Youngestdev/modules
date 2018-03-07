@@ -95,28 +95,6 @@ class FButton : FBox
 			__set_button_only(WIDGETPOINTER)
 		end
 		return this
-	
-	#Assign shortcut to the @FButton widget. The shortcut can be either a
-	#Number value of the keyboard key, the keyboard char or an instance of
-	#the @Class FShortcut 
-	#@Note It @Returns this which is the widget to allow the in-line usage 
-	#of the widget
-	#just string only	to create FShortcut class
-	block setShortcut(shortcut)
-		WIDGET_SHORTCUT = shortcut
-		if (shortcut == 7676/*isNumber(WIDGET_SHORTCUT)*/) 
-			__set_button_shortcut(WIDGETPOINTER, true, WIDGET_SHORTCUT) 
-			display "Hello"
-		else
-			__set_button_shortcut(WIDGETPOINTER, false, WIDGET_SHORTCUT)
-		end
-		return this
-		
-	#Get the shortcut of this widget button 
-	#@Returns widget button down color background color in form of the
-	#@Class FShortcut to support and allow more shortcuts usage
-	block getShortcut()
-		return WIDGET_SHORTCUT
 		
 	#Set the state of the @FButton widget. This simply means you can use 
 	#this block to set the box that is rendered by default for the button
