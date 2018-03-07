@@ -212,10 +212,18 @@ class FInput : FWidget
 	#If you intend to replace selected text instead call the @Block 
 	#replaceSelected(value)
 	#@EndCode
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block replace(f,t,value)
 		__input_replace(WIDGETPOINTER,f,t,value)
+		return this
 		
-		
+	#Replace selected text with a custom value/text in the 
+	#@Class FInput Widget 
+	#if you intend to replace the text at a particular index call the 
+	#@Block replace(f,t,value) instead
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block replaceSelected(value)
 		f = mark()
 		t = cursorPosition()
