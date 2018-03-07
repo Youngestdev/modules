@@ -269,12 +269,41 @@ class FInput : FWidget
 		__input_static_value(WIDGETPOINTER,value)
 		return this
 		
+	#Change whether the widget should advance focus or should insert 
+	#TAB in the widget. This block does not apply to all type of the 
+	#@Class FInput widget but to some of the widget like the 
+	#@Class FMultiLineInput and the like. [[color][blue][TRUE]] for 
+	#advancing forward and [[color][blue][FALSE]] for inserting tab \t 
+	#into the widget
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setTabNav(condition)
 		INPUT_WIDGET_TAB_NAV = condition
 		__input_tab_nav(WIDGETPOINTER,INPUT_WIDGET_TAB_NAV)
+		return this
 		
+	#Check whether pressing the TAB key changes focus or insert tab \t into
+	#the widget
+	#@Return if tab changes focus or insert tab @DataType BOOLEAN
 	block tabChangeFocus()
 		return INPUT_WIDGET_TAB_NAV
+		
+	#Change the label color of the widget. Color is of @DataType Number
+	#The @Class FColor can be passed as parameter to the block which get the 
+	#color value from the @Class FColor or Integer/Number can be passed 
+	#directly 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
+	block setTextColor(color)
+		try {
+			color.getColor() WIDGET_LABEL_COLOR = color
+		catch
+			WIDGET_LABEL_COLOR = new FColor
+			WIDGET_LABEL_COLOR.setColorValue(color)
+		}
+		__input_text_color(WIDGETPOINTER, WIDGET_LABEL_COLOR.getColor())
+		display "Holla color "
+		return this
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 

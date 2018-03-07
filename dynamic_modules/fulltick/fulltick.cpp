@@ -929,6 +929,20 @@ SIMPLE_BLOCK(input_tab_nav)
 	}
 }
 
+SIMPLE_BLOCK(input_text_color)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		input->textcolor(((Fl_Color) SIMPLE_API_GETNUMBER(2)));
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
@@ -1003,5 +1017,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__input_size",input_size);
 	register_block("__input_static_value",input_static_value);
 	register_block("__input_tab_nav",input_tab_nav);
+	register_block("__input_text_color",input_text_color);
 
 }
