@@ -255,7 +255,8 @@ class FInput : FWidget
 	block getShortcut()
 		return INPUT_WIDGET_SHORTCUT
 		
-	#Get the the 	
+	#Get the the length of the @Class FInput widget value in byte
+	#@Return value size in byte @DataType Number
 	block size()
 		return __input_size(WIDGETPOINTER)
 	

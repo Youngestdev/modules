@@ -887,6 +887,20 @@ SIMPLE_BLOCK(input_shortcut)
 	}
 }
 
+SIMPLE_BLOCK(input_size)
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		SIMPLE_API_RETNUMBER(input->size());		
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
@@ -958,5 +972,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__input_read_only",input_read_only);
 	register_block("__input_replace",input_replace);
 	register_block("__input_shortcut",input_shortcut);
+	register_block("__input_size",input_size);
 
 }
