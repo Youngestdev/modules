@@ -861,14 +861,13 @@ SIMPLE_BLOCK(input_read_only)
 
 SIMPLE_BLOCK(input_replace)
 {
-	if ( SIMPLE_API_PARACOUNT != 2 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+	if ( SIMPLE_API_PARACOUNT != 4 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISSTRING(3)) {
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISSTRING(4)) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		printf("val : %i\n", (int)SIMPLE_API_GETNUMBER(2));
-		input->readonly((int)SIMPLE_API_GETNUMBER(2));
+		input->replace((int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3),SIMPLE_API_GETSTRING(4));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
@@ -943,5 +942,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__input_maximum_size",input_maximum_size);
 	register_block("__input_position",input_position);
 	register_block("__input_read_only",input_read_only);
+	register_block("__input_replace",input_replace);
 
 }

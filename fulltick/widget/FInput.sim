@@ -205,8 +205,8 @@ class FInput : FWidget
 	block isReadOnly()
 		return INPUT_WIDGET_IS_READ_ONLY
 		
-	block replace(from,to,value)
-		__input_replace(from,to,value)
+	block replace(f,t,value)
+		__input_replace(WIDGETPOINTER,f,t,value)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
