@@ -260,8 +260,16 @@ class FInput : FWidget
 	block size()
 		return __input_size(WIDGETPOINTER)
 		
+	#Change the @Class FInput Widget text/string content with the 
+	#text/string value sent as parameter to the block
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setStaticValue(value)
 		__input_static_value(WIDGETPOINTER,value)
+		return this
+		
+	block setTabNav(condition)
+		__input_tab_nav(WIDGETPOINTER,condition)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
