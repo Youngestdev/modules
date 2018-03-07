@@ -57,8 +57,6 @@ class FWidget
 	WIDGET_TITLE = "Simple Fulltick" #The default title for all objects
 	WIDGET_TOOLTIP = "" #The widget tooltip
 	WIDGET_LABEL = "" #The label attribute of the widget
-	WIDGET_SHORTCUT = '^M' #Default shortcut for all button the 'ENTER' key
-	
 	
 	/* BOOLEAN */
 	WIDGET_ISRESIZABLE = false #The boolean value indicating if widget can resize
@@ -464,28 +462,6 @@ class FWidget
 	#@DataType BOOLEAN
 	block isActive()
 		return WIDGET_IS_ACTIVE
-	
-	#Assign shortcut to the @FButton widget. The shortcut can be either a
-	#Number value of the keyboard key, the keyboard char or an instance of
-	#the @Class FShortcut 
-	#@Note It @Returns this which is the widget to allow the in-line usage 
-	#of the widget
-	#just string only	to create FShortcut class
-	block setShortcut(shortcut)
-		WIDGET_SHORTCUT = shortcut
-		if (shortcut == 7676/*isNumber(WIDGET_SHORTCUT)*/) 
-			__set_button_shortcut(WIDGETPOINTER, true, WIDGET_SHORTCUT) 
-			display "Hello"
-		else
-			__set_button_shortcut(WIDGETPOINTER, false, WIDGET_SHORTCUT)
-		end
-		return this
-		
-	#Get the shortcut of this widget button 
-	#@Returns widget button down color background color in form of the
-	#@Class FShortcut to support and allow more shortcuts usage
-	block getShortcut()
-		return WIDGET_SHORTCUT
 	
 	#all the private attributes, fields and block not accessible outside
 	#the class

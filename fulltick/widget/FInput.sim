@@ -31,6 +31,9 @@ class FInput : FWidget
 	
 	/* BOOLEAN */
 	INPUT_WIDGET_IS_READ_ONLY = false #true if the input widget id read only
+	
+	/* STRING */
+	INPUT_WIDGET_SHORTCUT = null #Default shortcut for all button the 'ENTER' key
 
 	#Initialize the @Class FInput widget 
 	block FInput()
@@ -228,6 +231,29 @@ class FInput : FWidget
 		f = mark()
 		t = cursorPosition()
 		__input_replace(WIDGETPOINTER,f,t,value)
+		
+	
+	
+	#Assign shortcut to the @FButton widget. The shortcut can be either a
+	#Number value of the keyboard key, the keyboard char or an instance of
+	#the @Class FShortcut 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
+	#just string only	to create FShortcut class
+	block setShortcut(shortcut)
+		INPUT_WIDGET_SHORTCUT = shortcut
+		if (shortcut == 7676/*isNumber(INPUT_WIDGET_SHORTCUT)*/) 
+			__input_shortcut(WIDGETPOINTER, INPUT_WIDGET_SHORTCUT) 
+		else
+			__input_shortcut(WIDGETPOINTER, INPUT_WIDGET_SHORTCUT)
+		end
+		return this
+		
+	#Get the shortcut of this widget button 
+	#@Returns widget button down color background color in form of the
+	#@Class FShortcut to support and allow more shortcuts usage
+	block getShortcut()
+		return INPUT_WIDGET_SHORTCUT
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 

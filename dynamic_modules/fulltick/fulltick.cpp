@@ -957,6 +957,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__input_position",input_position);
 	register_block("__input_read_only",input_read_only);
 	register_block("__input_replace",input_replace);
-	register_block("__input_shortcut",input_replace);
+	register_block("__input_shortcut",input_shortcut);
 
 }
