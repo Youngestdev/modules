@@ -187,8 +187,12 @@ class FInput : FWidget
 	block setCursorPosition(index)
 		return __input_position(WIDGETPOINTER,index,0,3)
 	
-	#This block can be used 
-	block setReadOnlyk(condition)
+	#This block can be used to convert an editable @Class Input Widget
+	#to non editable i.e read only. It is similar to acttivating and
+	#deactivating widget but in this @Block setReadOnly(condition)
+	#scope the widget is accessible but cannot accept changes of any
+	#form from the user
+	block setReadOnly(condition)
 		INPUT_WIDGET_IS_READ_ONLY = condition 
 		__input_read_only(WIDGETPOINTER,INPUT_WIDGET_IS_READ_ONLY)
 		
