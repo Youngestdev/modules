@@ -189,7 +189,7 @@ class FInput : FWidget
 	
 	#This block can be used 
 	block setReadOnly(condition)
-		INPUT_WIDGET_IS_READ_ONLY = condition
+		INPUT_WIDGET_IS_READ_ONLY = condition 
 		__input_read_only(WIDGETPOINTER,INPUT_WIDGET_IS_READ_ONLY)
 		
 	block isReadOnly()
