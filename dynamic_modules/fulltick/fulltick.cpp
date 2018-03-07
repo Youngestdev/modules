@@ -893,7 +893,7 @@ SIMPLE_BLOCK(input_size)
 		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+	if ( SIMPLE_API_ISPOINTER(1) ) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		SIMPLE_API_RETNUMBER(input->size());		
 	} else {
