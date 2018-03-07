@@ -205,8 +205,16 @@ class FInput : FWidget
 	block isReadOnly()
 		return INPUT_WIDGET_IS_READ_ONLY
 		
+	#Replace the value of text between two index in the @Class FInput 
+	#Widget value e.g @Code
+	# value = "my name" replace(0,3,not l) so value becomes 
+	# value = "not lame"
+	#If you intend to replace selected text instead call the @Block 
+	#replaceSelected(value)
+	#@EndCode
 	block replace(f,t,value)
 		__input_replace(WIDGETPOINTER,f,t,value)
+		
 		
 	block replaceSelected(value)
 		f = mark()
