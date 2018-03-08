@@ -27,7 +27,6 @@ block decodeUrlData(urldata)
 
 block decodeString(urldata)
 	urldata + urldata + '&'
-	attributes = [] res = []
 	value = ""
 	for x = 0 to lengthOf(urldata)
 		val = urldata[x]
@@ -38,13 +37,13 @@ block decodeString(urldata)
 				value += ' '
 			end
 			#value = value + '"'#hex2str(urldata[x+1]+urldata[x+2])
-			#display value+crlf
+			display value+crlf
 			x = x+2
 		else 
 			value = value + val
 		end
 	end
-	return attributes
+	return value
 	
 	
 	
