@@ -1,2 +1,16 @@
 
-call 
+call "simple/system/Runtime.sim"
+
+pageAttributes = []
+
+loadPageAttributes()
+
+block loadPageAttributes()
+	if (getSystemEnvironment("SIMPLE_PATH") == "GET" ) 
+		methodAttributes = getSystemEnvironment("QUERY_STRING")
+	else 
+		
+	end
+	pageAttributes = decode(methodAttributes)
+	
+	
