@@ -17,6 +17,11 @@ block loadPageAttributes()
 	else 
 		methodAttributes = getSystemEnvironment("CONTENT_LENGTH")
 	end
-	pageAttributes = decode(methodAttributes)
+	pageAttributes = decodeUrlData(methodAttributes)
 	
+	
+block decodeUrlData(urldata)
+	if getSystemEnvironment("CONTENT_TYPE") == "multipart/form-data;"
+		return decodeString(urldata)
+	end
 	
