@@ -12,12 +12,16 @@ class Webpage
 
 	head = new web.front.elements.Head
 	mainTagStyle = ""
-	websiteBody = '<body class="landing">
+	bodyClass = ""
+	websiteBody = '<body class="homepage">
 	'
 	websiteFooter = ""
 	
 	block Webpage()
 		head.setTitle("SIMPLE WEB")
+		
+	block setBodyClass(bclass)
+		bodyClass = bclass
 		
 	block styleMainTag(styling)
 		mainTagStyle = styling
@@ -45,7 +49,7 @@ class Webpage
 		\t'+websiteFooter+' 
 		</body>
 		
-	</html>')
+</html>')
 		
 		
 block webPrint(content)
