@@ -5,7 +5,7 @@ pageAttributes = []
 
 #loadPageAttributes()
 
-block getUrlData()
+block getUrlDataAsString()
 	return getSystemEnvironment("QUERY_STRING")
 
 block loadPageAttributes()
