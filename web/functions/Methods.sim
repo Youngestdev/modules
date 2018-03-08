@@ -3,10 +3,11 @@ call "simple/system/Runtime.sim"
 
 pageAttributes = []
 
-loadPageAttributes()
+#loadPageAttributes()
+display "Holla Holla : "+getSystemEnvironment("QUERY_STRING")
 
 block loadPageAttributes()
-	if (getSystemEnvironment("SIMPLE_PATH") == "GET" ) 
+	if (getSystemEnvironment("REQUEST_METHOD") == "GET" ) 
 		methodAttributes = getSystemEnvironment("QUERY_STRING")
 	else 
 		
