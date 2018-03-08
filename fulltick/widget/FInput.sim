@@ -319,11 +319,13 @@ class FInput : FWidget
 	block setTextFont(font)
 		INPUT_WIDGET_TEXT_FONT = font
 		__input_text_font(WIDGETPOINTER, INPUT_WIDGET_TEXT_FONT)
+		redraw()
 		return this
 		
 	block setTextSize(size)
 		INPUT_WIDGET_TEXT_SIZE = size
 		__input_text_size(WIDGETPOINTER, INPUT_WIDGET_TEXT_SIZE)
+		redraw()
 		return this
 	
 	#all the private attributes, fields and block not accessible #outside the class
