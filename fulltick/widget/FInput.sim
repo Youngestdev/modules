@@ -310,10 +310,16 @@ class FInput : FWidget
 		redraw()
 		return this
 		
+	#Get the color of the text of the widget
+	#@Return text color @Class FColor
+	block getTextColor()
+		return INPUT_WIDGET_TEXT_COLOR
+		
 	#Change the font of the @Class FInput widget value/text. This should 
 	#not be mistaken for the @Block setFont(font) which accept an instance
 	#of the @Class FFont as parameter. This accept one of the Font type 
-	#specified in the @File FFont.sim
+	#specified in the @File FFont.sim 
+	#We call @Block redraw() on this widget to effect change
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block setTextFont(font)
@@ -322,6 +328,16 @@ class FInput : FWidget
 		redraw()
 		return this
 		
+	#Get the type of text font used by this widget. 
+	#@Return the text font @DataType NUMBER
+	block getTextFont()
+		return INPUT_WIDGET_TEXT_FONT
+		
+	#Change the size of the text in the widget, The size is in pixel height
+	#of which is @DataType NUMBER 
+	#We call @Block redraw() on this widget to effect change
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setTextSize(size)
 		INPUT_WIDGET_TEXT_SIZE = size
 		__input_text_size(WIDGETPOINTER, INPUT_WIDGET_TEXT_SIZE)
