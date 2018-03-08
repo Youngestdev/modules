@@ -389,12 +389,17 @@ class FInput : FWidget
 	#of the widget
 	block clearValue()
 		setValue("")
+		return this
 	
 	#same as @Block clearValue()
-	block clearText() clearValue()
+	block clearText() return clearValue()
 	
+	#Undo and redo the last action in the widget
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block undo()
 		__input_undo(WIDGETPOINTER)
+		return this
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 

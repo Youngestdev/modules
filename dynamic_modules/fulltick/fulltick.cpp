@@ -991,13 +991,31 @@ SIMPLE_BLOCK(input_value)
 
 SIMPLE_BLOCK(input_undo)
 {
-	if ( SIMPLE_API_PARACOUNT != 2 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+	if ( SIMPLE_API_ISPOINTER(1)  ) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		input->textsize((Fl_Fontsize)SIMPLE_API_GETNUMBER(2));
+		input->undo();
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
+SIMPLE_BLOCK(input_wrap)
+{
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3)) {
+		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		if (((int)SIMPLE_API_GETNUMBER(2)) == 1) {
+			SIMPLE_API_RETNUMBER(input->wrap());
+		} else {
+			input->wrap(SIMPLE_API_GETNUMBER(3));
+		}
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
@@ -1082,5 +1100,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__input_text_size",input_text_size);
 	register_block("__input_value",input_value);
 	register_block("__input_undo",input_undo);
+	register_block("__input_wrap",input_wrap);
 
 }
