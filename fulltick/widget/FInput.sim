@@ -400,6 +400,18 @@ class FInput : FWidget
 	block undo()
 		__input_undo(WIDGETPOINTER)
 		return this
+		
+	#Returns true if the current Inheriting widget is wrapping whole word
+	#and returns false if it is not wrapping
+	#@Return widget is wrapping word @DataType BOOLEAN
+	block isWrapping()
+		return __input_wrap(WIDGETPOINTER, true, INPUT_WIDGET_WRAPS)
+		
+	#Change the word wrapping property of the widget. Word wrapping 
+	#property does not apply to all the @Class FInput type 
+	block wrap(condition)
+		INPUT_WIDGET_WRAPS = condition
+		__input_wrap(WIDGETPOINTER, false, INPUT_WIDGET_WRAPS)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
