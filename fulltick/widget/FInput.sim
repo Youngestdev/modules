@@ -20,11 +20,15 @@ call "fulltick/core/FWidget.sim" ? fulltick.widget
 
 class FInput : FWidget
 
+	/* TYPES */
+	INPUT_WIDGET_TEXT_COLOR = new FColor #the default font color black
+
 	/* NUMBER */
 	WIDGET_WIDTH = 300 #Change the default width 
 	WIDGET_HEIGHT = 30 #Change the default height 
 	WIDGET_Y = 10 #The default was change from zero to 10 but the position can be changed anytime
 	INPUT_WIDGET_MAXIMUM_SIZE = 100000000 #The default maximum is unlimited
+	INPUT_WIDGET_TEXT_FONT = 
 	
 	/* TYPE */
 	WIDGET_CURSOR_COLOR = new FColor #the default caret/cursor color is black
@@ -296,13 +300,18 @@ class FInput : FWidget
 	#of the widget
 	block setTextColor(color)
 		try {
-			color.getColor() WIDGET_LABEL_COLOR = color
+			color.getColor() INPUT_WIDGET_TEXT_COLOR = color
 		catch
-			WIDGET_LABEL_COLOR = new FColor
-			WIDGET_LABEL_COLOR.setColorValue(color)
+			INPUT_WIDGET_TEXT_COLOR = new FColor
+			INPUT_WIDGET_TEXT_COLOR.setColorValue(color)
 		}
-		__input_text_color(WIDGETPOINTER, WIDGET_LABEL_COLOR.getColor())
+		__input_text_color(WIDGETPOINTER,INPUT_WIDGET_TEXT_COLOR.getColor())
 		redraw()
+		return this
+		
+	block setTextFont(font)
+		INPUT_WIDGET_TEXT_FONT = font
+		__set_label_font(WIDGETPOINTER, WIDGET_LABEL_FONT)
 		return this
 	
 	#all the private attributes, fields and block not accessible #outside the class
