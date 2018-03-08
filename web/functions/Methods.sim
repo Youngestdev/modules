@@ -32,7 +32,12 @@ block decodeString(urldata)
 	for x = 0 to lengthOf(urldata)
 		val = urldata[x]
 		if val == "%"
-			value = value + " "#hex2str(urldata[x+1]+urldata[x+2])
+			if (urldata[val+1] == "2" && urldata[val+2] == "0")
+				value + '"'
+			else 
+				value = value + " "
+			end
+			#value = value + " "#hex2str(urldata[x+1]+urldata[x+2])
 			display value+crlf
 			x = x+2
 		else 
