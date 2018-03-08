@@ -359,12 +359,29 @@ class FInput : FWidget
 	#@Pending function
 	block getFont()
 	
+	#Get the correct text/string content of the @Class FInput widget
+	#@Return widget text @DataType STRING
 	block getValue()
 		return __input_value(WIDGETPOINTER, true, "")
 		
+	#Get the correct text/string content of the @Class FInput widget
+	#@Return widget text @DataType STRING	
+	block getText()
+		return getValue()
+		
+	#This block is useful for changing all the content of the widget
+	#at once i.e replacing the content of the widget. It almost equivalent 
+	#to call @Block clearValue()/clearText() and insert(value) but it more
+	#faster and reliable
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setValue(value)
 		INPUT_WIDGET_VALUE = value
 		__input_value(WIDGETPOINTER, false, INPUT_WIDGET_VALUE)
+		
+	#Same as @Block setValue(value)	
+	block setText(text)
+		setValue(text)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
