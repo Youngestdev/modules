@@ -951,7 +951,7 @@ SIMPLE_BLOCK(input_text_font)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		input->labelfont((int)SIMPLE_API_GETNUMBER(2));
+		input->labelfont((Fl_Font)SIMPLE_API_GETNUMBER(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
