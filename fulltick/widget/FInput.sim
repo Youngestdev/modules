@@ -330,6 +330,9 @@ class FInput : FWidget
 		
 	#Get the type of text font used by this widget. 
 	#@Return the text font @DataType NUMBER
+	#@Note This should not be mistaken for the @Block getFont() which
+	#returns the instance of the @Class FFont used by this widget if any 
+	#at all
 	block getTextFont()
 		return INPUT_WIDGET_TEXT_FONT
 		
@@ -343,6 +346,11 @@ class FInput : FWidget
 		__input_text_size(WIDGETPOINTER, INPUT_WIDGET_TEXT_SIZE)
 		redraw()
 		return this
+		
+	#Get the font size of the text in this widget 
+	#@Return the font size @DataType NUMBER
+	block getTextSize()
+		return INPUT_WIDGET_TEXT_SIZE
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
