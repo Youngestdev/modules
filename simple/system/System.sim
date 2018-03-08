@@ -12,7 +12,7 @@
  
 module simple.system
 
-call "simple/core/String.sim" ? simple.core
+#call "simple/core/String.sim" ? simple.core
 call "simple/core/DynamicLoader.sim" ? simple.core
 callModule("dynamic_modules\systemic\dist\Debug\MinGW-Windows\systemic.dll")		
 		
