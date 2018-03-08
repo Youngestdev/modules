@@ -13,6 +13,9 @@ class Div : Element
 	elementName = "div"
 	init(elementName)
 	
+	block Div(id)
+		setId(id)
+	
 	block setSize(height, width)
 		elementHeight = height
 		elementWidth = width
