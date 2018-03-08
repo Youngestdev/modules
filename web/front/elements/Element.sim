@@ -88,6 +88,7 @@ class Element
 		
 	block addStyle(style)
 		elementStyle += style
+		elementSetStyle = true
 		
 	block setStyleClass(iStyleClass)
 		styleClass += iStyleClass
