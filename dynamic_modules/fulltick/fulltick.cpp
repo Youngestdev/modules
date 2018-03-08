@@ -971,6 +971,24 @@ SIMPLE_BLOCK(input_text_size)
 	}
 }
 
+SIMPLE_BLOCK(input_value)
+{
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISSTRING(3)) {
+		Fl_Input_ *input = (Fl_Input_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		if (((int)SIMPLE_API_GETNUMBER(2)) == 1) {
+			SIMPLE_API_RETSTRING(input->value());
+		} else {
+			input->value(SIMPLE_API_GETSTRING(3));
+		}
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
 SIMPLE_API void init_full_tick(SimpleState *sState) 
 {
 	register_block("__test_gui",test_gui);
@@ -1048,5 +1066,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__input_text_color",input_text_color);
 	register_block("__input_text_font",input_text_font);
 	register_block("__input_text_size",input_text_size);
+	register_block("__input_value",input_value);
 
 }
