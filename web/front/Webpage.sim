@@ -36,8 +36,13 @@ class Webpage
 		head = ihead
 		
 	block addToBody(element)
-		websiteBody += ''+element.toString()+'
-		'
+		try
+			websiteBody += ''+element.toString()+'
+			'
+		catch
+			websiteBody += ''+element+'
+			'
+		end
 		
 	block addFooter(footer)
 		websiteFooter = footer.toString()
