@@ -9,7 +9,7 @@ block getRawUrlData()
 	return getSystemEnvironment("QUERY_STRING")
 
 block getUrlDataAsString()
-	return getSystemEnvironment("QUERY_STRING")
+	return decodeString(getSystemEnvironment("QUERY_STRING"))
 
 block loadPageAttributes()
 	if (getSystemEnvironment("REQUEST_METHOD") == "GET" ) 
@@ -31,8 +31,12 @@ block decodeString(urldata)
 	value = ""
 	for x = 0 to lengthOf(urldata)
 		val = urldata[x]
-		if val == ""
-		
+		if val == "%"
+			value = value + " "#hex2str(urldata[x+1]+urldata[x+2])
+			display value+crlf
+			x = x+2
+		else 
+			value = value + val
 		end
 	end
 	return attributes
