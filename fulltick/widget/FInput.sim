@@ -408,10 +408,13 @@ class FInput : FWidget
 		return __input_wrap(WIDGETPOINTER, true, INPUT_WIDGET_WRAPS)
 		
 	#Change the word wrapping property of the widget. Word wrapping 
-	#property does not apply to all the @Class FInput type 
+	#property does not apply to all the @Class FInput type.
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block wrap(condition)
 		INPUT_WIDGET_WRAPS = condition
 		__input_wrap(WIDGETPOINTER, false, INPUT_WIDGET_WRAPS)
+		return this
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
