@@ -86,6 +86,9 @@ class Element
 		styleClass += ' '+iStyleClass
 		elementSetClass = true
 		
+	block addStyle(style)
+		elementStyle += style
+		
 	block setStyleClass(iStyleClass)
 		styleClass += iStyleClass
 		elementSetClass = true
