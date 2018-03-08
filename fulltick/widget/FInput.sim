@@ -40,6 +40,7 @@ class FInput : FWidget
 	
 	/* STRING */
 	INPUT_WIDGET_SHORTCUT = null #Default shortcut for all input the 'ENTER' key
+	INPUT_WIDGET_VALUE = "" #Empty string in widget by default
 
 	#Initialize the @Class FInput widget 
 	block FInput()
@@ -351,6 +352,15 @@ class FInput : FWidget
 	#@Return the font size @DataType NUMBER
 	block getTextSize()
 		return INPUT_WIDGET_TEXT_SIZE
+		
+	#@Pending function	
+	block setFont(font)
+	
+	#@Pending function
+	block getFont()
+	
+	block getValue()
+		_input_value(WIDGETPOINTER, true, INPUT_WIDGET_VALUE)
 	
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
