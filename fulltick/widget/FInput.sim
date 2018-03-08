@@ -291,7 +291,7 @@ class FInput : FWidget
 	#Change the label color of the widget. Color is of @DataType Number
 	#The @Class FColor can be passed as parameter to the block which get the 
 	#color value from the @Class FColor or Integer/Number can be passed 
-	#directly 
+	#directly. We call @Block redraw() on this widget to effect change
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block setTextColor(color)
@@ -302,7 +302,7 @@ class FInput : FWidget
 			WIDGET_LABEL_COLOR.setColorValue(color)
 		}
 		__input_text_color(WIDGETPOINTER, WIDGET_LABEL_COLOR.getColor())
-		display "Holla color "
+		redraw()
 		return this
 	
 	#all the private attributes, fields and block not accessible #outside the class
