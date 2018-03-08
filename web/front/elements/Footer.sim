@@ -17,6 +17,9 @@ class Footer : Div
 	footerType = "fixed"
 	alignment = ALIGN_LEFT
 	
+	block Footer(id)
+		setId(id)
+	
 	block setType(type)
 		if type == STICKY_FOOTER 
 			footerType = FOOTER_FIXED_POSITTION
