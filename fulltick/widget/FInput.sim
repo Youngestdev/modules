@@ -29,6 +29,7 @@ class FInput : FWidget
 	WIDGET_Y = 10 #The default was change from zero to 10 but the position can be changed anytime
 	INPUT_WIDGET_MAXIMUM_SIZE = 100000000 #The default maximum is unlimited
 	INPUT_WIDGET_TEXT_FONT = 0 #default text font Arial
+	INPUT_WIDGET_TEXT_SIZE = 12 #the default text size
 	
 	/* TYPE */
 	WIDGET_CURSOR_COLOR = new FColor #the default caret/cursor color is black
@@ -309,9 +310,20 @@ class FInput : FWidget
 		redraw()
 		return this
 		
+	#Change the font of the @Class FInput widget value/text. This should 
+	#not be mistaken for the @Block setFont(font) which accept an instance
+	#of the @Class FFont as parameter. This accept one of the Font type 
+	#specified in the @File FFont.sim
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setTextFont(font)
 		INPUT_WIDGET_TEXT_FONT = font
 		__input_text_font(WIDGETPOINTER, INPUT_WIDGET_TEXT_FONT)
+		return this
+		
+	block setTextSize(size)
+		INPUT_WIDGET_TEXT_SIZE = size
+		__input_text_size(WIDGETPOINTER, INPUT_WIDGET_TEXT_SIZE)
 		return this
 	
 	#all the private attributes, fields and block not accessible #outside the class
