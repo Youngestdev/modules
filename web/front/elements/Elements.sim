@@ -81,6 +81,14 @@ class Nav : Element
 	block Nav(id)
 		setId(id)
 		
+class Article : Element
+	
+	elementName = "article"
+	init(elementName)	
+
+	block Article(id)
+		setId(id)
+		
 	
 		
 	
