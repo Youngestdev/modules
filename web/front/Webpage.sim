@@ -13,8 +13,6 @@ class Webpage
 	head = new web.front.elements.Head
 	mainTagStyle = ""
 	bodyClass = ""
-	websiteOpener = '<body class="homepage">
-	'
 	websiteBody = ''
 	websiteFooter = ""
 	
@@ -48,7 +46,15 @@ class Webpage
 	block addFooter(footer)
 		websiteFooter = footer.toString()
 		
+	block treatBody()
+		if bodyClass == "" 
+			websiteBody = '<body>' + websiteBody
+		else 
+			websiteBody = '<body class="'+bodyClass+'">' + websiteBody
+		end
+		
 	block render()
+		treatBody()
 		webPrint('<html lang="en" '+mainTagStyle+'>
 		'+head.toString()+'
 		'+websiteBody+'
@@ -70,12 +76,12 @@ block formatLiteral(content)
 	end*/#to uncomment after building core module
 	for a = 0 to lengthOf(content) 
 		switch content[a]
-			case '\'
+			case "\"
 				a++
 				switch content[a]
-				case '\'
-					inContent +=  '\'
-				case '"'
+				case "\"
+					inContent +=  "\"
+				case """
 					inContent += '"'
 				case "n"
 					inContent +=  crlf
