@@ -13,8 +13,9 @@ class Webpage
 	head = new web.front.elements.Head
 	mainTagStyle = ""
 	bodyClass = ""
-	websiteBody = '<body class="homepage">
+	websiteOpener = '<body class="homepage">
 	'
+	websiteBody = ''
 	websiteFooter = ""
 	
 	block Webpage()
