@@ -76,12 +76,12 @@ block formatLiteral(content)
 	end*/#to uncomment after building core module
 	for a = 0 to lengthOf(content) 
 		switch content[a]
-			case "\"
+			case '\'
 				a++
 				switch content[a]
-				case "\"
-					inContent +=  "\"
-				case """
+				case '\'
+					inContent +=  '\'
+				case '"'
 					inContent += '"'
 				case "n"
 					inContent +=  crlf
