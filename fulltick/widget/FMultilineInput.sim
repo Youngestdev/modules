@@ -32,7 +32,7 @@ call "fulltick/widget/FInput.sim" ? fulltick.widget
 # |  |kjhjhjkhhjghjgjgjhgwhg        jggtyutuytytuytwuyt |  |
 # |  |__________________________________________________|  |
 # |________________________________________________________|
-#@EndSkip
+#@EndSkip @Image FMultilineInput
 class FMultilineInput : FInput
 
 	WIDGET_HEIGHT = 150 #Since it a text view like input increase default height

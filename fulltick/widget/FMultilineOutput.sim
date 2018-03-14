@@ -34,8 +34,8 @@ call "fulltick/widget/FMultilineInput.sim" ? fulltick.widget
 #@EndSkip @Image FMultilineOutput
 class FMultilineOutput : FMultilineInput
 
-	#Initialize the @Class FMultilineInput widget 
-	block FMultilineInput()
+	#Initialize the @Class FMultilineOutput widget 
+	block FMultilineOutput()
 		initialize()
 		
 		
