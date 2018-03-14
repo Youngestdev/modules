@@ -1014,7 +1014,7 @@ SIMPLE_BLOCK(input_wrap)
 		if (((int)SIMPLE_API_GETNUMBER(2)) == 1) {
 			SIMPLE_API_RETNUMBER(input->wrap());
 		} else {
-			input->wrap(SIMPLE_API_GETNUMBER(3));
+			input->wrap((int)SIMPLE_API_GETNUMBER(3));
 		}
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
@@ -1022,20 +1022,6 @@ SIMPLE_BLOCK(input_wrap)
 }
 
 /** MENU/MENUITEMS/MENUBAR (s) **/
-
-SIMPLE_BLOCK(init_menu)
-{
-	if ( SIMPLE_API_PARACOUNT != 4 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
-		return ;
-	}
-	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
-		Fl_Menu_ *menu_ = new Fl_Menu_((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3),(int)SIMPLE_API_GETNUMBER(4));
-		SIMPLE_API_RETCPOINTER(menu_,"SIMPLE_FLTK_");
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
-}
 
 SIMPLE_BLOCK(init_menu_bar)
 {
@@ -1046,6 +1032,20 @@ SIMPLE_BLOCK(init_menu_bar)
 	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
 		Fl_Menu_Bar *menu_bar = new Fl_Menu_Bar((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3),(int)SIMPLE_API_GETNUMBER(4));
 		SIMPLE_API_RETCPOINTER(menu_bar,"SIMPLE_FLTK_");
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+SIMPLE_BLOCK(init_menu_item)
+{
+	if ( SIMPLE_API_PARACOUNT != 4 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
+		Fl_Menu_Bar *menu_item = new Fl_Menu_Bar((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3),(int)SIMPLE_API_GETNUMBER(4));
+		SIMPLE_API_RETCPOINTER(menu_item,"SIMPLE_FLTK_");
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
@@ -1133,7 +1133,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__input_wrap",input_wrap);
 
 	/** MENU/MENUITEMS/MENUBAR **/
-	register_block("__init_menu",init_menu);
 	register_block("__init_menu_bar",init_menu_bar);
+	register_block("__init_menu_item",init_menu_item);
 
 }

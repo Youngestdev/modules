@@ -23,5 +23,4 @@ call "fulltick/core/FWidget.sim" ? fulltick.widget
 #@EndSkip @Image FMenuBar
 class FMenu : FWidget
 
-	block FMenu()
-		
+	
