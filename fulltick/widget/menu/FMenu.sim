@@ -23,6 +23,10 @@ call "fulltick/core/FWidget.sim" ? fulltick.widget
 #@EndSkip @Image FMenuBar
 class FMenu : FWidget
 
+	MENU_WIDGET_VALUE = ""
+
 	block addItem(menuitem)
+		try 
+		__add_menu(WIDGETPOINTER,menuitem.getValue())
 		
 		
