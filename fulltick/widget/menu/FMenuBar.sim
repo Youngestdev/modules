@@ -5,10 +5,10 @@
 */
 
 /* 
- * @Filename - FOutput.sim
+ * @Filename - FMenuBar.sim
  * @Author - Azeez Adewale
  * @Date - 14 March 2018
- * @Time - 04:43 AM
+ * @Time - 05:16 AM
  *
  */
 
@@ -17,25 +17,24 @@ module fulltick.widget
 #call the @Class FInput File for blocks inheritance
 call "fulltick/widget/FInput.sim" ? fulltick.widget
 
-#This @Class FOutput is child class inheriting most of it 
-#attributes,blocks and other from it parent 
-#@Class FInput. This widget is a copy of the 
-#parent widget but it is not editable but the content text/value   
-#can be changed programatically @Skip
+#This @Class FMenuBar @Skip
 #  ________________________________________________________
-# |   __________________________________________________   |
-# |  |__________________________________________________|  | 
+# |                                                        |
 # |________________________________________________________|
 #@EndSkip @Image FOutput
-class FOutput : FInput
+class FMenuBar : FInput
 
-	#Initialize the @Class FOutput widget and make the 
-	#widget read only to make it not editable which is the actual
-	#different between this widget and it parent widget 
-	#@Class FInput
+	#Initialize the @Class FMenuBar
 	block FOutput()
 		initialize()
-		setReadOnly(true)
+		
+	#all the private attributes, fields and block not accessible #outside the class
+	private 
+		
+		#Create an instance of the FMenuBar Widget with custom width
+		#and height 
+		block initialize()
+			WIDGETPOINTER = __init_input(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
 		
 		
 		
