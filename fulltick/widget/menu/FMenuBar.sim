@@ -19,7 +19,6 @@ call "fulltick/core/FWidget.sim" ? fulltick.widget
 
 #This @Class FMenuBar @Skip
 #  ________________________________________________________
-# |                                                        |
 # |________________________________________________________|
 #@EndSkip @Image FMenuBar
 class FMenuBar : FWidget

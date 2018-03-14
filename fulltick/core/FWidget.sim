@@ -81,6 +81,22 @@ class FWidget
 		redrawParent()
 		notifyWidget()
 		return this
+		
+	#Change the width of the widget, preserving the current height 
+	#of the widget. If the width and the size of the widget want
+	#to be altered at once call @Block setSize(w, h) instead
+	#@Note It @Returns this which is the widget to allow the inline usage 
+	#of the widget
+	block setWidth(w)
+		setSize(w,WIDGET_HEIGHT)
+		return this
+	
+	#Change the height of the widget, preserving the current width 
+	#of the widget
+	#@Note It @Returns this which is the widget to allow the inline usage 
+	#of the widget
+	block setHeigth(h)
+		setSize(WIDGET_WIDTH,h)
 	
 	#Get the width value of the widget @Return widget width 
 	#@DataType Number
