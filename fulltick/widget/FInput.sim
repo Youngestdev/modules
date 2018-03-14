@@ -17,7 +17,15 @@ module fulltick.widget
 call "fulltick/painting/FColor.sim" ? fulltick.painting
 call "fulltick/core/FWidget.sim" ? fulltick.widget
 
-
+#This @Class FInput is the base class for all type of the input
+#and output widget. It hold most of the blocks. Some of the 
+#inheriting class is a child of this class but with a specific 
+#and protected attributes @Skip
+#  ________________________________________________________
+# |   __________________________________________________   |
+# |  |__________________________________________________|  | 
+# |________________________________________________________|
+#@EndSkip @Image FInput
 class FInput : FWidget
 
 	/* TYPES */

@@ -1,0 +1,43 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 SIMPLE
+
+*/
+
+/* 
+ * @Filename - FMultilineOutput.sim
+ * @Author - Azeez Adewale
+ * @Date - 14 March 2018
+ * @Time - 04:24 AM
+ *
+ */
+
+module fulltick.widget
+
+#call the @Class FMultilineInput File for blocks inheritance
+call "fulltick/widget/FMultilineInput.sim" ? fulltick.widget
+
+#This @Class FMultilineOutput is child class inheriting most of it 
+#attributes,blocks and other from it parent 
+#@Class FMultiLineInput.  @Skip
+#  ________________________________________________________
+# |   __________________________________________________   |
+# |  |ghghghgfhghfghdgfhuyuiuiutiuiuigjiuiikjuiuiuiuiuig|  | 
+# |  |jrfjrhfjhrfjhrjfhjrhfjhrjfhrfrfrfjrlkuelfekjflkuiu|  |
+# |  |gfhhgdfghfdwghfhgfghfhfhghghg hjuyuyuyuyuyu   eury|  |
+# |  |jhj              iuhiyuyuryiueyiutyiueyu khghgjhgg|  |
+# |  |mhghgjh     jgjfgrhjfghjgfehjgjehfghjgehghjghjgjg |  |
+# |  |kjhjhjhjhgfuiyuetytiqeuyqtqeiuqyeeiuuoeeyfuyuiyuyu|  |
+# |  |kjhjhjkhhjghjgjgjhgwhg        jggtyutuytytuytwuyt |  |
+# |  |__________________________________________________|  |
+# |________________________________________________________|
+#@EndSkip @Image FMultilineOutput
+class FMultilineOutput : FMultilineInput
+
+	#Initialize the @Class FMultilineInput widget 
+	block FMultilineInput()
+		initialize()
+		
+		
+		
+		
