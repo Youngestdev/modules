@@ -5,21 +5,21 @@
 */
 
 /* 
- * @Filename - FMultilineOutput.sim
+ * @Filename - FOutput.sim
  * @Author - Azeez Adewale
  * @Date - 14 March 2018
- * @Time - 04:24 AM
+ * @Time - 04:43 AM
  *
  */
 
 module fulltick.widget
 
-#call the @Class FMultilineInput File for blocks inheritance
-call "fulltick/widget/FMultilineInput.sim" ? fulltick.widget
+#call the @Class FInput File for blocks inheritance
+call "fulltick/widget/FInput.sim" ? fulltick.widget
 
-#This @Class FMultilineOutput is child class inheriting most of it 
+#This @Class FOutput is child class inheriting most of it 
 #attributes,blocks and other from it parent 
-#@Class FMultiLineInput. This widget is a copy of the 
+#@Class FInput. This widget is a copy of the 
 #parent widget but it is not editable but the content text/value   
 #can be changed programatically @Skip
 #  ________________________________________________________
@@ -33,14 +33,14 @@ call "fulltick/widget/FMultilineInput.sim" ? fulltick.widget
 # |  |kjhjhjkhhjghjgjgjhgwhg        jggtyutuytytuytwuyt^|  |
 # |  |__________________________________________________|  |
 # |________________________________________________________|
-#@EndSkip @Image FMultilineOutput
-class FOutput : Input
+#@EndSkip @Image FOutput
+class FOutput : FInput
 
-	#Initialize the @Class FMultilineOutput widget and make the 
+	#Initialize the @Class FOutput widget and make the 
 	#widget read only to make it not editable which is the actual
 	#different between this widget and it parent widget 
-	#@Class FMultiLineInput
-	block FMultilineOutput()
+	#@Class FInput
+	block FOutput()
 		initialize()
 		setReadOnly(true)
 		
