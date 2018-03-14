@@ -24,14 +24,7 @@ call "fulltick/widget/FInput.sim" ? fulltick.widget
 #can be changed programatically @Skip
 #  ________________________________________________________
 # |   __________________________________________________   |
-# |  |ghghghgfhghfghdgfhuyuiuiutiuiuigjiuiikjuiuiuiuiuig|  | 
-# |  |jrfjrhfjhrfjhrjfhjrhfjhrjfhrfrfrfjrlkuelfekjflkuiu|  |
-# |  |gfhhgdfghfdwghfhgfghfhfhghghg hjuyuyuyuyuyu   eury|  |
-# |  |jhj              iuhiyuyuryiueyiutyiueyu khghgjhgg|  |
-# |  |mhghgjh     jgjfgrhjfghjgfehjgjehfghjgehghjghjgjg |  |
-# |  |kjhjhjhjhgfuiyuetytiqeuyqtqeiuqyeeiuuoeeyfuyuiyuyu|  |
-# |  |kjhjhjkhhjghjgjgjhgwhg        jggtyutuytytuytwuyt^|  |
-# |  |__________________________________________________|  |
+# |  |__________________________________________________|  | 
 # |________________________________________________________|
 #@EndSkip @Image FOutput
 class FOutput : FInput
