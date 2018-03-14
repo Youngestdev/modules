@@ -34,7 +34,7 @@ call "fulltick/widget/FMultilineInput.sim" ? fulltick.widget
 # |  |__________________________________________________|  |
 # |________________________________________________________|
 #@EndSkip @Image FMultilineOutput
-class FMultilineOutput : FMultilineInput
+class FOutput : Input
 
 	#Initialize the @Class FMultilineOutput widget and make the 
 	#widget read only to make it not editable which is the actual
