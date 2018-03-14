@@ -386,10 +386,11 @@ class FInput : FWidget
 	block setValue(value)
 		INPUT_WIDGET_VALUE = value
 		__input_value(WIDGETPOINTER, false, INPUT_WIDGET_VALUE)
+		return this
 		
 	#Same as @Block setValue(value)	
 	block setText(text)
-		setValue(text)
+		return setValue(text)
 	
 	#All this block simply does is delete the content of the @Class FInput 
 	#widget and replace it with an empty string ""
