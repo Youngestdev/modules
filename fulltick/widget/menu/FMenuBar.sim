@@ -12,10 +12,10 @@
  *
  */
 
-module fulltick.widget
+module fulltick.widget.menu
 
-#call the @Class FInput File for blocks inheritance
-call "fulltick/widget/menu/FMenu.sim" ? fulltick.widget
+#call the @Class FMenu File for blocks inheritance
+call "fulltick/widget/menu/FMenu.sim" ? fulltick.widget.menu
 
 #This @Class FMenuBar @Skip
 #  ________________________________________________________

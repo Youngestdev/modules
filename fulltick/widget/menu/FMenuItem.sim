@@ -5,23 +5,23 @@
 */
 
 /* 
- * @Filename - FMenuBar.sim
+ * @Filename - FMenuItem.sim
  * @Author - Azeez Adewale
  * @Date - 14 March 2018
- * @Time - 05:16 AM
+ * @Time - 06:35 PM
  *
  */
 
-module fulltick.widget
+module fulltick.widget.menu
 
-#call the @Class FInput File for blocks inheritance
-call "fulltick/core/FWidget.sim" ? fulltick.widget
+#call the @Class FMenu File for blocks inheritance
+call "fulltick/widget/menu/FMenu.sim" ? fulltick.widget.menu
 
 #This @Class FMenuBar @Skip
 #  ________________________________________________________
 # |________________________________________________________|
 #@EndSkip @Image FMenuBar
-class FMenu : FWidget
+class FMenuItem : FMenu
 
 	add(menuitem)
 		
