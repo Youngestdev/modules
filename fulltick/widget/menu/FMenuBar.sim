@@ -15,13 +15,13 @@
 module fulltick.widget
 
 #call the @Class FInput File for blocks inheritance
-call "fulltick/core/FWidget.sim" ? fulltick.widget
+call "fulltick/widget/menu/FMenu.sim" ? fulltick.widget
 
 #This @Class FMenuBar @Skip
 #  ________________________________________________________
 # |________________________________________________________|
 #@EndSkip @Image FMenuBar
-class FMenuBar : FWidget
+class FMenuBar : FMenu
 
 	/* NUMBER */
 	WIDGET_WIDTH = 300 #Change the default width 
