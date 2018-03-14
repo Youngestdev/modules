@@ -23,6 +23,8 @@ call "fulltick/widget/menu/FMenu.sim" ? fulltick.widget.menu
 #@EndSkip @Image FMenuBar
 class FMenuItem : FMenu
 
+	MENU_WIDGET_VALUE = ""
+
 	block FMenuItem(name)
 		MENU_WIDGET_VALUE = name
 		
@@ -32,7 +34,6 @@ class FMenuItem : FMenu
 	#all the private attributes, fields and block not accessible outside
 	#the class
 	private 
-	
-		MENU_WIDGET_VALUE = ""
+		
 	
 		
