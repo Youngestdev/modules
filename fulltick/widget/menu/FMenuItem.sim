@@ -80,7 +80,7 @@ class FMenuItem : FWidget
 					add(MENU_WIDGET_ITEMS_LIST,menuitem[a])
 					if menuitem[a].isSubMenu() display lengthOf(menuitem[a].getItems()) +" Here "
 						for a = 0 to 2 
-							getItems()[a].setValue(getValue()+"/"+getItems()[a].getName()) display getItems()[a].getValue()+" "
+							menuitem[a].getItems()[a].setValue(getValue()+"/"+getItems()[a].getName()) display getItems()[a].getValue()+" "
 						end 
 					end	
 				catch 
