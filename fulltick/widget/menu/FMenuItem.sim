@@ -52,7 +52,7 @@ class FMenuItem : FMenu
 	block getItems()
 		if (MENU_WIDGET_IS_SUB_MENU == false) 
 			add(MENU_WIDGET_ITEMS_LIST,this)
-		end display MENU_WIDGET_ITEMS_LIST
+		end 
 		return MENU_WIDGET_ITEMS_LIST
 		
 	#add sub menu items to the current @Class MenuItem also this block
