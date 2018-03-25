@@ -21,12 +21,49 @@ call "fulltick/core/FWidget.sim" ? fulltick.widget
 #  ________________________________________________________
 # |________________________________________________________|
 #@EndSkip @Image FMenuBar
-class FMenu : FWidget
+class FMenu : FWidget	
 
-	MENU_WIDGET_VALUE = ""
-
+	#Add a new menu item to the menu or a menu item itself this block 
+	#this block takes both @DataType string and the @Class FMenuItem 
+	#as parameter if a string is sent as parameter then the @Link Callback
+	#can only be assigned using index on the menu but you when a 
+	#@Class FMenuItem is sent as parameter then other fine tunning, 
+	#properties and @Link Callback can be assigned to the the class
+	#before been sent as parameter to this block.
+	#Parameters can be sent as list or single object 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the menu
 	block addItem(menuitem)
 		try 
-		__add_menu(WIDGETPOINTER,menuitem.getValue())
+			if isList(menuitem)
+				for a = 0 to lengthOf(menuitem)
+					addSingleItem(menuitem[a])
+				end
+			end
+		catch 
+			try 
+				addSingleItem(menuitem) 
+			catch 
+				addItemRaw(menuitem,null,null,null,null) 
+			end
+		end
+		return this
+		
+	#add a single menuitem this block does not accept @DataType List as
+	#parameter but a single object to dynamically add object call the
+	#@Block addItem(menuitem) instead 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the menu
+	block addSingleItem(menuitem) 
+		for a = 0 to lengthOf(menuitem.getItems())
+			addItemRaw(menuitem.getItems()[a].getValue(),menuitem.getItems()[a].getShortcut(),menuitem.getItems()[a].getCallback(),menuitem.getItems()[a].getUserData(),menuitem.getItems()[a].getFlag())
+		end
+		return this
+		
+	block addItemRaw(value,shortcut,callback,userdata,flag) 
+		__add_menu(WIDGETPOINTER,value,shortcut,callback,userdata,flag)
+	
+	
+	
 		
 		

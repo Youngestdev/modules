@@ -1039,13 +1039,29 @@ SIMPLE_BLOCK(init_menu_bar)
 
 SIMPLE_BLOCK(init_menu_item)
 {
-	if ( SIMPLE_API_PARACOUNT != 4 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
-		Fl_Menu_Item menu_item[] = {{"foo",0,0,0,FL_MENU_INACTIVE},{"&File",0,0,0,FL_SUBMENU}} ;
+	if ( SIMPLE_API_ISSTRING(1) ) {
+		Fl_Menu_Bar *menu_item = new Fl_Menu_Bar(50,50,50,50, "File");
 		SIMPLE_API_RETCPOINTER(menu_item,"SIMPLE_FLTK_");
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+SIMPLE_BLOCK(add_menu)
+{
+	if ( SIMPLE_API_PARACOUNT != 6 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING6PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
+		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		String * str = simple_string_new_gc(((VM *) pointer)->sState,SIMPLE_API_GETSTRING(4)); 
+		CallbackStruct *cbs = new CallbackStruct(pointer, str, menu); 
+		menu->add(SIMPLE_API_GETSTRING(2), 0, 0, 0, ((int)SIMPLE_API_GETNUMBER(6)));
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
@@ -1135,5 +1151,6 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	/** MENU/MENUITEMS/MENUBAR **/
 	register_block("__init_menu_bar",init_menu_bar);
 	register_block("__init_menu_item",init_menu_item);
+	register_block("__add_menu",add_menu);
 
 }

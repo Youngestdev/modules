@@ -47,7 +47,6 @@ class FInput : FWidget
 	INPUT_WIDGET_TAB_NAV = true #true if pressing the 'TAB' key change focus
 	
 	/* STRING */
-	INPUT_WIDGET_SHORTCUT = null #Default shortcut for all input the 'ENTER' key
 	INPUT_WIDGET_VALUE = "" #Empty string in widget by default
 
 	#Initialize the @Class FInput widget 
@@ -246,29 +245,6 @@ class FInput : FWidget
 		f = mark()
 		t = cursorPosition()
 		__input_replace(WIDGETPOINTER,f,t,value)
-		
-	
-	
-	#Assign shortcut to the @FInput widget. The shortcut can be either a
-	#Number value of the keyboard key, the keyboard char or an instance of
-	#the @Class FShortcut 
-	#@Note It @Returns this which is the widget to allow the in-line usage 
-	#of the widget
-	#@Skip just string only	to create FShortcut class @EndSkip
-	block setShortcut(shortcut)
-		INPUT_WIDGET_SHORTCUT = shortcut
-		if (shortcut == 7676/*isNumber(INPUT_WIDGET_SHORTCUT)*/) 
-			__input_shortcut(WIDGETPOINTER, INPUT_WIDGET_SHORTCUT) 
-		else
-			__input_shortcut(WIDGETPOINTER, INPUT_WIDGET_SHORTCUT)
-		end
-		return this
-		
-	#Get the shortcut of this widget input 
-	#@Returns widget input down color background color in form of the
-	#@Class FShortcut to support and allow more shortcuts usage
-	block getShortcut()
-		return INPUT_WIDGET_SHORTCUT
 		
 	#Get the the length of the @Class FInput widget value in byte
 	#@Return value size in byte @DataType Number

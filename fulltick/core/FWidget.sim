@@ -57,6 +57,8 @@ class FWidget
 	WIDGET_TITLE = "Simple Fulltick" #The default title for all objects
 	WIDGET_TOOLTIP = "" #The widget tooltip
 	WIDGET_LABEL = "" #The label attribute of the widget
+	WIDGET_SHORTCUT = null #Default shortcut for all input the 'ENTER' key
+	WIDGET_CALLBACK = "" #this is the block name of the block that is called in the widget callback
 	
 	/* BOOLEAN */
 	WIDGET_ISRESIZABLE = false #The boolean value indicating if widget can resize
@@ -325,14 +327,21 @@ class FWidget
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block callback(cb)
-		__on_click(WIDGETPOINTER, cb)
+		WIDGET_CALLBACK = cb
+		__on_click(WIDGETPOINTER, WIDGET_CALLBACK)
 		return this
 	
 	#Work same as the @Block callback(cb) used to fire the default event 
 	#that occur when the state of the widget changes
 	block actionEvent(cb)
-		__on_click(WIDGETPOINTER, cb) 
+		WIDGET_CALLBACK = cb
+		__on_click(WIDGETPOINTER, WIDGET_CALLBACK) 
 		return this
+		
+	#Get the callback for this widget 
+	#@Returns widget callback @DataType STRING
+	block getCallback()
+		return WIDGET_CALLBACK
 		
 	#pending
 	block when()
@@ -414,6 +423,27 @@ class FWidget
 	#@Returns object hash @DataType Numbers
 	block getHash()
 		return hash(WIDGET_TYPE)
+		
+	#Assign shortcut to the @FWidget widget. The shortcut can be either a
+	#Number value of the keyboard key, the keyboard char or an instance of
+	#the @Class FShortcut 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
+	#@Skip just string only	to create FShortcut class @EndSkip
+	block setShortcut(shortcut)
+		WIDGET_SHORTCUT = shortcut
+		if (shortcut == 7676/*isNumber(WIDGET_SHORTCUT)*/) 
+			__input_shortcut(WIDGETPOINTER, WIDGET_SHORTCUT) 
+		else
+			__input_shortcut(WIDGETPOINTER, WIDGET_SHORTCUT)
+		end
+		return this
+		
+	#Get the shortcut of this widget input 
+	#@Returns widget input down color background color in form of the
+	#@Class FShortcut to support and allow more shortcuts usage
+	block getShortcut()
+		return WIDGET_SHORTCUT
 		
 	block hasParent()
 		if WIDGET_HAS_PARENT 
