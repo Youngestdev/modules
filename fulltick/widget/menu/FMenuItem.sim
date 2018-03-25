@@ -99,10 +99,10 @@ class FMenuItem : FWidget
 	block isSubMenu()
 		return MENU_WIDGET_IS_SUB_MENU
 		
-	block notifyWidget()
-		if isSubMenu() display getItems()[0].getValue()
-			for a = 0 to lengthOf(getItems())
-				getItems()[a].setValue("") display getItems()[a].getValue()+" "
+	block notifyWidget() 
+		if isSubMenu() 
+			for a = 0 to lengthOf(getItems()) 
+				getItems()[a].setValue(getValue()+"/"+getItems()[a].getValue()) display getItems()[a].getValue()+" "
 			end 
 		end		
 		
