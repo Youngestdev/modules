@@ -52,7 +52,7 @@ class FMenuItem : FMenu
 	block getItems()
 		if (MENU_WIDGET_IS_SUB_MENU == false) 
 			add(MENU_WIDGET_ITEMS_LIST,this)
-		end
+		end display MENU_WIDGET_ITEMS_LIST
 		return MENU_WIDGET_ITEMS_LIST
 		
 	#add sub menu items to the current @Class MenuItem also this block
@@ -66,12 +66,12 @@ class FMenuItem : FMenu
 	block addItem(menuitem)
 		MENU_WIDGET_IS_SUB_MENU = true 
 		if (isList(menuitem)) 
-			for a = 0 to lengthOf(menuitem)
+			for a = 0 to lengthOf(menuitem) 
 				try 
 					menuitem[a].check()
 					add(MENU_WIDGET_ITEMS_LIST,menuitem[a])
-				catch
-					return addItemRaw(getValue()+"/"+menuitem[a])
+				catch 
+					addItemRaw(getValue()+"/"+menuitem[a])
 				end
 			end
 		else 
@@ -79,15 +79,14 @@ class FMenuItem : FMenu
 				menuitem.check()
 				add(MENU_WIDGET_ITEMS_LIST,menuitem)
 			catch
-				return addItemRaw(getValue()+"/"+menuitem)
+				addItemRaw(getValue()+"/"+menuitem)
 			end
 		end
 		return this
 		
 	block addItemRaw(menuitem)
-		temp = new FMenuItem(menuitem)
+		temp = new FMenuItem(menuitem) 
 		add(MENU_WIDGET_ITEMS_LIST,temp)
-		return this
 		
 	block setUserData(userdata)
 		MENU_WIDGET_USER_DATA = userdata
