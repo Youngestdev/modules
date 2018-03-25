@@ -35,10 +35,12 @@ class FMenu : FWidget
 	#of the menu
 	block addItem(menuitem)
 		try 
-			if isList(menuitem) display menuitem+" "
+			if isList(menuitem) 
 				for a = 0 to lengthOf(menuitem)
 					addSingleItem(menuitem[a])
 				end
+			else
+				addSingleItem(menuitem)
 			end
 		catch 
 			try 
