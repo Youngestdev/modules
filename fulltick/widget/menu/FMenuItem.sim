@@ -49,6 +49,8 @@ class FMenuItem : FMenu
 	block getValue()
 		return MENU_WIDGET_VALUE
 		
+	#Get all the item i.e sub menus / sub items 
+	#@Return sub menu items @DataType LIST
 	block getItems()
 		return MENU_WIDGET_ITEMS_LIST
 		
