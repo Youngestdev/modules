@@ -46,6 +46,11 @@ class FMenuItem : FWidget
 		
 	#Get the value of the @Class MenuItem 
 	#@Return the widget value @DataType STRING
+	block getValue()
+		return MENU_WIDGET_VALUE
+		
+	block setValue(value)
+		MENU_WIDGET_VALUE = value
 		
 	#Get all the item i.e sub menus / sub items 
 	#@Return sub menu items @DataType LIST
@@ -65,9 +70,7 @@ class FMenuItem : FWidget
 		if (isList(menuitem)) 
 			for a = 0 to lengthOf(menuitem) 
 				try 
-					menuitem[a].check() 
-					display menuitem[a].getValue() 
-					//display " HERE : "+menuitem[a].getValue()
+					menuitem[a].check() menuitem[a].setValue(getValue()+"/"+menuitem[a].getValue()) 
 					add(MENU_WIDGET_ITEMS_LIST,menuitem[a])
 				catch 
 					addItemRaw(getValue()+"/"+menuitem[a])
@@ -75,7 +78,7 @@ class FMenuItem : FWidget
 			end
 		else 
 			try 
-				menuitem.check()
+				menuitem.check() menuitem.setValue(getValue()+"/"+menuitem.getValue()) display temp.getValue()
 				add(MENU_WIDGET_ITEMS_LIST,menuitem)
 			catch
 				addItemRaw(getValue()+"/"+menuitem)
