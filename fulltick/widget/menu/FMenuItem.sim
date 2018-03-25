@@ -71,6 +71,7 @@ class FMenuItem : FWidget
 			for a = 0 to lengthOf(menuitem) 
 				try 
 					menuitem[a].check() menuitem[a].setValue(getValue()+"/"+menuitem[a].getValue()) 
+					display getValue()#+"/"+menuitem[a].getValue()+" "
 					add(MENU_WIDGET_ITEMS_LIST,menuitem[a])
 				catch 
 					addItemRaw(getValue()+"/"+menuitem[a])
@@ -78,7 +79,7 @@ class FMenuItem : FWidget
 			end
 		else 
 			try 
-				menuitem.check() menuitem.setValue(getValue()+"/"+menuitem.getValue()) display temp.getValue()
+				menuitem.check() menuitem.setValue(getValue()+"/"+menuitem.getValue()) 
 				add(MENU_WIDGET_ITEMS_LIST,menuitem)
 			catch
 				addItemRaw(getValue()+"/"+menuitem)
