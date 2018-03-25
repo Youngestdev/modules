@@ -87,6 +87,13 @@ class FMenuItem : FMenu
 		temp = new FMenuItem(menuitem) 
 		add(MENU_WIDGET_ITEMS_LIST,temp)
 		
+	#Check whether this @Class FMenuItem is a sub menu parenting other
+	#menu items and sub menus 
+	#@Return condition indicating the @Class MenuItem is a sub menu
+	#@DataType BOOLEAN
+	block isSubMenu()
+		return MENU_WIDGET_IS_SUB_MENU
+		
 	block setUserData(userdata)
 		MENU_WIDGET_USER_DATA = userdata
 		

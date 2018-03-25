@@ -56,9 +56,13 @@ class FMenu : FWidget
 	#@Block addItem(menuitem) instead 
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the menu
-	block addSingleItem(menuitem) 
-		for a = 0 to lengthOf(menuitem.getItems())
-			addItemRaw(menuitem.getItems()[a].getValue(),menuitem.getItems()[a].getShortcut(),menuitem.getItems()[a].getCallback(),menuitem.getItems()[a].getUserData(),menuitem.getItems()[a].getFlag())
+	block addSingleItem(menuitem)  display menuitem.getItems()[0]
+		if (isSubMenu()) 
+			for a = 0 to lengthOf(menuitem.getItems())
+				addItemRaw(menuitem.getItems()[a].getValue(),menuitem.getItems()[a].getShortcut(),menuitem.getItems()[a].getCallback(),menuitem.getItems()[a].getUserData(),menuitem.getItems()[a].getFlag())
+			end
+		else 
+			addItemRaw(menuitem.getValue(),menuitem.getShortcut(),menuitem.getCallback(),menuitem.getUserData(),menuitem.getFlag())
 		end
 		return this
 		
