@@ -24,7 +24,9 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 #@EndSkip @Image FMenuItem
 class FMenuItem : FWidget
 
+	/* STRING */
 	MENU_WIDGET_VALUE = ""
+	MENU_WIDGET_NAME = ""
 	
 	/* POINTERS AND CLASSES */
 	MENU_WIDGET_USER_DATA = null #the user data for the menu
@@ -92,8 +94,8 @@ class FMenuItem : FWidget
 		return this
 		
 	block addItemRaw(menuitem)
-		temp = new FMenuItem(menuitem) 
-		add(MENU_WIDGET_ITEMS_LIST,temp) temp.notifyWidget()	
+		temp = new FMenuItem(menuitem) temp.notifyWidget()
+		add(MENU_WIDGET_ITEMS_LIST,temp) 	
 		
 	#Check whether this @Class FMenuItem is a sub menu parenting other
 	#menu items and sub menus 
@@ -105,7 +107,7 @@ class FMenuItem : FWidget
 	block notifyWidget() 
 		if isSubMenu() 
 			for a = 0 to lengthOf(getItems()) 
-				getItems()[a].setValue(getValue()+"/"+getItems()[a].getValue()) display getItems()[a].getValue()+" "
+				getItems()[a].setValue(getValue()+"/"+getItems()[a].getName()) display getItems()[a].getValue()+" "
 			end 
 		end		
 		
