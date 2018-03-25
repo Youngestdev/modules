@@ -41,7 +41,7 @@ class FMenuItem : FWidget
 	#initialize the @Class MenuItem with a defined value which will be 
 	#rendered on the @Class MenuBar and it parent @Class MenuItem
 	block FMenuItem(name)
-		MENU_WIDGET_VALUE = name
+		MENU_WIDGET_VALUE = name setName(name)
 		initialize()
 		
 	#Get the value of the @Class MenuItem 
@@ -51,6 +51,9 @@ class FMenuItem : FWidget
 		
 	block setValue(value)
 		MENU_WIDGET_VALUE = value
+		
+	block getName()
+		return MENU_WIDGET_NAME
 		
 	#Get all the item i.e sub menus / sub items 
 	#@Return sub menu items @DataType LIST
@@ -129,4 +132,12 @@ class FMenuItem : FWidget
 		#this block is used to confirm the item sent into the 
 		#@Block addItem(menuitem) is an instance of @Class FMenuItem
 		block check()
+		
+		#@Block setName(name) is used to set the real name of the 
+		#@Class FMenuItem but the real name can be gotten from outside
+		#the class using the @Block getName(). If you intent to get the 
+		#absolute value instead call the @Block getValue() which can also 
+		#be altered using the @Block setValue(value)
+		block setName(name)
+			MENU_WIDGET_NAME = name
 		
