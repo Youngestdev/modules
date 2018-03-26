@@ -13,7 +13,7 @@ CallbackStruct::CallbackStruct(void *the_pointer, String *the_block, Fl_Widget *
 /** the callback delegate for the fulltick library **/
 static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
 	CallbackStruct *cbs = (CallbackStruct *) callback_struct ; printf("her 2 ");
-	simple_vm_exec((VM *) cbs->pointer,simple_string_get(cbs->block));
+	simple_vm_callblock((VM *) cbs->pointer,simple_string_get(cbs->block));
 }
 
 /** might be needed later for key listeners **/
