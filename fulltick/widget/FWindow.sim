@@ -114,7 +114,7 @@ class FWindow : FWidget
 	#all the private attributes, fields and block not accessible outside
 	#the class this can also be used to override block that should not
 	#be called outside this Context
-	private 
+	#private 
 		
 		#Create an instance of the FWindow Widget with Widget Width and 
 		#Height, Title and set window resizability
