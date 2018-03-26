@@ -7,19 +7,18 @@
 /* 
  * @Filename - FFileChooser.sim
  * @Author - Azeez Adewale
- * @Date - 14 March 2018
- * @Time - 06:35 PM
+ * @Date - 26 March 2018
+ * @Time - 10:43 AM
  *
  */
 
 module fulltick.widget.menu
 
-#call the @Class FMenu File for blocks inheritance
-call "fulltick/widget/menu/FMenu.sim" ? fulltick.widget.menu
+#call the @Class FWidget File for blocks inheritance
 call "fulltick/core/FWidget.sim" ? fulltick.core
 
 #This @Class FFileChooser @Skip
 #  ________________________________________________________
 # |________________________________________________________|
 #@EndSkip @Image FFileChooser
-class FMenuItem : FWidget
+class FFileChooser : FWidget

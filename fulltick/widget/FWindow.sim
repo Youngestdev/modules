@@ -32,10 +32,13 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 class FWindow : FWidget
 
 	WIDGET_TYPE = "WINDOW"
+	
+	initialize() #initialize the FWindow Widget with zero width and height.
 
-	#initialize the FWindow Widget with zero width and height.
+	#moved the initialization of the window to initial context to 
+	#prevent calling the block again when inherited
 	block FWindow()
-		initialize()
+		#initialize()
 		
 	#Show the window widget. This block is useful if you will be creating a 
 	#custom event loop to hold the window because calling this block will
