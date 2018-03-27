@@ -49,6 +49,8 @@ class FButton : FBox
 	
 	WIDGET_SHORTCUT = '^M' #Default shortcut for all button the 'ENTER' key
 	FCHECKBUTTON_LEAD_SPACE = "  " #a lead spacing for the label on the widget
+	
+	setTypeName("FBUTTON") #change the name of the widget
 
 	#Initialize the @Class FButton widget with a label value/content
 	block FButton(label)

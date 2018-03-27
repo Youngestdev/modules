@@ -240,7 +240,7 @@ class FWidget
 	#of the widget
 	block resizable(condition)
 		WIDGET_ISRESIZABLE = condition
-		display getParent().getType()+crlf
+		display getParent().getTypeName()+crlf
 		__resizable(getParent().getWidgetPointer(),WIDGETPOINTER)
 		redrawParent() notifyWidget()
 		return this
@@ -414,12 +414,12 @@ class FWidget
 	
 	#Use it to get the type of the current widget, Useful for comparison 
 	#@Returns widget type @DataType String
-	block getType()
+	block getTypeName()
 		return WIDGET_TYPE
 		
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget	
-	block setType(type)
+	block setTypeName(type)
 		WIDGET_TYPE = type
 		return this
 		
@@ -462,7 +462,7 @@ class FWidget
 			return false 
 		end
 		
-	block setParent(parent)
+	block setParentPointer(parent)
 		WIDGET_HAS_PARENT = true
 		PARENT_WIDGETPOINTER = parent
 		
