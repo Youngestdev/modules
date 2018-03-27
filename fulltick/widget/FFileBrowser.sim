@@ -35,13 +35,13 @@ class FFileBrowser : FWidget
 	/* NUMBER */
 	WIDGET_WIDTH = 300 #the default widget of the @Class FFileBrowser widget
 	WIDGET_HEIGHT = 400 #the default height of the @Class FFileBrowser widget
-	FILE_BROWSER_TYPE = 2 #the type of selection mode single by default
+	FILE_BROWSER_SELECTION_TYPE = 2 #the type of selection mode single by default
 	
 	#the default constructor use for just setting the size
 	block FFileBrowser()
 		setSize(WIDGET_WIDTH,WIDGET_HEIGHT)
 		loadDirectory(FILE_BROWSER_DIRECTORY)
-		type(FILE_BROWSER_TYPE)
+		type(FILE_BROWSER_SELECTION_TYPE)
 		
 	#Load the current directory into the @Class FFileBrowser 
 	#the directory that is loaded is the @Attribute FILE_BROWSER_DIRECTORY
@@ -89,8 +89,8 @@ class FFileBrowser : FWidget
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget	
 	block type(type)
-		FILE_BROWSER_TYPE = type
-		__file_browser_type(WIDGETPOINTER,FILE_BROWSER_TYPE)
+		FILE_BROWSER_SELECTION_TYPE = type
+		__file_browser_type(WIDGETPOINTER,FILE_BROWSER_SELECTION_TYPE)
 		return this
 		
 	#Change the Selection Type of the @Class FFileBrowser
@@ -149,11 +149,17 @@ class FFileBrowser : FWidget
 	
 	block setFilter(filter)
 		__file_browser_filter(WIDGETPOINTER,filter)
+		return this
 		
-	block filter(filter) setFilter(filter)
+	block filter(filter) return setFilter(filter)
 	
 	block setFileType(type)
 		__file_browser_file_type(WIDGETPOINTER,type)
+		return this
+		
+	block setIconSize(size)
+		__file_browser_icon_size(WIDGETPOINTER,size)
+		return this
 
 	#Create an instance of the FFileBrowser Widget with Widget Width and 
 	#Height, 
