@@ -44,7 +44,7 @@ class FMenuItem : FWidget
 	#rendered on the @Class MenuBar and it parent @Class MenuItem
 	block FMenuItem(name)
 		MENU_WIDGET_VALUE = name setName(name)
-		initialize()
+		initialize() 
 		
 	#Get the value of the @Class MenuItem 
 	#@Return the widget value @DataType STRING
