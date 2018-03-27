@@ -469,6 +469,7 @@ class FWidget
 		
 	block setParent(parent)
 		PARENT_WIDGET = parent
+		display PARENT_WIDGET.getTypeName()+" "
 		
 	block getParentPointer()
 		return PARENT_WIDGETPOINTER
