@@ -130,7 +130,8 @@ class FFileBrowser : FWidget
 	#unlike @Block text(index) which required one parameter this does not 
 	#require any parameter but the value it returns depend on the selected 
 	#index in the @Class FFileBrowser widget. If you wish to get the value
-	#at the 
+	#at a specific index call the @Block text(index) instead
+	#@Return the value at the selected index @DataType STRING
 	block getSelectedText()
 		return text(index())
 		
