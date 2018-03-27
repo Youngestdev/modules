@@ -240,7 +240,7 @@ class FWidget
 	#of the widget
 	block resizable(condition,o)
 		WIDGET_ISRESIZABLE = condition
-		__resizable(WIDGETPOINTER,o.getWidgetPointer())
+		__resizable(WIDGETPOINTER,WIDGETPOINTER)
 		redrawParent() notifyWidget()
 		return this
 		
