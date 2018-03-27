@@ -244,6 +244,9 @@ class FWidget
 		redrawParent() notifyWidget()
 		return this
 		
+	#This block is the same as the @Block resizable(condition)
+	block setResizable(condition) return resizable(condition)
+		
 	#Get the realizability condition of a widget. Check whether the widget 
 	#is re sizable @Return widget realizability @DataType boolean
 	block isResisable()
