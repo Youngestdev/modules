@@ -1066,7 +1066,7 @@ SIMPLE_BLOCK(add_menu)
 	}
 }
 
-/** BROWSER(LIST)/FILEBROWSER **/
+/** BROWSERS(LISTVIEWS) **/
 
 SIMPLE_BLOCK(file_browser_type)
 {
@@ -1114,6 +1114,8 @@ SIMPLE_BLOCK(file_browser_text)
 	}
 }
 
+/** FILEBROWSER **/
+
 SIMPLE_BLOCK(init_file_browser)
 {
 	if ( SIMPLE_API_PARACOUNT != 4 ) {
@@ -1137,6 +1139,20 @@ SIMPLE_BLOCK(file_browser_load)
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		widget->load(SIMPLE_API_GETSTRING(2));
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
+SIMPLE_BLOCK(file_browser_file_type)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		widget->filetype(SIMPLE_API_GETNUMBER(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
@@ -1228,11 +1244,16 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__init_menu_item",init_menu_item);
 	register_block("__add_menu",add_menu);
 
-	/** BROWSER(LIST)/FILEBROWSER **/
-	register_block("__init_file_browser",init_file_browser);
-	register_block("__file_browser_load",file_browser_load);
+	/** BROWSERS(LISTVIEWS) **/
 	register_block("__file_browser_type",file_browser_type);
 	register_block("__file_browser_value",file_browser_value);
 	register_block("__file_browser_text",file_browser_text);
+
+	/** FILEBROWSER **/
+	register_block("__init_file_browser",init_file_browser);
+	register_block("__file_browser_load",file_browser_load);
+	register_block("__file_browser_file_type",file_browser_file_type);
+	register_block("__file_browser_filter",file_browser_filter);
+	register_block("__file_browser_icon_size",file_browser_icon_size);
 
 }
