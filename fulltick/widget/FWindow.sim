@@ -31,7 +31,7 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 #can be called to add it to FApp stack or @Block run() to display the window
 class FWindow : FWidget
 
-	WIDGET_TYPE = "WINDOW"
+	WIDGET_TYPE = "WINDOW" setType(WIDGET_TYPE)
 	
 	initialize() #initialize the FWindow Widget with zero width and height.
 

@@ -228,7 +228,7 @@ class FWidget
 	#of the widget
 	block objectResizable()
 		WIDGET_ISRESIZABLE = true
-		__resizable(WIDGETPOINTER,WIDGETPOINTER)
+		__resizable(getParent().getWidgetPointer(),WIDGETPOINTER)
 		redrawParent() notifyWidget()
 		return this
 		
@@ -238,14 +238,15 @@ class FWidget
 	#objcet data
 	#@Note It @Returns this which is the widget to allow the inline usage 
 	#of the widget
-	block resizable(condition,o)
+	block resizable(condition)
 		WIDGET_ISRESIZABLE = condition
-		__resizable(WIDGETPOINTER,WIDGETPOINTER)
+		display getParent().getType()+crlf
+		__resizable(getParent().getWidgetPointer(),WIDGETPOINTER)
 		redrawParent() notifyWidget()
 		return this
 		
 	#This block is the same as the @Block resizable(condition)
-	block setResizable(condition,o) return resizable(condition,o)
+	block setResizable(condition) return resizable(condition)
 		
 	#Get the realizability condition of a widget. Check whether the widget 
 	#is re sizable @Return widget realizability @DataType boolean
@@ -415,6 +416,12 @@ class FWidget
 	#@Returns widget type @DataType String
 	block getType()
 		return WIDGET_TYPE
+		
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget	
+	block setType(type)
+		WIDGET_TYPE = type
+		return this
 		
 	#Get the string value of the widget which is some of the notable 
 	#attributes of the widget 
