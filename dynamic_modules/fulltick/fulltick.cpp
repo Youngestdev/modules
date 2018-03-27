@@ -9,8 +9,8 @@ CallbackStruct::CallbackStruct(void *the_pointer, String *the_block, Fl_Widget *
 
 /** the callback delegate for the fulltick library **/
 static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
-	CallbackStruct *cbs = (CallbackStruct *) callback_struct ; 
 	printf("here 2 hello world \n");
+	//CallbackStruct *cbs = (CallbackStruct *) callback_struct ; 
 	//simple_vm_runcode((VM *) cbs->pointer,simple_string_get(cbs->block));
 }
 
@@ -1063,7 +1063,7 @@ SIMPLE_BLOCK(add_menu)
 		if (((int)SIMPLE_API_GETNUMBER(7)) == 1) {
 			menu->add(SIMPLE_API_GETSTRING(2), 0, 0, SIMPLE_API_GETPOINTER(5), ((int)SIMPLE_API_GETNUMBER(6)));
 		} else if (((int)SIMPLE_API_GETNUMBER(7)) == 2) {
-			menu->add(SIMPLE_API_GETSTRING(2),0, ((Fl_Callback*)(SimpleCallBack,cbs)), 0, ((int)SIMPLE_API_GETNUMBER(6)));
+			menu->add(SIMPLE_API_GETSTRING(2),0, ((Fl_Callback*)(SimpleCallBack,3)), 0, ((int)SIMPLE_API_GETNUMBER(6)));
 		} else if (((int)SIMPLE_API_GETNUMBER(7)) == 3) {
 			menu->add(SIMPLE_API_GETSTRING(2), 0, 0, 0, ((int)SIMPLE_API_GETNUMBER(6)));
 		} else {
