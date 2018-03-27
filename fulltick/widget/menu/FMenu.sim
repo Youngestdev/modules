@@ -67,6 +67,10 @@ class FMenu : FWidget
 		end
 		return this
 		
+	block addMenu(menu)
+		display menu
+		
+		
 	block addItemRaw(value,shortcut,callback,userdata,flag) 
 		if (shortcut == "" && callback == "" && userdata == "" ) 
 			__add_menu(WIDGETPOINTER,value,shortcut,callback,userdata,flag,0)
@@ -79,6 +83,8 @@ class FMenu : FWidget
 		else 
 			__add_menu(WIDGETPOINTER,value,shortcut,callback,userdata,flag,0)
 		end
+		
+	
 	
 	
 	
