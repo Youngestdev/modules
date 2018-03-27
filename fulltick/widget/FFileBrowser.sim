@@ -143,6 +143,11 @@ class FFileBrowser : FWidget
 	#FFileBrowser 
 	#@Note currently failing
 	block selectNone() return select(-1)
+	
+	block setFilter(filter)
+		__file_browser_filter(WIDGETPOINTER,filter)
+		
+	block filter(filter) setFilter(filter)
 
 	#Create an instance of the FFileBrowser Widget with Widget Width and 
 	#Height, 

@@ -1152,7 +1152,7 @@ SIMPLE_BLOCK(file_browser_file_type)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		widget->filetype(SIMPLE_API_GETNUMBER(2));
+		widget->filetype((int)SIMPLE_API_GETNUMBER(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
