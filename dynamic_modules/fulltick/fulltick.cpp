@@ -1066,35 +1066,7 @@ SIMPLE_BLOCK(add_menu)
 	}
 }
 
-/** MENU/MENUITEMS/MENUBAR (s) **/
-
-SIMPLE_BLOCK(init_file_browser)
-{
-	if ( SIMPLE_API_PARACOUNT != 4 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
-		return ;
-	}
-	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
-		Fl_File_Browser *widget = new Fl_File_Browser((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3),(int)SIMPLE_API_GETNUMBER(4));
-		SIMPLE_API_RETCPOINTER(widget,"SIMPLE_FLTK_");
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
-}
-
-SIMPLE_BLOCK(file_browser_load)
-{
-	if ( SIMPLE_API_PARACOUNT != 2 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
-		return ;
-	}
-	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
-		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		widget->load(SIMPLE_API_GETSTRING(2));
-	} else {
-		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
-	}
-}
+/** BROWSER(LIST)/FILEBROWSER **/
 
 SIMPLE_BLOCK(file_browser_type)
 {
@@ -1137,6 +1109,34 @@ SIMPLE_BLOCK(file_browser_text)
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_Browser *widget = (Fl_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		SIMPLE_API_RETSTRING(widget->text((int)SIMPLE_API_GETNUMBER(2) + 1));
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
+	}
+}
+
+SIMPLE_BLOCK(init_file_browser)
+{
+	if ( SIMPLE_API_PARACOUNT != 4 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISNUMBER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) && SIMPLE_API_ISNUMBER(4)) {
+		Fl_File_Browser *widget = new Fl_File_Browser((int)SIMPLE_API_GETNUMBER(1),(int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3),(int)SIMPLE_API_GETNUMBER(4));
+		SIMPLE_API_RETCPOINTER(widget,"SIMPLE_FLTK_");
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+SIMPLE_BLOCK(file_browser_load)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
+		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		widget->load(SIMPLE_API_GETSTRING(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
@@ -1228,7 +1228,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__init_menu_item",init_menu_item);
 	register_block("__add_menu",add_menu);
 
-	/** FILEBROWSER **/
+	/** BROWSER(LIST)/FILEBROWSER **/
 	register_block("__init_file_browser",init_file_browser);
 	register_block("__file_browser_load",file_browser_load);
 	register_block("__file_browser_type",file_browser_type);
