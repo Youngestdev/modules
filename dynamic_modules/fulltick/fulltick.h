@@ -75,6 +75,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState) ;
 #define FULLTICK_MISING4PARAM "Four parameters are required for this block "
 #define FULLTICK_MISING5PARAM "Five parameters are required for this block "
 #define FULLTICK_MISING6PARAM "Six parameters are required for this block "
+#define FULLTICK_MISING7PARAM "Seven parameters are required for this block "
 #define FULLTICK_WRONGPARAM "An invalid parameter has been passed to the (GUI)fulltick Module "
 
 #ifdef __cplusplus
