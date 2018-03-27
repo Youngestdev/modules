@@ -105,8 +105,9 @@ class FFileBrowser : FWidget
 	#this block function is same as @Block getSelectedIndex()
 	block index() return getSelectedIndex()
 	
-	#Select an index in the list of files and folders in the 
-	#@Class FFileBrowser 
+	#Select an index in the list of files and folders in the @Class 
+	#FFileBrowser. If you want to select none of the listed items in @Class
+	#FFileBrowser send -1 as the index or just call @Block selectNone()
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget	
 	block setSelectedIndex(index)
