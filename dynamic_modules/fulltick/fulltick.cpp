@@ -1112,13 +1112,17 @@ SIMPLE_BLOCK(file_browser_type)
 
 SIMPLE_BLOCK(file_browser_value)
 {
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		SIMPLE_API_RETNUMBER(widget->value());
+		if ((int)SIMPLE_API_GETNUMBER(2) == 1) {
+			widget->value((int)SIMPLE_API_GETNUMBER(3));
+		} else {
+			SIMPLE_API_RETNUMBER(widget->value());
+		}
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}

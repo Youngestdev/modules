@@ -23,6 +23,7 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 #@EndSkip @Image FFileBrowser
 class FFileBrowser : FWidget
 
+	setTypeName("FFILEBROWSER") #change the name of the widget
 	initialize() #initialize the widget at once
 	
 	/* STRING */
@@ -93,6 +94,9 @@ class FFileBrowser : FWidget
 	#this block function is same as @Block type(type)
 	block changeSelectionType(type)
 		return type(type)
+		
+	block getSelectedIndex()
+		return __file_browser_type(WIDGETPOINTER,0,null)
 
 	#Create an instance of the FFileBrowser Widget with Widget Width and 
 	#Height, 
