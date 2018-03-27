@@ -122,6 +122,12 @@ class FFileBrowser : FWidget
 	#@Return the value at the provided index @DataType STRING
 	block text(index)
 		return __file_browser_text(WIDGETPOINTER,index)
+		
+	#this block function is same as @Block text(index)
+	block value(index) return text(index)
+	
+	block getSelectedText()
+		return text(index())
 
 	#Create an instance of the FFileBrowser Widget with Widget Width and 
 	#Height, 
