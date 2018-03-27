@@ -70,7 +70,7 @@ class FMenu : FWidget
 	block addItemRaw(value,shortcut,callback,userdata,flag) display callback +"  "
 		if (shortcut == "" && callback == "" && userdata == "" ) display "in 0 "
 			__add_menu(WIDGETPOINTER,value,shortcut,callback,userdata,flag,0)
-		elif (shortcut == "" && callback == "" && userdata != "" ) display "in 1"
+		elif (shortcut == "" && callback == "" && userdata != "" ) 
 			__add_menu(WIDGETPOINTER,value,shortcut,callback,userdata,flag,1)
 		elif (shortcut == "" && callback != "" && userdata == "" )
 			display "in 2 "

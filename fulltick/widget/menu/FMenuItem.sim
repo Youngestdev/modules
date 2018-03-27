@@ -133,6 +133,10 @@ class FMenuItem : FWidget
 	#the class
 	private 
 		
+		#this block is very dumb it useless too @HashWord it not useful
+		#in any way but it just there to assign value to the 
+		#@Attribute WIDGETPOINTER to make all block call in the parent
+		#@Class FWidget to be usable to be dispose in later release
 		block initialize()
 			WIDGETPOINTER = __init_menu_item("")
 	
