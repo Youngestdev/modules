@@ -1058,11 +1058,11 @@ SIMPLE_BLOCK(add_menu)
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		String * str = simple_string_new_gc(((VM *) pointer)->sState,SIMPLE_API_GETSTRING(4)); 
-		CallbackStruct *cbs = new CallbackStruct(pointer, str, menu); printf("CLICK MENU %s\n",str->str);
+		CallbackStruct *cbs = new CallbackStruct(pointer, str, menu); 
 		if (((int)SIMPLE_API_GETNUMBER(7)) == 1) {
 			menu->add(SIMPLE_API_GETSTRING(2), 0, 0, SIMPLE_API_GETPOINTER(5), ((int)SIMPLE_API_GETNUMBER(6)));
 		} else if (((int)SIMPLE_API_GETNUMBER(7)) == 2) {
-			menu->add(SIMPLE_API_GETSTRING(2),0, ((SimpleCallBack,cbs)), 0, ((int)SIMPLE_API_GETNUMBER(6)));
+			menu->add(SIMPLE_API_GETSTRING(2),0, SimpleCallBack, cbs, ((int)SIMPLE_API_GETNUMBER(6)));
 		} else if (((int)SIMPLE_API_GETNUMBER(7)) == 3) {
 			menu->add(SIMPLE_API_GETSTRING(2), 0, 0, 0, ((int)SIMPLE_API_GETNUMBER(6)));
 		} else {
