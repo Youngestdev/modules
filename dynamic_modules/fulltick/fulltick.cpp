@@ -1164,9 +1164,9 @@ SIMPLE_BLOCK(file_browser_filter)
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		widget->filetype(SIMPLE_API_GETNUMBER(2));
+		widget->filter(SIMPLE_API_GETSTRING(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
@@ -1180,7 +1180,7 @@ SIMPLE_BLOCK(file_browser_icon_size)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		widget->filetype(SIMPLE_API_GETNUMBER(2));
+		widget->iconsize((uchar)(int)SIMPLE_API_GETNUMBER(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
