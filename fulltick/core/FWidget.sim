@@ -369,10 +369,9 @@ class FWidget
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block addWidget(widget)
-		#
 		if isList(widget)
 			for a = 0 to lengthOf(widget) 
-				addChildWidget(widget[a], false) display "here"
+				addChildWidget(widget[a], false)
 			end
 		else
 			addChildWidget(widget, false)
@@ -387,12 +386,12 @@ class FWidget
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block addResizableWidget(widget)
-		try 
-			addChildWidget(widget, true)
-		catch
+		if isList(widget)
 			for a = 0 to lengthOf(widget) 
 				addChildWidget(widget[a], true)
 			end
+		else
+			addChildWidget(widget, true)
 		end
 		return this
 	
@@ -532,9 +531,9 @@ class FWidget
 		block notifyWidget()
 		
 		block addChildWidget(widget, condition)
+			widget.setParent(this)
 			__add_widget(WIDGETPOINTER, widget.getWidgetPointer(), condition)
 			add(WIDGET_CHILDREN, widget)
-			widget.setParent(this)
 	
 	
 	
