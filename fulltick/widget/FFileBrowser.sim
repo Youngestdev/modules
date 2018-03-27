@@ -95,8 +95,14 @@ class FFileBrowser : FWidget
 	block changeSelectionType(type)
 		return type(type)
 		
+	#This block return the position at which the @Class FFileBrowser is
+	#selected 
+	#@Note the index start from zero 
 	block getSelectedIndex()
-		return __file_browser_type(WIDGETPOINTER,0,null)
+		return __file_browser_value(WIDGETPOINTER,0,null)
+		
+	#this block function is same as @Block getSelectedIndex()
+	block index() return getSelectedIndex()
 
 	#Create an instance of the FFileBrowser Widget with Widget Width and 
 	#Height, 
