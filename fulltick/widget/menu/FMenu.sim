@@ -73,7 +73,6 @@ class FMenu : FWidget
 		elif (shortcut == "" && callback == "" && userdata != "" ) 
 			__add_menu(WIDGETPOINTER,value,shortcut,callback,userdata,flag,1)
 		elif (shortcut == "" && callback != "" && userdata == "" )
-			display "in 2 "
 			__add_menu(WIDGETPOINTER,value,shortcut,callback,userdata,flag,2)
 		elif (shortcut == "")
 			
