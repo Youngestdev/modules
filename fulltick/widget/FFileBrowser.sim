@@ -126,6 +126,11 @@ class FFileBrowser : FWidget
 	#this block function is same as @Block text(index)
 	block value(index) return text(index)
 	
+	#Get the value of the selected index without passing any parameter
+	#unlike @Block text(index) which required one parameter this does not 
+	#require any parameter but the value it returns depend on the selected 
+	#index in the @Class FFileBrowser widget. If you wish to get the value
+	#at the 
 	block getSelectedText()
 		return text(index())
 		
