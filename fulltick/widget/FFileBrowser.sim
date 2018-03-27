@@ -116,6 +116,10 @@ class FFileBrowser : FWidget
 	#this block function is same as @Block setSelectedIndex(index)
 	block select(index) return setSelectedIndex(index)
 	
+	#Get the value of the selected index in the @Class FFileBrowser list
+	#it accept @DataType NUMBER as parameter which means it get the value
+	#at the parameter provided it return string 
+	#@Return the value at the provided index @DataType STRING
 	block text(index)
 		return __file_browser_text(WIDGETPOINTER,index)
 
