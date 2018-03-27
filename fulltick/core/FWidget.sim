@@ -241,7 +241,7 @@ class FWidget
 	#of the widget
 	block resizable(condition)
 		WIDGET_ISRESIZABLE = condition
-		display getParent().getTypeName()+crlf
+		display getParent().getTypeName()+" "
 		__resizable(getParent().getWidgetPointer(),WIDGETPOINTER)
 		redrawParent() notifyWidget()
 		return this
@@ -369,13 +369,13 @@ class FWidget
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget
 	block addWidget(widget)
-		#isList()
-		try 
-			addChildWidget(widget, false)
-		catch
+		#
+		if isList(widget)
 			for a = 0 to lengthOf(widget) 
-				addChildWidget(widget[a], false)
+				addChildWidget(widget[a], false) display "here"
 			end
+		else
+			addChildWidget(widget, false)
 		end
 		return this
 	
@@ -469,7 +469,6 @@ class FWidget
 		
 	block setParent(parent)
 		PARENT_WIDGET = parent
-		display PARENT_WIDGET.getTypeName()+" "
 		
 	block getParentPointer()
 		return PARENT_WIDGETPOINTER
