@@ -1089,7 +1089,7 @@ SIMPLE_BLOCK(file_browser_load)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
-		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Browser *widget = (Fl_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		widget->load(SIMPLE_API_GETSTRING(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
@@ -1103,7 +1103,7 @@ SIMPLE_BLOCK(file_browser_type)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
-		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Browser *widget = (Fl_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		widget->type((int)SIMPLE_API_GETNUMBER(2));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
@@ -1117,7 +1117,7 @@ SIMPLE_BLOCK(file_browser_value)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(2) ) {
-		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Browser *widget = (Fl_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		if ((int)SIMPLE_API_GETNUMBER(2) == 1) {
 			widget->value((int)SIMPLE_API_GETNUMBER(3) + 1);
 		} else {
@@ -1135,7 +1135,7 @@ SIMPLE_BLOCK(file_browser_text)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
-		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		Fl_Browser *widget = (Fl_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		SIMPLE_API_RETSTRING(widget->text((int)SIMPLE_API_GETNUMBER(2) + 1));
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
