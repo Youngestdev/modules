@@ -114,7 +114,7 @@ class FFileListBox : FWidget
 	#@Note It @Returns this which is the widget to allow the in-line usage 
 	#of the widget	
 	block setSelectedIndex(index)
-		__file_listbox_value(WIDGETPOINTER,true,index)
+		__listbox_value(WIDGETPOINTER,true,index)
 		return this
 		
 	#this block function is same as @Block setSelectedIndex(index)
