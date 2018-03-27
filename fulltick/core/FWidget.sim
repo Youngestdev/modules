@@ -33,7 +33,8 @@ call "simple/security/Hash.sim" ? simple.security
 class FWidget
 
 	/* POINTERS AND CLASSES */
-	PARENT_WIDGETPOINTER = null #initialize the parent widget with null
+	PARENT_WIDGETPOINTER = null #initialize the parent widget pointer with null
+	PARENT_WIDGET = null #initialize the parent widget with null
 	WIDGETPOINTER = null #initialize the widget pointer to null
 	WIDGET_BACKGROUND_COLOR = null #The default background color is 
 	#inherited from the [[link][FLTK]["http://www.fltk.org"]] Library
@@ -466,6 +467,9 @@ class FWidget
 		WIDGET_HAS_PARENT = true
 		PARENT_WIDGETPOINTER = parent
 		
+	block setParent(parent)
+		PARENT_WIDGET = parent
+		
 	block getParentPointer()
 		return PARENT_WIDGETPOINTER
 		
@@ -473,9 +477,7 @@ class FWidget
 		return __get_parent_widget(WIDGETPOINTER)
 		
 	block getParent()
-		nwp = new FWidget
-		nwp.setWidgetPointer(getParentPointer())
-		return nwp 
+		return PARENT_WIDGET
 		
 	block getTrueParent()
 		nwp = new FWidget
