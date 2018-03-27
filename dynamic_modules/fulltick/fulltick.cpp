@@ -1059,8 +1059,7 @@ SIMPLE_BLOCK(add_menu)
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		String * str = simple_string_new_gc(((VM *) pointer)->sState,SIMPLE_API_GETSTRING(4)); 
 		CallbackStruct *cbs = new CallbackStruct(pointer, str, menu); 
-		//Fl_Menu_Item *item ; //menu->add(item);
-		menu->add(SIMPLE_API_GETSTRING(2), 0, 0, 0, ((int)SIMPLE_API_GETNUMBER(6)));
+		menu->add(SIMPLE_API_GETSTRING(2), SIMPLE_API_GETSTRING(3), (Fl_Callback*)(cbs), SIMPLE_API_GETPOINTER(5), ((int)SIMPLE_API_GETNUMBER(6)));
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}

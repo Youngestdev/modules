@@ -68,6 +68,7 @@ class FMenu : FWidget
 		return this
 		
 	block addItemRaw(value,shortcut,callback,userdata,flag) 
+		#__add_menu(WIDGETPOINTER,value,shortcut,callback,userdata,flag)
 		__add_menu(WIDGETPOINTER,value,shortcut,callback,userdata,flag)
 	
 	
