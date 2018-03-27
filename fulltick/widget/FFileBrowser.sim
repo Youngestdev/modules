@@ -138,6 +138,11 @@ class FFileBrowser : FWidget
 		
 	#this block function is same as @Block getSelectedText()	
 	block getSelectedValue() return getSelectedText()
+	
+	#Select none of the items in the list of items in the @Class 
+	#FFileBrowser 
+	#@Note currently failing
+	block selectNone() return select(-1)
 
 	#Create an instance of the FFileBrowser Widget with Widget Width and 
 	#Height, 
