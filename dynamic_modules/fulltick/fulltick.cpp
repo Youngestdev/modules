@@ -9,7 +9,7 @@ CallbackStruct::CallbackStruct(void *the_pointer, String *the_block, Fl_Widget *
 
 /** the callback delegate for the fulltick library **/
 static void SimpleCallBack(Fl_Widget*, void* callback_struct) {
-	CallbackStruct *cbs = (CallbackStruct *) callback_struct ;
+	CallbackStruct *cbs = (CallbackStruct *) callback_struct ; printf("here 2 %s \n",cbs->block);
 	simple_vm_runcode((VM *) cbs->pointer,simple_string_get(cbs->block));
 }
 
@@ -1058,7 +1058,7 @@ SIMPLE_BLOCK(add_menu)
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		String * str = simple_string_new_gc(((VM *) pointer)->sState,SIMPLE_API_GETSTRING(4)); 
-		CallbackStruct *cbs = new CallbackStruct(pointer, str, menu); printf("CLICK %S\n",str->str);
+		CallbackStruct *cbs = new CallbackStruct(pointer, str, menu); printf("CLICK MENU %s\n",str->str);
 		if (((int)SIMPLE_API_GETNUMBER(7)) == 1) {
 			menu->add(SIMPLE_API_GETSTRING(2), 0, 0, SIMPLE_API_GETPOINTER(5), ((int)SIMPLE_API_GETNUMBER(6)));
 		} else if (((int)SIMPLE_API_GETNUMBER(7)) == 2) {
