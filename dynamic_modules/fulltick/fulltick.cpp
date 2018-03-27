@@ -75,13 +75,14 @@ SIMPLE_BLOCK(set_look_and_feel)
 
 SIMPLE_BLOCK(resizable_object)
 {
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) ) {
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISPOINTER(2) ) {
 		Fl_Window * window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		window->resizable(window);
+		Fl_Widget * widget = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(2,"SIMPLE_FLTK_");
+		window->resizable(widget);
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
