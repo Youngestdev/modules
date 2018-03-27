@@ -12,7 +12,7 @@
  
 module simple.system
 
-call "System.sim"
+call "loadsystemdll.sim"
 
 Runtime = new Runtime
 

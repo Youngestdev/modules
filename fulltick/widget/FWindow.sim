@@ -111,15 +111,20 @@ class FWindow : FWidget
 	block getTitle()
 		return getLabel()
 		
+	#Create an instance of the FWindow Widget with Widget Width and 
+	#Height, Title and set window resizability
+	#@Note @Important you do should never call this block from child
+	#class as it resets all the atributes and properties of the widget
+	#do not call
+	block initialize()
+		WIDGETPOINTER = __init_window(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_TITLE, WIDGET_ISRESIZABLE)
+		
 	#all the private attributes, fields and block not accessible outside
 	#the class this can also be used to override block that should not
 	#be called outside this Context
 	#private 
 		
-		#Create an instance of the FWindow Widget with Widget Width and 
-		#Height, Title and set window resizability
-		block initialize()
-			WIDGETPOINTER = __init_window(WIDGET_WIDTH, WIDGET_HEIGHT, WIDGET_TITLE, WIDGET_ISRESIZABLE)
+		
 			
 		
 			

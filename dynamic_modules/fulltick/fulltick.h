@@ -34,6 +34,7 @@
 #include <FL/Fl_Multiline_Input.H>
 #include <FL/Fl_Menu_Button.H>
 #include <FL/Fl_Sys_Menu_Bar.H>
+#include <FL/Fl_File_Browser.H>
 
 #ifdef WIN32
 #include <FL/x.H>           

@@ -1,0 +1,103 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 SIMPLE
+
+*/
+
+/* 
+ * @Filename - FFileBrowser.sim
+ * @Author - Azeez Adewale
+ * @Date - 26 March 2018
+ * @Time - 03:34 AM
+ *
+ */
+
+module fulltick.widget.menu
+
+#call the @Class FWidget File for blocks inheritance
+call "fulltick/core/FWidget.sim" ? fulltick.core
+
+#This @Class FFileBrowser @Skip
+#  ________________________________________________________
+# |________________________________________________________|
+#@EndSkip @Image FFileBrowser
+class FFileBrowser : FWidget
+
+	initialize() #initialize the widget at once
+	
+	/* STRING */
+	FILE_BROWSER_DIRECTORY = "." #the initial directory is the current working folder
+	
+	/* NUMBER */
+	WIDGET_WIDTH = 300 #the default widget of the @Class FFileBrowser widget
+	WIDGET_HEIGHT = 400 #the default height of the @Class FFileBrowser widget
+	FILE_BROWSER_TYPE = 2 #the type of selection mode single by default
+	
+	#the default constructor use for just setting the size
+	block FFileBrowser()
+		setSize(WIDGET_WIDTH,WIDGET_HEIGHT)
+		loadDirectory(FILE_BROWSER_DIRECTORY)
+		type(FILE_BROWSER_TYPE)
+		
+	#Load the current directory into the @Class FFileBrowser 
+	#the directory that is loaded is the @Attribute FILE_BROWSER_DIRECTORY
+	#that can be change by calling the @Block setDirectory(dir)
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
+	block load()
+		__file_browser_load(WIDGETPOINTER,FILE_BROWSER_DIRECTORY)
+		return this
+		
+	#Change the current directory or folder that is loaded by the 
+	#@Class FFileBrowser. The block accept string as parameter if the 
+	#directory supplied does not exits nothing is loaded into the 
+	#@Class FFileBrowser
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
+	block loadDirectory(dir)
+		FILE_BROWSER_DIRECTORY = dir
+		load()
+		return this
+		
+	#Change the current directory or folder that is loaded by the 
+	#@Class FFileBrowser. This block is same as @Block loadDirectory(dir)
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
+	block changeDirectory(dir)
+		FILE_BROWSER_DIRECTORY = dir
+		load()
+		return this
+		
+	#change the attribute value of the @Attribute FILE_BROWSER_DIRECTORY
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget	
+	block setDirectory(dir)
+		FILE_BROWSER_DIRECTORY = dir
+		return this
+		
+	#Get the current directory/folder of the @Class FFileBrowser widget
+	#@Return the directory @Class STRING
+	block getDirectory()
+		return FILE_BROWSER_DIRECTORY
+		
+	#Change the type of selection for the @Class FFileBrowser the proper
+	#selection types can be found in the @Class FBrowserSelectios
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget	
+	block type(type)
+		FILE_BROWSER_TYPE = type
+		__file_browser_type(WIDGETPOINTER,FILE_BROWSER_TYPE)
+		return this
+		
+	#Change the Selection Type of the @Class FFileBrowser
+	#this block function is same as @Block type(type)
+	block changeSelectionType(type)
+		return type(type)
+
+	#Create an instance of the FFileBrowser Widget with Widget Width and 
+	#Height, 
+	#@Note @Important you do should never call this block from child
+	#class as it resets all the attributes and properties of the widget
+	#do not call
+	block initialize()
+		WIDGETPOINTER = __init_file_browser(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)

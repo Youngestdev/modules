@@ -1,0 +1,19 @@
+/* 
+	Copyright (c) 2018 Azeez Adewale <azeezadewale98@gmail.com"> 
+	MIT License Copyright (c) 2018 simple 
+
+*/
+
+/* 
+ * @filename - CurlCore.sim
+ * @author - Azeez Adewale
+ * @date - 26 Febuary 2017
+ * @Time - 11:44 AM
+ */
+ 
+module simple.system
+
+call "simple/core/DynamicLoader.sim" ? simple.core
+#Call all the low level function of the @DynamicModule systemic
+callModule("dynamic_modules\systemic\dist\Debug\MinGW-Windows\systemic.dll")		
+#callModule("systemic.dll")
