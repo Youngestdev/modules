@@ -14,8 +14,8 @@
 
 module fulltick.widget.menu
 
-FILE_TYPE = 0
-DIRECTORY_TYPE = 1
+FILES_TYPE = 0
+DIRECTORIES_TYPE = 1
 
 #call the @Class FWidget File for blocks inheritance
 call "fulltick/core/FWidget.sim" ? fulltick.core
