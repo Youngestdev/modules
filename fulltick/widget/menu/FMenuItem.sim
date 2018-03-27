@@ -134,7 +134,7 @@ class FMenuItem : FWidget
 	private 
 		
 		block initialize()
-			#WIDGETPOINTER = __init_menu_item("")
+			WIDGETPOINTER = __init_menu_item("")
 	
 		#this block is used to confirm the item sent into the 
 		#@Block addItem(menuitem) is an instance of @Class FMenuItem
