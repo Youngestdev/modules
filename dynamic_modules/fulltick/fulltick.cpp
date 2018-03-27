@@ -82,7 +82,7 @@ SIMPLE_BLOCK(resizable_object)
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISPOINTER(2) ) {
 		Fl_Window * window = (Fl_Window* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		Fl_Widget * widget = (Fl_Widget* ) SIMPLE_API_GETCPOINTER(2,"SIMPLE_FLTK_");
-		window->resizable(widget);
+		window->resizable(widget); 
 	} else {
 		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
