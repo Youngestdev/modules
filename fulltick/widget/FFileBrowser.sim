@@ -97,6 +97,7 @@ class FFileBrowser : FWidget
 		
 	#This block return the position at which the @Class FFileBrowser is
 	#selected 
+	#@Return the selected index in the @Class FFileBrowser @DataType NUMBER
 	#@Note the index start from zero 
 	block getSelectedIndex()
 		return __file_browser_value(WIDGETPOINTER,0,null)
@@ -104,10 +105,19 @@ class FFileBrowser : FWidget
 	#this block function is same as @Block getSelectedIndex()
 	block index() return getSelectedIndex()
 	
+	#Select an index in the list of files and folders in the 
+	#@Class FFileBrowser 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget	
 	block setSelectedIndex(index)
 		__file_browser_value(WIDGETPOINTER,true,index)
+		return this
 		
-	block select(index) setSelectedIndex(index)
+	#this block function is same as @Block setSelectedIndex(index)
+	block select(index) return setSelectedIndex(index)
+	
+	block text(index)
+		return __file_browser_text(WIDGETPOINTER,index)
 
 	#Create an instance of the FFileBrowser Widget with Widget Width and 
 	#Height, 
