@@ -1066,9 +1066,9 @@ SIMPLE_BLOCK(add_menu)
 	}
 }
 
-/** BROWSERS(LISTVIEWS) **/
+/** BROWSERS(LISTBOX) **/
 
-SIMPLE_BLOCK(file_browser_type)
+SIMPLE_BLOCK(listbox_type)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -1082,7 +1082,7 @@ SIMPLE_BLOCK(file_browser_type)
 	}
 }
 
-SIMPLE_BLOCK(file_browser_value)
+SIMPLE_BLOCK(listbox_value)
 {
 	if ( SIMPLE_API_PARACOUNT != 3 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
@@ -1100,7 +1100,7 @@ SIMPLE_BLOCK(file_browser_value)
 	}
 }
 
-SIMPLE_BLOCK(file_browser_text)
+SIMPLE_BLOCK(listbox_text)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -1116,7 +1116,7 @@ SIMPLE_BLOCK(file_browser_text)
 
 /** FILEBROWSER **/
 
-SIMPLE_BLOCK(init_file_browser)
+SIMPLE_BLOCK(init_file_listbox)
 {
 	if ( SIMPLE_API_PARACOUNT != 4 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING4PARAM);
@@ -1130,7 +1130,7 @@ SIMPLE_BLOCK(init_file_browser)
 	}
 }
 
-SIMPLE_BLOCK(file_browser_load)
+SIMPLE_BLOCK(file_listbox_load)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -1144,7 +1144,7 @@ SIMPLE_BLOCK(file_browser_load)
 	}
 }
 
-SIMPLE_BLOCK(file_browser_file_type)
+SIMPLE_BLOCK(file_listbox_file_type)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -1158,7 +1158,7 @@ SIMPLE_BLOCK(file_browser_file_type)
 	}
 }
 
-SIMPLE_BLOCK(file_browser_filter)
+SIMPLE_BLOCK(file_listbox_filter)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -1172,7 +1172,7 @@ SIMPLE_BLOCK(file_browser_filter)
 	}
 }
 
-SIMPLE_BLOCK(file_browser_icon_size)
+SIMPLE_BLOCK(file_listbox_icon_size)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -1272,16 +1272,16 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__init_menu_item",init_menu_item);
 	register_block("__add_menu",add_menu);
 
-	/** BROWSERS(LISTVIEWS) **/
-	register_block("__file_browser_type",file_browser_type);
-	register_block("__file_browser_value",file_browser_value);
-	register_block("__file_browser_text",file_browser_text);
+	/** BROWSERS(LISTBOX) **/
+	register_block("__listbox_type",listbox_type);
+	register_block("__listbox_value",listbox_value);
+	register_block("__listbox_text",listbox_text);
 
 	/** FILEBROWSER **/
-	register_block("__init_file_browser",init_file_browser);
-	register_block("__file_browser_load",file_browser_load);
-	register_block("__file_browser_file_type",file_browser_file_type);
-	register_block("__file_browser_filter",file_browser_filter);
-	register_block("__file_browser_icon_size",file_browser_icon_size);
+	register_block("__init_file_listbox",init_file_listbox);
+	register_block("__file_listbox_load",file_listbox_load);
+	register_block("__file_listbox_file_type",file_listbox_file_type);
+	register_block("__file_listbox_filter",file_listbox_filter);
+	register_block("__file_listbox_icon_size",file_listbox_icon_size);
 
 }
