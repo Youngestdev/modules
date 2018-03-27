@@ -106,6 +106,8 @@ class FFileBrowser : FWidget
 	
 	block setSelectedIndex(index)
 		__file_browser_value(WIDGETPOINTER,true,index)
+		
+	block select(index) setSelectedIndex(index)
 
 	#Create an instance of the FFileBrowser Widget with Widget Width and 
 	#Height, 

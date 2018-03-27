@@ -1119,7 +1119,7 @@ SIMPLE_BLOCK(file_browser_value)
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_File_Browser *widget = (Fl_File_Browser* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		if ((int)SIMPLE_API_GETNUMBER(2) == 1) {
-			widget->value((int)SIMPLE_API_GETNUMBER(3));
+			widget->value((int)SIMPLE_API_GETNUMBER(3) + 1);
 		} else {
 			SIMPLE_API_RETNUMBER(widget->value() - 1);
 		}
