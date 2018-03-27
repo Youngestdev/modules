@@ -1,6 +1,6 @@
 
 
-call "fulltick/widget/FFileBrowser.sim"
+call "fulltick/widget/FFileListBox.sim"
 call "fulltick/widget/FButton.sim"
 call "fulltick/widget/FInput.sim"
 call "fulltick/widget/menu/FMenuBar.sim"
