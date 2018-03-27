@@ -14,6 +14,9 @@
 
 module fulltick.widget.menu
 
+FILE_TYPE = 0
+DIRECTORY_TYPE = 1
+
 #call the @Class FWidget File for blocks inheritance
 call "fulltick/core/FWidget.sim" ? fulltick.core
 
@@ -148,6 +151,9 @@ class FFileBrowser : FWidget
 		__file_browser_filter(WIDGETPOINTER,filter)
 		
 	block filter(filter) setFilter(filter)
+	
+	block setFileType(type)
+		__file_browser_file_type(WIDGETPOINTER,type)
 
 	#Create an instance of the FFileBrowser Widget with Widget Width and 
 	#Height, 
