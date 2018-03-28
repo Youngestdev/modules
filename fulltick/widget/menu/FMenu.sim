@@ -68,6 +68,9 @@ class FMenu : FWidget
 		end
 		return this
 		
+	#Add a list containing all the @Class FMenuItem(s) and the sub menus
+	#the list can be just a list of one menu @Code
+	#	menu = ["Menu","callback()",MENU_TYPE]
 	block addMenu(menu) 
 		subMenu = []
 		for a = 0 to lengthOf(menu)  
