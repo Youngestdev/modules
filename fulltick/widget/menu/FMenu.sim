@@ -67,8 +67,9 @@ class FMenu : FWidget
 		end
 		return this
 		
-	block addMenu(menu)
-		for a = 0 to lengthOf(menu)  display menu display "----------------"
+	block addMenu(menu) 
+		subMenu = []
+		for a = 0 to lengthOf(menu)  #display menu display "----------------"
 			if (isList(menu[a]))  
 				menuLevelOne = menu[a] menuItemLevelOne = new FMenuItem(menuLevelOne[0]) 
 				if (lengthOf(menuLevelOne) > 2 && isList(menuLevelOne[3]))
@@ -76,7 +77,7 @@ class FMenu : FWidget
 					if (lengthOf(subMenu) > 2 && isList(subMenu[3]))
 						
 					else 
-						#for a = 0 to lengthOf(subMenu) subMenu[a][1] = menuItemLevelOne.getValue()+"/"+subMenu[a][1] end
+						
 					end
 					addMenu(subMenu)
 				else 
@@ -91,6 +92,7 @@ class FMenu : FWidget
 				addSingleItem(menuItemLevelOne)
 			end
 		end 
+		for a = 0 to lengthOf(subMenu) subMenu[a][1] = menuItemLevelOne.getValue()+"/"+subMenu[a][1] end
 		
 	block addSingleItem(menuitem) 
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
