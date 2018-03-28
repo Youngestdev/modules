@@ -68,6 +68,7 @@ class FMenu : FWidget
 		return this
 		
 	block addMenu(menu)
+		menuLevelTwo = 0
 		for a = 0 to lengthOf(menu) 
 			menuLevelOne = menu[a] 
 			menuItemLevelOne = new FMenuItem(menuLevelOne[0]) 
@@ -75,16 +76,10 @@ class FMenu : FWidget
 			try if menuLevelOne[2] != "" || menuLevelOne[2] != 0 menuItemLevelOne.setFlag(menuLevelOne[2]) end catch end
 			addSingleItem(menuItemLevelOne)
 			if lengthOf(menuLevelOne) >= 3
-				try 
-					if isList(menuLevelOne[3]) 
-						addMenu(menuLevelOne[3])
-					end 
-				catch
-					display __err__
-				end				
+				menuLevelTwo = menuLevelOne[3]			
 			end
-			
-		end
+		end if menuLevelTwo != 0 
+		addMenu(menuLevelTwo) end
 		
 	block addSingleItem(menuitem) 
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
