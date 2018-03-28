@@ -93,9 +93,10 @@ class FMenu : FWidget
 		return submenu
 		
 	#Add a menu item to an instance of the @Class FMenu widget this is a
-	#safe block as it notify the @FMenuItem widget to do all neccessary 
+	#safe block as it notify the @FMenuItem widget to do all necessary 
 	#treating if you want you can call the @block addItemRaw(value,flag)  
-	#directly. This block accept 
+	#directly. This block accept @Class FMenuItem widget as a parameter
+	#only any other @Link DATATYPE sent as param is an error
 	block addSingleItem(menuitem) 
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
 		menuitem.notifyWidget()
