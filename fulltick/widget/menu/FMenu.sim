@@ -94,7 +94,7 @@ class FMenu : FWidget
 		
 	block addSingleItem(menuitem) 
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
-		#menuitem.notifyWidget()
+		menuitem.notifyWidget()
 		
 		
 	block addItemRaw(value,flag) 
