@@ -107,8 +107,9 @@ class FMenu : FWidget
 		SUBMENU_LIST_INDEX = 2
 
 		block containsChildMenus(submenu)
-			if (lengthOf(submenu) > 0 && isList(submenu[1])) SUBMENU_LIST_INDEX = 1 return true
-			if (lengthOf(submenu) > 1 && isList(submenu[2])) SUBMENU_LIST_INDEX = 2 return true
+			if (lengthOf(submenu) > 2 && isList(submenu[3])) SUBMENU_LIST_INDEX = 3 return true
+			elif (lengthOf(submenu) > 1 && isList(submenu[2])) SUBMENU_LIST_INDEX = 2 return true
+			elif (lengthOf(submenu) > 0 && isList(submenu[1])) SUBMENU_LIST_INDEX = 1 return true
 			end
 			return false
 	
