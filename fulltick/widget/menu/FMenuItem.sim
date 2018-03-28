@@ -74,7 +74,7 @@ class FMenuItem
 	#@Note In no case whatsoever should this block be used in line like
 	#obj.addItem(menuitem).addItem(menuitem) it does not work for now 
 	#to be resolved later
-	block addItem(menuitem)
+	block addItem(menuitem) {
 		MENU_WIDGET_IS_SUB_MENU = true 
 		if (isList(menuitem)) 
 			for a = 0 to lengthOf(menuitem) 
@@ -101,6 +101,7 @@ class FMenuItem
 			end
 		end
 		return this
+	}
 		
 	block addItemRaw(menuitem)
 		temp = new FMenuItem(menuitem) temp.notifyWidget()
@@ -114,6 +115,7 @@ class FMenuItem
 		return MENU_WIDGET_IS_SUB_MENU
 		
 	block notifyWidget() 
+		display MENU_WIDGET_CALLBACK + " "
 		/*if isSubMenu() 
 			for a = 0 to lengthOf(getItems()) 
 				#getItems()[a].setValue(getValue()+"/"+getItems()[a].getName()) display getItems()[a].getValue()+" "

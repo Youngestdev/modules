@@ -69,14 +69,15 @@ class FMenu : FWidget
 		
 	block addMenu(menu)
 		for a = 0 to lengthOf(menu) 
-			menuLevelOne = menu[a]
+			menuLevelOne = menu[a] 
+			display menuLevelOne[1]+" "
 			menuItemLevelOne = new FMenuItem(menuLevelOne[0])
 			addSingleItem(menuItemLevelOne)
-			display menuLevelOne[0] + " "
 		end
 		
 	block addSingleItem(menuitem) 
-		
+		addItemRaw(menuitem.getValue(),menuitem.getFlag())
+		menuitem.notifyWidget()
 		
 		
 	block addItemRaw(value,flag) 
