@@ -70,15 +70,15 @@ class FMenu : FWidget
 	block addMenu(menu)
 		for a = 0 to lengthOf(menu) 
 			if (isList(menu[a])) 
-				menuLevelOne = menu[a] 
-				menuItemLevelOne = new FMenuItem(menuLevelOne[0]) 
-				if menuLevelOne[1] != "" || menuLevelOne[1] != 0 menuItemLevelOne.callback(menuLevelOne[1]) end
-				try if menuLevelOne[2] != "" || menuLevelOne[2] != 0 menuItemLevelOne.setFlag(menuLevelOne[2]) end catch end
-				addSingleItem(menuItemLevelOne)
+				menuLevelOne = menu[a] menuItemLevelOne = new FMenuItem(menuLevelOne[0]) 
 				if (lengthOf(menuLevelOne) > 2 && isList(menuLevelOne[3]))
 					subMenu = menuLevelOne[3]
 					for a = 0 to lengthOf(subMenu) subMenu[a][1] = menuItemLevelOne.getValue()+"/"+subMenu[a][1] end
 					addMenu(subMenu)
+				else 
+					if menuLevelOne[1] != "" || menuLevelOne[1] != 0 menuItemLevelOne.callback(menuLevelOne[1]) end
+					try if menuLevelOne[2] != "" || menuLevelOne[2] != 0 menuItemLevelOne.setFlag(menuLevelOne[2]) end catch end
+					addSingleItem(menuItemLevelOne)
 				end
 			else
 				menuItemLevelOne = new FMenuItem(menu[0]) 
