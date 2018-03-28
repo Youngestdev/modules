@@ -79,7 +79,7 @@ class FMenu : FWidget
 					else 
 						
 					end
-					addMenu(treatMenu(submenu))
+					addMenu(treatMenu(subMenu,menuItemLevelOne))
 				else 
 					if menuLevelOne[1] != "" || menuLevelOne[1] != 0 menuItemLevelOne.callback(menuLevelOne[1]) end
 					try if menuLevelOne[2] != "" || menuLevelOne[2] != 0 menuItemLevelOne.setFlag(menuLevelOne[2]) end catch end
@@ -93,9 +93,9 @@ class FMenu : FWidget
 			end
 		end 
 		
-	block treatMenu(submenu)
-		for a = 0 to lengthOf(subMenu) subMenu[a][1] = menuItemLevelOne.getValue()+"/"+subMenu[a][1] end
-		return 
+	block treatMenu(submenu, parentitem)
+		for a = 0 to lengthOf(submenu) submenu[a][1] = parentitem.getValue()+"/"+submenu[a][1] end
+		return submenu
 		
 	block addSingleItem(menuitem) 
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
