@@ -69,7 +69,7 @@ class FMenu : FWidget
 		
 	block addMenu(menu) 
 		subMenu = []
-		for a = 0 to lengthOf(menu)  #display menu display "----------------"
+		for a = 0 to lengthOf(menu)  
 			if (isList(menu[a]))  
 				menuLevelOne = menu[a] menuItemLevelOne = new FMenuItem(menuLevelOne[0]) 
 				if (containsChildMenus(menuLevelOne))
