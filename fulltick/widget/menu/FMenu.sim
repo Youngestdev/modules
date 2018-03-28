@@ -107,6 +107,11 @@ class FMenu : FWidget
 		/* STRING */
 		SUBMENU_LIST_INDEX = 2 #the index at which the submenu child menu are
 
+		#This block check a menu item is a submenu and also change the
+		#@Attribute SUBMENU_LIST_INDEX to the index of the submenu at which
+		#the other sub menu items are located
+		#@Note this block is not meant to be called from outside the @Class
+		#FMenu o prevent error during runtime
 		block containsChildMenus(submenu)
 			if (lengthOf(submenu) > 2 && isList(submenu[3])) SUBMENU_LIST_INDEX = 3 return true
 			elif (lengthOf(submenu) > 1 && isList(submenu[2])) SUBMENU_LIST_INDEX = 2 return true
@@ -114,6 +119,9 @@ class FMenu : FWidget
 			end
 			return false
 	
+		#We don't work to use the @Attribute SUBMENU_LIST_INDEX directly 
+		#@Hint usage from block is safe so if the attribute is to be 
+		#treated or formated in future it wont break code
 		block getSubmenuListIndex()
 			return SUBMENU_LIST_INDEX
 	
