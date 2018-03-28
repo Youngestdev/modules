@@ -92,11 +92,19 @@ class FMenu : FWidget
 		for a = 0 to lengthOf(submenu) submenu[a][1] = parentitem.getValue()+"/"+submenu[a][1] end
 		return submenu
 		
+	#Add a menu item to an instance of the @Class FMenu widget this is a
+	#safe block as it notify the @FMenuItem widget to do all neccessary 
+	#treating if you want you can call the @block addItemRaw(value,flag)  
+	#directly. This block accept 
 	block addSingleItem(menuitem) 
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
 		menuitem.notifyWidget()
 		
-		
+	#This is the main block that add item to the widget of @Class FMenuBar
+	#instance. Use this block directly if you know what you are doing
+	#@Hint using directly can be faster as no formating and treatments
+	#is done i.e some safe block formating are skipped @EndHint
+	#@Note it not safe use only if you know what you are doing
 	block addItemRaw(value,flag) 
 		__add_menu(WIDGETPOINTER,value,flag) 
 		
