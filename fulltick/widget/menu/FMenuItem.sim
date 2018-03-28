@@ -115,7 +115,7 @@ class FMenuItem
 		return MENU_WIDGET_IS_SUB_MENU
 		
 	block notifyWidget() 
-		display MENU_WIDGET_CALLBACK + " "
+		display getFlag() + " "
 		/*if isSubMenu() 
 			for a = 0 to lengthOf(getItems()) 
 				#getItems()[a].setValue(getValue()+"/"+getItems()[a].getName()) display getItems()[a].getValue()+" "
