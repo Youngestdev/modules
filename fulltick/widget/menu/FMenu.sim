@@ -68,9 +68,9 @@ class FMenu : FWidget
 		return this
 		
 	block addMenu(menu)
-		for a = 0 to lengthOf(menu)  
+		for a = 0 to lengthOf(menu)  display menu display "----------------"
 			if (isList(menu[a]))  
-				menuLevelOne = menu[a] menuItemLevelOne = new FMenuItem(menuLevelOne[0]) display menuLevelOne[0]+" came as list "+crlf
+				menuLevelOne = menu[a] menuItemLevelOne = new FMenuItem(menuLevelOne[0]) 
 				if (lengthOf(menuLevelOne) > 2 && isList(menuLevelOne[3]))
 					subMenu = menuLevelOne[3] 
 					if (isList(subMenu[3]))
