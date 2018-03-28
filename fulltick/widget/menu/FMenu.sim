@@ -104,7 +104,8 @@ class FMenu : FWidget
 	#the class
 	private 
 	
-		SUBMENU_LIST_INDEX = 2
+		/* STRING */
+		SUBMENU_LIST_INDEX = 2 #the index at which the submenu child menu are
 
 		block containsChildMenus(submenu)
 			if (lengthOf(submenu) > 2 && isList(submenu[3])) SUBMENU_LIST_INDEX = 3 return true
