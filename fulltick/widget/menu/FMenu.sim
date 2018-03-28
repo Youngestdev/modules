@@ -52,6 +52,7 @@ class FMenu : FWidget
 		end
 		return this
 		
+	#@Deprecated	
 	#add a single menuitem this block does not accept @DataType List as
 	#parameter but a single object to dynamically add object call the
 	#@Block addItem(menuitem) instead 
@@ -87,15 +88,6 @@ class FMenu : FWidget
 				addSingleItem(menuItemLevelOne)
 			end
 		end 
-		
-	#Any @Class FMenuItem added to an instance the @Class FMenu if the  
-	#parent is a submenu then the value of the widget will have to be 
-	#relative to the parent submenu to ensure the menu is added in the proper
-	#hierarchy
-	#@Return the submenu with formated value @DataType LIST
-	block treatMenu(submenu, parentitem)
-		for a = 0 to lengthOf(submenu) submenu[a][1] = parentitem.getValue()+"/"+submenu[a][1] end
-		return submenu
 		
 	#Add a menu item to an instance of the @Class FMenu widget this is a
 	#safe block as it notify the @FMenuItem widget to do all necessary 
@@ -138,6 +130,15 @@ class FMenu : FWidget
 		#treated or formated in future it wont break code
 		block getSubmenuListIndex()
 			return SUBMENU_LIST_INDEX
+			
+		#Any @Class FMenuItem added to an instance the @Class FMenu if the  
+		#parent is a submenu then the value of the widget will have to be 
+		#relative to the parent submenu to ensure the menu is added in the proper
+		#hierarchy
+		#@Return the submenu with formated value @DataType LIST
+		block treatMenu(submenu, parentitem)
+			for a = 0 to lengthOf(submenu) submenu[a][1] = parentitem.getValue()+"/"+submenu[a][1] end
+			return submenu
 	
 		
 		
