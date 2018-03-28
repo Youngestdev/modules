@@ -77,8 +77,7 @@ class FMenu : FWidget
 				addSingleItem(menuItemLevelOne)
 				if (lengthOf(menuLevelOne) > 2 && isList(menuLevelOne[3]))
 					subMenu = menuLevelOne[3]
-					
-					for a = 0 to lengthOf(subMenu) display subMenu[a][1] end
+					for a = 0 to lengthOf(subMenu) subMenu[a][1] = menuItemLevelOne.getValue()+"/"+subMenu[a][1] end
 					addMenu(subMenu)
 				end
 			else
