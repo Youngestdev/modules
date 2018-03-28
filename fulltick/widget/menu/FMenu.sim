@@ -72,13 +72,8 @@ class FMenu : FWidget
 		for a = 0 to lengthOf(menu)  #display menu display "----------------"
 			if (isList(menu[a]))  
 				menuLevelOne = menu[a] menuItemLevelOne = new FMenuItem(menuLevelOne[0]) 
-				if (lengthOf(menuLevelOne) > 2 && isList(menuLevelOne[3]))
+				if (containsChildMenus(menuLevelOne))
 					subMenu = menuLevelOne[3] 
-					if (lengthOf(subMenu) > 2 && isList(subMenu[3]))
-						
-					else 
-						
-					end
 					addMenu(treatMenu(subMenu,menuItemLevelOne))
 				else 
 					if menuLevelOne[1] != "" || menuLevelOne[1] != 0 menuItemLevelOne.callback(menuLevelOne[1]) end
@@ -105,9 +100,12 @@ class FMenu : FWidget
 	block addItemRaw(value,flag) 
 		__add_menu(WIDGETPOINTER,value,flag) 
 		
-		
-	
-	
+	#all the private attributes, fields and block not accessible outside
+	#the class
+	private 
+
+		block containsChildMenus(submenu)
+			lengthOf(menuLevelOne) >= 2 && isList(menuLevelOne[2])
 	
 	
 		
