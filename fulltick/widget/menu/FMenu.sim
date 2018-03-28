@@ -77,7 +77,8 @@ class FMenu : FWidget
 				addSingleItem(menuItemLevelOne)
 				if (lengthOf(menuLevelOne) > 2 && isList(menuLevelOne[3]))
 					subMenu = menuLevelOne[3]
-					display subMenu[0][1]
+					
+					for a = 0 to lengthOf(subMenu) display subMenu[a][1] end
 					addMenu(subMenu)
 				end
 			else
