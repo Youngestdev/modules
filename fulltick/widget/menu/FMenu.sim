@@ -68,9 +68,11 @@ class FMenu : FWidget
 		return this
 		
 	block addMenu(menu)
-		li = [[2,8],[1]]
-		lop = li[0]
-		display lop[1]
+		for a = 0 to lengthOf(menu) 
+			menuLevelOne = menu[a]
+			addItemRaw(menuLevelOne[0],"","","",0)
+			display menuLevelOne[0] + " "
+		end
 		
 		
 	block addItemRaw(value,shortcut,callback,userdata,flag) 
