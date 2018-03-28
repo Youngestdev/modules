@@ -68,15 +68,15 @@ class FMenu : FWidget
 		return this
 		
 	block addMenu(menu)
-		for a = 0 to lengthOf(menu) 
-			if (isList(menu[a])) 
-				menuLevelOne = menu[a] menuItemLevelOne = new FMenuItem(menuLevelOne[0]) 
+		for a = 0 to lengthOf(menu)  
+			if (isList(menu[a]))  
+				menuLevelOne = menu[a] menuItemLevelOne = new FMenuItem(menuLevelOne[0]) display menuLevelOne[0]+" came as list "+crlf
 				if (lengthOf(menuLevelOne) > 2 && isList(menuLevelOne[3]))
-					subMenu = menuLevelOne[3] internalSubMenu = subMenu[0] display subMenu[3]
+					subMenu = menuLevelOne[3] 
 					if (isList(subMenu[3]))
-					
+						
 					else 
-						for a = 0 to lengthOf(subMenu) subMenu[a][1] = menuItemLevelOne.getValue()+"/"+subMenu[a][1] end
+						#for a = 0 to lengthOf(subMenu) subMenu[a][1] = menuItemLevelOne.getValue()+"/"+subMenu[a][1] end
 					end
 					addMenu(subMenu)
 				else 
