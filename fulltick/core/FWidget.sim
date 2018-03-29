@@ -528,7 +528,7 @@ class FWidget
 		#class to notify the Widget/Widget/Class of changes to the widget
 		#@Note this block should be kept empty at all time to avoid BUGS
 		#and unwanted implementations
-		block notifyWidget()
+		block notifyWidget() redraw()
 		
 		block addChildWidget(widget, condition)
 			widget.setParent(this)
