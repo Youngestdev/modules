@@ -139,6 +139,7 @@ class FMenuItem
 		PARENT_WIDGETPOINTER = parent.getWidgetPointer()
 		
 	block initialize(parentpointer)
+		#WIDGETPOINTER = __menu_find_menu_item(parentpointer,getValue())
 		
 	block setUserData(userdata)
 		MENU_WIDGET_USER_DATA = userdata
@@ -164,8 +165,7 @@ class FMenuItem
 		#in any way but it just there to assign value to the 
 		#@Attribute WIDGETPOINTER to make all block call in the parent
 		#@Class FWidget to be usable to be dispose in later release
-		block initialize()
-			#WIDGETPOINTER = __init_menu_item("")
+		#block initialize() WIDGETPOINTER = __init_menu_item("")
 	
 		#this block is used to confirm the item sent into the 
 		#@Block addItem(menuitem) is an instance of @Class FMenuItem
