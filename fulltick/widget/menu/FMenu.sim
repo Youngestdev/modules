@@ -161,8 +161,7 @@ class FMenu : FWidget
 	#@Note it not safe use only if you know what you are doing
 	block addItemRaw(value,flag) 
 		__menu_add(WIDGETPOINTER,value,flag) 
-		add(MENU_WIDGET_MENUITEMS_LIST_VALUE,lengthOf(MENU_WIDGET_MENUITEMS_LIST_VALUE))
-		MENU_WIDGET_MENUITEMS_LIST_VALUE[lengthOf(MENU_WIDGET_MENUITEMS_LIST_VALUE)] = value
+		add(MENU_WIDGET_MENUITEMS_LIST_VALUE,value)
 		notifyWidget()
 		
 	block clear()
@@ -209,14 +208,13 @@ class FMenu : FWidget
 		if (isString(menuitem)) 
 			for a = 0 to lengthOf(MENU_WIDGET_MENUITEMS_LIST_VALUE)
 				if (MENU_WIDGET_MENUITEMS_LIST_VALUE[a] == menuitem)
-					display MENU_WIDGET_MENUITEMS_LIST_VALUE[a] + crlf
 					menuItemIndex = a
 					break
 				end
 			end 
 		else
 		
-		end
+		end display "index : "+menuItemIndex+crlf
 		ret = MENU_WIDGET_MENUITEMS_LIST[menuItemIndex]
 		return ret
 		
