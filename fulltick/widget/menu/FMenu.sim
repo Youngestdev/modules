@@ -154,6 +154,7 @@ class FMenu : FWidget
 		
 	block clear()
 		__menu_clear(WIDGETPOINTER,0,0)
+		notifyWidget()
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
@@ -188,6 +189,8 @@ class FMenu : FWidget
 		block treatMenu(submenu, parentitem)
 			for a = 0 to lengthOf(submenu) submenu[a][1] = parentitem.getValue()+"/"+submenu[a][1] end
 			return submenu
+			
+		block notifyWidget() redraw()
 	
 		
 		
