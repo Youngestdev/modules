@@ -28,6 +28,7 @@ class FMenuItem
 	MENU_WIDGET_VALUE = ""
 	MENU_WIDGET_NAME = ""
 	MENU_WIDGET_CALLBACK = ""
+	MENU_WIDGET_TYPE_NAME = "FMENUITEM"
 	
 	/* POINTERS AND CLASSES */
 	MENU_WIDGET_USER_DATA = null #the user data for the menu
@@ -132,6 +133,9 @@ class FMenuItem
 		
 	block getFlag()
 		return MENU_WIDGET_FLAG
+		
+	block getTypeName()
+		return MENU_WIDGET_TYPE_NAME
 		
 		
 	#all the private attributes, fields and block not accessible outside
