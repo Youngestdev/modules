@@ -161,7 +161,7 @@ class FMenu : FWidget
 	#@Note it not safe use only if you know what you are doing
 	block addItemRaw(value,flag) 
 		__menu_add(WIDGETPOINTER,value,flag) 
-		add(MENU_WIDGET_MENUITEMS_LIST_VALUE,lengthOf(MENU_WIDGET_MENUITEMS_LIST_VALUE))
+		add(MENU_WIDGET_MENUITEMS_LIST_VALUE,value)
 		notifyWidget()
 		
 	block clear()
@@ -206,14 +206,15 @@ class FMenu : FWidget
 	
 	block findMenu(menuitem)
 		if (isString(menuitem)) 
-			display menuitem+" "
+			display menuitem+" ->/" +crlf
+			display MENU_WIDGET_MENUITEMS_LIST[menuitem] + " ?"+crlf
 			for a = 0 to lengthOf(MENU_WIDGET_MENUITEMS_LIST_VALUE)
 				display MENU_WIDGET_MENUITEMS_LIST_VALUE[a] + crlf
-			end
+			end 
 		else
 		
 		end
-		ret = MENU_WIDGET_MENUITEMS_LIST_VALUE[menuitem]
+		ret = MENU_WIDGET_MENUITEMS_LIST[menuitem]
 		return ret
 		
 	#all the private attributes, fields and block not accessible outside
