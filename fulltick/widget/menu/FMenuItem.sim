@@ -32,6 +32,7 @@ class FMenuItem
 	
 	/* POINTERS AND CLASSES */
 	MENU_WIDGET_USER_DATA = null #the user data for the menu
+	PARENT_WIDGETPOINTER = null #the parent pointer is null by default
 	
 	/* NUMBER */
 	MENU_WIDGET_FLAG = 0 #the type of the menu item 
@@ -62,7 +63,7 @@ class FMenuItem
 		
 	block callback(callback)
 		MENU_WIDGET_CALLBACK = callback
-		notifyWidget()
+		notifyWidget(getParentPointer())
 		
 	block getCallback()
 		return MENU_WIDGET_CALLBACK
@@ -120,7 +121,7 @@ class FMenuItem
 	block isSubMenu()
 		return MENU_WIDGET_IS_SUB_MENU
 		
-	block notifyWidget(pointer) 
+	block notifyWidget(parentpointer) 
 		if (MENU_WIDGET_INITIALIZED) else initialize(parentpointer) end
 		if (hasParent())
 			display getValue()+" : "+getCallback()+crlf
