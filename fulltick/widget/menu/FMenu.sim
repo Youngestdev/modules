@@ -159,7 +159,17 @@ class FMenu : FWidget
 		
 	block clearSubmenuAt(index)
 		__menu_clear(WIDGETPOINTER,1,index)
-		notifyWidget() display "removing at "+index+" "
+		notifyWidget() 
+		
+	block setSelectionColor(color)
+		try {
+			color.getColor() MENU_WIDGET_SELECTION_COLOR = color
+		catch
+			MENU_WIDGET_SELECTION_COLOR = new FColor
+			MENU_WIDGET_SELECTION_COLOR.setColorValue(color)
+		}
+		__menu_selection_color(WIDGETPOINTER,INPUT_WIDGET_TEXT_COLOR.getColor())
+		notifyWidget()
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
