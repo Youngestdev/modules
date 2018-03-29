@@ -1049,7 +1049,7 @@ SIMPLE_BLOCK(init_menu_item)
 	}
 }
 
-SIMPLE_BLOCK(add_menu)
+SIMPLE_BLOCK(menu_add)
 {
 	if ( SIMPLE_API_PARACOUNT != 3 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
@@ -1058,6 +1058,25 @@ SIMPLE_BLOCK(add_menu)
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) && SIMPLE_API_ISNUMBER(3)) {
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
 		menu->add(SIMPLE_API_GETSTRING(2),0, 0, 0, ((int)SIMPLE_API_GETNUMBER(3)));
+		
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+SIMPLE_BLOCK(menu_clear)
+{
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING3PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3)) {
+		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		if (((int)SIMPLE_API_GETNUMBER(2)) == 1) {
+			menu->clear_submenu(((int)SIMPLE_API_GETNUMBER(3)));
+		} else {
+			menu->clear();
+		}
 		
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
@@ -1268,7 +1287,8 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	/** MENU/MENUITEMS/MENUBAR **/
 	register_block("__init_menu_bar",init_menu_bar);
 	register_block("__init_menu_item",init_menu_item);
-	register_block("__add_menu",add_menu);
+	register_block("__menu_add",menu_add);
+	register_block("__menu_clear",menu_clear);
 
 	/** BROWSERS(LISTBOX) **/
 	register_block("__listbox_type",listbox_type);
