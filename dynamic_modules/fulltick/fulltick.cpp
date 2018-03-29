@@ -1119,7 +1119,8 @@ SIMPLE_BLOCK(menu_find_menu_item)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
-		SIMPLE_API_RETCPOINTER(menu->find_item(SIMPLE_API_GETSTRING(2)),"SIMPLE_FLTK_");
+		printf("VAlue %s \n", ((Fl_Menu_Item*)menu->find_item(SIMPLE_API_GETSTRING(2)))->label());
+		//SIMPLE_API_RETCPOINTER(menu->find_item(SIMPLE_API_GETSTRING(2)),"SIMPLE_FLTK_");
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
