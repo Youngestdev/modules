@@ -160,6 +160,7 @@ class FMenu : FWidget
 	#@Note it not safe use only if you know what you are doing
 	block addItemRaw(value,flag) 
 		__menu_add(WIDGETPOINTER,value,flag) 
+		notifyWidget()
 		
 	block clear()
 		__menu_clear(WIDGETPOINTER,0,0)
