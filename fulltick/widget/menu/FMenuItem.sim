@@ -138,6 +138,8 @@ class FMenuItem
 	block setParent(parent)
 		PARENT_WIDGETPOINTER = parent.getWidgetPointer()
 		
+	block initialize(parentpointer)
+		
 	block setUserData(userdata)
 		MENU_WIDGET_USER_DATA = userdata
 		
