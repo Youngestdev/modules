@@ -161,7 +161,8 @@ class FMenu : FWidget
 	#@Note it not safe use only if you know what you are doing
 	block addItemRaw(value,flag) 
 		__menu_add(WIDGETPOINTER,value,flag) 
-		add(MENU_WIDGET_MENUITEMS_LIST_VALUE,value)
+		add(MENU_WIDGET_MENUITEMS_LIST_VALUE,lengthOf(MENU_WIDGET_MENUITEMS_LIST_VALUE))
+		MENU_WIDGET_MENUITEMS_LIST_VALUE[lengthOf(MENU_WIDGET_MENUITEMS_LIST_VALUE)] = value
 		notifyWidget()
 		
 	block clear()
@@ -204,17 +205,19 @@ class FMenu : FWidget
 	#This block is same as @Block setDownBox(type) arkward 	@Removable
 	block setBackgroundBoxType() return setDownBox(type)
 	
-	block findMenu(menuitem)
+	block findMenu(menuitem) menuItemIndex = 0
 		if (isString(menuitem)) 
-			display menuitem+" ->/" +crlf
-			display MENU_WIDGET_MENUITEMS_LIST[menuitem] + " ?"+crlf
 			for a = 0 to lengthOf(MENU_WIDGET_MENUITEMS_LIST_VALUE)
-				display MENU_WIDGET_MENUITEMS_LIST_VALUE[a] + crlf
+				if (MENU_WIDGET_MENUITEMS_LIST_VALUE[a] == menuitem)
+					display MENU_WIDGET_MENUITEMS_LIST_VALUE[a] + crlf
+					menuItemIndex = a
+					break
+				end
 			end 
 		else
 		
 		end
-		ret = MENU_WIDGET_MENUITEMS_LIST[menuitem]
+		ret = MENU_WIDGET_MENUITEMS_LIST[menuItemIndex]
 		return ret
 		
 	#all the private attributes, fields and block not accessible outside
