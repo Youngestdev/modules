@@ -140,9 +140,7 @@ class FMenuItem
 		return PARENT_WIDGETPOINTER
 		
 	block initialize(parentpointer) 
-		try 
-		WIDGETPOINTER = __menu_find_menu_item(getParentPointer(),getValue())
-		catch end
+		display __menu_find_menu_item(getParentPointer(),getValue())
 		
 	block setUserData(userdata)
 		MENU_WIDGET_USER_DATA = userdata
