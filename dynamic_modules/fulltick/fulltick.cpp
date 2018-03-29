@@ -1111,6 +1111,20 @@ SIMPLE_BLOCK(menu_selection_color)
 	}
 }
 
+SIMPLE_BLOCK(menu_find_menu_item)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
+		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		SIMPLE_API_RETCPOINTER(menu->find_item(SIMPLE_API_GETSTRING(2)),"SIMPLE_FLTK_");
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
 /** BROWSERS(LISTBOX) **/
 
 SIMPLE_BLOCK(listbox_type)
@@ -1319,6 +1333,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__menu_clear",menu_clear);
 	register_block("__menu_down_box",menu_down_box);
 	register_block("__menu_selection_color",menu_selection_color);
+	register_block("__menu_find_index",menu_find_index);
 
 	/** BROWSERS(LISTBOX) **/
 	register_block("__listbox_type",listbox_type);
