@@ -23,6 +23,9 @@ call "fulltick/core/FWidget.sim" ? fulltick.widget
 #@EndSkip @Image FMenuBar
 class FMenu : FWidget	
 
+	/* TYPES */
+	MENU_WIDGET_SELECTION_COLOR = new FColor #the default selection color unimportant
+
 	#Add a new menu item to the menu or a menu item itself this block 
 	#this block takes both @DataType string and the @Class FMenuItem 
 	#as parameter if a string is sent as parameter then the @Link Callback
@@ -125,16 +128,17 @@ class FMenu : FWidget
 				else 
 					if menuLevelOne[1] != "" || menuLevelOne[1] != 0 menuItemLevelOne.callback(menuLevelOne[1]) end
 					try if menuLevelOne[2] != "" || menuLevelOne[2] != 0 menuItemLevelOne.setFlag(menuLevelOne[2]) end catch end
-					addSingleItem(menuItemLevelOne)
+					return addSingleItem(menuItemLevelOne)
 				end
 			else
 				menuItemLevelOne = new FMenuItem(menu[0]) 
 				if menu[1] != "" || menu[1] != 0 menuItemLevelOne.callback(menu[1]) end
 				try if menu[2] != "" || menu[2] != 0 menuItemLevelOne.setFlag(menu[2]) end catch end
-				addSingleItem(menuItemLevelOne)
+				return addSingleItem(menuItemLevelOne)
 			end
 		end 
 		notifyWidget()
+		return this
 		
 	#Add a menu item to an instance of the @Class FMenu widget this is a
 	#safe block as it notify the @FMenuItem widget to do all necessary 
@@ -144,6 +148,7 @@ class FMenu : FWidget
 	block addSingleItem(menuitem) 
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
 		menuitem.notifyWidget()
+		return this
 		
 	#This is the main block that add item to the widget of @Class FMenuBar
 	#instance. Use this block directly if you know what you are doing
@@ -156,10 +161,12 @@ class FMenu : FWidget
 	block clear()
 		__menu_clear(WIDGETPOINTER,0,0)
 		notifyWidget()
+		return this
 		
 	block clearSubmenuAt(index)
 		__menu_clear(WIDGETPOINTER,1,index)
 		notifyWidget() 
+		return this
 		
 	block setSelectionColor(color)
 		try {
@@ -168,8 +175,9 @@ class FMenu : FWidget
 			MENU_WIDGET_SELECTION_COLOR = new FColor
 			MENU_WIDGET_SELECTION_COLOR.setColorValue(color)
 		}
-		__menu_selection_color(WIDGETPOINTER,INPUT_WIDGET_TEXT_COLOR.getColor())
+		__menu_selection_color(WIDGETPOINTER,MENU_WIDGET_SELECTION_COLOR.getColor())
 		notifyWidget()
+		return this
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
