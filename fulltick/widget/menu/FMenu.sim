@@ -131,7 +131,7 @@ class FMenu : FWidget
 				else 
 					if menuLevelOne[1] != "" || menuLevelOne[1] != 0 menuItemLevelOne.callback(menuLevelOne[1]) end
 					try if menuLevelOne[2] != "" || menuLevelOne[2] != 0 menuItemLevelOne.setFlag(menuLevelOne[2]) end catch end
-					menuItemLevelOne.initialize(this)
+					menuItemLevelOne.initialize(wp)
 					menuItemLevelOne.setParent(this) menuItemLevelOne.notifyWidget(wp) addSingleItem(menuItemLevelOne)
 				end
 			else
