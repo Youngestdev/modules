@@ -185,8 +185,15 @@ class FMenu : FWidget
 	#This block function is same as @Block setSelectionColor(color)
 	block setDownColor(color) return setSelectionColor(color)
 	
+	block getSelectionColor()
+		return MENU_WIDGET_SELECTION_COLOR
+		
+	block getDownColor()
+		return MENU_WIDGET_SELECTION_COLOR
+	
 	block setDownBox(type)
 		__menu_selection_color(WIDGETPOINTER,type)
+		return setSelectionColor(getSelectionColor())
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
