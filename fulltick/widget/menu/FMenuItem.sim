@@ -47,7 +47,6 @@ class FMenuItem
 	#rendered on the @Class MenuBar and it parent @Class MenuItem
 	block FMenuItem(name)
 		MENU_WIDGET_VALUE = name setName(name)
-		initialize() 
 		
 	#Get the value of the @Class MenuItem 
 	#@Return the widget value @DataType STRING
@@ -139,6 +138,7 @@ class FMenuItem
 		PARENT_WIDGETPOINTER = parent.getWidgetPointer()
 		
 	block initialize(parentpointer)
+		display parentpointer
 		#WIDGETPOINTER = __menu_find_menu_item(parentpointer,getValue())
 		
 	block setUserData(userdata)
