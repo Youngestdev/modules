@@ -149,7 +149,7 @@ class FMenu : FWidget
 	#directly. This block accept @Class FMenuItem widget as a parameter
 	#only any other @Link DATATYPE sent as param is an error
 	block addSingleItem(menuitem) 
-		MENU_WIDGET_MENUITEMS_LIST[0] = menuitem
+		add(MENU_WIDGET_MENUITEMS_LIST,lengthOf(MENU_WIDGET_MENUITEMS_LIST))
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
 		menuitem.notifyWidget()
 		return this
@@ -161,7 +161,7 @@ class FMenu : FWidget
 	#@Note it not safe use only if you know what you are doing
 	block addItemRaw(value,flag) 
 		__menu_add(WIDGETPOINTER,value,flag) 
-		MENU_WIDGET_MENUITEMS_LIST_VALUE[0] = value
+		add(MENU_WIDGET_MENUITEMS_LIST_VALUE,lengthOf(MENU_WIDGET_MENUITEMS_LIST_VALUE))
 		notifyWidget()
 		
 	block clear()
@@ -207,9 +207,14 @@ class FMenu : FWidget
 	block findMenu(menuitem)
 		if (isString(menuitem)) 
 			display menuitem+" "
+			for a = 0 to lengthOf(MENU_WIDGET_MENUITEMS_LIST_VALUE)
+				display MENU_WIDGET_MENUITEMS_LIST_VALUE[a] + crlf
+			end
 		else
 		
 		end
+		ret = MENU_WIDGET_MENUITEMS_LIST_VALUE[menuitem]
+		return ret
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
