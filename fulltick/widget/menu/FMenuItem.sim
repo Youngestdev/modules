@@ -62,6 +62,9 @@ class FMenuItem
 	block callback(callback)
 		MENU_WIDGET_CALLBACK = callback
 		
+	block getCallback()
+		return MENU_WIDGET_CALLBACK
+		
 	#Get all the item i.e sub menus / sub items 
 	#@Return sub menu items @DataType LIST
 	block getItems()
@@ -116,6 +119,7 @@ class FMenuItem
 		return MENU_WIDGET_IS_SUB_MENU
 		
 	block notifyWidget() 
+		display getValue()+" : "+getCallback()+crlf
 		/*if isSubMenu() 
 			for a = 0 to lengthOf(getItems()) 
 				#getItems()[a].setValue(getValue()+"/"+getItems()[a].getName()) display getItems()[a].getValue()+" "
