@@ -149,6 +149,7 @@ class FMenu : FWidget
 	#directly. This block accept @Class FMenuItem widget as a parameter
 	#only any other @Link DATATYPE sent as param is an error
 	block addSingleItem(menuitem) 
+		MENU_WIDGET_MENUITEMS_LIST[0] = menuitem
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
 		menuitem.notifyWidget()
 		return this
@@ -160,6 +161,7 @@ class FMenu : FWidget
 	#@Note it not safe use only if you know what you are doing
 	block addItemRaw(value,flag) 
 		__menu_add(WIDGETPOINTER,value,flag) 
+		MENU_WIDGET_MENUITEMS_LIST_VALUE[0] = value
 		notifyWidget()
 		
 	block clear()
@@ -215,6 +217,10 @@ class FMenu : FWidget
 	
 		/* STRING */
 		SUBMENU_LIST_INDEX = 2 #the index at which the submenu child menu are
+		
+		/* LISt */
+		MENU_WIDGET_MENUITEMS_LIST = []
+		MENU_WIDGET_MENUITEMS_LIST_VALUE = []
 
 		#This block check a menu item is a submenu and also change the
 		#@Attribute SUBMENU_LIST_INDEX to the index of the submenu at which
