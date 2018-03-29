@@ -149,7 +149,7 @@ class FMenu : FWidget
 	#directly. This block accept @Class FMenuItem widget as a parameter
 	#only any other @Link DATATYPE sent as param is an error
 	block addSingleItem(menuitem) 
-		add(MENU_WIDGET_MENUITEMS_LIST,lengthOf(MENU_WIDGET_MENUITEMS_LIST))
+		add(MENU_WIDGET_MENUITEMS_LIST,menuitem)
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
 		menuitem.notifyWidget()
 		return this
@@ -214,7 +214,7 @@ class FMenu : FWidget
 			end 
 		else
 		
-		end display "index : "+menuItemIndex+crlf
+		end 
 		ret = MENU_WIDGET_MENUITEMS_LIST[menuItemIndex]
 		return ret
 		
