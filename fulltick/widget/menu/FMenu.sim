@@ -71,6 +71,30 @@ class FMenu : FWidget
 	#Add a list containing all the @Class FMenuItem(s) and the sub menus
 	#the list can be just a list of one menu @Code
 	#	menu = ["Menu","callback()",MENU_TYPE]
+	#@EndCode
+	#or it can be a hierarchy of @Class FMenuItem(s) and sub menus of 
+	#unlimited size and limit so far it follows the rules e.g @Code
+	#menu = [
+	#		["File", 
+	#			[["New", "new()",[
+	#				["Project", "open()"],
+	#				["Website", "open()"]]],
+	#			["0pen", "open()"],
+	#			["Save", "save()"],
+	#			["Save As..", "saveAs()"]]			
+	#		],
+	#		["Search", 
+	#			[["Find", "find()"],
+	#			["Replace", "replace()"]]		
+	#		],
+	#		["Run", 
+	#			[["Run", "runSource()"],
+	#			["Debug", "debugSource()"]]		
+	#		],
+	#		["About", "about()"]
+	#	]
+	#@EndCode the summary of what happen above is that the main list ~menu~
+	#contains four list **with index[0] as **
 	block addMenu(menu) 
 		subMenu = []
 		for a = 0 to lengthOf(menu)  
