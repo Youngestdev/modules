@@ -39,6 +39,7 @@ class FMenuItem
 	/* BOOLEAN */
 	MENU_WIDGET_IS_SUB_MENU = false #to set whether this menu widget is submenu
 	MENU_WIDGET_HAS_PARENT = false #confirm if this widget has already been added to an instance of the @Class FMenu
+	MENU_WIDGET_INITIALIZED = false #check if the @Class FMenuItem @Link pointer has been initialized
 	
 	/* LIST */
 	MENU_WIDGET_ITEMS_LIST = [] #all the list of menu items in the widget and itself
@@ -119,7 +120,8 @@ class FMenuItem
 	block isSubMenu()
 		return MENU_WIDGET_IS_SUB_MENU
 		
-	block notifyWidget() 
+	block notifyWidget(pointer) 
+		if (MENU_WIDGET_INITIALIZED) else initialize(parentpointer) end
 		if (hasParent())
 			display getValue()+" : "+getCallback()+crlf
 		else 
@@ -136,6 +138,9 @@ class FMenuItem
 		
 	block setParent(parent)
 		PARENT_WIDGETPOINTER = parent.getWidgetPointer()
+		
+	block getParentPointer()
+		return PARENT_WIDGETPOINTER
 		
 	block initialize(parentpointer)
 		display parentpointer
