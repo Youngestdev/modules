@@ -61,6 +61,7 @@ class FMenuItem
 		
 	block callback(callback)
 		MENU_WIDGET_CALLBACK = callback
+		notifyWidget()
 		
 	block getCallback()
 		return MENU_WIDGET_CALLBACK
@@ -125,6 +126,9 @@ class FMenuItem
 				#getItems()[a].setValue(getValue()+"/"+getItems()[a].getName()) display getItems()[a].getValue()+" "
 			end 
 		end */		
+		
+	block hasParent()
+		return MENU_WIDGET_HAS_PARENT 
 		
 	block setUserData(userdata)
 		MENU_WIDGET_USER_DATA = userdata
