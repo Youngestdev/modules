@@ -52,7 +52,7 @@ class FMenu : FWidget
 		end
 		return this
 		
-	#@Deprecated	
+	#@Deprecated
 	#add a single menuitem this block does not accept @DataType List as
 	#parameter but a single object to dynamically add object call the
 	#@Block addItem(menuitem) instead 
@@ -94,7 +94,26 @@ class FMenu : FWidget
 	#		["About", "about()"]
 	#	]
 	#@EndCode the summary of what happen above is that the main list ~menu~
-	#contains four list **with index[0] as **
+	#contains four list **with index[0] the first list "File"  **. Supplying 
+	#the menu above each of the list will be taken individually for example
+	#the first list @Code
+	#menu = [
+	#		["File", 
+	#			[["New", "new()",[
+	#				["Project", "open()"],
+	#				["Website", "open()"]]],
+	#			["0pen", "open()"],
+	#			["Save", "save()"],
+	#			["Save As..", "saveAs()"]]			
+	#		],..
+	#	]
+	#@EndCode the submenu File will be added to the menubar since the second
+	#option is a list it regard it a a sub menu items which also have a list 
+	#at index 2 which will be regarded as a submenu to the New which is a 
+	#child menu of File so we have @Code
+	#File --> New --> Project
+	#			  --> Website
+	#@EndCode check the example @Example menudemo.sim for more enlightenment
 	block addMenu(menu) 
 		subMenu = []
 		for a = 0 to lengthOf(menu)  
