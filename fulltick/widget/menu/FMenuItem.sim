@@ -122,7 +122,7 @@ class FMenuItem
 		return MENU_WIDGET_IS_SUB_MENU
 		
 	block notifyWidget(parentpointer) 
-		if (hasParent()) initialize(parentpointer) else  end
+		if (!MENU_WIDGET_INITIALIZED && hasParent()) initialize(parentpointer) else  end
 		if (hasParent())
 			display getValue()+" : "+getCallback()+crlf
 		else 
@@ -138,7 +138,7 @@ class FMenuItem
 	block getParentPointer()
 		return PARENT_WIDGETPOINTER
 		
-	block initialize(parentpointer) 
+	block initialize(parentpointer)
 		WIDGETPOINTER = __menu_find_menu_item(parentpointer,getValue())
 		
 	block setUserData(userdata)
