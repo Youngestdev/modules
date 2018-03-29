@@ -36,6 +36,7 @@ class Download
 		if isStringEmpty(DOWNLAOD_SAVE_LOCATION) 
 			DOWNLAOD_SAVE_LOCATION = url
 		end
+		display DOWNLOAD_CONTENT 
 		f = new File(DOWNLAOD_SAVE_LOCATION) 
 		f.write(DOWNLOAD_CONTENT)
 		
