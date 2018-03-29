@@ -38,6 +38,7 @@ class FMenuItem
 	
 	/* BOOLEAN */
 	MENU_WIDGET_IS_SUB_MENU = false #to set whether this menu widget is submenu
+	MENU_WIDGET_HAS_PARENT = false #confirm if this widget has already been added to an instance of the @Class FMenu
 	
 	/* LIST */
 	MENU_WIDGET_ITEMS_LIST = [] #all the list of menu items in the widget and itself
@@ -120,7 +121,11 @@ class FMenuItem
 		return MENU_WIDGET_IS_SUB_MENU
 		
 	block notifyWidget() 
-		display getValue()+" : "+getCallback()+crlf
+		if (hasParent())
+			display getValue()+" : "+getCallback()+crlf
+		else 
+		
+		end
 		/*if isSubMenu() 
 			for a = 0 to lengthOf(getItems()) 
 				#getItems()[a].setValue(getValue()+"/"+getItems()[a].getName()) display getItems()[a].getValue()+" "
@@ -129,6 +134,9 @@ class FMenuItem
 		
 	block hasParent()
 		return MENU_WIDGET_HAS_PARENT 
+		
+	block setParent(parent)
+		PARENT_WIDGETPOINTER = parent.getWidgetPointer()
 		
 	block setUserData(userdata)
 		MENU_WIDGET_USER_DATA = userdata
