@@ -121,7 +121,7 @@ class FMenu : FWidget
 	#			  --> Website
 	#@EndCode check the example @Example menudemo.sim for more enlightenment
 	block addMenu(menu) 
-		subMenu = [] wp = getWidgetPointer()
+		subMenu = [] 
 		for a = 0 to lengthOf(menu)  
 			if (isList(menu[a]))  
 				menuLevelOne = menu[a] menuItemLevelOne = new FMenuItem(menuLevelOne[0]) 
@@ -131,15 +131,13 @@ class FMenu : FWidget
 				else 
 					if menuLevelOne[1] != "" || menuLevelOne[1] != 0 menuItemLevelOne.callback(menuLevelOne[1]) end
 					try if menuLevelOne[2] != "" || menuLevelOne[2] != 0 menuItemLevelOne.setFlag(menuLevelOne[2]) end catch end
-					addSingleItem(menuItemLevelOne) menuItemLevelOne.initialize(wp)
-					menuItemLevelOne.setParent(this) menuItemLevelOne.notifyWidget(wp) 
+					addSingleItem(menuItemLevelOne)  
 				end
 			else
 				menuItemLevelOne = new FMenuItem(menu[0]) 
 				if menu[1] != "" || menu[1] != 0 menuItemLevelOne.callback(menu[1]) end
 				try if menu[2] != "" || menu[2] != 0 menuItemLevelOne.setFlag(menu[2]) end catch end
-				addSingleItem(menuItemLevelOne) menuItemLevelOne.initialize(wp)
-				menuItemLevelOne.setParent(this) menuItemLevelOne.notifyWidget(wp) 
+				addSingleItem(menuItemLevelOne) 
 			end
 		end 
 		notifyWidget()
@@ -223,8 +221,11 @@ class FMenu : FWidget
 		return ret
 		
 	block setCallbackForAllmenuItems(callback)
+		wp = getWidgetPointer()
 		for a = 0 to lengthOf(MENU_WIDGET_MENUITEMS_LIST)
 			MENU_WIDGET_MENUITEMS_LIST[a].callback(callback)
+			MENU_WIDGET_MENUITEMS_LIST[a].initialize(wp)
+					MENU_WIDGET_MENUITEMS_LIST[a].setParent(this) MENU_WIDGET_MENUITEMS_LIST[a].notifyWidget(wp)
 		end
 		
 	#all the private attributes, fields and block not accessible outside
