@@ -1083,6 +1083,20 @@ SIMPLE_BLOCK(menu_clear)
 	}
 }
 
+SIMPLE_BLOCK(menu_down_box)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		menu->down_box((Fl_Boxtype)(int)SIMPLE_API_GETNUMBER(2));
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
 /** BROWSERS(LISTBOX) **/
 
 SIMPLE_BLOCK(listbox_type)
