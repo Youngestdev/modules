@@ -87,7 +87,7 @@ class FMenuItem
 			for a = 0 to lengthOf(menuitem) 
 				try 
 					menuitem[a].check() menuitem[a].setValue(getValue()+"/"+menuitem[a].getValue()) 
-					menuitem[a].notifyWidget()	
+					menuitem[a].notifyWidget(getParentPointer())	
 					add(MENU_WIDGET_ITEMS_LIST,menuitem[a])
 					/* if menuitem[a].isSubMenu() display lengthOf(menuitem[a].getItems()) +" Here "
 						for a = 0 to 2 
@@ -101,7 +101,7 @@ class FMenuItem
 		else 
 			try 
 				menuitem.check() menuitem.setValue(getValue()+"/"+menuitem.getValue()) 
-				menuitem.notifyWidget()	
+				menuitem.notifyWidget(getParentPointer())	
 				add(MENU_WIDGET_ITEMS_LIST,menuitem)
 			catch
 				addItemRaw(getValue()+"/"+menuitem)
@@ -111,7 +111,7 @@ class FMenuItem
 	}
 		
 	block addItemRaw(menuitem)
-		temp = new FMenuItem(menuitem) temp.notifyWidget()
+		temp = new FMenuItem(menuitem) temp.notifyWidget(getParentPointer())
 		add(MENU_WIDGET_ITEMS_LIST,temp) 
 		
 	#Check whether this @Class FMenuItem is a sub menu parenting other
@@ -127,12 +127,7 @@ class FMenuItem
 			display getValue()+" : "+getCallback()+crlf
 		else 
 		
-		end
-		/*if isSubMenu() 
-			for a = 0 to lengthOf(getItems()) 
-				#getItems()[a].setValue(getValue()+"/"+getItems()[a].getName()) display getItems()[a].getValue()+" "
-			end 
-		end */		
+		end	
 		
 	block hasParent()
 		return MENU_WIDGET_HAS_PARENT 
