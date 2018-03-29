@@ -1333,7 +1333,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__menu_clear",menu_clear);
 	register_block("__menu_down_box",menu_down_box);
 	register_block("__menu_selection_color",menu_selection_color);
-	register_block("__menu_find_index",menu_find_index);
+	register_block("__menu_find_menu_item",menu_find_menu_item);
 
 	/** BROWSERS(LISTBOX) **/
 	register_block("__listbox_type",listbox_type);
