@@ -25,6 +25,9 @@ class FMenu : FWidget
 
 	/* TYPES */
 	MENU_WIDGET_SELECTION_COLOR = new FColor #the default selection color unimportant
+	
+	/* INTEGER */
+	MENU_WIDGET_DOWN_BOX_TYPE = 2 #declare the default down box type to be flat
 
 	#Add a new menu item to the menu or a menu item itself this block 
 	#this block takes both @DataType string and the @Class FMenuItem 
