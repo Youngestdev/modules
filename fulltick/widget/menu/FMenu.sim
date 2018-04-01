@@ -266,6 +266,14 @@ class FMenu : FWidget
 	#same as the @Block global()
 	block makeShortcutGlobal() return global()
 	
+	#Insert a new @Class FMenuItem at the specified index this block
+	#accept two parameter he index and the menuitem, the menuitem parameter
+	#can be n instance of @DataType STRING, @Class FMenuItem or \
+	#@DataType LIST that contains list of menuitem and string or menuitem or
+	#string. It is save to add a menu item with this block than the 
+	#@Block insetRawItemAt(index,value) which as no regard for parameter
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block insertMenuItemAt(index,menuitem)
 		if (isString(menuitem))
 			tempMenuItem = new FMenuItem(menuitem)
@@ -279,10 +287,12 @@ class FMenu : FWidget
 			insetRawItemAt(index,menuitem.getValue())
 			add(MENU_WIDGET_MENUITEMS_LIST,menuitem)
 		end
+		return this
 	
 	#insert an item with a custom value at the specified index
 	#@Note adding item at index will disrupt the indexing by @DataType NUMBER
-	#
+	#and the only accurate way to get item in the list is using the 
+	#value of the @MenuItem
 	block insetRawItemAt(index,value)
 		__menu_insert(WIDGETPOINTER,index,value)
 		add(MENU_WIDGET_MENUITEMS_LIST_VALUE,value)
