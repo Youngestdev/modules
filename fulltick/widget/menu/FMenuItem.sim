@@ -65,7 +65,6 @@ class FMenuItem
 	block callback(callback)
 		MENU_WIDGET_CALLBACK = callback
 		if (MENU_WIDGET_HAS_VALID_POINTER) 
-			display "yea we good" + crlf
 			__menu_item_callback(WIDGETPOINTER, callback)			
 		end
 		
@@ -130,7 +129,6 @@ class FMenuItem
 		
 	block cure()
 		if (MENU_WIDGET_HAS_VALID_POINTER) 
-			display "yea we good" + crlf
 			__menu_item_callback(WIDGETPOINTER, MENU_WIDGET_CALLBACK)
 		end
 		
