@@ -1154,7 +1154,7 @@ SIMPLE_BLOCK(menu_insert)
 	}
 }
 
-SIMPLE_BLOCK(menu_global)
+SIMPLE_BLOCK(menu_selected_menu_item_value)
 {
 	if ( SIMPLE_API_PARACOUNT != 1 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
@@ -1162,7 +1162,9 @@ SIMPLE_BLOCK(menu_global)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) ) {
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
-		menu->global();
+		char picked[80];
+		menu->item_pathname(picked, sizeof(picked)-1);
+		SIMPLE_API_RETSTRING(picked);
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
