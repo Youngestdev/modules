@@ -16,6 +16,7 @@ module fulltick.widget
 
 #call the @Class FInput File for blocks inheritance
 call "fulltick/core/FWidget.sim" ? fulltick.widget
+callModule("dynamic_modules\string_savant\dist\Debug\MinGW-Windows\string_savant.dll")
 
 #This @Class FMenuBar @Skip
 #  ________________________________________________________
@@ -121,7 +122,7 @@ class FMenu : FWidget
 	#			  --> Website
 	#@EndCode check the example @Example menudemo.sim for more enlightenment
 	block addMenu(menu) 
-		subMenu = [] 
+		subMenu = []
 		for a = 0 to lengthOf(menu)  
 			if (isList(menu[a]))  
 				menuLevelOne = menu[a] menuItemLevelOne = new FMenuItem(menuLevelOne[0]) 
@@ -131,19 +132,17 @@ class FMenu : FWidget
 				else 
 					if menuLevelOne[1] != "" || menuLevelOne[1] != 0 menuItemLevelOne.callback(menuLevelOne[1]) end
 					try if menuLevelOne[2] != "" || menuLevelOne[2] != 0 menuItemLevelOne.setFlag(menuLevelOne[2]) end catch end
-					addSingleItem(menuItemLevelOne)  
+					addSingleItem(menuItemLevelOne)
 				end
 			else
 				menuItemLevelOne = new FMenuItem(menu[0]) 
 				if menu[1] != "" || menu[1] != 0 menuItemLevelOne.callback(menu[1]) end
 				try if menu[2] != "" || menu[2] != 0 menuItemLevelOne.setFlag(menu[2]) end catch end
-				addSingleItem(menuItemLevelOne) 
+				addSingleItem(menuItemLevelOne)
 			end
 		end 
 		notifyWidget()
 		return this
-		
-	block getWidgetPointer() return WIDGETPOINTER
 		
 	#Add a menu item to an instance of the @Class FMenu widget this is a
 	#safe block as it notify the @FMenuItem widget to do all necessary 
@@ -153,7 +152,8 @@ class FMenu : FWidget
 	block addSingleItem(menuitem) 
 		add(MENU_WIDGET_MENUITEMS_LIST,menuitem)
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
-		menuitem.notifyWidget(getWidgetPointer())
+		assignMenuItemPointer(menuitem)
+		menuitem.notifyWidget()
 		return this
 		
 	#This is the main block that add item to the widget of @Class FMenuBar
@@ -166,16 +166,30 @@ class FMenu : FWidget
 		add(MENU_WIDGET_MENUITEMS_LIST_VALUE,value)
 		notifyWidget()
 		
+	#clear the entire child @Class FWidget on the instance of the @Class
+	#FMenu to and redraw the @Class Menu to completely remove all the child
+	#widgets
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block clear()
 		__menu_clear(WIDGETPOINTER,0,0)
 		notifyWidget()
 		return this
 		
+	#Remove the sub menu in the instance of the @Class FMenu at the 
+	#provided index
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block clearSubmenuAt(index)
 		__menu_clear(WIDGETPOINTER,1,index)
 		notifyWidget() 
 		return this
 		
+	#change the color of the menu when it is selected the default been 
+	#colorless the color parameter can be an instance of the @Class FColor 
+	#or an integer value of the color 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setSelectionColor(color)
 		try {
 			color.getColor() MENU_WIDGET_SELECTION_COLOR = color
@@ -190,12 +204,17 @@ class FMenu : FWidget
 	#This block function is same as @Block setSelectionColor(color)
 	block setDownColor(color) return setSelectionColor(color)
 	
+	#Get the color of the menu when it is selected
+	#@Return the selection color @DataType STRING
 	block getSelectionColor()
 		return MENU_WIDGET_SELECTION_COLOR
 		
+	#this block is same as @Block getSelectionColor()
 	block getDownColor()
 		return MENU_WIDGET_SELECTION_COLOR
 	
+	#Change the type of @Class FBox that is rendered when the @Class FMenu
+	#is click or selected. This block provide opp
 	block setDownBox(type)
 		__menu_selection_color(WIDGETPOINTER,type)
 		return setSelectionColor(getSelectionColor())
@@ -205,6 +224,7 @@ class FMenu : FWidget
 	
 	#This block is same as @Block setDownBox(type) arkward 	@Removable
 	block setBackgroundBoxType() return setDownBox(type)
+	
 	
 	block findMenu(menuitem) menuItemIndex = 0
 		if (isString(menuitem)) 
@@ -220,12 +240,11 @@ class FMenu : FWidget
 		ret = MENU_WIDGET_MENUITEMS_LIST[menuItemIndex]
 		return ret
 		
+	#this is junk do not use this block in actual project for development
+	#purpose only
 	block setCallbackForAllmenuItems(callback)
-		wp = getWidgetPointer()
 		for a = 0 to lengthOf(MENU_WIDGET_MENUITEMS_LIST)
 			MENU_WIDGET_MENUITEMS_LIST[a].callback(callback)
-			MENU_WIDGET_MENUITEMS_LIST[a].initialize(wp)
-					MENU_WIDGET_MENUITEMS_LIST[a].setParent(this) MENU_WIDGET_MENUITEMS_LIST[a].notifyWidget(wp)
 		end
 		
 	#all the private attributes, fields and block not accessible outside
@@ -265,6 +284,23 @@ class FMenu : FWidget
 		block treatMenu(submenu, parentitem)
 			for a = 0 to lengthOf(submenu) submenu[a][1] = parentitem.getValue()+"/"+submenu[a][1] end
 			return submenu
-	
+			
+		#After the @Class FMenuItem widget has been added to an instance of
+		#of the @Class FMenu then the @Attribute WIDGETPOINTER has to be 
+		#initialize to enable properties set on the @Class FMenuItem to be
+		#effective
+		block assignMenuItemPointer(menuitem)
+			menuitem.setValue(voidMenuItemParam(menuitem.getValue())) 
+			menuitemPointer = __menu_find_menu_item(WIDGETPOINTER,menuitem.getValue())
+			menuitem.setWidgetPointer(menuitemPointer) 
+			
+		#remove the parameter passed through the @Class FMenuItem widget
+		#value such as the _ \ \' & which will cause finding the item in the 
+		#@Class FMenu fail if not removed
+		#@Return the formated value @DataType STRING
+		block voidMenuItemParam(value)
+			value = substr(value,"_","") value = substr(value,"\'","") 
+			value = substr(value,'\',"") value = substr(value,"&","") 
+			return value
 		
 		

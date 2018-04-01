@@ -1119,7 +1119,7 @@ SIMPLE_BLOCK(menu_find_menu_item)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
 		Fl_Menu_Bar *menu = (Fl_Menu_Bar* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
-		Fl_Menu_Item *menu_item = (Fl_Menu_Item*)menu->find_item("File") ;
+		Fl_Menu_Item *menu_item = (Fl_Menu_Item*)menu->find_item(SIMPLE_API_GETSTRING(2)) ;
 		SIMPLE_API_RETCPOINTER(menu_item,"SIMPLE_FLTK_");
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
