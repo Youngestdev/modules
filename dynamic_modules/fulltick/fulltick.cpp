@@ -1170,15 +1170,19 @@ SIMPLE_BLOCK(menu_selected_menu_item_value)
 	}
 }
 
-SIMPLE_BLOCK(menu_global)
+SIMPLE_BLOCK(menu_mode)
 {
-	if ( SIMPLE_API_PARACOUNT != 1 ) {
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) ) {
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3)) {
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
-		menu->global();
+		if (((int)SIMPLE_API_GETNUMBER(3)) == -101) {
+			SIMPLE_API_RETNUMBER(menu->mode(((int)SIMPLE_API_GETNUMBER(2))));
+		} else {
+			menu->mode(((int)SIMPLE_API_GETNUMBER(2)), (int) SIMPLE_API_GETNUMBER(3));
+		}
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
