@@ -1019,7 +1019,7 @@ SIMPLE_BLOCK(input_wrap)
 	}
 }
 
-/** MENU/MENUBAR (s) **/
+/** MENU/MENUBAR **/
 
 SIMPLE_BLOCK(init_menu_bar)
 {
@@ -1123,6 +1123,24 @@ SIMPLE_BLOCK(menu_find_menu_item)
 		SIMPLE_API_RETCPOINTER(menu_item,"SIMPLE_FLTK_");
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+/** MENUITEM **/
+
+SIMPLE_BLOCK(menu_item_callback)
+{
+	if ( SIMPLE_API_PARACOUNT != 2 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISCPOINTER(1) ) {
+		Fl_Menu_Item *menuitem = (Fl_Menu_Item* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_");
+		String * str = simple_string_new_gc(((VM *) pointer)->sState,SIMPLE_API_GETSTRING(2)); 
+		CallbackStruct *cbs = new CallbackStruct(pointer, str, (Fl_Widget*) menuitem);
+		menuitem->callback(SimpleCallBack,cbs);
+	} else {
+		SIMPLE_API_ERROR(FULLTICK_WRONGPARAM);
 	}
 }
 
@@ -1327,7 +1345,7 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__input_undo",input_undo);
 	register_block("__input_wrap",input_wrap);
 
-	/** MENU/MENUITEMS/MENUBAR **/
+	/** MENU/MENUBAR **/
 	register_block("__init_menu_bar",init_menu_bar);
 	register_block("__init_menu_item",init_menu_item);
 	register_block("__menu_add",menu_add);
@@ -1335,6 +1353,9 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__menu_down_box",menu_down_box);
 	register_block("__menu_selection_color",menu_selection_color);
 	register_block("__menu_find_menu_item",menu_find_menu_item);
+
+	/** MENUITEM **/
+	register_block("__menu_item_callback",menu_item_callback);
 
 	/** BROWSERS(LISTBOX) **/
 	register_block("__listbox_type",listbox_type);
