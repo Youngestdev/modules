@@ -1118,7 +1118,7 @@ SIMPLE_BLOCK(menu_find_menu_item)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISSTRING(2) ) {
-		Fl_Menu_Bar *menu = (Fl_Menu_Bar* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
+		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
 		Fl_Menu_Item *menu_item = (Fl_Menu_Item*)menu->find_item(SIMPLE_API_GETSTRING(2)) ;
 		SIMPLE_API_RETCPOINTER(menu_item,"SIMPLE_FLTK_");
 	} else {
@@ -1133,7 +1133,7 @@ SIMPLE_BLOCK(menu_global)
 		return ;
 	}
 	if ( SIMPLE_API_ISPOINTER(1) ) {
-		Fl_Menu_Bar *menu = (Fl_Menu_Bar* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
+		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
 		menu->global();
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
@@ -1367,6 +1367,12 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__menu_down_box",menu_down_box);
 	register_block("__menu_selection_color",menu_selection_color);
 	register_block("__menu_find_menu_item",menu_find_menu_item);
+	register_block("__menu_global",menu_global);
+	register_block("__menu_insert",menu_insert);
+	register_block("__menu_menu_selected_menu_item_value",menu_selected_menu_item_value);
+	register_block("__menu_mode",menu_mode);
+	register_block("__menu_last_selected_menu_item",menu_last_selected_menu_item);
+	register_block("__menu_remove",menu_remove);
 
 	/** MENUITEM **/
 	register_block("__menu_item_callback",menu_item_callback);
