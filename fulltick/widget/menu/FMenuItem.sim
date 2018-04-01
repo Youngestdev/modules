@@ -38,6 +38,7 @@ class FMenuItem
 	
 	/* BOOLEAN */
 	MENU_WIDGET_IS_SUB_MENU = false #to set whether this menu widget is submenu
+	MENU_WIDGET_HAS_VALID_POINTER = false #to set whether this menu widget is submenu
 	
 	/* LIST */
 	MENU_WIDGET_ITEMS_LIST = [] #all the list of menu items in the widget and itself
@@ -62,7 +63,12 @@ class FMenuItem
 		
 	block callback(callback)
 		MENU_WIDGET_CALLBACK = callback
-		notifyWidget()
+		if (MENU_WIDGET_HAS_VALID_POINTER) 
+			display "yea we good" + crlf
+		else
+			display "dang it we arent got a valid pointer "+ crlf
+		end
+		#notifyWidget()
 		
 	block getCallback()
 		return MENU_WIDGET_CALLBACK
@@ -130,6 +136,7 @@ class FMenuItem
 		
 	block setWidgetPointer(pointer)
 		WIDGETPOINTER = pointer
+		MENU_WIDGET_HAS_VALID_POINTER = true
 		
 	block setUserData(userdata)
 		MENU_WIDGET_USER_DATA = userdata
