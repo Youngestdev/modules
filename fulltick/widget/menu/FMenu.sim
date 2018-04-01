@@ -272,7 +272,9 @@ class FMenu : FWidget
 			insetRawItemAt(index,tempMenuItem.getValue())
 			add(MENU_WIDGET_MENUITEMS_LIST,tempMenuItem)
 		elif (isList(menuitem))
-			
+			for a = 0 to lengthOf(menuitem)
+				insertMenuItemAt(index+1,menuitem[a])
+			end
 		else 
 			insetRawItemAt(index,menuitem.getValue())
 			add(MENU_WIDGET_MENUITEMS_LIST,menuitem)
