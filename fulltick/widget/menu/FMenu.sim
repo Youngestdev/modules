@@ -228,7 +228,11 @@ class FMenu : FWidget
 	#This block is same as @Block setDownBox(type) arkward 	@Removable
 	block setBackgroundBoxType() return setDownBox(type)
 	
-	
+	#Find a @Class FmenuItem widget from the list of the added menu item 
+	#in the @Class FMenu widget note if the menu item sent as parameter is
+	#not a child of this widget then the first @Class FMenuItem is returned
+	#@Return the coresponding @Class FMenuItem widget @DataType 
+	#@Class FMenuItem
 	block findMenu(menuitem) menuItemIndex = 0
 		if (isString(menuitem)) 
 			for a = 0 to lengthOf(MENU_WIDGET_MENUITEMS_LIST_VALUE)
