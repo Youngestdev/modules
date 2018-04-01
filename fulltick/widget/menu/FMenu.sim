@@ -280,7 +280,9 @@ class FMenu : FWidget
 			add(MENU_WIDGET_MENUITEMS_LIST,menuitem)
 		end
 	
-	
+	#insert an item with a custom value at the specified index
+	#@Note adding item at index will disrupt the indexing by @DataType NUMBER
+	#
 	block insetRawItemAt(index,value)
 		__menu_insert(WIDGETPOINTER,index,value)
 		add(MENU_WIDGET_MENUITEMS_LIST_VALUE,value)
