@@ -66,11 +66,8 @@ class FMenuItem
 		MENU_WIDGET_CALLBACK = callback
 		if (MENU_WIDGET_HAS_VALID_POINTER) 
 			display "yea we good" + crlf
-			__menu_item_callback(WIDGETPOINTER, callback)
-		else
-			#display "dang it we arent got a valid pointer "+ crlf
+			__menu_item_callback(WIDGETPOINTER, callback)			
 		end
-		#notifyWidget()
 		
 	block getCallback()
 		return MENU_WIDGET_CALLBACK
@@ -129,12 +126,13 @@ class FMenuItem
 		return MENU_WIDGET_IS_SUB_MENU
 		
 	block notifyWidget() 
-		#display getValue()+" : "+getCallback()+crlf
-		/*if isSubMenu() 
-			for a = 0 to lengthOf(getItems()) 
-				#getItems()[a].setValue(getValue()+"/"+getItems()[a].getName()) display getItems()[a].getValue()+" "
-			end 
-		end */		
+		
+		
+	block cure()
+		if (MENU_WIDGET_HAS_VALID_POINTER) 
+			display "yea we good" + crlf
+			__menu_item_callback(WIDGETPOINTER, MENU_WIDGET_CALLBACK)
+		end
 		
 	block setWidgetPointer(pointer)
 		WIDGETPOINTER = pointer

@@ -153,7 +153,7 @@ class FMenu : FWidget
 		add(MENU_WIDGET_MENUITEMS_LIST,menuitem)
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
 		assignMenuItemPointer(menuitem)
-		menuitem.notifyWidget()
+		menuitem.cure()
 		return this
 		
 	#This is the main block that add item to the widget of @Class FMenuBar
