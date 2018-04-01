@@ -29,6 +29,7 @@ class FMenuItem
 	MENU_WIDGET_NAME = ""
 	MENU_WIDGET_CALLBACK = ""
 	MENU_WIDGET_TYPE_NAME = "FMENUITEM"
+	WIDGETPOINTER = null #the menu item pointer
 	
 	/* POINTERS AND CLASSES */
 	MENU_WIDGET_USER_DATA = null #the user data for the menu
