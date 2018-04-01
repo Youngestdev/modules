@@ -1126,6 +1126,20 @@ SIMPLE_BLOCK(menu_find_menu_item)
 	}
 }
 
+SIMPLE_BLOCK(menu_global)
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) ) {
+		Fl_Menu_Bar *menu = (Fl_Menu_Bar* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
+		menu->global();
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
 /** MENUITEM **/
 
 SIMPLE_BLOCK(menu_item_callback)
