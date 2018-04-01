@@ -214,9 +214,12 @@ class FMenu : FWidget
 		return MENU_WIDGET_SELECTION_COLOR
 	
 	#Change the type of @Class FBox that is rendered when the @Class FMenu
-	#is click or selected. This block provide opp
+	#is click or selected. This block provide option to customize the 
+	#widget further example when creating a @Link Material type of widget
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setDownBox(type)
-		__menu_selection_color(WIDGETPOINTER,type)
+		__menu_down_box(WIDGETPOINTER,type)
 		return setSelectionColor(getSelectionColor())
 		
 	#This block is same as @Block setDownBox(type)	
