@@ -1019,7 +1019,7 @@ SIMPLE_BLOCK(input_wrap)
 	}
 }
 
-/** MENU/MENUITEMS/MENUBAR (s) **/
+/** MENU/MENUBAR (s) **/
 
 SIMPLE_BLOCK(init_menu_bar)
 {

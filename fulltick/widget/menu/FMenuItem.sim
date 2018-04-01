@@ -65,8 +65,9 @@ class FMenuItem
 		MENU_WIDGET_CALLBACK = callback
 		if (MENU_WIDGET_HAS_VALID_POINTER) 
 			display "yea we good" + crlf
+			__menu_item_callback(WIDGETPOINTER, callback)
 		else
-			display "dang it we arent got a valid pointer "+ crlf
+			#display "dang it we arent got a valid pointer "+ crlf
 		end
 		#notifyWidget()
 		
