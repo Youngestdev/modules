@@ -231,7 +231,7 @@ class FMenu : FWidget
 	#Find a @Class FmenuItem widget from the list of the added menu item 
 	#in the @Class FMenu widget note if the menu item sent as parameter is
 	#not a child of this widget then the first @Class FMenuItem is returned
-	#@Return the coresponding @Class FMenuItem widget @DataType 
+	#@Return the corresponding @Class FMenuItem widget @DataType 
 	#@Class FMenuItem
 	block findMenu(menuitem) menuItemIndex = 0
 		if (isString(menuitem)) 
@@ -254,8 +254,17 @@ class FMenu : FWidget
 			MENU_WIDGET_MENUITEMS_LIST[a].callback(callback)
 		end
 		
-	block makeShortcutGlobal()
+	#Make the shortcuts for all the @Class FMenuItem in the instance of the
+	#@Class FMenu works from any where in the window regardless of which
+	#widget has the focus
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
+	block global()
 		__menu_global(WIDGETPOINTER)
+		return this
+		
+	#same as the @Block global()
+	block makeShortcutGlobal()
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
