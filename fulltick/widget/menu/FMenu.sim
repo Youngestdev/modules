@@ -266,7 +266,14 @@ class FMenu : FWidget
 	#same as the @Block global()
 	block makeShortcutGlobal() return global()
 	
-	block insertMenuItemAt(index)
+	block insertMenuItemAt(index,menuitem)
+		if (isString(menuitem))
+			tempMenuItem = new FMenuItem(menuitem)
+			insetRawItemAt(index,tempMenuItem.getValue())
+		else 
+		
+		end
+	
 	
 	block insetRawItemAt(index,value)
 		__menu_insert(WIDGETPOINTER,index,value)
