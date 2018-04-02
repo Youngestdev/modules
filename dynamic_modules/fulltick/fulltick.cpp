@@ -1253,13 +1253,27 @@ SIMPLE_BLOCK(menu_shortcut)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3)) {
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
-		menu->remove((int)SIMPLE_API_GETNUMBER(2));
+		menu->shortcut((int)SIMPLE_API_GETNUMBER(2),(int)SIMPLE_API_GETNUMBER(3));
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
 }
 
-SIMPLE_BLOCK(menu_remove)
+SIMPLE_BLOCK(menu_size)
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(FULLTICK_MISING1PARAM);
+		return ;
+	}
+	if ( SIMPLE_API_ISPOINTER(1) ) {
+		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
+		SIMPLE_API_RETNUMBER(menu->size());
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+SIMPLE_BLOCK(menu_text)
 {
 	if ( SIMPLE_API_PARACOUNT != 2 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
@@ -1267,21 +1281,11 @@ SIMPLE_BLOCK(menu_remove)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
-		menu->remove((int)SIMPLE_API_GETNUMBER(2));
-	} else {
-		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
-	}
-}
-
-SIMPLE_BLOCK(menu_remove)
-{
-	if ( SIMPLE_API_PARACOUNT != 2 ) {
-		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
-		return ;
-	}
-	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
-		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
-		menu->remove((int)SIMPLE_API_GETNUMBER(2));
+		if (((int)SIMPLE_API_GETNUMBER(2)) == -101) {
+			SIMPLE_API_RETSTRING(menu->text());
+		} else {
+			SIMPLE_API_RETSTRING(menu->text((int)SIMPLE_API_GETNUMBER(2)));
+		}
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
