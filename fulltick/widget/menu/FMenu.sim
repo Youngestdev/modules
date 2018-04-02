@@ -358,6 +358,10 @@ class FMenu : FWidget
 		__menu_replace(WIDGETPOINTER,index,value)
 		return this
 		
+	block setonly(menuitem)
+		__menu_setonly(WIDGETPOINTER, menuitem.getWidgetPointer())
+		return this
+		
 	#all the private attributes, fields and block not accessible outside
 	#the class
 	private 
