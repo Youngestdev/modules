@@ -351,6 +351,8 @@ class FMenu : FWidget
 		__menu_remove(WIDGETPOINTER,index)
 		return this
 		
+		replace
+		
 	#all the private attributes, fields and block not accessible outside
 	#the class
 	private 

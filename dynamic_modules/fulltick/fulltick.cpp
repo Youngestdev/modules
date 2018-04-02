@@ -1236,21 +1236,22 @@ SIMPLE_BLOCK(menu_setonly)
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISPOINTER(2) ) {
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
-		menu->setonly((int)SIMPLE_API_GETNUMBER(2));
+		Fl_Menu_Item *menuitem = (Fl_Menu_Item* ) SIMPLE_API_GETCPOINTER(2,"SIMPLE_FLTK_"); 
+		menu->setonly(menuitem);
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
 }
 
-SIMPLE_BLOCK(menu_remove)
+SIMPLE_BLOCK(menu_shortcut)
 {
-	if ( SIMPLE_API_PARACOUNT != 2 ) {
+	if ( SIMPLE_API_PARACOUNT != 3 ) {
 		SIMPLE_API_ERROR(FULLTICK_MISING2PARAM);
 		return ;
 	}
-	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
+	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3)) {
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
 		menu->remove((int)SIMPLE_API_GETNUMBER(2));
 	} else {
