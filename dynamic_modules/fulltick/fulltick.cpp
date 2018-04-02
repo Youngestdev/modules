@@ -1445,10 +1445,19 @@ SIMPLE_API void init_full_tick(SimpleState *sState)
 	register_block("__menu_find_menu_item",menu_find_menu_item);
 	register_block("__menu_global",menu_global);
 	register_block("__menu_insert",menu_insert);
-	register_block("__menu_menu_selected_menu_item_value",menu_selected_menu_item_value);
+	register_block("__menu_selected_menu_item_value",menu_selected_menu_item_value);
 	register_block("__menu_mode",menu_mode);
 	register_block("__menu_last_selected_menu_item",menu_last_selected_menu_item);
 	register_block("__menu_remove",menu_remove);
+	register_block("__menu_replace",menu_replace);
+	register_block("__menu_setonly",menu_setonly);
+	register_block("__menu_shortcut",menu_shortcut);
+	register_block("__menu_size",menu_size);
+	register_block("__menu_text",menu_text);
+	register_block("__menu_textcolor",menu_textcolor);
+	register_block("__menu_textfont",menu_textfont);
+	register_block("__menu_textsize",menu_textsize);
+	register_block("__menu_value",menu_value);
 
 	/** MENUITEM **/
 	register_block("__menu_item_callback",menu_item_callback);

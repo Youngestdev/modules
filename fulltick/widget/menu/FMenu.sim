@@ -150,10 +150,10 @@ class FMenu : FWidget
 	#directly. This block accept @Class FMenuItem widget as a parameter
 	#only any other @Link DATATYPE sent as param is an error
 	block addSingleItem(menuitem) 
-		add(MENU_WIDGET_MENUITEMS_LIST,menuitem)
 		addItemRaw(menuitem.getValue(),menuitem.getFlag())
 		assignMenuItemPointer(menuitem)
 		menuitem.cure()
+		add(MENU_WIDGET_MENUITEMS_LIST,menuitem)
 		return this
 		
 	#This is the main block that add item to the widget of @Class FMenuBar
@@ -297,6 +297,59 @@ class FMenu : FWidget
 		__menu_insert(WIDGETPOINTER,index,value)
 		add(MENU_WIDGET_MENUITEMS_LIST_VALUE,value)
 		notifyWidget()
+		
+	#Get the last selected @Class FMenuItem in the instance of the @Class 
+	#FMenu. this block is most useful if all the @Class FMenuItem are using
+	#the same @Link callback then the function can be determined in the 
+	#@Link Block by checking the name of the selected @Class FMenuItem
+	#@Return the last selected @Class FMenuItem value @DataType STRING
+	block lastSelectedMenuItemValue() return __menu_selected_menu_item_value(WIDGETPOINTER)
+	
+	#Change the mode/flag of the @Class FMenuItem at the specified index. 
+	#This block accept two parameter the first been the index number of the 
+	#@Class FMenuItem and the second is the mode which is of the @DataType
+	#NUMBER or one of the flags in the @Class FMenuType
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
+	block mode(index,mode)
+		__menu_mode(WIDGETPOINTER,index,mode)
+		notifyWidget()
+		return this
+		
+	#this block is same as @Block mode(index,mode)	
+	block setModeAt(index,mode) return mode(index,mode)
+	
+	#Get the mode/flag of the @Class FMenuItem at the index passed as 
+	#parameter
+	#@Return the mode at the index @DataType NUMBER
+	block getModeAt(index) return __menu_mode(WIDGETPOINTER,index,-101)
+	
+	#currently failing
+	block getLastSelectedItem()
+		index = 0
+		for a = 0 to lengthOf(MENU_WIDGET_MENUITEMS_LIST)
+			val = MENU_WIDGET_MENUITEMS_LIST[a].getWidgetPointer()+""
+			internal = __menu_last_selected_menu_item(WIDGETPOINTER)+""
+			#if (val == internal)
+			#	display MENU_WIDGET_MENUITEMS_LIST[a].getValue()
+			#end
+		end
+		return MENU_WIDGET_MENUITEMS_LIST[index]
+		
+	#Fetch the correct pointer of the last selected item in the 
+	#@Class FMenu this only return the low level @Link pointer only, to 
+	#to get the last selected @Class FMenuItem call 
+	#@Block getLastSelectedItem()
+	#@Return the last selected item pointer @DataType POINTER
+	block getLastSelectedItemPointer()
+		return __menu_last_selected_menu_item(WIDGETPOINTER)
+		
+	#Remove the @Class FMenuItem at the specified index location
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
+	block remove(index)
+		__menu_remove(WIDGETPOINTER,index)
+		return this
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class

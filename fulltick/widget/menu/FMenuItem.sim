@@ -22,7 +22,7 @@ call "fulltick/core/FWidget.sim" ? fulltick.core
 #  ________________________________________________________
 # |________________________________________________________|
 #@EndSkip @Image FMenuItem
-class FMenuItem 
+class FMenuItem : FWidget
 
 	/* STRING */
 	MENU_WIDGET_VALUE = ""
@@ -135,6 +135,9 @@ class FMenuItem
 	block setWidgetPointer(pointer)
 		WIDGETPOINTER = pointer
 		MENU_WIDGET_HAS_VALID_POINTER = true
+		
+	block getWidgetPointer()
+		return WIDGETPOINTER
 		
 	block setUserData(userdata)
 		MENU_WIDGET_USER_DATA = userdata
