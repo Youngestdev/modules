@@ -447,6 +447,7 @@ class FMenu : FWidget
 	block getIndexOfLastSelectedItem()
 		return __menu_value(WIDGETPOINTER,-1,null)
 		
+	#skip	
 	block getIndexOf(menuitem)
 		return __menu_value(WIDGETPOINTER,-101,menuitem.getWidgetPointer())
 		
