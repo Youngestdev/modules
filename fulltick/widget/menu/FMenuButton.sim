@@ -7,8 +7,8 @@
 /* 
  * @Filename - FMenuButton.sim
  * @Author - Azeez Adewale
- * @Date - 14 March 2018
- * @Time - 05:16 AM
+ * @Date - 03 April 2018
+ * @Time - 03:36 AM
  *
  */
 
@@ -17,20 +17,20 @@ module fulltick.widget.menu
 #call the @Class FMenu File for blocks inheritance
 call "fulltick/widget/menu/FMenu.sim" ? fulltick.widget.menu
 
-#This @Class FMenuBar @Skip
+#This @Class FMenuButton @Skip
 #  ________________________________________________________
 # |________________________________________________________|
-#@EndSkip @Image FMenuBar
-class FMenuBar : FMenu
+#@EndSkip @Image FMenuButton
+class FMenuButton : FMenu
 
 	/* NUMBER */
-	WIDGET_WIDTH = 300 #Change the default width 
+	WIDGET_WIDTH = 70 #Change the default width 
 	WIDGET_HEIGHT = 30 #Change the default height 
 	
 	#initialize() #init the widget pointer
 
-	#Initialize the @Class FMenuBar
-	block FMenuBar()
+	#Initialize the @Class FMenuButton
+	block FMenuButton()
 		initialize()
 		
 	block menu(menuitem,window)
@@ -38,10 +38,10 @@ class FMenuBar : FMenu
 	#all the private attributes, fields and block not accessible #outside the class
 	private 
 		
-		#Create an instance of the @Class FMenuBar Widget with 
+		#Create an instance of the @Class FMenuButton Widget with 
 		#custom width and height 
 		block initialize()
-			WIDGETPOINTER = __init_menu_bar(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
+			WIDGETPOINTER = __init_menu_button(WIDGET_X, WIDGET_Y, WIDGET_WIDTH, WIDGET_HEIGHT)
 		
 		
 		
