@@ -417,6 +417,18 @@ class FMenu : FWidget
 	block getTextColor()
 		return MENU_WIDGET_TEXT_COLOR
 		
+	#Set the font type/family for all the @Class FMenuItem in the instance
+	#of @Class FMenu the fonts can be found in @Class FFont or the 
+	#@Link NUMBER value of the font type can be sent as parameter
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
+	block setTextFont(font)
+		__menu_text_font(WIDGETPOINTER,font)
+		notifyWidget()
+		
+	block getTextFont()
+		return 
+		
 	#all the private attributes, fields and block not accessible outside
 	#the class
 	private 
