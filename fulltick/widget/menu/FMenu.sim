@@ -382,10 +382,19 @@ class FMenu : FWidget
 	#@Return the size of the widget child @DataType NUMBER
 	block size() return __menu_size(WIDGETPOINTER)
 	
+	#Get the title of the last selected @Class FMenuItem. This block 
+	#returns the real name of the @Class FMenuItem only i.e if the path to
+	#@Class FMenuItem is @Bold File/New/Project it return @Bold Project only
+	#if you need to get the absolute @Class FMenuItem path call then
+	#@Block lastSelectedMenuItemValue() instead 
+	#@Return the name of last selected @Class FMenuItem @DataType STRING
 	block text()
 		return __menu_text(WIDGETPOINTER,-101)
 		
-	block textAt(index)
+	#Get the actual name of the @Class FMenuItem at the specified index
+	#@Return the name of the @Class FMenuItem at the provided index
+	#@DataType STRING
+	block textAt(int index)
 		return __menu_text(WIDGETPOINTER,index)
 		
 	#all the private attributes, fields and block not accessible outside
