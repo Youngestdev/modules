@@ -26,8 +26,9 @@ class FMenu : FWidget
 
 	/* TYPES */
 	MENU_WIDGET_SELECTION_COLOR = new FColor #the default selection color unimportant
+	MENU_WIDGET_TEXT_COLOR = new FColor #initialize the default text color
 	
-	/* INTEGER */
+	/* NUMBER */
 	MENU_WIDGET_DOWN_BOX_TYPE = 2 #declare the default down box type to be flat
 
 	#Add a new menu item to the menu or a menu item itself this block 
@@ -394,8 +395,19 @@ class FMenu : FWidget
 	#Get the actual name of the @Class FMenuItem at the specified index
 	#@Return the name of the @Class FMenuItem at the provided index
 	#@DataType STRING
-	block textAt(int index)
+	block textAt(index)
 		return __menu_text(WIDGETPOINTER,index)
+		
+	block setTextColor(color)
+		if (isNumber(color))
+			MENU_WIDGET_TEXT_COLOR = new FColor
+			MENU_WIDGET_TEXT_COLOR.setColorValue(color)
+		else
+			MENU_WIDGET_TEXT_COLOR = color
+		end
+		__set_bg(WIDGETPOINTER, MENU_WIDGET_TEXT_COLOR.getColor())
+		notifyWidget()
+		return this
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
