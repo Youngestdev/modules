@@ -358,7 +358,11 @@ class FMenu : FWidget
 		__menu_replace(WIDGETPOINTER,index,value)
 		return this
 		
-	#	
+	#Toggle the @Class FMenuItem in adjacent other @Class FMenuItem in the 
+	#same group i.e switch on the @Class FMenuItem and switch off other 
+	#@Class FMenuItem 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setonly(menuitem)
 		__menu_setonly(WIDGETPOINTER, menuitem.getWidgetPointer())
 		return this
