@@ -26,6 +26,8 @@ class FMenuBar : FMenu
 	/* NUMBER */
 	WIDGET_WIDTH = 300 #Change the default width 
 	WIDGET_HEIGHT = 30 #Change the default height 
+	
+	#initialize() #init the widget pointer
 
 	#Initialize the @Class FMenuBar
 	block FMenuBar()
