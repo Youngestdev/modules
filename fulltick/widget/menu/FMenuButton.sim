@@ -18,13 +18,15 @@ module fulltick.widget.menu
 call "fulltick/widget/menu/FMenu.sim" ? fulltick.widget.menu
 
 #This @Class FMenuButton @Skip
-#  ________________________________________________________
-# |________________________________________________________|
+#  ____________
+# |          _ |
+# |         |_>|
+# |____________|
 #@EndSkip @Image FMenuButton
 class FMenuButton : FMenu
 
 	/* NUMBER */
-	WIDGET_WIDTH = 70 #Change the default width 
+	WIDGET_WIDTH = 110 #Change the default width 
 	WIDGET_HEIGHT = 30 #Change the default height 
 	
 	#initialize() #init the widget pointer
