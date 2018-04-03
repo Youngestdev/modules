@@ -398,6 +398,9 @@ class FMenu : FWidget
 	block textAt(index)
 		return __menu_text(WIDGETPOINTER,index)
 		
+	#Change the color of all the @Class FMenuItem labels/text at once 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setTextColor(color)
 		if (isNumber(color))
 			MENU_WIDGET_TEXT_COLOR = new FColor
@@ -408,6 +411,11 @@ class FMenu : FWidget
 		__menu_text_color(WIDGETPOINTER, MENU_WIDGET_TEXT_COLOR.getColor())
 		notifyWidget()
 		return this
+		
+	#Gets the color of the @Class FMenuItem labels/text in this widget
+	#@Return the color of the @Class FMenuItem labels @Class FColor
+	block getTextColor()
+		return MENU_WIDGET_TEXT_COLOR
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
