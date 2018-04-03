@@ -405,7 +405,7 @@ class FMenu : FWidget
 		else
 			MENU_WIDGET_TEXT_COLOR = color
 		end
-		__set_bg(WIDGETPOINTER, MENU_WIDGET_TEXT_COLOR.getColor())
+		__menu_text_color(WIDGETPOINTER, MENU_WIDGET_TEXT_COLOR.getColor())
 		notifyWidget()
 		return this
 		
