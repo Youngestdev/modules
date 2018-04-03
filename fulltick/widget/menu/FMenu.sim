@@ -427,12 +427,18 @@ class FMenu : FWidget
 		notifyWidget()
 		return this
 		
+	#Set the size of all the @Class FMenuItem labels/text at once
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setTextSize(size)
 		MENU_WIDGET_TEXT_SIZE = size
 		__menu_text_size(WIDGETPOINTER,MENU_WIDGET_TEXT_SIZE)
 		notifyWidget()
 		return this
 		
+	#Get the size of the labels/text of all the @Class FMenuItem and 
+	#sub-menus in the instance of the @Class FMenu
+	#@Return the labels size @DataType NUMBER
 	block getTextSize()
 		return MENU_WIDGET_TEXT_SIZE
 		
