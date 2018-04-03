@@ -377,6 +377,8 @@ class FMenu : FWidget
 		__menu_shortcut(WIDGETPOINTER,index,shortcut)
 		return this
 		
+	#Get the number of @Class FMenuItem structure and correctly counted
+	#sub-menus in the instance of the @Class FMenu
 	block size() return __menu_size(WIDGETPOINTER)
 		
 	#all the private attributes, fields and block not accessible outside
