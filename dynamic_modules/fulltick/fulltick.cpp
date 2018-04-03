@@ -1341,6 +1341,7 @@ SIMPLE_BLOCK(menu_value)
 	}
 	if ( SIMPLE_API_ISPOINTER(1) && SIMPLE_API_ISNUMBER(2) ) {
 		Fl_Menu_ *menu = (Fl_Menu_* ) SIMPLE_API_GETCPOINTER(1,"SIMPLE_FLTK_"); 
+		printf("two is %i\n",(int)SIMPLE_API_GETNUMBER(2));
 		if ((int)SIMPLE_API_GETNUMBER(2)==-1) {
 			SIMPLE_API_RETNUMBER(menu->value());
 		} else if ((int)SIMPLE_API_GETNUMBER(2)==-101) {
