@@ -368,9 +368,14 @@ class FMenu : FWidget
 		return this
 		
 		
-		
+	#Change the shortcut of the @Class FMenuItem shortcut at the specified
+	#index, the shortcut parameter can be @DataType NUMBER or an instance
+	#of the @Class FShortcut 
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
 	block setMenuItemShortcutAt(index,shortcut)
 		__menu_shortcut(WIDGETPOINTER,index,shortcut)
+		return this
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
