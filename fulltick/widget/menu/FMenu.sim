@@ -379,7 +379,14 @@ class FMenu : FWidget
 		
 	#Get the number of @Class FMenuItem structure and correctly counted
 	#sub-menus in the instance of the @Class FMenu
+	#@Return the size of the widget child @DataType NUMBER
 	block size() return __menu_size(WIDGETPOINTER)
+	
+	block text()
+		return __menu_text(WIDGETPOINTER,-101)
+		
+	block textAt(index)
+		return __menu_text(WIDGETPOINTER,index)
 		
 	#all the private attributes, fields and block not accessible outside
 	#the class
