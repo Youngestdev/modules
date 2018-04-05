@@ -13,6 +13,7 @@ class Table : Element
 	elementName = "table"
 	init(elementName)
 	tableHead = '<thead>'
+	tableHeadContent = 'tr'
 	
 	block Table(id)
 		setId(id)
