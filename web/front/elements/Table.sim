@@ -6,21 +6,62 @@
 
 module web.front.elements
 
-call "Div.sim" ? web.front.elements
+call "web/front/elements/Element.sim" ? web.front.elements
 
-class Table : Div
+class Table : Element
 
 	elementName = "table"
 	init(elementName)
+	tableHead = '<thead>'
 	
 	block Table(id)
 		setId(id)
 		
-	
+	block addToHead(type,headlist)
+		if (type == 0)
+			if (isList(headlist))
+				hlen = lengthOf(headlist)
+				for a = 0 to hlen
+					
+				end
+			end
+		else
+		
+		end
+		
 	
 	block setSize(height, width)
 		elementHeight = height
 		elementWidth = width
 		elementStyle += 'height:'+elementHeight+';width:'+elementWidth+';'
 	
-	
+/*<div class="">
+											<table class="alt">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>*/
