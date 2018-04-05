@@ -33,15 +33,21 @@ class Table : Element
 		
 	block addToBody(bodylist)
 		if (isList(bodylist))
-			tableBodyContent+= '<tr>' hlen = lengthOf(bodylist)
+			hlen = lengthOf(bodylist)
 			for a = 0 to hlen
 				if (isString(bodylist[a]))
+					tableBodyContent+= '<tr>'
 					tableBodyContent+= '<td>'+bodylist[a]+'</td>' + crlf
+					tableBodyContent+= '</tr>'
+				elif (isList(bodylist[a]))
+					outer = bodylist[a]
+					addToBody(outer)
 				else
+					tableBodyContent+= '<tr>'
 					tableBodyContent+= '<td>'+bodylist[a].toString()+'</td>' + crlf
+					tableBodyContent+= '</tr>'
 				end
 			end
-			tableBodyContent+= '</tr>'
 		end
 		
 	block toString()
