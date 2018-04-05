@@ -1,20 +1,16 @@
 
 #1
-module Length
+module simple.utilities
 
 #2
 
 #3
-    block getStringLength(object)
+    block getTypeLength(object)
     if (isList(object) || isString(object))
         return lengthOf(object)
     elif (isNumber(object))
         return object
     end
-
-    break
-
-    display " " +getStringLength(object)+ crlf
 
 /*
     comment map
@@ -28,3 +24,4 @@ module Length
     #1 - Module declaration.
     #2 - Entry to the program.
     #3 - Block declaration.
+*/
