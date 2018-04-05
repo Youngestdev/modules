@@ -13,7 +13,7 @@ class Table : Element
 	elementName = "table"
 	init(elementName)
 	tableHead = '<thead>'
-	tableHeadContent = 'tr'
+	tableHeadContent = '<tr>'
 	
 	block Table(id)
 		setId(id)
@@ -23,7 +23,11 @@ class Table : Element
 			if (isList(headlist))
 				hlen = lengthOf(headlist)
 				for a = 0 to hlen
-					
+					if (isString(hlen[a]))
+						tableHeadContent+= '<th>'+hlen[a]+'</th>' + crlf
+					else
+						tableHeadContent+= '<th>'+hlen[a].toString()+'</th>' + crlf
+					end
 				end
 			end
 		else
