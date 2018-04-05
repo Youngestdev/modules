@@ -14,6 +14,7 @@ class Table : Element
 	init(elementName)
 	tableHeadContent = ' <thead><tr>'+crlf
 	tableBodyContent = ' <tbody>'+crlf
+	tableHasBody = false
 	
 	block Table(id)
 		setId(id)
@@ -33,18 +34,26 @@ class Table : Element
 		
 	block addToBody(bodylist)
 		if (isList(bodylist))
-			tableBodyContent+= '<br/><tr>' hlen = lengthOf(bodylist)
+			if (tableHasBody) tableBodyContent+= crlf +'<tr>' end
+			tableHasBody = true
+			hlen = lengthOf(bodylist)
 			for a = 0 to hlen
 				if (isString(bodylist[a]))
-					tableBodyContent+= '<td>'+bodylist[a]+'</td>' + crlf
+					tableBodyContent+= '	<td>'+bodylist[a]+'</td>' + crlf
 				elif (isList(bodylist[a]))
 					outer = bodylist[a]
 					addToBody(outer)
 				else
-					tableBodyContent+= '<td>'+bodylist[a].toString()+'</td>' + crlf
+					try 
+						outer = bodylist[a].toList() 
+						addToBody(outer)
+					catch
+						tableBodyContent+= '	<td>'+bodylist[a].toString()+'</td>' + crlf
+					end
+					
 				end
 			end
-			tableBodyContent+= '<br/></tr>'
+			if (tableHasBody) tableBodyContent+= crlf +'</tr>' end
 		end
 		
 	block toString()
