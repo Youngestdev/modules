@@ -20,7 +20,7 @@ class Table : Element
 		
 	block addToHead(headlist)
 		if (isList(headlist))
-			hlen = lengthOf(headlist)
+			tableHeadContent+= '<tr>' hlen = lengthOf(headlist)
 			for a = 0 to hlen
 				if (isString(headlist[a]))
 					tableHeadContent+= '<th>'+headlist[a]+'</th>' + crlf
@@ -28,19 +28,20 @@ class Table : Element
 					tableHeadContent+= '<th>'+headlist[a].toString()+'</th>' + crlf
 				end
 			end
+			tableHeadContent+= '</tr>'
 		end
 		
 	block addToBody(bodylist)
 		if (isList(bodylist))
-			tableHeadContent+= '<tr>' hlen = lengthOf(bodylist)
+			tableBodyContent+= '<tr>' hlen = lengthOf(bodylist)
 			for a = 0 to hlen
 				if (isString(bodylist[a]))
-					tableHeadContent+= '<td>'+bodylist[a]+'</td>' + crlf
+					tableBodyContent+= '<td>'+bodylist[a]+'</td>' + crlf
 				else
-					tableHeadContent+= '<td>'+bodylist[a].toString()+'</td>' + crlf
+					tableBodyContent+= '<td>'+bodylist[a].toString()+'</td>' + crlf
 				end
 			end
-			tableHeadContent+= '</tr>'
+			tableBodyContent+= '</tr>'
 		end
 		
 	block toString()
@@ -53,7 +54,7 @@ class Table : Element
 		end
 		finalDiv += '> '+elementContent+'
 			'+tableHeadContent+'</thead>
-			'+tableHeadContent+'<tbody>'
+			'+tableBodyContent+'<tbody>'
 		if inline 
 			finalDiv += '</'+elementName+'>' 
 		else 
