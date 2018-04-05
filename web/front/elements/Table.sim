@@ -13,24 +13,34 @@ class Table : Element
 	elementName = "table"
 	init(elementName)
 	tableHeadContent = ' <thead><tr>'+crlf
+	tableBodyContent = ' <tbody>'+crlf
 	
 	block Table(id)
 		setId(id)
 		
-	block addToHead(type,headlist)
-		if (type == 0)
-			if (isList(headlist))
-				hlen = lengthOf(headlist)
-				for a = 0 to hlen
-					if (isString(headlist[a]))
-						tableHeadContent+= '<th>'+headlist[a]+'</th>' + crlf
-					else
-						tableHeadContent+= '<th>'+headlist[a].toString()+'</th>' + crlf
-					end
+	block addToHead(headlist)
+		if (isList(headlist))
+			hlen = lengthOf(headlist)
+			for a = 0 to hlen
+				if (isString(headlist[a]))
+					tableHeadContent+= '<th>'+headlist[a]+'</th>' + crlf
+				else
+					tableHeadContent+= '<th>'+headlist[a].toString()+'</th>' + crlf
 				end
 			end
-		else
+		end
 		
+	block addToBody(bodylist)
+		if (isList(bodylist))
+			tableHeadContent+= '<tr>' hlen = lengthOf(bodylist)
+			for a = 0 to hlen
+				if (isString(bodylist[a]))
+					tableHeadContent+= '<td>'+bodylist[a]+'</td>' + crlf
+				else
+					tableHeadContent+= '<td>'+bodylist[a].toString()+'</td>' + crlf
+				end
+			end
+			tableHeadContent+= '</tr>'
 		end
 		
 	block toString()
@@ -42,7 +52,8 @@ class Table : Element
 			finalDiv += styleClass+'" ' 
 		end
 		finalDiv += '> '+elementContent+'
-			'+tableHeadContent+'<tr></thead>'
+			'+tableHeadContent+'</thead>
+			'+tableHeadContent+'<tbody>'
 		if inline 
 			finalDiv += '</'+elementName+'>' 
 		else 
