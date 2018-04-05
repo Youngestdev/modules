@@ -12,8 +12,7 @@ class Table : Element
 
 	elementName = "table"
 	init(elementName)
-	tableHead = '<thead>'
-	tableHeadContent = '<tr>'
+	tableHeadContent = ' <thead><tr>'
 	
 	block Table(id)
 		setId(id)
@@ -23,16 +22,35 @@ class Table : Element
 			if (isList(headlist))
 				hlen = lengthOf(headlist)
 				for a = 0 to hlen
-					if (isString(hlen[a]))
-						tableHeadContent+= '<th>'+hlen[a]+'</th>' + crlf
+					if (isString(headlist[a]))
+						tableHeadContent+= '<th>'+headlist[a]+'</th>' + crlf
 					else
-						tableHeadContent+= '<th>'+hlen[a].toString()+'</th>' + crlf
+						tableHeadContent+= '<th>'+headlist[a].toString()+'</th>' + crlf
 					end
 				end
 			end
 		else
 		
 		end
+		
+	block toString()
+		finalDiv = '\t\t'+elementHead + elementId+' '
+		if elementSetStyle
+			finalDiv += elementStyle+'" '
+		end
+		if elementSetClass 
+			finalDiv += styleClass+'" ' 
+		end
+		finalDiv += '> '+elementContent+'
+			'+tableHeadContent+'<tr></thead>'
+		if inline 
+			finalDiv += '</'+elementName+'>' 
+		else 
+			finalDiv += '
+		\t</'+elementName+'>'
+		end
+		
+		return finalDiv
 		
 	
 	block setSize(height, width)
