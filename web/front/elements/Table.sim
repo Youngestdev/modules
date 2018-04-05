@@ -6,22 +6,19 @@
 
 module web.front.elements
 
-call "web/front/elements/Element.sim" ? web.front.elements
+call "Div.sim" ? web.front.elements
 
-class Table : Element
+class Table : Div
 
-	elementName = "div"
+	elementName = "table"
 	init(elementName)
 	
-	block Div(id)
+	block Table(id)
 		setId(id)
 	
 	block setSize(height, width)
 		elementHeight = height
 		elementWidth = width
 		elementStyle += 'height:'+elementHeight+';width:'+elementWidth+';'
-		
-	block addDiv(indiv)
-		elementContent + indiv.toString() + crlf
 	
 	
