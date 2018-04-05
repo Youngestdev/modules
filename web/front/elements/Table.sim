@@ -12,7 +12,7 @@ class Table : Element
 
 	elementName = "table"
 	init(elementName)
-	tableHeadContent = ' <thead><tr>'
+	tableHeadContent = ' <thead><tr>'+crlf
 	
 	block Table(id)
 		setId(id)
