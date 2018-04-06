@@ -33,6 +33,8 @@ void blow_directory ( void *pointer ) ;
 
 void mk_directory ( void *pointer ) ;
 
+void dir_exists ( void *pointer ) ;
+
 /* Constants */
 #define SIMPLE_VM_FILE_BUFFERSIZE "Buffer size must be >= 1"
 #define SIMPLE_VM_POINTER_FILE "file"
@@ -47,6 +49,9 @@ typedef union Simple_uData {
 	char cBytes[4]  ;
 	char cBytesDouble[8]  ;
 } Simple_uData ;
+
+#include <sys/types.h>
+#include <sys/stat.h>
 
 #ifdef __cplusplus
 }

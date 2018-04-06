@@ -27,6 +27,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__delete",file_delete);
     register_block("blow_dir",blow_directory);
     register_block("__mkdir",mk_directory);
+    register_block("__dir_exists",dir_exists);
 }
 
 void read_file ( void *pointer )
@@ -210,6 +211,26 @@ void mk_directory ( void *pointer )
             #else
                 SIMPLE_API_RETNUMBER(_mkdir(SIMPLE_API_GETSTRING(1)));
             #endif
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+void dir_exists ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) ) {
+            struct stat info;
+            if( stat( SIMPLE_API_GETSTRING(1), &info ) != 0 ) {
+                printf( "cannot access %s\n", SIMPLE_API_GETSTRING(1) );
+            }else if( info.st_mode & S_IFDIR ) {  // S_ISDIR() doesn't exist on my windows 
+                printf( "%s is a directory\n", SIMPLE_API_GETSTRING(1) );
+                SIMPLE_API_RETNUMBER(0);
+            } else
+                printf( "%s is no directory\n", SIMPLE_API_GETSTRING(1) );
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
