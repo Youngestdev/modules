@@ -131,7 +131,7 @@ block stringEquals(acom, bcom, con)
 block stringStartsWith(m, s)
 	checkNullity(m) checkNullity(s)
 	if lengthOf(s) > lengthOf(m)
-		throw(STRING_COMPARE_ERROR)
+		return false #throw(STRING_COMPARE_ERROR)
 	end
 	for a = 0 to lengthOf(s)
 		try 
