@@ -26,7 +26,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
     register_block("__rename",file_rename);
     register_block("__delete",file_delete);
     register_block("blow_dir",blow_directory);
-    register_block("__mkdir",blow_directory);
+    register_block("__mkdir",mk_directory);
 }
 
 void read_file ( void *pointer )
@@ -193,6 +193,23 @@ void blow_directory ( void *pointer )
 			SIMPLE_API_ERROR(SIMPLE_API_BADDIRECTORY);
 		}
 		#endif
+	} else {
+		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
+	}
+}
+
+void mk_directory ( void *pointer )
+{
+	if ( SIMPLE_API_PARACOUNT != 1 ) {
+		SIMPLE_API_ERROR(SIMPLE_API_MISS2PARA);
+		return ;
+	}
+	if ( SIMPLE_API_ISSTRING(1) ) {
+            #ifdef __linux__
+                SIMPLE_API_RETNUMBER(mkdir(SIMPLE_API_GETSTRING(1), 777)); 
+            #else
+                SIMPLE_API_RETNUMBER(_mkdir(SIMPLE_API_GETSTRING(1)));
+            #endif
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
