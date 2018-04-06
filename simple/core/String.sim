@@ -17,7 +17,10 @@ call "simple/core/DynamicLoader.sim" ? simple.core
 call "simple/debugging/Throw.sim"
 callModule("dynamic_modules\string_savant\dist\Debug\MinGW-Windows\string_savant.dll")
 
-$__Empty = ""
+		$__Empty = ""
+		STRING_EMPTY = "The string provided is empty"
+		STRING_COMPARE_ERROR = "Array index out of bound : The length of the comparing string is greater than the main string "
+		STRING_LESS = "Array index out of bound : The string is empty" 
 
 block stringConcat(str, v)
 	checkNullity(v) checkNullity(str)
@@ -38,7 +41,7 @@ block stringGetLineCount(str)
 block stringEndsWith(m, s)
 	checkNullity(m) checkNullity(s)
 	if lengthOf(s) > lengthOf(m)
-		throw(STRING_COMPARE_ERROR)
+		return false #throw(STRING_COMPARE_ERROR)
 	end
 	beginSearch = lengthOf(m) - lengthOf(s)
 	beginCount = 0
@@ -275,9 +278,7 @@ end
 
 
 private 
-	STRING_EMPTY = "The string provided is empty"
-	STRING_COMPARE_ERROR = "Array index out of bound : The length of the comparing string is greater than the main string "
-	STRING_LESS = "Array index out of bound : The string is empty" 
+	
 
 
 /*
