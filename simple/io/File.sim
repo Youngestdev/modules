@@ -41,7 +41,7 @@ class File
 		return new Path(filePath)
 		
 	block readFileAsString()
-		ensureExistence()
+		#ensureExistence()
 		return readfile(filePath)
 		
 	block write(content)
@@ -69,6 +69,7 @@ class File
 		end
 		writefile(filePath, readFileAsString()+""+content)
 		
+	#currently failing	
 	block exists() 
 		return __exists(filePath)
 		
