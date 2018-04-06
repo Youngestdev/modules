@@ -53,6 +53,9 @@ class Directory
 		end
 		return folderList
 		
+	block exists()
+		return __dir_exists(directoryPath)
+		
 	block toPath()
 		return new Path(directoryPath)
 		
