@@ -168,7 +168,6 @@ block stringSplit(content, sp)
 	for a = 0 to lengthOf(content)
 		if stringEquals(content[a], sp, true)
 			add(retList, val) val = ""
-			
 		else
 			val += content[a] 
 		end
