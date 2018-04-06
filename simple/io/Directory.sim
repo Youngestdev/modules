@@ -13,7 +13,9 @@
 module simple.io
 
 call "Path.sim"
-call "File.sim"
+
+block mkdir(path)
+	__mkdir(path)
 
 class Directory
 
@@ -24,6 +26,9 @@ class Directory
 			directoryPath = path
 		end
 		directoryPath = curePathSlashes(directoryPath)
+		
+	block create()
+		mkdir(directoryPath)
 		
 	block explode()
 		return blow_dir(directoryPath)

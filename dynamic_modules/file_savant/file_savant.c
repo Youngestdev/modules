@@ -206,7 +206,7 @@ void mk_directory ( void *pointer )
 	}
 	if ( SIMPLE_API_ISSTRING(1) ) {
             #ifdef __linux__
-                SIMPLE_API_RETNUMBER(mkdir(SIMPLE_API_GETSTRING(1), 777)); 
+                SIMPLE_API_RETNUMBER(mkdir(SIMPLE_API_GETSTRING(1), 0755)); 
             #else
                 SIMPLE_API_RETNUMBER(_mkdir(SIMPLE_API_GETSTRING(1)));
             #endif
