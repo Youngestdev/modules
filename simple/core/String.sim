@@ -164,15 +164,14 @@ block stringAfter(str, lst)
 	return ret
 	
 block stringSplit(content, sp)
-	retList = [] val = "" content += " nuller"
+	retList = [] val = "" 
 	for a = 0 to lengthOf(content)
 		if stringEquals(content[a], sp, true)
 			add(retList, val) val = ""
-		else
-			val += content[a] 
 		end
-		
+		val += content[a] 
 	end
+	add(retList, val) #add final value
 	return retList
 	
 
