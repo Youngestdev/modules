@@ -206,10 +206,10 @@ void mk_directory ( void *pointer )
 		return ;
 	}
 	if ( SIMPLE_API_ISSTRING(1) ) {
-            #ifdef __linux__
-                SIMPLE_API_RETNUMBER(mkdir(SIMPLE_API_GETSTRING(1), 0755)); 
-            #else
+            #ifdef _WIN32
                 SIMPLE_API_RETNUMBER(_mkdir(SIMPLE_API_GETSTRING(1)));
+            #else
+                SIMPLE_API_RETNUMBER(mkdir(SIMPLE_API_GETSTRING(1), 0755)); 
             #endif
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
@@ -223,13 +223,18 @@ void dir_exists ( void *pointer )
 		return ;
 	}
 	if ( SIMPLE_API_ISSTRING(1) ) {
-            struct stat info;
-            if( stat( SIMPLE_API_GETSTRING(1), &info ) != 0 ) {
-                SIMPLE_API_RETNUMBER(-1);
-            } else if( stat( SIMPLE_API_GETSTRING(1), &info ) == 0 ) {  
-                SIMPLE_API_RETNUMBER(1);
-            } else
-                SIMPLE_API_RETNUMBER(0);
+            #ifdef _WIN32
+                DWORD attrib = GetFileAttributes(SIMPLE_API_GETSTRING(1));
+                SIMPLE_API_RETNUMBER(attrib != INVALID_FILE_ATTRIBUTES && attrib != FILE_ATTRIBUTE_DIRECTORY) ;
+            #else
+                struct stat info;
+                if( stat( SIMPLE_API_GETSTRING(1), &info ) != 0 ) {
+                    SIMPLE_API_RETNUMBER(-1);
+                } else if( info.st_mode & S_IFDIR ) {  // S_ISDIR() doesn't exist on my windows 
+                    SIMPLE_API_RETNUMBER(1);
+                } else
+                    SIMPLE_API_RETNUMBER(0);
+            #endif
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
