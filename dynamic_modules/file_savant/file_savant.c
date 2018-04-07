@@ -223,18 +223,21 @@ void dir_exists ( void *pointer )
 		return ;
 	}
 	if ( SIMPLE_API_ISSTRING(1) ) {
-            #ifdef _WIN32
-                DWORD attrib = GetFileAttributes(SIMPLE_API_GETSTRING(1));
-                SIMPLE_API_RETNUMBER(attrib != INVALID_FILE_ATTRIBUTES && attrib != FILE_ATTRIBUTE_DIRECTORY) ;
-            #else
-                struct stat info;
-                if( stat( SIMPLE_API_GETSTRING(1), &info ) != 0 ) {
-                    SIMPLE_API_RETNUMBER(-1);
-                } else if( info.st_mode & S_IFDIR ) {  // S_ISDIR() doesn't exist on my windows 
-                    SIMPLE_API_RETNUMBER(1);
-                } else
-                    SIMPLE_API_RETNUMBER(0);
-            #endif
+            struct stat info;
+            int err = stat(SIMPLE_API_GETSTRING(1), &info);
+            if (err == -1 ) {
+                if (ENOENT == errno) {
+                    SIMPLE_API_RETNUMBER(-1); //does not exist
+                } else {
+                    SIMPLE_API_RETNUMBER(-2); //unknown error 
+                }
+            } else {
+                if (S_ISDIR(info.st_mode)) {
+                    SIMPLE_API_RETNUMBER(1); //it is a directory
+                } else {
+                    SIMPLE_API_RETNUMBER(0); //it not a directory
+                }
+            }
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
