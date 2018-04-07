@@ -76,6 +76,7 @@ class Directory
 	#if it is not a directory on other cases of other return number 
 	#-1 means it does not exist at all
 	#-2 means the error is unknown (uncommon) 	
+	#In this block trailing '/' or '\' are completely striped off (untreated)
 	block rawExists()
 		return __dir_exists(directoryPath)
 		
