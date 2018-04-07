@@ -53,6 +53,23 @@ class Directory
 		end
 		return folderList
 		
+	block isDirectory()
+		if (exists() == 1)
+			return true
+		end
+		return false
+		
+	block isFile()
+		if (exists() == 0)
+			return true
+		end
+		return false
+		
+	#This block confirms if the path is a directory it return 
+	#@DataType TRUE	(1) if it is a directory and return @DataType FALSE (0)
+	#if it is not a directory on other cases of other return number 
+	#-1 means it does not exist at all
+	#-2 means the error is unknown (uncommon) 
 	block exists()
 		return __dir_exists(directoryPath)
 		
