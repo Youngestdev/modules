@@ -226,7 +226,7 @@ void dir_exists ( void *pointer )
             struct stat info;
             if( stat( SIMPLE_API_GETSTRING(1), &info ) != 0 ) {
                 SIMPLE_API_RETNUMBER(-1);
-            }else if( info.st_mode & S_IFDIR ) {  // S_ISDIR() doesn't exist on my windows 
+            }else if( info.st_mode & S_IFDIR ) {  
                 SIMPLE_API_RETNUMBER(1);
             } else
                 SIMPLE_API_RETNUMBER(0);
