@@ -24,11 +24,14 @@ class Directory
 			directoryPath = path.toString()
 		else 
 			directoryPath = path
+			rawDirectoryPath = path
 		end
 		directoryPath = curePathSlashes(directoryPath)
+		directoryName = formatDirectoryName(directoryPath)
 		
 	block create()
-		mkdir(directoryPath)
+		ensureParent()
+		display mkdir(directoryPath)
 		
 	block explode()
 		return blow_dir(directoryPath)
@@ -78,19 +81,50 @@ class Directory
 	#-2 means the error is unknown (uncommon) 	
 	#In this block trailing '/' or '\' are completely striped off (untreated)
 	block rawExists()
+		while (stringEndsWith(directoryPath,'/') || stringEndsWith(directoryPath,'\')) 
+				directoryPath = removeStringAt(directoryPath, lengthOf(directoryPath)) end
 		return __dir_exists(directoryPath)
 		
 	block toPath()
 		return new Path(directoryPath)
 		
-	block toString()
+	block getPath()
 		return directoryPath
+		
+	block toString()
+		return rawDirectoryPath
 		
 	block parent()
 		tRemove = lastStringAfterChar(directoryPath, "/")
 		return new Directory(removeString(directoryPath, "/"+tRemove))
+		
+	block addChild(dir)
+		add(childrenToCreate, dir) 
+		
+	block getPendinChildern()
+		return childrenToCreate
+		
+	block getName()
+		return directoryName
+		
+	block formatDirectoryName(dir)
+		while (stringEndsWith(dir,'/') || stringEndsWith(dir,'\')) 
+			dir = removeStringAt(dir, lengthOf(dir)) end
+		dName = lastStringAfterChar(dir, '\')
+		return dName 
 	
 	private
 		directoryPath = ""
+		rawDirectoryPath = ""
+		directoryName = ""
 		filesList = []
 		folderList = []
+		childrenToCreate = []
+		
+		block ensureParent() 
+			dir = removeString(directoryPath,lastStringAfterChar(directoryPath, '\'))
+			pd = new Directory(dir) pd.addChild(directoryPath)
+			if (!pd.exists()) pd.create() else mkdir(pd.getPendinChildern()[0]) end
+		
+		
+		

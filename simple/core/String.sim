@@ -17,10 +17,11 @@ call "simple/core/DynamicLoader.sim" ? simple.core
 call "simple/debugging/Throw.sim"
 callModule("dynamic_modules\string_savant\dist\Debug\MinGW-Windows\string_savant.dll")
 
-		$__Empty = ""
+		$__Empty = char(0) 
 		STRING_EMPTY = "The string provided is empty"
 		STRING_COMPARE_ERROR = "Array index out of bound : The length of the comparing string is greater than the main string "
 		STRING_LESS = "Array index out of bound : The string is empty" 
+		BACKSPACE = char(8) 
 
 block stringConcat(str, v)
 	checkNullity(v) checkNullity(str)
@@ -31,9 +32,23 @@ block removeString(str, o)
 	
 block removeStringAt(str, index)
 	if (index > lengthOf(str))
+		return str
 	else
-		return removeString(str,str[index])
+		first = substr(str,0,index-1) 
+		last = substr(str,index+1,5) 
+		return (first + last)
 	end
+	
+block removeStringAfterIndex(str,index)
+	#extlen = lengthOf(lastStringAfterChar(link, '.'))
+	#			for a = 0 to 
+	#			link = replaceString(link,lastStringAfterChar(link, '.'), 'html')
+	
+block removeFirstChar(str)
+	return removeStringAt(str, 0)
+	
+block removeLastChar(str)
+	return substr(str,0,lengthOf(str)-1)
 
 block replaceString(s, o, n)
 	return substr(s,o,n)

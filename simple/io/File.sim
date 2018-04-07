@@ -49,8 +49,9 @@ class File
 			writefile(filePath, content)
 		catch
 			display crlf+"Error -> " + __err__ + crlf
+			display "	File : "+filePath+crlf
 			display "	Error occur while writing to file"+crlf
-			display "	Probably the directory does not exists"
+			display "	Probably the directory does not exists"+crlf
 		end
 		
 	block append(content)

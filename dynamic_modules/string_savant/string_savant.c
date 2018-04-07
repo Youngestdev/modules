@@ -163,7 +163,7 @@ void simple_vmlib_copy ( void *pointer )
 		if ( SIMPLE_API_ISNUMBER(2) ) {
 			cStr = SIMPLE_API_GETSTRING(1) ;
 			pString = simple_string_new_gc(((VM *) pointer)->sState,"");
-			nSize = SIMPLE_API_GETNUMBER(2) ;
+			nSize = SIMPLE_API_GETNUMBER(2) + 1;
 			for ( x = 1 ; x <= nSize ; x++ ) {
 				simple_string_add2_gc(((VM *) pointer)->sState,pString,cStr,SIMPLE_API_GETSTRINGSIZE(1));
 			}
@@ -228,8 +228,8 @@ void simple_vmlib_substr ( void *pointer )
 	}
 	else if ( SIMPLE_API_PARACOUNT == 3 ) {
 		if ( SIMPLE_API_ISNUMBER(2) && SIMPLE_API_ISNUMBER(3) ) {
-			nNum1 = SIMPLE_API_GETNUMBER(2) ;
-			nNum2 = SIMPLE_API_GETNUMBER(3) ;
+			nNum1 = SIMPLE_API_GETNUMBER(2) + 1 ;
+			nNum2 = SIMPLE_API_GETNUMBER(3) + 1;
 			if ( (nNum1 > 0) && ( (nNum1+nNum2-1) <= nSize ) ) {
 				cString = (char *) simple_state_malloc(((VM *) pointer)->sState,nNum2);
 				if ( cString == NULL ) {
@@ -252,7 +252,7 @@ void simple_vmlib_substr ( void *pointer )
 	}
 	else if ( SIMPLE_API_PARACOUNT == 4 ) {
 		if ( SIMPLE_API_ISSTRING(2) && SIMPLE_API_ISSTRING(3) && SIMPLE_API_ISNUMBER(4) ) {
-			if ( SIMPLE_API_GETNUMBER(4)  == 1.0 ) {
+			if ( (SIMPLE_API_GETNUMBER(4) )== 1.0 ) {
 				nTransform = 2 ;
 			}
 		} else {
