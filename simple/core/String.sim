@@ -28,6 +28,12 @@ block stringConcat(str, v)
 
 block removeString(str, o)
 	return substr(str,o,"")
+	
+block removeStringAt(str, index)
+	if (index > lengthOf(str))
+	else
+		return substr(str,index,"")
+	end
 
 block replaceString(s, o, n)
 	return substr(s,o,n)
