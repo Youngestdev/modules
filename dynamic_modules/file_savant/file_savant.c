@@ -225,12 +225,11 @@ void dir_exists ( void *pointer )
 	if ( SIMPLE_API_ISSTRING(1) ) {
             struct stat info;
             if( stat( SIMPLE_API_GETSTRING(1), &info ) != 0 ) {
-                printf( "cannot access %s\n", SIMPLE_API_GETSTRING(1) );
+                SIMPLE_API_RETNUMBER(-1);
             }else if( info.st_mode & S_IFDIR ) {  // S_ISDIR() doesn't exist on my windows 
-                printf( "%s is a directory\n", SIMPLE_API_GETSTRING(1) );
-                SIMPLE_API_RETNUMBER(0);
+                SIMPLE_API_RETNUMBER(1);
             } else
-                printf( "%s is no directory\n", SIMPLE_API_GETSTRING(1) );
+                SIMPLE_API_RETNUMBER(0);
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
