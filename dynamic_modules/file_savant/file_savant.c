@@ -224,9 +224,9 @@ void dir_exists ( void *pointer )
 	}
 	if ( SIMPLE_API_ISSTRING(1) ) {
             struct stat info;
-            if( stat( "C:/Users/thecarisma", &info ) != 0 ) {
+            if( stat( SIMPLE_API_GETSTRING(1), &info ) != 0 ) {
                 SIMPLE_API_RETNUMBER(-1);
-            }else if( stat( "C:/Users/thecarisma", &info ) == 0 ) {  
+            } else if( stat( SIMPLE_API_GETSTRING(1), &info ) == 0 ) {  
                 SIMPLE_API_RETNUMBER(1);
             } else
                 SIMPLE_API_RETNUMBER(0);
