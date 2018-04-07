@@ -48,12 +48,12 @@ block stringEndsWith(m, s)
 	checkNullity(m) checkNullity(s)
 	if lengthOf(s) > lengthOf(m)
 		return false #throw(STRING_COMPARE_ERROR)
-	end
+	end 
 	beginSearch = lengthOf(m) - lengthOf(s)
-	beginCount = 0
+	beginCount = 0 display "size '"+beginSearch+' of '+m+crlf
 	for a = beginSearch to lengthOf(m)
 		try 
-			if stringEquals(m[a], s[beginCount], true) == false
+			if m[a] == s[beginCount]
 				return false
 			end
 		catch 
