@@ -50,10 +50,10 @@ block stringEndsWith(m, s)
 		return false #throw(STRING_COMPARE_ERROR)
 	end 
 	beginSearch = lengthOf(m) - lengthOf(s)
-	beginCount = 0 display "size '"+beginSearch+' of '+m+crlf
+	beginCount = 0 
 	for a = beginSearch to lengthOf(m)
 		try 
-			if m[a] == s[beginCount]
+			if m[a] != s[beginCount]
 				return false
 			end
 		catch 
