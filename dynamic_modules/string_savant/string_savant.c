@@ -12,7 +12,7 @@
  * Created on Febuary 7, 2018, 5:23 PM
  */
 
-#include "../../../simple/bootsrc/includes/simple.h"
+#include "../../../simple/src/includes/simple.h"
 #include "string_savant.h"
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
