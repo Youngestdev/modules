@@ -20,41 +20,41 @@ class File
 
 	block File(path)
 		if isPath(path)
-			filePath = path.toString()
+			__FILE_PATH = path.toString()
 		else 
-			filePath = path
+			__FILE_PATH = path
 		end
-		filePath = curePathSlashes(filePath)
+		__FILE_PATH = curePathSlashes(__FILE_PATH)
 		
 	block absolutePath()
-		return filePath
+		return __FILE_PATH
 		
 	block name()
-		return lastStringAfterChar(filePath, "/")
+		return lastStringAfterChar(__FILE_PATH, "/")
 		
 	block directory()
-		return removeString(filePath, "/"+name())
+		return removeString(__FILE_PATH, "/"+name())
 		
 	block toPath()
-		return new Path(filePath)
+		return new Path(__FILE_PATH)
 		
 	block readFileAsString()
 		#ensureExistence()
-		return readfile(filePath)
+		return readfile(__FILE_PATH)
 		
 	block write(content)
 		try 
-			writefile(filePath, content)
+			writefile(__FILE_PATH, content)
 		catch
 			display crlf+"Error -> " + __err__ + crlf
-			display "	File : "+filePath+crlf
+			display "	File : "+__FILE_PATH+crlf
 			display "	Error occur while writing to file"+crlf
 			display "	Probably the directory does not exists"+crlf
 		end
 		
 	block append(content)
 		try 
-			writefile(filePath, readFileAsString()+""+content)
+			writefile(__FILE_PATH, readFileAsString()+""+content)
 		catch
 			display __err__
 		end
@@ -66,31 +66,31 @@ class File
 		else 
 			content = "false"
 		end
-		writefile(filePath, readFileAsString()+""+content)
+		writefile(__FILE_PATH, readFileAsString()+""+content)
 		
 	#currently failing	
 	block exists() 
-		return __exists(filePath)
+		return __exists(__FILE_PATH)
 		
 	block toString()
 		return absolutePath()
 		
 	block delete()
 		ensureExistence()
-		__delete(filePath)
+		__delete(__FILE_PATH)
 		if exists()
 			return false
 		end
 		return true
 		
 	block renameTo(nname)
-		__rename(filePath, directory()+"/"+nname)
+		__rename(__FILE_PATH, directory()+"/"+nname)
 		
 	block absoluteRenameTo(nname)
-		__rename(filePath, nname)
+		__rename(__FILE_PATH, nname)
 	
 	private
-		filePath = "(null)"
+		__FILE_PATH = "(null)"
 		
 		block ensureExistence()
 			if !exists() 
