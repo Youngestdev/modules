@@ -21,12 +21,7 @@ class File
 	filePath = ""
 
 	block File(path)
-		if isPath(path)
-			filePath = path.toString()
-		else 
-			filePath = path
-		end
-		filePath = curePathSlashes(filePath)
+		display path + " <<" __exit__
 		
 	block absolutePath()
 		return filePath
