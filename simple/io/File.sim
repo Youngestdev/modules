@@ -72,10 +72,7 @@ class File
 		
 	
 	block exists() 
-		if (_rawExists() == 0)
-			return true
-		end
-		return false
+		return _rawExists()
 		
 	block _rawExists()
 		return __dir_exists(filePath)
