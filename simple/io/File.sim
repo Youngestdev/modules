@@ -27,9 +27,6 @@ class File
 			filePath = path
 		end
 		filePath = curePathSlashes(filePath)
-	
-	block setPath(path)
-		filePath = path
 		
 	block absolutePath()
 		return filePath
@@ -75,7 +72,7 @@ class File
 		
 	#currently failing	
 	block exists() 
-		return 1
+		return __exists(filePath)
 		
 	block toString()
 		return absolutePath()
@@ -95,6 +92,7 @@ class File
 		__rename(filePath, nname)
 	
 	private
+		filePath = "(null)"
 		
 		block ensureExistence()
 			if !exists() 

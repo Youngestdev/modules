@@ -95,15 +95,13 @@ void file_exists ( void *pointer )
 	}
 	if ( SIMPLE_API_ISSTRING(1) ) {
             FILE *fp  ;
-            fp = fopen(SIMPLE_API_GETSTRING(1) , "r" );
+            fp = fopen("C:\\Users\\thecarisma\\Documents\\SIMPLE GITHUB\\backup\\smake\\helloworld.sim" , "r" );
             if ( fp ) {
                 fclose( fp ) ;
                 SIMPLE_API_RETNUMBER(1);
-            } else {
-                fclose( fp ) ;
-                SIMPLE_API_RETNUMBER(0);
             }
-            //SIMPLE_API_RETNUMBER(simple_fexists(SIMPLE_API_GETSTRING(1)));
+            fclose( fp ) ;
+            SIMPLE_API_RETNUMBER(0);
 	} else {
 		SIMPLE_API_ERROR(SIMPLE_API_BADPARATYPE);
 	}
