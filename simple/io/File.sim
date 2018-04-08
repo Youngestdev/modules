@@ -70,15 +70,8 @@ class File
 		end
 		writefile(filePath, readFileAsString()+""+content)
 		
-	
+	#currently failing	
 	block exists() 
-		return _rawExists()
-		
-	block _rawExists()
-		return __dir_exists(filePath)
-		
-	#currently failing		
-	block $exists()
 		return __exists(filePath)
 		
 	block toString()
