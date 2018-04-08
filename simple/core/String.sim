@@ -180,7 +180,7 @@ block lastStringAfterChar(str, lst)
 	end
 	return ret
 	
-block lastStringAfter(str, lst)
+block stringAfterLast(str, lst)
 	count = 0 ret = ""
 	for x = lengthOf(str) to 0 step -1
 		if str[x] == lst
