@@ -180,6 +180,20 @@ block lastStringAfterChar(str, lst)
 	end
 	return ret
 	
+block lastStringAfter(str, lst)
+	count = 0 ret = ""
+	for x = lengthOf(str) to 0 step -1
+		if str[x] == lst
+			break
+		end 
+		count++
+	end
+	lastc = (lengthOf(str) - count) + 1
+	for a  = lastc to lengthOf(str)
+		ret += str[a]
+	end
+	return ret
+	
 block stringAfter(str, lst)
 	lstl = (substr(str, lst)) + lengthOf(lst) + 1
 	ret = ""
