@@ -21,7 +21,15 @@ class File
 	filePath = ""
 
 	block File(path)
-		display path + " <<" __exit__
+		if isPath(path)
+			filePath = path.toString()
+		else 
+			filePath = path
+		end
+		filePath = curePathSlashes(filePath)
+	
+	block setPath(path)
+		filePath = path
 		
 	block absolutePath()
 		return filePath
@@ -87,7 +95,6 @@ class File
 		__rename(filePath, nname)
 	
 	private
-		filePath = "(null)"
 		
 		block ensureExistence()
 			if !exists() 
