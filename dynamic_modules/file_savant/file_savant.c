@@ -100,6 +100,7 @@ void file_exists ( void *pointer )
                 fclose( fp ) ;
                 SIMPLE_API_RETNUMBER(1);
             } else {
+                fclose( fp ) ;
                 SIMPLE_API_RETNUMBER(0);
             }
             //SIMPLE_API_RETNUMBER(simple_fexists(SIMPLE_API_GETSTRING(1)));

@@ -75,7 +75,7 @@ class File
 		
 	#currently failing	
 	block exists() 
-		return __exists(filePath)
+		return 1
 		
 	block toString()
 		return absolutePath()
