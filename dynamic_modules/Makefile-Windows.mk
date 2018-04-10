@@ -23,6 +23,7 @@
 #	file_savant
 #	mathic
 #	string_savant
+#	networker
 
 clean: 
 	cd archiver/ && $(MAKE) -f Makefile-Windows.mk
@@ -30,6 +31,7 @@ clean:
 	cd file_savant/ && $(MAKE) -f Makefile-Windows.mk
 	cd mathic/ && $(MAKE) -f Makefile-Windows.mk
 	cd string_savant/ && $(MAKE) -f Makefile-Windows.mk
+	cd networker/ && $(MAKE) -f Makefile-Windows.mk
 
 
 #This Makefile-Windows.mk was written in adaptation to the MINGW

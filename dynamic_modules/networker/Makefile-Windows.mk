@@ -41,11 +41,10 @@ OBJECTDIR=${CND_DISTDIR}/${CND_BUILDDIR}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/networker.o \
-	${OBJECTDIR}/zip.o
+	${OBJECTDIR}/networker.o 
 	
 # Link Libraries and Options
-LDLIBSOPTIONS=../../../simple/src/dist/simple.dll
+LDLIBSOPTIONS=lib/libcurl.dll ../../../simple/src/dist/simple.dll
 
 #${CND_DISTDIR}/${CND_PLATFORM}/networker.${CND_DLIB_EXT}: ../../../simple/src/dist/Debug/MinGW-Windows/simple.dll
 
@@ -57,11 +56,6 @@ ${OBJECTDIR}/networker.o: networker.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} ${OBJECTDIR}/*d
 	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/networker.o networker.c
-	
-${OBJECTDIR}/zip.o: zip.c
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/zip.o zip.c
 
 
 #include mathic/nbproject/Makefile-impl.mk
