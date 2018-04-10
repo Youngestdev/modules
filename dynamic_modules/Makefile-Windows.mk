@@ -35,7 +35,7 @@ CP = cp
 # Macros
 CND_PLATFORM=Windows
 CND_DLIB_EXT=dll
-CND_DISTDIR=../dist
+CND_DISTDIR=../../dist
 CLEAN_DEBUGDIR=../../s0.3.302-debug
 DYNAMIC_MODULEDIR=modules/dynamic_modules
 
