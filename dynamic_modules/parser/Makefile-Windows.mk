@@ -1,5 +1,5 @@
 #Build simple `Dynamic Modules` for WINDOWS 
-# ARCHIVER
+# PARSER
 #
 #Tools Needed
 #	MINGWN 
@@ -8,13 +8,13 @@
 #a custome make file. The below command is for a typical 
 #make in the MINGW Toolchain
 #
-#cd to the modules/dynamic_modules/archiver/  folder. 
+#cd to the modules/dynamic_modules/parser/  folder. 
 #
 #This is to ensure That the output generated are in 
 #appropriate `dist` folder in modules folder. 
 #Execute the below command in your command prompt of bash
 #
-#modules/dynamic_modules/archiver/ $ make -f Makefile-Windows.mk
+#modules/dynamic_modules/parser/ $ make -f Makefile-Windows.mk
 
 # Environment
 MKDIR=mkdir
@@ -53,16 +53,16 @@ OBJECTFILES= \
 # Link Libraries and Options
 LDLIBSOPTIONS=../../../simple/src/dist/simple.dll
 
-#${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: ../../../simple/src/dist/Debug/MinGW-Windows/simple.dll
+#${CND_DISTDIR}/${CND_PLATFORM}/parser.${CND_DLIB_EXT}: ../../../simple/src/dist/Debug/MinGW-Windows/simple.dll
 
-${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_PLATFORM}/parser.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared
+	${LINK.c} -o ${CND_DISTDIR}/${CND_PLATFORM}/parser.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared
 
-${OBJECTDIR}/archiver.o: archiver.c
+${OBJECTDIR}/parser.o: parser.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} ${OBJECTDIR}/*d
-	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/archiver.o archiver.c
+	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parser.o parser.c
 	
 ${OBJECTDIR}/includes/arraylist.o: includes/arraylist.c
 	${MKDIR} -p ${OBJECTDIR}/includes
