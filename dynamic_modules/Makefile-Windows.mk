@@ -4,8 +4,8 @@
 #	MINGWN 
 #
 #Or any ANSI C development tool that support building with
-#a custome make file. The below command is for a typical 
-#make in the MINGW Toolchain
+#a custom make file. The below command is for a typical 
+#~~$ make in the MINGW Toolchain
 #
 #cd to the modules/dynamic_modules/  folder. 
 #
@@ -24,7 +24,7 @@
 #	mathic
 #	string_savant
 
-include mathic/nbproject/Makefile-impl.mk
+include string_savant/Makefile-Windows.mk
 
 
 #This Makefile-Windows.mk was written in adaptation to the MINGW
