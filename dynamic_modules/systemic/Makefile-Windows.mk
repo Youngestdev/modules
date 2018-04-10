@@ -46,8 +46,6 @@ OBJECTFILES= \
 # Link Libraries and Options
 LDLIBSOPTIONS=../../../simple/src/dist/simple.dll
 
-#${CND_DISTDIR}/${CND_PLATFORM}/systemic.${CND_DLIB_EXT}: ../../../simple/src/dist/Debug/MinGW-Windows/simple.dll
-
 ${CND_DISTDIR}/${CND_PLATFORM}/systemic.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_PLATFORM}/systemic.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared
