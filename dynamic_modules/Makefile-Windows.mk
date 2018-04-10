@@ -28,8 +28,9 @@
 #include consoler/Makefile-Windows.mk
 #include file_savant/Makefile-Windows.mk
 #include mathic/Makefile-Windows.mk
-clean: .clean-post
-	$(MAKE) -c string_savant/Makefile-Windows.mk
+#string_savant/Makefile-Windows.mk
+clean: 
+	cd archiver/ && $(MAKE) -C Makefile-Windows.mk
 
 
 #This Makefile-Windows.mk was written in adaptation to the MINGW
