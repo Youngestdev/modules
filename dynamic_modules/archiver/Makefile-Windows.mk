@@ -18,7 +18,6 @@
 
 # Environment
 MKDIR=mkdir
-CP = cp
 GREP=grep
 CCADMIN=CCadmin
 RANLIB=ranlib
@@ -36,8 +35,6 @@ CND_PLATFORM=Windows
 CND_DLIB_EXT=dll
 CND_BUILDDIR=build
 CND_DISTDIR=../../dist
-CLEAN_DEBUGDIR=../../../s0.3.302-debug
-DYNAMIC_MODULEDIR=modules/dynamic_modules
 
 # Object Directory
 OBJECTDIR=${CND_DISTDIR}/${CND_BUILDDIR}/${CND_PLATFORM}
@@ -56,7 +53,6 @@ ${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_PLATFORM}
 	${MKDIR} -p ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared
-	${CP} ${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT} ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
 
 ${OBJECTDIR}/archiver.o: archiver.c
 	${MKDIR} -p ${OBJECTDIR}

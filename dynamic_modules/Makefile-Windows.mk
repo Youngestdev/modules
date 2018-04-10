@@ -28,6 +28,13 @@
 #	security
 #	systemic
 
+# Environment
+CP = cp
+
+# Macros
+CLEAN_DEBUGDIR=../../../s0.3.302-debug
+DYNAMIC_MODULEDIR=modules/dynamic_modules
+
 clean: 
 	cd archiver/ && $(MAKE) -f Makefile-Windows.mk
 	cd consoler/ && $(MAKE) -f Makefile-Windows.mk
