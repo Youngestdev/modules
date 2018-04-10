@@ -44,7 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/security.o
 	
 # Link Libraries and Options
-LDLIBSOPTIONS=../../../simple/src/dist/simple.dll
+LDLIBSOPTIONS=./bin/ssleay32.dll ./bin/libeay32.dll ../../../simple/src/dist/simple.dll
 
 #${CND_DISTDIR}/${CND_PLATFORM}/security.${CND_DLIB_EXT}: ../../../simple/src/dist/Debug/MinGW-Windows/simple.dll
 
