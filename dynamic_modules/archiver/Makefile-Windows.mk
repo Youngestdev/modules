@@ -51,7 +51,6 @@ LDLIBSOPTIONS=../../../simple/src/dist/simple.dll
 
 ${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_PLATFORM}
-	${MKDIR} -p ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared
 
 ${OBJECTDIR}/archiver.o: archiver.c
