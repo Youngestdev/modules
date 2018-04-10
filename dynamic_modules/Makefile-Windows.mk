@@ -14,55 +14,17 @@
 #Execute the below command in your command prompt of bash
 #
 #modules/dynamic_modules $ make -f Makefile-Windows.mk
+#
+#This make file generate dynamic library for the following 
+#dynamic libraries
+#
+#	archiver
+#	consoler
+#	file_savant
+#	mathic
+#	string_savant
 
-# Dynamic Modules Directory
-STRING_SAVANT=./file_savant
-
-# Environment
-MKDIR=mkdir
-GREP=grep
-CCADMIN=CCadmin
-RANLIB=ranlib
-CC=gcc
-CCC=g++
-CXX=g++
-
-# Flags
-CFLAGS=
-CCFLAGS=
-CXXFLAGS=
-
-# Macros
-CND_PLATFORM=Windows
-CND_DLIB_EXT=dll
-CND_BUILDDIR=build
-CND_DISTDIR=../dist
-
-# Object Directory
-OBJECTDIR=${CND_DISTDIR}/${CND_BUILDDIR}/${CND_PLATFORM}
-
-# Object Files
-OBJECTFILES= \
-	${OBJECTDIR}/file_savant.o
-	
-# Link Libraries and Options
-LDLIBSOPTIONS=../../simple/src/dist/simple.dll
-
-#${CND_DISTDIR}/${CND_PLATFORM}/file_savant.${CND_DLIB_EXT}: ../../../simple/src/dist/Debug/MinGW-Windows/simple.dll
-
-${CND_DISTDIR}/${CND_PLATFORM}/file_savant.${CND_DLIB_EXT}: ${OBJECTFILES}
-	${MKDIR} -p ${CND_DISTDIR}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_PLATFORM}/file_savant.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared
-
-${OBJECTDIR}/file_savant.o: ${STRING_SAVANT}/file_savant.c
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} ${OBJECTDIR}/*d
-	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/file_savant.o ${STRING_SAVANT}/file_savant.c
-
-
-
-
-#include mathic/nbproject/Makefile-impl.mk
+include mathic/nbproject/Makefile-impl.mk
 
 
 #This Makefile-Windows.mk was written in adaptation to the MINGW
