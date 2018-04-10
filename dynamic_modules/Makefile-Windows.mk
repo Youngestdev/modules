@@ -26,6 +26,7 @@
 #	networker
 #	parser
 #	security
+#	systemic
 
 clean: 
 	cd archiver/ && $(MAKE) -f Makefile-Windows.mk
@@ -36,6 +37,7 @@ clean:
 	cd networker/ && $(MAKE) -f Makefile-Windows.mk
 	cd parser/ && $(MAKE) -f Makefile-Windows.mk
 	cd security/ && $(MAKE) -f Makefile-Windows.mk
+	cd systemic/ && $(MAKE) -f Makefile-Windows.mk
 
 
 #This Makefile-Windows.mk was written in adaptation to the MINGW
