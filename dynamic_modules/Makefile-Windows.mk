@@ -49,8 +49,8 @@ clean:
 	cd parser/ && $(MAKE) -f Makefile-Windows.mk
 	cd security/ && $(MAKE) -f Makefile-Windows.mk
 	cd systemic/ && $(MAKE) -f Makefile-Windows.mk
-	${MKDIR} -p ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
-	${CP} ${CND_DISTDIR}/${CND_PLATFORM}/*.${CND_DLIB_EXT} ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
+	#${MKDIR} -p ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
+	#${CP} ${CND_DISTDIR}/${CND_PLATFORM}/*.${CND_DLIB_EXT} ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
 
 
 #This Makefile-Windows.mk was written in adaptation to the MINGW
