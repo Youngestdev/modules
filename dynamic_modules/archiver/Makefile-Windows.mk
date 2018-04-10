@@ -58,7 +58,7 @@ ${OBJECTDIR}/archiver.o: archiver.c
 	${RM} ${OBJECTDIR}/*d
 	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/archiver.o archiver.c
 	
-${OBJECTDIR}/zip.o: zip.c
+.clean-post ${OBJECTDIR}/zip.o: zip.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/zip.o zip.c

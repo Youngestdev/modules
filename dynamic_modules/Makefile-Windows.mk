@@ -24,9 +24,12 @@
 #	mathic
 #	string_savant
 
-# clean
+#include archiver/Makefile-Windows.mk
+#include consoler/Makefile-Windows.mk
+#include file_savant/Makefile-Windows.mk
+#include mathic/Makefile-Windows.mk
 clean: .clean-post
-	cd string_savant/ && Makefile-Windows.mk clean
+	$(MAKE) -c string_savant/Makefile-Windows.mk
 
 
 #This Makefile-Windows.mk was written in adaptation to the MINGW
