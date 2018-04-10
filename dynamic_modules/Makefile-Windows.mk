@@ -31,11 +31,13 @@
 # Environment
 MKDIR=mkdir
 CP = cp
+RMDIR=rmdir
+RM=rm
 
 # Macros
 CND_PLATFORM=Windows
 CND_DLIB_EXT=dll
-CND_DISTDIR=../../dist
+CND_DISTDIR=./dist
 CLEAN_DEBUGDIR=../../s0.3.302-debug
 DYNAMIC_MODULEDIR=modules/dynamic_modules
 
@@ -49,6 +51,13 @@ clean:
 	cd parser/ && $(MAKE) -f Makefile-Windows.mk
 	cd security/ && $(MAKE) -f Makefile-Windows.mk
 	cd systemic/ && $(MAKE) -f Makefile-Windows.mk
+	
+	${RM} ${CND_DISTDIR}/build/*.o
+	${RM} ${CND_DISTDIR}/build/*.d
+	${RM} ${CND_DISTDIR}/build/includes/*.o
+	${RM} ${CND_DISTDIR}/build/includes/*.d
+	${RMDIR} ${OBJECTDIR}/build/includes
+	${RMDIR} ${OBJECTDIR}/build
 	#${MKDIR} -p ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
 	#${CP} ${CND_DISTDIR}/${CND_PLATFORM}/*.${CND_DLIB_EXT} ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
 
