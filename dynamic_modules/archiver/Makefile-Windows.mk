@@ -18,6 +18,7 @@
 
 # Environment
 MKDIR=mkdir
+CP = cp
 GREP=grep
 CCADMIN=CCadmin
 RANLIB=ranlib
