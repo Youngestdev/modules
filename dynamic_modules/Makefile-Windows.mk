@@ -29,6 +29,7 @@
 #	systemic
 
 # Environment
+MKDIR=mkdir
 CP = cp
 
 # Macros
@@ -39,9 +40,17 @@ CLEAN_DEBUGDIR=../../s0.3.302-debug
 DYNAMIC_MODULEDIR=modules/dynamic_modules
 
 clean: 
+	cd archiver/ && $(MAKE) -f Makefile-Windows.mk
+	cd consoler/ && $(MAKE) -f Makefile-Windows.mk
+	cd file_savant/ && $(MAKE) -f Makefile-Windows.mk
+	cd mathic/ && $(MAKE) -f Makefile-Windows.mk
+	cd string_savant/ && $(MAKE) -f Makefile-Windows.mk
+	cd networker/ && $(MAKE) -f Makefile-Windows.mk
+	cd parser/ && $(MAKE) -f Makefile-Windows.mk
+	cd security/ && $(MAKE) -f Makefile-Windows.mk
+	cd systemic/ && $(MAKE) -f Makefile-Windows.mk
 	${MKDIR} -p ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
 	${CP} ${CND_DISTDIR}/${CND_PLATFORM}/*.${CND_DLIB_EXT} ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
-	
 
 
 #This Makefile-Windows.mk was written in adaptation to the MINGW
