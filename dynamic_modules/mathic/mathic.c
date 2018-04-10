@@ -12,7 +12,7 @@
  * Created on Febuary 7, 2018, 3:23 AM
  */
 
-#include "../../../simple/bootsrc/includes/simple.h"
+#include "../../../simple/src/includes/simple.h"
 #include "mathic.h"
 
 SIMPLE_API __declspec(dllexport)

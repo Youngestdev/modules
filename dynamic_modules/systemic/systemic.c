@@ -18,7 +18,7 @@ typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
 LPFN_ISWOW64PROCESS isWindows64  ;
 #endif
 
-#include "../../../simple/bootsrc/includes/simple.h"
+#include "../../../simple/src/includes/simple.h"
 #include "systemic.h"
 
 SIMPLE_API __declspec(dllexport)
