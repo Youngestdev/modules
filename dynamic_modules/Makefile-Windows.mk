@@ -56,8 +56,8 @@ clean:
 	${RM} ${CND_DISTDIR}/build/*.d
 	${RM} ${CND_DISTDIR}/build/includes/*.o
 	${RM} ${CND_DISTDIR}/build/includes/*.d
-	${RMDIR} ${OBJECTDIR}/build/includes
-	${RMDIR} ${OBJECTDIR}/build
+	${RMDIR} ${CND_DISTDIR}/build/includes
+	${RMDIR} ${CND_DISTDIR}/build
 	#${MKDIR} -p ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
 	#${CP} ${CND_DISTDIR}/${CND_PLATFORM}/*.${CND_DLIB_EXT} ${CLEAN_DEBUGDIR}/${DYNAMIC_MODULEDIR}
 
