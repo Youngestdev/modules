@@ -58,11 +58,6 @@ ${OBJECTDIR}/systemic.o: systemic.c
 	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/systemic.o systemic.c
 
 
-
-
-#include systemic/nbproject/Makefile-impl.mk
-
-
 #This Makefile-Windows.mk was written in adaptation to the MINGW
 #description using the Netbeans IDE Makefiles as Guide.
 #

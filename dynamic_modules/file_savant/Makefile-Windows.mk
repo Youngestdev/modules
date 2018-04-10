@@ -58,11 +58,6 @@ ${OBJECTDIR}/file_savant.o: file_savant.c
 	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/file_savant.o file_savant.c
 
 
-
-
-#include mathic/nbproject/Makefile-impl.mk
-
-
 #This Makefile-Windows.mk was written in adaptation to the MINGW
 #description using the Netbeans IDE Makefiles as Guide.
 #

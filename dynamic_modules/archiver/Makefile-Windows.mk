@@ -64,9 +64,6 @@ ${OBJECTDIR}/zip.o: zip.c
 	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/zip.o zip.c
 
 
-#include mathic/nbproject/Makefile-impl.mk
-
-
 #This Makefile-Windows.mk was written in adaptation to the MINGW
 #description using the Netbeans IDE Makefiles as Guide.
 #

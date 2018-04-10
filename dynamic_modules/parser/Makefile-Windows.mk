@@ -100,9 +100,6 @@ ${OBJECTDIR}/includes/printbuf.o: includes/printbuf.c
 	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/includes/printbuf.o includes/printbuf.c
 
 
-#include mathic/nbproject/Makefile-impl.mk
-
-
 #This Makefile-Windows.mk was written in adaptation to the MINGW
 #description using the Netbeans IDE Makefiles as Guide.
 #

@@ -1,5 +1,5 @@
 #Build simple `Dynamic Modules` for WINDOWS 
-# MATHIC
+# SECURITY
 #
 #Tools Needed
 #	MINGWN 
@@ -8,13 +8,13 @@
 #a custome make file. The below command is for a typical 
 #make in the MINGW Toolchain
 #
-#cd to the modules/dynamic_modules/mathic/  folder. 
+#cd to the modules/dynamic_modules/security/  folder. 
 #
 #This is to ensure That the output generated are in 
 #appropriate `dist` folder in modules folder. 
 #Execute the below command in your command prompt of bash
 #
-#modules/dynamic_modules/mathic/ $ make -f Makefile-Windows.mk
+#modules/dynamic_modules/security/ $ make -f Makefile-Windows.mk
 
 # Environment
 MKDIR=mkdir
@@ -41,21 +41,21 @@ OBJECTDIR=${CND_DISTDIR}/${CND_BUILDDIR}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/mathic.o
+	${OBJECTDIR}/security.o
 	
 # Link Libraries and Options
 LDLIBSOPTIONS=../../../simple/src/dist/simple.dll
 
-#${CND_DISTDIR}/${CND_PLATFORM}/mathic.${CND_DLIB_EXT}: ../../../simple/src/dist/Debug/MinGW-Windows/simple.dll
+#${CND_DISTDIR}/${CND_PLATFORM}/security.${CND_DLIB_EXT}: ../../../simple/src/dist/Debug/MinGW-Windows/simple.dll
 
-${CND_DISTDIR}/${CND_PLATFORM}/mathic.${CND_DLIB_EXT}: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_PLATFORM}/security.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_PLATFORM}/mathic.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared
+	${LINK.c} -o ${CND_DISTDIR}/${CND_PLATFORM}/security.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared
 
-${OBJECTDIR}/mathic.o: mathic.c
+${OBJECTDIR}/security.o: security.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} ${OBJECTDIR}/*d
-	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mathic.o mathic.c
+	$(COMPILE.c) -g  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/security.o security.c
 
 
 #This Makefile-Windows.mk was written in adaptation to the MINGW
