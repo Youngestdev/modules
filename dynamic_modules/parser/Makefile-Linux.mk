@@ -67,6 +67,16 @@ $(OBJECTDIR)/json_util.o: includes/json_util.c
 	mkdir -p $(OBJECTDIR)
 	$(CC) $(CFLAGS) includes/json_util.c
 	mv json_util.o $(OBJECTDIR)
+	
+$(OBJECTDIR)/linkhash.o: includes/linkhash.c
+	mkdir -p $(OBJECTDIR)
+	$(CC) $(CFLAGS) includes/linkhash.c
+	mv linkhash.o $(OBJECTDIR)
+	
+$(OBJECTDIR)/printbuf.o: includes/printbuf.c
+	mkdir -p $(OBJECTDIR)
+	$(CC) $(CFLAGS) includes/printbuf.c
+	mv printbuf.o $(OBJECTDIR)
 
 $(OBJECTDIR)/parser.o: parser.c
 	$(CC) $(CFLAGS) parser.c
