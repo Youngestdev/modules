@@ -2,15 +2,15 @@
 #
 #There is no tool or dependency needed on a typical linux
 #installation. To build the simple.so and simple change your
-#directory to the simple/src/makefiles/ folder 
+#directory to the modules/dynamic_modules/archiver/ folder 
 #
-#user $ cd simple/src/makefiles/  
+#user $ cd modules/dynamic_modules/archiver/
 #
 #This is to ensure That the output generated are in 
 #appropriate `dist` folder in modules folder. 
 #Execute the below command in your command prompt of bash
 #
-#simple/src/makefiles/ $ make -f Makefile-Linux.mk
+#simple/src/makefiles/archiver/ $ make -f Makefile-Linux.mk
 
 # Flags
 CFLAGS= -c -fpic -g
@@ -22,47 +22,22 @@ CND_PLATFORM=
 CND_DLIB_EXT=so
 CND_BUILDDIR=build
 CND_DISTDIR =../dist
-CLEAN_DEBUGDIR=../../../s0.3.302-debug
-BINARYDIR=bin
-SOURCE_DIR=../sources
 
 # Object Directory
 OBJECTDIR=$(CND_DISTDIR)/$(CND_BUILDDIR)/$(CND_PLATFORM)
 
 # Object Files
 OBJECTFILES= \
-	$(OBJECTDIR)/simple_api.o \
-	$(OBJECTDIR)/simple_codegen.o \
-	$(OBJECTDIR)/simple_expr.o \
-	${OBJECTDIR}/simple_hashtable.o \
-	${OBJECTDIR}/simple_item.o \
-	${OBJECTDIR}/simple_list.o \
-	${OBJECTDIR}/simple_misc.o \
-	${OBJECTDIR}/simple_parser.o \
-	${OBJECTDIR}/simple_scanner.o \
-	${OBJECTDIR}/simple_state.o \
-	${OBJECTDIR}/simple_stmt.o \
-	${OBJECTDIR}/simple_string.o \
-	${OBJECTDIR}/simple_vm.o \
-	${OBJECTDIR}/simple_vmblock.o \
-	${OBJECTDIR}/simple_vmdll.o \
-	${OBJECTDIR}/simple_vmexpr.o \
-	${OBJECTDIR}/simple_vmgc.o \
-	${OBJECTDIR}/simple_vmlists.o \
-	${OBJECTDIR}/simple_vmoop.o \
-	${OBJECTDIR}/simple_vmperformance.o \
-	${OBJECTDIR}/simple_vmstackvars.o \
-	${OBJECTDIR}/simple_vmstate.o \
-	${OBJECTDIR}/simple_vmstrindex.o \
-	${OBJECTDIR}/simple_vmvars.o
+	${OBJECTDIR}/archiver.o \
+	${OBJECTDIR}/zip.o
 	
-# Simple Object File
-SIMPLE_OBJECTFILES= \
-	${OBJECTDIR}/simple.o
+# Link Libraries and Options
+LDLIBSOPTIONS=../../../simple/src/dist/simple.so
 
-$(CND_DISTDIR)/$(CND_PLATFORM)/simple: $(OBJECTFILES)
-	$(CC) -shared -o $(CND_DISTDIR)/simple.$(CND_DLIB_EXT) $(OBJECTFILES)
+${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: ${OBJECTFILES}
+	$(CC) -o $(CND_DISTDIR)/simple.$(CND_DLIB_EXT) $(OBJECTFILES)
 	$(CC) $(LFlAGS) $(LDFLAGS) -o $(CND_DISTDIR)/simple ../simple.c $(CND_DISTDIR)/simple.$(CND_DLIB_EXT)
+	$(CC) -o ${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared
 
 $(OBJECTDIR)/simple_api.o: $(SOURCE_DIR)/simple_api.c
 	mkdir -p ../dist/build

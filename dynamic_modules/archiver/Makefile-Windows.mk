@@ -8,7 +8,7 @@
 #a custome make file. The below command is for a typical 
 #make in the MINGW Toolchain
 #
-#cd to the modules/dynamic_modules/archiver/  folder. 
+#user $ cd modules/dynamic_modules/archiver/  
 #
 #This is to ensure That the output generated are in 
 #appropriate `dist` folder in modules folder. 
