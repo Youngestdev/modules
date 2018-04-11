@@ -1,16 +1,16 @@
-#Build CONSOLER dynamic module for LINUX
+#Build FILE_SAVANT dynamic module for LINUX
 #
 #There is no tool or dependency needed on a typical linux
 #installation. To build the simple.so and simple change your
 #directory to the modules/dynamic_modules/consoler/ folder 
 #
-#user $ cd modules/dynamic_modules/consoler/
+#user $ cd modules/dynamic_modules/file_savant/
 #
 #This is to ensure That the output generated are in 
 #appropriate `dist` folder in modules folder. 
 #Execute the below command in your command prompt of bash
 #
-#simple/src/makefiles/consoler/ $ make -f Makefile-Linux.mk
+#simple/src/makefiles/file_savant/ $ make -f Makefile-Linux.mk
 
 # Flags
 CFLAGS= -c -fpic -g
@@ -28,28 +28,18 @@ OBJECTDIR=$(CND_DISTDIR)/$(CND_BUILDDIR)/$(CND_PLATFORM)
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/console-colors.o \
-	${OBJECTDIR}/consoler.o \
-	${OBJECTDIR}/toot.o
+	${OBJECTDIR}/file_savant.o
 	
 # Link Libraries and Options
 LDLIBSOPTIONS=../../../simple/src/dist/simple.so
 
-${CND_DISTDIR}/${CND_PLATFORM}/consoler.${CND_DLIB_EXT}: $(OBJECTFILES)
-	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/consoler.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
+${CND_DISTDIR}/${CND_PLATFORM}/file_savant.${CND_DLIB_EXT}: $(OBJECTFILES)
+	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/file_savant.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
 
-$(OBJECTDIR)/consoler.o: consoler.c
+$(OBJECTDIR)/file_savant.o: file_savant.c
 	mkdir -p $(OBJECTDIR)
-	$(CC) $(CFLAGS) consoler.c
-	mv consoler.o $(OBJECTDIR)
-	
-$(OBJECTDIR)/console-colors.o: console-colors.c
-	$(CC) $(CFLAGS) console-colors.c
-	mv console-colors.o $(OBJECTDIR)
-	
-$(OBJECTDIR)/toot.o: toot.c
-	$(CC) $(CFLAGS) toot.c
-	mv toot.o $(OBJECTDIR)
+	$(CC) $(CFLAGS) file_savant.c
+	mv file_savant.o $(OBJECTDIR)
 
 clean:
 	@- $(RM) $(OBJECTDIR)/*.o
