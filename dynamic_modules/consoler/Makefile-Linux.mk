@@ -1,16 +1,16 @@
-#Build archiver dynamic module for LINUX
+#Build CONSOLER dynamic module for LINUX
 #
 #There is no tool or dependency needed on a typical linux
 #installation. To build the simple.so and simple change your
-#directory to the modules/dynamic_modules/archiver/ folder 
+#directory to the modules/dynamic_modules/consoler/ folder 
 #
-#user $ cd modules/dynamic_modules/archiver/
+#user $ cd modules/dynamic_modules/consoler/
 #
 #This is to ensure That the output generated are in 
 #appropriate `dist` folder in modules folder. 
 #Execute the below command in your command prompt of bash
 #
-#simple/src/makefiles/archiver/ $ make -f Makefile-Linux.mk
+#simple/src/makefiles/consoler/ $ make -f Makefile-Linux.mk
 
 # Flags
 CFLAGS= -c -fpic -g
@@ -28,23 +28,24 @@ OBJECTDIR=$(CND_DISTDIR)/$(CND_BUILDDIR)/$(CND_PLATFORM)
 
 # Object Files
 OBJECTFILES= \
-	$(OBJECTDIR)/archiver.o \
-	$(OBJECTDIR)/zip.o
+	${OBJECTDIR}/console-colors.o \
+	${OBJECTDIR}/consoler.o \
+	${OBJECTDIR}/toot.o
 	
 # Link Libraries and Options
 LDLIBSOPTIONS=../../../simple/src/dist/simple.so
 
-${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: $(OBJECTFILES)
-	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/archiver.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
+${CND_DISTDIR}/${CND_PLATFORM}/consoler.${CND_DLIB_EXT}: $(OBJECTFILES)
+	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/consoler.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
 
-$(OBJECTDIR)/archiver.o: archiver.c
+$(OBJECTDIR)/consoler.o: consoler.c
 	mkdir -p $(OBJECTDIR)
-	$(CC) $(CFLAGS) archiver.c
-	mv archiver.o $(OBJECTDIR)
+	$(CC) $(CFLAGS) consoler.c
+	mv consoler.o $(OBJECTDIR)
 	
-$(OBJECTDIR)/zip.o: zip.c
-	$(CC) $(CFLAGS) zip.c
-	mv zip.o $(OBJECTDIR)
+$(OBJECTDIR)/console-colors.o: console-colors.c
+	$(CC) $(CFLAGS) console-colors.c
+	mv console-colors.o $(OBJECTDIR)
 
 clean:
 	@- $(RM) $(OBJECTDIR)/*.o
