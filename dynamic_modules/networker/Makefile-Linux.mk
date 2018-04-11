@@ -1,16 +1,16 @@
-#Build MATHIC dynamic module for LINUX
+#Build NETWORKER dynamic module for LINUX
 #
 #There is no tool or dependency needed on a typical linux
 #installation. To build the simple.so and simple change your
 #directory to the modules/dynamic_modules/consoler/ folder 
 #
-#user $ cd modules/dynamic_modules/mathic/
+#user $ cd modules/dynamic_modules/networker/
 #
 #This is to ensure That the output generated are in 
 #appropriate `dist` folder in modules folder. 
 #Execute the below command in your command prompt of bash
 #
-#simple/src/makefiles/mathic/ $ make -f Makefile-Linux.mk
+#simple/src/makefiles/networker/ $ make -f Makefile-Linux.mk
 
 # Flags
 CFLAGS= -c -fpic -g
@@ -28,18 +28,18 @@ OBJECTDIR=$(CND_DISTDIR)/$(CND_BUILDDIR)/$(CND_PLATFORM)
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/mathic.o
+	${OBJECTDIR}/networker.o
 	
 # Link Libraries and Options
-LDLIBSOPTIONS=../../../simple/src/dist/simple.so
+LDLIBSOPTIONS=lib/libcurl.so ../../../simple/src/dist/simple.so
 
-${CND_DISTDIR}/${CND_PLATFORM}/mathic.${CND_DLIB_EXT}: $(OBJECTFILES)
-	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/mathic.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
+${CND_DISTDIR}/${CND_PLATFORM}/networker.${CND_DLIB_EXT}: $(OBJECTFILES)
+	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/networker.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
 
-$(OBJECTDIR)/mathic.o: mathic.c
+$(OBJECTDIR)/networker.o: networker.c
 	mkdir -p $(OBJECTDIR)
-	$(CC) $(CFLAGS) mathic.c
-	mv mathic.o $(OBJECTDIR)
+	$(CC) $(CFLAGS) networker.c
+	mv networker.o $(OBJECTDIR)
 
 clean:
 	@- $(RM) $(OBJECTDIR)/*.o
