@@ -51,7 +51,7 @@ clean:
 	cd ../systemic/ && $(MAKE) -f Makefile-Linux.mk
 	
 	${RM} ${CND_DISTDIR}/build/*.o
-	${RM} ${CND_DISTDIR}/build/*.d
+	#${RM} ${CND_DISTDIR}/build/*.d
 	#${RM} ${CND_DISTDIR}/build/includes/*.o
 	#${RM} ${CND_DISTDIR}/build/includes/*.d
 	#${RMDIR} ${CND_DISTDIR}/build/includes
