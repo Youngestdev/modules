@@ -15,7 +15,7 @@
 # Flags
 CFLAGS= -c -fpic -g
 LFlAGS= -lm -ldl
-LDFLAGS= "-Wl,-rpath,../dist/"
+LDFLAGS= "-Wl,-rpath,../../../simple/src/dist/"
 
 # Macros
 CND_PLATFORM=
@@ -28,16 +28,15 @@ OBJECTDIR=$(CND_DISTDIR)/$(CND_BUILDDIR)/$(CND_PLATFORM)
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/archiver.o \
-	${OBJECTDIR}/zip.o
+	$(OBJECTDIR)/archiver.o \
+	$(OBJECTDIR)/zip.o
 	
 # Link Libraries and Options
 LDLIBSOPTIONS=../../../simple/src/dist/simple.so
 
-${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: ${OBJECTFILES}
-	$(CC) -o $(CND_DISTDIR)/simple.$(CND_DLIB_EXT) $(OBJECTFILES)
-	$(CC) $(LFlAGS) $(LDFLAGS) -o $(CND_DISTDIR)/simple ../simple.c $(CND_DISTDIR)/simple.$(CND_DLIB_EXT)
-	$(CC) -o ${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared
+${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: $(OBJECTFILES)
+	$(CC)  $(LDFLAGS) -o $(CND_DISTDIR)/$(CND_PLATFORM)/archiver.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
+	$(CC) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/simple.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
 
 $(OBJECTDIR)/simple_api.o: $(SOURCE_DIR)/simple_api.c
 	mkdir -p ../dist/build
