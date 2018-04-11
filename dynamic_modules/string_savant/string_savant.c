@@ -15,6 +15,22 @@
 #include "../../../simple/src/includes/simple.h"
 #include "string_savant.h"
 
+#ifdef _WIN32
+	#define SIMPLE_API __declspec(dllexport)
+#else
+#if defined(_MSC_VER)
+    //  Microsoft 
+    #define SIMPLE_API __declspec(dllexport)
+#elif defined(__GNUC__)
+    //  GCC
+    #define SIMPLE_API __attribute__((visibility("default")))
+#else
+    //  do nothing and hope for the best?
+    #define SIMPLE_API
+    #pragma warning Unknown dynamic link import/export semantics.
+#endif
+#endif
+
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {
     register_block("$__left",simple_vmlib_left);
