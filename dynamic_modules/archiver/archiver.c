@@ -16,6 +16,9 @@
 #include "zip.h"
 #include "archiver.h"
 
+#ifdef _WIN32
+	#define SIMPLE_API __declspec(dllexport)
+#else
 #if defined(_MSC_VER)
     //  Microsoft 
     #define SIMPLE_API __declspec(dllexport)
@@ -29,6 +32,7 @@
     #define SIMPLE_API
     #define SIMPLE_API
     #pragma warning Unknown dynamic link import/export semantics.
+#endif
 #endif
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
