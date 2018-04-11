@@ -37,13 +37,13 @@ LDLIBSOPTIONS=../../../simple/src/dist/simple.so
 ${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: $(OBJECTFILES)
 	$(CC) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/simple.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
 
-$(OBJECTDIR)/archiver.o: $(SOURCE_DIR)/archiver.c
+$(OBJECTDIR)/archiver.o: archiver.c
 	mkdir -p $(OBJECTDIR)
-	$(CC) $(CFLAGS) $(SOURCE_DIR)/archiver.c
+	$(CC) $(CFLAGS) archiver.c
 	mv archiver.o $(OBJECTDIR)
 	
-$(OBJECTDIR)/zip.o: $(SOURCE_DIR)/zip.c
-	$(CC) $(CFLAGS) $(SOURCE_DIR)/zip.c
+$(OBJECTDIR)/zip.o: zip.c
+	$(CC) $(CFLAGS) zip.c
 	mv zip.o $(OBJECTDIR)
 
 clean:
