@@ -15,6 +15,11 @@
 #include "../../../simple/src/includes/simple.h"
 #include "../../../simple/src/includes/simple_state.h"
 #include "file_savant.h"
+#ifdef _WIN32
+#else
+#include <sys/stat.h>
+#include <dirent.h>
+#endif
 
 #ifdef _WIN32
 	#define SIMPLE_API __declspec(dllexport)
