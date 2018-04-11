@@ -38,8 +38,8 @@ ${CND_DISTDIR}/${CND_PLATFORM}/security.${CND_DLIB_EXT}: $(OBJECTFILES)
 
 $(OBJECTDIR)/security.o: security.c
 	mkdir -p $(OBJECTDIR)
-	$(CC) $(CFLAGS) security.c
-	mv security.o $(OBJECTDIR)
+	$(CC) $(CFLAGS) security.c -libssl-dev
+	mv security.o $(OBJECTDIR) 
 
 clean:
 	@- $(RM) $(OBJECTDIR)/*.o

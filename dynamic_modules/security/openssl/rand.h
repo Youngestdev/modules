@@ -63,8 +63,10 @@
 # include "ossl_typ.h"
 # include "e_os2.h"
 
+#ifdef _WIN32
 # if defined(OPENSSL_SYS_WINDOWS)
 #  include <windows.h>
+# endif
 # endif
 
 #ifdef  __cplusplus
