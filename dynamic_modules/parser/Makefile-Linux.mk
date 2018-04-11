@@ -1,16 +1,16 @@
-#Build NETWORKER dynamic module for LINUX
+#Build PARSER dynamic module for LINUX
 #
 #There is no tool or dependency needed on a typical linux
 #installation. To build the simple.so and simple change your
 #directory to the modules/dynamic_modules/consoler/ folder 
 #
-#user $ cd modules/dynamic_modules/networker/
+#user $ cd modules/dynamic_modules/parser/
 #
 #This is to ensure That the output generated are in 
 #appropriate `dist` folder in modules folder. 
 #Execute the below command in your command prompt of bash
 #
-#simple/src/makefiles/networker/ $ make -f Makefile-Linux.mk
+#simple/src/makefiles/parser/ $ make -f Makefile-Linux.mk
 
 # Flags
 CFLAGS= -c -fpic -g
@@ -28,18 +28,49 @@ OBJECTDIR=$(CND_DISTDIR)/$(CND_BUILDDIR)/$(CND_PLATFORM)
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/networker.o
+	${OBJECTDIR}/arraylist.o \
+	${OBJECTDIR}/debug.o \
+	${OBJECTDIR}/json_object.o \
+	${OBJECTDIR}/json_tokener.o \
+	${OBJECTDIR}/json_util.o \
+	${OBJECTDIR}/linkhash.o \
+	${OBJECTDIR}/printbuf.o \
+	${OBJECTDIR}/parser.o
 	
 # Link Libraries and Options
 LDLIBSOPTIONS= ../../../simple/src/dist/simple.so
 
-${CND_DISTDIR}/${CND_PLATFORM}/networker.${CND_DLIB_EXT}: $(OBJECTFILES)
-	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/networker.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
-
-$(OBJECTDIR)/networker.o: networker.c
+${CND_DISTDIR}/${CND_PLATFORM}/parser.${CND_DLIB_EXT}: $(OBJECTFILES)
+	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/parser.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
+	
+$(OBJECTDIR)/arraylist.o: includes/arraylist.c
 	mkdir -p $(OBJECTDIR)
-	$(CC) $(CFLAGS) networker.c -lcurl
-	mv networker.o $(OBJECTDIR)
+	$(CC) $(CFLAGS) includes/arraylist.c
+	mv arraylist.o $(OBJECTDIR)
+	
+$(OBJECTDIR)/debug.o: includes/debug.c
+	mkdir -p $(OBJECTDIR)
+	$(CC) $(CFLAGS) includes/debug.c
+	mv debug.o $(OBJECTDIR)
+	
+$(OBJECTDIR)/json_object.o: includes/json_object.c
+	mkdir -p $(OBJECTDIR)
+	$(CC) $(CFLAGS) includes/json_object.c
+	mv json_object.o $(OBJECTDIR)
+	
+$(OBJECTDIR)/json_tokener.o: includes/json_tokener.c
+	mkdir -p $(OBJECTDIR)
+	$(CC) $(CFLAGS) includes/json_tokener.c
+	mv json_tokener.o $(OBJECTDIR)
+	
+$(OBJECTDIR)/json_util.o: includes/json_util.c
+	mkdir -p $(OBJECTDIR)
+	$(CC) $(CFLAGS) includes/json_util.c
+	mv json_util.o $(OBJECTDIR)
+
+$(OBJECTDIR)/parser.o: parser.c
+	$(CC) $(CFLAGS) parser.c
+	mv parser.o $(OBJECTDIR)
 
 clean:
 	@- $(RM) $(OBJECTDIR)/*.o
