@@ -35,7 +35,7 @@ OBJECTFILES= \
 LDLIBSOPTIONS=../../../simple/src/dist/simple.so
 
 ${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: $(OBJECTFILES)
-	$(CC) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/simple.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
+	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/simple.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
 
 $(OBJECTDIR)/archiver.o: archiver.c
 	mkdir -p $(OBJECTDIR)
