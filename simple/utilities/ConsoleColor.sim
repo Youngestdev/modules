@@ -13,7 +13,7 @@
 module simple.utilities
 
 call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\consoler\dist\Debug\MinGW-Windows\consoler.dll")
+callModule("consoler.dll")
 
 #initialized to allow ussage as ConsoleColor.block()
 ConsoleColor = new ConsoleColor

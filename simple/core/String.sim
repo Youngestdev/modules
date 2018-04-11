@@ -15,7 +15,7 @@ module simple.core
 call "Object.sim"
 call "simple/core/DynamicLoader.sim" ? simple.core
 call "simple/debugging/Throw.sim"
-callModule("dynamic_modules\string_savant\dist\Debug\MinGW-Windows\string_savant.dll")
+callModule("string_savant.dll")
 
 		$__Empty = char(0) 
 		STRING_EMPTY = "The string provided is empty"
