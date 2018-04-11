@@ -37,20 +37,20 @@ RM=rm
 # Macros
 CND_PLATFORM=Windows
 CND_DLIB_EXT=dll
-CND_DISTDIR=./dist
-CLEAN_DEBUGDIR=../../s0.3.302-debug
-DYNAMIC_MODULEDIR=modules/dynamic_modules
+CND_DISTDIR=../dist
+CLEAN_DEBUGDIR=../../../s0.3.302-debug
+DYNAMIC_MODULEDIR=.modules/dynamic_modules
 
 clean: 
-	cd archiver/ && $(MAKE) -f Makefile-Windows.mk
-	cd consoler/ && $(MAKE) -f Makefile-Windows.mk
-	cd file_savant/ && $(MAKE) -f Makefile-Windows.mk
-	cd mathic/ && $(MAKE) -f Makefile-Windows.mk
-	cd string_savant/ && $(MAKE) -f Makefile-Windows.mk
-	cd networker/ && $(MAKE) -f Makefile-Windows.mk
-	cd parser/ && $(MAKE) -f Makefile-Windows.mk
-	cd security/ && $(MAKE) -f Makefile-Windows.mk
-	cd systemic/ && $(MAKE) -f Makefile-Windows.mk
+	cd ../archiver/ && $(MAKE) -f Makefile-Windows.mk
+	cd ../consoler/ && $(MAKE) -f Makefile-Windows.mk
+	cd ../file_savant/ && $(MAKE) -f Makefile-Windows.mk
+	cd ../mathic/ && $(MAKE) -f Makefile-Windows.mk
+	cd ../string_savant/ && $(MAKE) -f Makefile-Windows.mk
+	cd ../networker/ && $(MAKE) -f Makefile-Windows.mk
+	cd ../parser/ && $(MAKE) -f Makefile-Windows.mk
+	cd ../security/ && $(MAKE) -f Makefile-Windows.mk
+	cd ../systemic/ && $(MAKE) -f Makefile-Windows.mk
 	
 	${RM} ${CND_DISTDIR}/build/*.o
 	${RM} ${CND_DISTDIR}/build/*.d
