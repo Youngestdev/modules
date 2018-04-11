@@ -12,7 +12,7 @@
  
 module simple.utilities
 
-call "simple/core/DynamicLoader.sim" ? simple.core
+call "../core/DynamicLoader.sim" ? simple.core
 callModule("consoler.dll")
 
 #initialized to allow ussage as ConsoleColor.block()
