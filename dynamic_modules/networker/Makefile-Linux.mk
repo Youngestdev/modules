@@ -31,7 +31,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/networker.o
 	
 # Link Libraries and Options
-LDLIBSOPTIONS=lib/libcurl.so ../../../simple/src/dist/simple.so
+LDLIBSOPTIONS=libcurl ../../../simple/src/dist/simple.so
 
 ${CND_DISTDIR}/${CND_PLATFORM}/networker.${CND_DLIB_EXT}: $(OBJECTFILES)
 	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/networker.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
