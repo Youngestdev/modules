@@ -13,7 +13,7 @@
 module fulltick.core
 
 call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\fulltick\Debug\fulltick.dll")
+callModule("fulltick")
 
 LAF_PLASTIC = "plastic" 
 
