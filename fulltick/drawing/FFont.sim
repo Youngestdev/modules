@@ -15,8 +15,8 @@ module fulltick.drawing
 
 #@Call the @Class Throw for the debugging 
 #@Call the @Class BaseFields to access the predeclared variable and blocks
-call "simple/debugging/Throw.sim"
-call "simple/core/BaseFields.sim"
+#call "simple/debugging/Throw.sim"
+#call "simple/core/BaseFields.sim"
 
 #Declare a variable of same @Class FFont name to allow blocks access 
 #possible with FFont.block() without need to redeclare a new instance of 
