@@ -16,7 +16,7 @@ module fulltick.widget
 
 #call the @Class FInput File for blocks inheritance
 call "fulltick/core/FWidget.sim" ? fulltick.widget
-callModule("dynamic_modules\string_savant\dist\Debug\MinGW-Windows\string_savant.dll")
+callModule("string_savant")
 
 #This @Class FMenuBar @Skip
 #  ________________________________________________________
