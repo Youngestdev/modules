@@ -15,5 +15,4 @@ module simple.internet
 
 #Call all the low level function of the @DynamicModule networker
 call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\file_savant\dist\Debug\MinGW-Windows\file_savant.dll")
-#callModule("file_savant.dll")
+callModule("file_savant")
