@@ -13,7 +13,5 @@
  
 module simple.system
 
-call "simple/core/DynamicLoader.sim" ? simple.core
-#Call all the low level function of the @DynamicModule systemic
-callModule("dynamic_modules\systemic\dist\Debug\MinGW-Windows\systemic.dll")		
-#callModule("systemic.dll")
+#Call all the low level function of the @DynamicModule systemic		
+callDynamicModule("systemic.dll")

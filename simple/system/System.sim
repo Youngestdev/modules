@@ -12,9 +12,7 @@
  
 module simple.system
 
-#call "simple/core/String.sim" ? simple.core
-call "simple/core/String.sim" ? simple.core
-call "loadsystemdll.sim"
+call "loadsystemdll.sim" ? simple.system
 		
 MS_DOS_SYSTEM = "Microsoft Dos"
 WINDOWS_SYSTEM = "Windows 32"
