@@ -15,4 +15,4 @@ module simple.utilities.parser
 
 #Call all the low level function of the @DynamicModule parser
 call "simple/core/DynamicLoader.sim" ? simple.core
-callModule("dynamic_modules\parser\dist\Debug\MinGW-Windows\parser.dll")
+callModule("parser")
