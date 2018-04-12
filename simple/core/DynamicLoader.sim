@@ -12,8 +12,8 @@
  
 module simple.core
 
-call "../system/loadsystemdll.sim" 
-call "./String.sim"
+call "simple/system/loadsystemdll.sim" 
+call "simple/core/String.sim"
  
 	dynamicModules = []
  
