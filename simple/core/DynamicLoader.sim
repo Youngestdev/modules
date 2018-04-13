@@ -13,6 +13,7 @@
 module simple.core
 
 call "simple/system/loadsystemdll.sim" 
+callDynamicModule("simple_savant.so")
 call "simple/core/String.sim"
  
 	dynamicModules = []
