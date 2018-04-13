@@ -22,6 +22,8 @@ callModule("string_savant")
 		STRING_COMPARE_ERROR = "Array index out of bound : The length of the comparing string is greater than the main string "
 		STRING_LESS = "Array index out of bound : The string is empty" 
 		BACKSPACE = char(8) 
+		END_OF_LINE = char(13)
+		LINE_BREAK = char(10)
 
 block stringConcat(str, v)
 	checkNullity(v) checkNullity(str)
