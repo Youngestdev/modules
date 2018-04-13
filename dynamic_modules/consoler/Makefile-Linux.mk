@@ -15,7 +15,7 @@
 # Flags
 CFLAGS= -c -fpic -g
 LFlAGS= -lm -ldl
-LDFLAGS= "-Wl,-rpath,../../../simple/src/dist/"
+LDFLAGS= "-Wl,-rpath,../../bin/" 
 
 # Macros
 CND_PLATFORM=
@@ -26,17 +26,24 @@ CND_DISTDIR =../dist
 # Object Directory
 OBJECTDIR=$(CND_DISTDIR)/$(CND_BUILDDIR)/$(CND_PLATFORM)
 
+# Simple Object Directory
+SIMPLE_OBJECTDIR=../../../simple/src/dist/$(CND_BUILDDIR)/$(CND_PLATFORM)
+
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/console-colors.o \
 	${OBJECTDIR}/consoler.o \
 	${OBJECTDIR}/toot.o
+
+SIMPLE_OBJECTFILES = \
+	$(SIMPLE_OBJECTDIR)/simple_api.o 
+	
 	
 # Link Libraries and Options
 LDLIBSOPTIONS=../../../simple/src/dist/simple.so
 
-${CND_DISTDIR}/${CND_PLATFORM}/consoler.${CND_DLIB_EXT}: $(OBJECTFILES)
-	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/consoler.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
+${CND_DISTDIR}/${CND_PLATFORM}/consoler.${CND_DLIB_EXT}: $(OBJECTFILES) $(SIMPLE_OBJECTFILES)
+	$(CC) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/consoler.$(CND_DLIB_EXT) $(SIMPLE_OBJECTFILES) $(OBJECTFILES) 
 
 $(OBJECTDIR)/consoler.o: consoler.c
 	mkdir -p $(OBJECTDIR)

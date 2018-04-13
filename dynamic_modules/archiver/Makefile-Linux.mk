@@ -26,16 +26,23 @@ CND_DISTDIR =../dist
 # Object Directory
 OBJECTDIR=$(CND_DISTDIR)/$(CND_BUILDDIR)/$(CND_PLATFORM)
 
+# Simple Object Directory
+SIMPLE_OBJECTDIR=../../../simple/src/dist/$(CND_BUILDDIR)/$(CND_PLATFORM)
+
 # Object Files
 OBJECTFILES= \
 	$(OBJECTDIR)/archiver.o \
 	$(OBJECTDIR)/zip.o
+
+# Simple Object Files
+SIMPLE_OBJECTFILES = \
+	$(SIMPLE_OBJECTDIR)/simple_api.o 
 	
 # Link Libraries and Options
 LDLIBSOPTIONS=../../../simple/src/dist/simple.so
 
-${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: $(OBJECTFILES)
-	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/archiver.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
+${CND_DISTDIR}/${CND_PLATFORM}/archiver.${CND_DLIB_EXT}: $(OBJECTFILES) $(SIMPLE_OBJECTFILES)
+	$(CC) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/archiver.$(CND_DLIB_EXT) $(SIMPLE_OBJECTFILES) $(OBJECTFILES) 
 
 $(OBJECTDIR)/archiver.o: archiver.c
 	mkdir -p $(OBJECTDIR)
@@ -57,7 +64,7 @@ distclean: clean
 #
 #If this make file does not work on your LINUX PC feel free to 
 #write your own Makefile and send us a pull request at 
-#https://github.com/simple-lang/modules . Your make file must follow 
+#https://github.com/simple-lang/simple . Your make file must follow 
 #the below format for request to be accepted
 #
 #File-Name : Makefile-Linux-{distro}.mk
