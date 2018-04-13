@@ -26,6 +26,9 @@ CND_DISTDIR =../dist
 # Object Directory
 OBJECTDIR=$(CND_DISTDIR)/$(CND_BUILDDIR)/$(CND_PLATFORM)
 
+# Simple Object Directory
+SIMPLE_OBJECTDIR=../../../simple/src/dist/$(CND_BUILDDIR)/$(CND_PLATFORM)
+
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/arraylist.o \
@@ -36,12 +39,16 @@ OBJECTFILES= \
 	${OBJECTDIR}/linkhash.o \
 	${OBJECTDIR}/printbuf.o \
 	${OBJECTDIR}/parser.o
+
+# Simple Object Files
+SIMPLE_OBJECTFILES = \
+	$(SIMPLE_OBJECTDIR)/simple_api.o 
 	
 # Link Libraries and Options
 LDLIBSOPTIONS= ../../../simple/src/dist/simple.so
 
 ${CND_DISTDIR}/${CND_PLATFORM}/parser.${CND_DLIB_EXT}: $(OBJECTFILES)
-	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/parser.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
+	$(CC) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/parser.$(CND_DLIB_EXT) $(SIMPLE_OBJECTFILES) $(OBJECTFILES)
 	
 $(OBJECTDIR)/arraylist.o: includes/arraylist.c
 	mkdir -p $(OBJECTDIR)

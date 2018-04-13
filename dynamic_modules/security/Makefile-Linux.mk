@@ -26,15 +26,22 @@ CND_DISTDIR =../dist
 # Object Directory
 OBJECTDIR=$(CND_DISTDIR)/$(CND_BUILDDIR)/$(CND_PLATFORM)
 
+# Simple Object Directory
+SIMPLE_OBJECTDIR=../../../simple/src/dist/$(CND_BUILDDIR)/$(CND_PLATFORM)
+
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/security.o
+
+# Simple Object Files
+SIMPLE_OBJECTFILES = \
+	$(SIMPLE_OBJECTDIR)/simple_api.o 
 	
 # Link Libraries and Options
 LDLIBSOPTIONS=../../../simple/src/dist/simple.so
 
 ${CND_DISTDIR}/${CND_PLATFORM}/security.${CND_DLIB_EXT}: $(OBJECTFILES)
-	$(CC) $(LFlAGS) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/security.$(CND_DLIB_EXT) $(OBJECTFILES) $(LDLIBSOPTIONS) -shared
+	$(CC) -shared -o $(CND_DISTDIR)/$(CND_PLATFORM)/security.$(CND_DLIB_EXT) $(SIMPLE_OBJECTFILES) $(OBJECTFILES)
 
 $(OBJECTDIR)/security.o: security.c
 	mkdir -p $(OBJECTDIR)
