@@ -27,6 +27,7 @@
 #	parser
 #	security
 #	systemic
+#	core_dynamic_module
 
 # Environment
 MKDIR=mkdir
@@ -51,6 +52,7 @@ clean:
 	cd ../parser/ && $(MAKE) -f Makefile-Windows.mk
 	cd ../security/ && $(MAKE) -f Makefile-Windows.mk
 	cd ../systemic/ && $(MAKE) -f Makefile-Windows.mk
+	cd ../core_dynamic_module/ && $(MAKE) -f Makefile-Windows.mk
 	
 	${RM} ${CND_DISTDIR}/build/*.o
 	${RM} ${CND_DISTDIR}/build/*.d

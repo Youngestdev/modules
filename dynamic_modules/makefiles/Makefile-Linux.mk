@@ -24,6 +24,7 @@
 #	parser
 #	security
 #	systemic
+#	core_dynamic_module
 
 # Environment
 MKDIR=mkdir
@@ -49,6 +50,7 @@ clean:
 	cd ../parser/ && $(MAKE) -f Makefile-Linux.mk
 	cd ../security/ && $(MAKE) -f Makefile-Linux.mk
 	cd ../systemic/ && $(MAKE) -f Makefile-Linux.mk
+	cd ../core_dynamic_module/ && $(MAKE) -f Makefile-Linux.mk
 	
 	${RM} ${CND_DISTDIR}/build/*.o
 	#${RM} ${CND_DISTDIR}/build/*.d
