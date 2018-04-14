@@ -44,5 +44,6 @@
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
     /* Conversion */
+    register_block("stringToCHex",conversion_string_to_chex);
     
 }
