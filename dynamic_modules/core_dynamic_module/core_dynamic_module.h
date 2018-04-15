@@ -22,7 +22,7 @@ extern "C" {
 SIMPLE_API void init_simple_module(SimpleState *sState) ;
 
 /* Conversion */
-void math_sin ( void *pointer ) ;
+void conversion_string_to_chex ( void *pointer ) ;
 
 #ifdef __cplusplus
 }
