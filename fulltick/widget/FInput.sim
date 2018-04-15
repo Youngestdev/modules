@@ -45,6 +45,7 @@ class FInput : FBox
 	/* BOOLEAN */
 	INPUT_WIDGET_IS_READ_ONLY = false #true if the input widget id read only
 	INPUT_WIDGET_TAB_NAV = true #true if pressing the 'TAB' key change focus
+	INPUT_WIDGET_WRAPS = false #the widget is not wrapping word by default
 	
 	/* STRING */
 	INPUT_WIDGET_VALUE = "" #Empty string in widget by default
@@ -52,6 +53,13 @@ class FInput : FBox
 	#Initialize the @Class FInput widget 
 	block FInput()
 		initialize()
+		
+	#Call this block if you want to dismiss all it current content i.e you 
+	#wish to delete all the content it same as calling @Block setText("")
+	#@Note It @Returns this which is the widget to allow the in-line usage 
+	#of the widget
+	block clear()
+		setText("")
 		
 	#The block act same as the @Block setLabel(label) for setting
 	#or changing the value of the label 
