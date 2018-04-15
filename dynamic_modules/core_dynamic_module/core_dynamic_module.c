@@ -33,7 +33,8 @@
 
 SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
-    register_block("sin",math_sin);
+    /* Conversion */
+    register_block("sin",stringToCHex);
 }
 
 
