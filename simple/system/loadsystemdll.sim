@@ -14,4 +14,5 @@
 module simple.system
 
 #Call all the low level function of the @DynamicModule systemic		
-callDynamicModule("systemic.dll")
+call "simple/core/DynamicLoader.sim" ? simple.core
+callModule("systemic")
