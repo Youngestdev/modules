@@ -13,9 +13,9 @@
 
 module fulltick.widget
 
-#call the @Class FWidget File for blocks inheritance
+#call the @Class FBox File for blocks inheritance
 call "fulltick/painting/FColor.sim" ? fulltick.painting
-call "fulltick/core/FWidget.sim" ? fulltick.widget
+call "fulltick/widget/FBox.sim" ? fulltick.widget
 
 #This @Class FInput is the base class for all type of the input
 #and output widget. It hold most of the blocks. Some of the 
@@ -26,7 +26,7 @@ call "fulltick/core/FWidget.sim" ? fulltick.widget
 # |  |__________________________________________________|  | 
 # |________________________________________________________|
 #@EndSkip @Image FInput
-class FInput : FWidget
+class FInput : FBox
 
 	/* TYPES */
 	INPUT_WIDGET_TEXT_COLOR = new FColor #the default font color black
