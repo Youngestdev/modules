@@ -13,7 +13,7 @@
 
 module fulltick.widget
 
-#call the @Class FBox File for blocks inheritance
+#call the @Class FWidget File for blocks inheritance
 call "fulltick/painting/FColor.sim" ? fulltick.painting
 call "fulltick/widget/FBox.sim" ? fulltick.widget
 
@@ -123,6 +123,9 @@ class FInput : FBox
 	block deleteSelected()
 		return __input_cut(WIDGETPOINTER, 0, 0, 1)
 		
+	#This block function is same as @Block deleteSelected()	
+	block delete() deleteSelected()
+		
 	#Use this block to delete text from the current position of the 
 	#caret/cursor to the specified @Bold index @EndBold in the widget
 	#@Return the delete value which is true if delete successfully and false
@@ -134,7 +137,7 @@ class FInput : FBox
 	#to the specified @Bold endindex @EndBold
 	#@Return the delete value which is true if delete successfully and false
 	#if delete fails @DataType BOOLEAN	
-	block delete(startindex, endindex)
+	block deleteAt(startindex, endindex)
 		return __input_cut(WIDGETPOINTER, startindex, endindex, 3)
 	
 	#get the character at the specified @Bold index @EndBold 
