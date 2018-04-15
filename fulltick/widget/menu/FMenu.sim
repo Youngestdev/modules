@@ -14,15 +14,15 @@
 
 module fulltick.widget
 
-#call the @Class FInput File for blocks inheritance
-call "fulltick/core/FWidget.sim" ? fulltick.widget
+#call the @Class FBox File for blocks inheritance
+call "fulltick/widget/FBox.sim" ? fulltick.widget
 callModule("string_savant")
 
 #This @Class FMenuBar @Skip
 #  ________________________________________________________
 # |________________________________________________________|
 #@EndSkip @Image FMenuBar
-class FMenu : FWidget	
+class FMenu : FBox	
 
 	/* TYPES */
 	MENU_WIDGET_SELECTION_COLOR = new FColor #the default selection color unimportant

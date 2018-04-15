@@ -11,3 +11,4 @@ call "fulltick/widget/FPasswordInput.sim"
 call "fulltick/widget/FMultilineInput.sim"
 call "fulltick/widget/FIntInput.sim"
 call "fulltick/widget/FWindow.sim" ? fulltick.widget
+call "fulltick/raw/FBoxType.sim"
