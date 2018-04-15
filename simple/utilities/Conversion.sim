@@ -14,3 +14,6 @@ module simple.utilities
 
 call "simple/core/loadcoredymodule.sim" 
 
+
+
+#block stringToCHex() 

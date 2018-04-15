@@ -23,44 +23,6 @@ SIMPLE_API void init_simple_module(SimpleState *sState) ;
 
 void math_sin ( void *pointer ) ;
 
-void math_cos ( void *pointer ) ;
-
-void math_tan ( void *pointer ) ;
-
-void math_asin ( void *pointer ) ;
-
-void math_acos ( void *pointer ) ;
-
-void math_atan ( void *pointer ) ;
-
-void math_atan2 ( void *pointer ) ;
-
-void math_sinh ( void *pointer ) ;
-
-void math_cosh ( void *pointer ) ;
-
-void math_tanh ( void *pointer ) ;
-
-void math_exp ( void *pointer ) ;
-
-void math_log ( void *pointer ) ;
-
-void math_log10 ( void *pointer ) ;
-
-void math_ceil ( void *pointer ) ;
-
-void math_floor ( void *pointer ) ;
-
-void math_fabs ( void *pointer ) ;
-
-void math_pow ( void *pointer ) ;
-
-void math_sqrt ( void *pointer ) ;
-
-void math_unsigned ( void *pointer ) ;
-
-void math_decimals ( void *pointer ) ;
-
 #ifdef __cplusplus
 }
 #endif
