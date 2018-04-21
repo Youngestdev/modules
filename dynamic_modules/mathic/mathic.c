@@ -35,7 +35,7 @@ SIMPLE_API void init_simple_module(SimpleState *sState)
 {   
     register_block("sin",math_sin);
     register_block("cos",math_cos);
-    register_block("an",math_tan);
+    register_block("tan",math_tan);
     register_block("asin",math_asin);
     register_block("acos",math_acos);
     register_block("atan",math_atan);
